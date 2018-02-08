@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file>eIRcairo.png</file>
+        <file>eIRonly24.ico</file>
+        <file>GradIcon.ico</file>
+        <file>eIRonly.svg</file>
+        <file>TokenPoint.ico</file>
+        <file>TokenPoint.png</file>
+        <file>TokenPoint.svg</file>
+        <file>TokenPoint24.png</file>
+        <file>TokenPoint48.png</file>
+        <file>TokenPoint128.png</file>
+    </qresource>
+</RCC>

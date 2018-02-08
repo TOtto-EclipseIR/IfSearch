@@ -1,0 +1,1221 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+    <title>Getting Started</title>
+
+    <para>The idea is to give you enough basic information to actually start
+    working with INDIface. The information here is intentionally skeletal; you
+    can find the details in the control and command reference chapter of this
+    book.</para>
+
+    <section>
+      <title>First Steps</title>
+
+      <para>The best way to learn is by doing, let's get started.</para>
+
+      <section>
+        <title>Running IfSearch for the first time</title>
+
+        <para>Try to execute IfSearch. If we have the DLLs placed and
+        registered correctly, it should start running and displaying messages
+        to a DOS console window.</para>
+
+        <programlisting>+16:55:36.205 IfSearch v1.60H built Mon Jul 12 16:05:55 2010
+-16:55:36.205 INDIface Search processor Copyright (c) 2003-2010 Anthony H. Otto dba ...
+
++16:55:36.205 IJMcore v1.60H built Mon Jul 12 16:05:55 2010
+-16:55:36.205 IJM Core Library Copyright (c) 2003-2010 Anthony H. Otto dba Dynamic ...</programlisting>
+
+        <para>If the INDIface data files are in the expected locations, the
+        detector and template generator data will be loaded.</para>
+
+        <programlisting>-16:55:36.237 Reading detectors from D:/SVN2/trunk/IJM/release/./Detectors/Detectors.XML
++16:55:36.237 Initializing INDIface Face Detector
++16:55:36.283 Face Detector loaded: Aim8A-320 32x32
+-16:55:36.283 Description: Aim8 A-series with no splits (32x32)
++16:55:36.285 Initializing INDIface Data and Parameters
+-16:55:36.286 Creating INDIface data from D:/SVN2/trunk/IJM/release/Data/Face1</programlisting>
+
+        <para>While the data files are being read, we will create the output
+        directories. Since this is the first run, the output directories are
+        all blank.</para>
+
+        <programlisting>-16:55:38.203 Charcol directory set to [None]
+-16:55:38.226 Detect directory set to [None]
+-16:55:38.249 Skin directory set to [None]
+-16:55:38.272 Enroll directory set to [None]
+-16:55:38.289 Generate directory set to [None]
+-16:55:38.320 BadFace directory set to [None]
+-16:55:38.343 Body directory set to [None]
+-16:55:38.367 Capture2 directory set to [None]
+-16:55:38.390 Capture directory set to [None]
+-16:55:38.413 Clothes directory set to [None]
+-16:55:38.431 FaceCache directory set to [None]
+-16:55:38.462 Face directory set to [None]
+-16:55:38.485 Height directory set to [None]
+-16:55:38.503 Image directory set to [None]
+-16:55:38.534 Marked directory set to [None]
+-16:55:38.557 MarkedFace directory set to [None]
+-16:55:38.573 Match directory set to [None]
+-16:55:38.603 NoEyes directory set to [None]
+-16:55:38.626 NoFace directory set to [None]
+-16:55:38.642 NoMatch directory set to [None]
+-16:55:38.673 Xml directory set to [None]
+-16:55:38.697 ResolveFace directory set to [None]
+-16:55:38.714 ResolveMarked directory set to [None]
+-16:55:38.744 Retrieve directory set to [None]
+-16:55:38.767 Search directory set to [None]</programlisting>
+
+        <para>And shortly, the INDIface initialization will be complete and
+        the local FaceBase will be read. Initialization can take 15-45 seconds
+        depending upon the systems capabilities and resources. Reading the
+        FaceBase will, of course, depend upon the number of enrollments. In my
+        example below, I had a small test enrollment and it took 200ms for 141
+        faces and 73 people. However, it can take up to ten minutes to load
+        50,000 enrolled faces. Since this is your first time, you will have
+        zero people or faces.</para>
+
+        <programlisting>+16:55:49.392 Initializing INDIface Template Generators
++16:55:49.392 Initializing INDIface Matcher
++16:55:49.392 Initializing INDI FaceBase
+-16:55:49.392 from ../FaceBase
+-16:55:49.532 INDI FaceBase Initialized: 73 People, 141 Faces, 10 Non-searchable</programlisting>
+
+        <para>Once the FaceBase is loaded, we are ready to start processing,
+        but first it logs the settings:</para>
+
+        <programlisting>-16:55:49.532 [V       ] {Clothes/Enable} = false
+-16:55:49.532 [V       ] {Detect/CharcolDir} = empty
+-16:55:49.532 [V       ] {Detect/Enable} = false
+-16:55:49.532 [V       ] {Detect/InputOverCrop} = 0
+-16:55:49.532 [V       ] {Detect/OutputDir} = empty
+-16:55:49.532 [V       ] {Detect/SkinDir} = empty
+-16:55:49.532 [V       ] {Enroll/Command} = empty
+-16:55:49.532 [V       ] {Enroll/OutputDir} = empty
+-16:55:49.532 [V       ] {FaceColor/Enable} = false
+-16:55:49.532 [V       ] {Generate/Enable} = false
+-16:55:49.532 [V       ] {Generate/OutputDir} = empty
+-16:55:49.532 [V       ] {Height/Enable} = false
+-16:55:49.532 [V       ] {Input/Pause} = false
+-16:55:49.532 [V       ] {Input/URL} = empty
+-16:55:49.532 [V       ] {Match/Enable} = false
+-16:55:49.532 [        ] {Options/NoPrompt} = true
+-16:55:49.532 [V       ] {Options/Shutdown} = false
+-16:55:49.532 [V       ] {Output/BadFaceDir} = empty
+-16:55:49.532 [V       ] {Output/BaseDir} = ../Output
+-16:55:49.532 [V       ] {Output/BodyDir} = empty
+-16:55:49.532 [V       ] {Output/Capture2Dir} = empty
+-16:55:49.532 [V       ] {Output/CaptureDir} = empty
+-16:55:49.548 [V       ] {Output/ClothesDir} = empty
+-16:55:49.548 [V       ] {Output/FaceCacheDir} = empty
+-16:55:49.548 [V       ] {Output/FaceDir} = empty
+-16:55:49.548 [V       ] {Output/FaceFormat} = PNG
+-16:55:49.548 [V       ] {Output/FaceQuality} = -1
+-16:55:49.548 [V       ] {Output/ForceMarked} = false
+-16:55:49.548 [V       ] {Output/Format} = JPG
+-16:55:49.548 [V       ] {Output/HeightDir} = empty
+-16:55:49.548 [V       ] {Output/ImageDir} = empty
+-16:55:49.548 [        ] {Output/LogDetail} = Info
+-16:55:49.563 [        ] {Output/LogFile} = ../Output/log/@.log
+-16:55:49.563 [V       ] {Output/MarkAllColor} = #000000
+-16:55:49.563 [V       ] {Output/MarkBackgroundColor} = #000000
+-16:55:49.563 [V       ] {Output/MarkBackgroundFile} = empty
+-16:55:49.563 [V       ] {Output/MarkBackgroundTransparency} = 100
+-16:55:49.563 [V       ] {Output/MarkBadFaceColor} = #00ff00
+-16:55:49.563 [V       ] {Output/MarkClothes} = false
+-16:55:49.563 [V       ] {Output/MarkedDir} = empty
+-16:55:49.563 [V       ] {Output/MarkedFaceDir} = empty
+-16:55:49.563 [V       ] {Output/MarkEyeColor} = #ffff00
+-16:55:49.579 [V       ] {Output/MarkEyeRoiColor} = #000000
+-16:55:49.579 [V       ] {Output/MarkFaceColor} = #ffff00
+-16:55:49.579 [V       ] {Output/MarkNoEyesColor} = #0000ff
+-16:55:49.579 [V       ] {Output/MarkOverCrop} = 133
+-16:55:49.579 [V       ] {Output/MatchDir} = empty
+-16:55:49.579 [V       ] {Output/MaxCache} = 64
+-16:55:49.579 [V       ] {Output/NoEyesDir} = empty
+-16:55:49.579 [V       ] {Output/NoFaceDir} = empty
+-16:55:49.579 [V       ] {Output/NoMatchDir} = empty
+-16:55:49.579 [V       ] {Output/Quality} = -1
+-16:55:49.579 [V       ] {Output/WriteFaceInfo} = true
+-16:55:49.579 [V       ] {Output/XmlDir} = empty
+-16:55:49.579 [V       ] {Resolve/Consistency} = 0
+-16:55:49.579 [V       ] {Resolve/Enable} = false
+-16:55:49.579 [V       ] {Resolve/FaceColor} = 0
+-16:55:49.579 [V       ] {Resolve/FaceDir} = empty
+-16:55:49.579 [V       ] {Resolve/Height} = 0
+-16:55:49.579 [V       ] {Resolve/LowerClothes} = 0
+-16:55:49.579 [V       ] {Resolve/MarkedDir} = empty
+-16:55:49.579 [V       ] {Resolve/MaxConfidence} = 0
+-16:55:49.595 [V       ] {Resolve/MinConfidence} = 0
+-16:55:49.595 [V       ] {Resolve/Quality} = 0
+-16:55:49.595 [V       ] {Resolve/UpperClothes} = 0
+-16:55:49.595 [V       ] {Retrieve/Command} = empty
+-16:55:49.595 [V       ] {Retrieve/OutputDir} = empty
+-16:55:49.595 [V       ] {Search/Command} = empty
+-16:55:49.595 [V       ] {Search/OutputDir} = empty</programlisting>
+
+        <para>And properties:</para>
+
+        <programlisting>-16:55:49.595 [V       ] {Clothes/Ankle} for 943408 = 0
+-16:55:49.595 [V       ] {Clothes/LowerColor} for 943408 = empty
+-16:55:49.595 [V       ] {Clothes/LowerConfidence} for 943408 = 0
+-16:55:49.610 [V       ] {Clothes/Shoulder} for 943408 = 0
+-16:55:49.610 [V       ] {Clothes/UnderCrop} for 943408 = 0
+-16:55:49.610 [V       ] {Clothes/UpperColor} for 943408 = empty
+-16:55:49.610 [V       ] {Clothes/UpperConfidence} for 943408 = 0
+-16:55:49.610 [V       ] {Clothes/Waist} for 943408 = 0
+-16:55:49.610 [V       ] {Clothes/Width} for 943408 = 0
+-16:55:49.610 [V       ] {Detect/Factor} for 95a520 = 0
+-16:55:49.610 [V       ] {Detect/MaxAcross} for 95a520 = 0
+-16:55:49.610 [V       ] {Detect/MaxPixels} for 95a520 = 0
+-16:55:49.610 [V       ] {Detect/MaxResults} for 95a520 = 0
+-16:55:49.626 [V       ] {Detect/MinAcross} for 95a520 = 0
+-16:55:49.626 [V       ] {Detect/MinPixels} for 95a520 = 0
+-16:55:49.626 [V       ] {Detect/MinQuality} for 95a520 = 0
+-16:55:49.626 [V       ] {Generate/EyeScale} for 94f230 = 0
+-16:55:49.626 [        ] {Generate/LeftDetector} for 94f230 = empty
+-16:55:49.626 [V       ] {Generate/MinConsistency} for 94f230 = 0
+-16:55:49.626 [        ] {Generate/RightDetector} for 94f230 = empty
+-16:55:49.626 [V       ] {Generate/RoiScale} for 94f230 = 0
+-16:55:49.626 [V       ] {Height/GridCols} for 94fc88 = 0
+-16:55:49.626 [V       ] {Height/GridFile} for 94fc88 = empty
+-16:55:49.626 [V       ] {Height/GridRows} for 94fc88 = 0
+-16:55:49.626 [V       ] {Height/HeightScale} for 94fc88 = 0
+-16:55:49.626 [V       ] {Height/MinConfidence} for 94fc88 = 0
+-16:55:49.626 [V       ] {Height/MinConsistency} for 94fc88 = 0
+-16:55:49.626 [V       ] {Height/TargetEyePixels} for 94fc88 = 0
+-16:55:49.626 [V       ] {Height/TargetHeight} for 94fc88 = 0
+-16:55:49.626 [V       ] {Input/DeleteAfter} for a4ebd0 = false
+-16:55:49.626 [V A     ] {Input/Loop} for a4ebd0 = false
+-16:55:49.626 [V A     ] {Input/MaxCache} for a4ebd0 = 0
+-16:55:49.626 [V A     ] {Input/MaxCache} for 946230 = 0
+-16:55:49.641 [V       ] {Input/MoveAfter} for a4ebd0 = empty
+-16:55:49.641 [V A     ] {Input/NewestOnly} for a4ebd0 = false
+-16:55:49.641 [V       ] {Input/NewOnly} for a4ebd0 = false
+-16:55:49.641 [V       ] {Input/SampleMsec} for a4ebd0 = 0
+-16:55:49.641 [V       ] {Input/SampleMsec} for 946230 = 0
+-16:55:49.641 [V       ] {Match/DuplicateThreshold} for 28fd58 = 6
+-16:55:49.641 [V       ] {Match/MaxDistance} for 28fd58 = 0
+-16:55:49.641 [V       ] {Match/MaxFaces} for 28fd58 = 0
+-16:55:49.641 [V       ] {Match/MaxPersonFaces} for 28fd58 = 5
+-16:55:49.641 [V       ] {Match/MaxResults} for 28fd58 = 0
+-16:55:49.657 [V       ] {Match/MinConfidence} for 28fd58 = 0
+-16:55:49.657 [V       ] {Match/MinDistance} for 28fd58 = 0
+-16:55:49.657 [V       ] {Match/PersonMethod} for 28fd58 = 0
+-16:55:49.657 [V       ] {Match/PersonMode} for 28fd58 = true
+-16:55:49.657 [V       ] {Options/UpdateMsec} for 948c68 = 0
+-16:55:49.657 [V       ] {Search/DuplicateThreshold} for 28fd90 = 6
+-16:55:49.657 [V       ] {Search/MaxDistance} for 28fd90 = 0
+-16:55:49.657 [V       ] {Search/MaxFaces} for 28fd90 = 0
+-16:55:49.657 [V       ] {Search/MaxPersonFaces} for 28fd90 = 5
+-16:55:49.657 [V       ] {Search/MaxResults} for 28fd90 = 0
+-16:55:49.673 [V       ] {Search/MinConfidence} for 28fd90 = 0
+-16:55:49.673 [V       ] {Search/MinDistance} for 28fd90 = 0
+-16:55:49.673 [V       ] {Search/PersonMethod} for 28fd90 = 0
+-16:55:49.673 [V       ] {Search/PersonMode} for 28fd90 = true</programlisting>
+
+        <para>IfSearch is ready to rock and roll, but since we haven't set any
+        controls in the registry, it is pretty well emulating a brick
+        now.</para>
+      </section>
+
+      <section>
+        <title>The Log File</title>
+
+        <para>The log is an important place to start to learn about IfSearch
+        and to request assistance. By default the log is written to
+        <userinput>../Output/log/@.log</userinput> relative to where IfSearch
+        was started. If you started IfSearch from its bin directory, then look
+        for the log file at
+        <filename>W:\hatever\INDIface\Output\log\D20100710-T1655.log</filename>.
+        Note that the at-sign in the file name specification is replaced by
+        the date and time that IfSearch is started. If you would like to move
+        the log file elsewhere, specify LogFile in the Output key of the
+        registry, for example:
+        <userinput>/Output/LogFile=../Output/@/IfSearch.log</userinput>. The
+        detail level of the log file defaults to "Info," as does the output to
+        the console window. Sometimes for debugging purposes it is useful to
+        set the detail level to something else by setting the LogDetail value
+        in the Output key, for example
+        <userinput>/Output/LogDetail=Detail</userinput>. Output/LogFile and
+        Output/LogDetail are not, however, volatile registry entries; if you
+        change those values, you need to start IfSearch again.</para>
+
+        <para>You will note that it isn't happy because we haven't given it
+        any configuration, such as where to get its input.</para>
+
+        <programlisting>-16:10:25.165 Input/URL changed to %2
+&gt;16:10:25.165 IfSearchSlots 139 Input/URL is empty
+-16:10:25.165 Input/Pause changed to false
++16:10:25.166 ---RESUME---
+&gt;16:10:25.166 IfSearchSlots 82  Nothing for InputHotdir::cacheFirst()</programlisting>
+      </section>
+
+      <section>
+        <title>Making the Registry Volatile</title>
+
+        <para>It is handy to be able to change most configuration values on
+        the fly. To have IfSearch recognize the changes, the registry needs to
+        be "volatile." Set the UpdateMsec value in the Options key to a
+        non-zero number of milliseconds of how often to scan the registry for
+        changed values. For example:
+        <userinput>/Options/UpdateMsec=1000</userinput> will check for changes
+        ever second; good values range from 500 to 5000.</para>
+
+        <para>It may take several seconds for it to acknowledge the change to
+        UpdateMsec, but after that it will scan as often as you
+        specified.</para>
+
+        <programlisting>-16:11:25.186 Options/UpdateMsec changed to 1000</programlisting>
+      </section>
+
+      <section>
+        <title>Getting Input</title>
+
+        <para>Now that the registry is volatile, we can change values and have
+        IfSearch respond the next time the registry is scanned. Let's tell it
+        where to get input images. We can add an Input key to the registry
+        then add a string value for URL and set the contents. For example,
+        <userinput>/Input/URL=http://demo:demo@192.168.85.90/jpg/image.jpg</userinput>
+        will start it grabbing images from an Axis camera.</para>
+
+        <programlisting>-16:12:04.726 Input/URL changed to http://demo:demo@192.168.85.90/jpg/image.jpg
++16:12:09.231 http://demo:demo@192.168.85.90/jpg/image.jpg Started
++16:12:10.487 ===Processing D20100714-T161210477
+-16:12:10.487 ^^^No faces in D20100714-T161210477
++16:12:11.338 ===Processing D20100714-T161211327
+-16:12:11.338 ^^^No faces in D20100714-T161211327
++16:12:12.358 ===Processing D20100714-T161212348
+-16:12:12.359 ^^^No faces in D20100714-T161212348
++16:12:13.399 ===Processing D20100714-T161213388
+-16:12:13.399 ^^^No faces in D20100714-T161213388
++16:12:14.381 ===Processing D20100714-T161214371
+-16:12:14.381 ^^^No faces in D20100714-T161214371
++16:12:15.411 ===Processing D20100714-T161215401
+-16:12:15.411 ^^^No faces in D20100714-T161215401
++16:12:16.439 ===Processing D20100714-T161216429
+-16:12:16.439 ^^^No faces in D20100714-T161216429
++16:12:17.429 ===Processing D20100714-T161217419
+-16:12:17.429 ^^^No faces in D20100714-T161217419
++16:12:18.474 ===Processing D20100714-T161218464
+-16:12:18.474 ^^^No faces in D20100714-T161218464</programlisting>
+
+        <para>Sometimes it is handy to be able to pause image input to analyze
+        what is happening. Setting <userinput>/Input/Pause=true</userinput>
+        will do this.</para>
+
+        <programlisting>-16:12:18.922 Input/Pause changed to 1</programlisting>
+
+        <para><warning xml:id="warnInputPause">
+            <para>Setting <userinput>/Input/Pause=true</userinput> will do
+            this. But don't forget to un-pause later (/Input/Pause=false),
+            especially if you restart IfSearch with it paused in the registry.
+            I can't count the times I've had the following conversation:
+            "Tony, it's completely broken, I'm getting zero output." "Is it
+            paused?" "Oh, never mind."</para>
+          </warning></para>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>Writing Output</title>
+
+        <para>Now that we have input, lets do something with our results. The
+        base output directory defaults to ../Output; I like to change it
+        slightly while learning and debugging and you can relocate it to a
+        temporary area if you like. Set
+        <userinput>Output/BaseDir=../Output/@</userinput> or
+        <userinput>Output/BaseDir=T:/Temp/INDIout/@</userinput>. Once again
+        the at-sign is converted to a date/time stamp, this time for the
+        subdirectory name. This allows you to have the results of recent runs
+        separated and you can delete early unproductive runs. Also, you might
+        want to change <userinput>/Output/LogFile=./IfSearch.log</userinput>
+        to keep the log file with the output directories.</para>
+
+        <para><warning>
+            <para>Remember that changes to <varname>LogFile</varname> and
+            <varname>LogDetail</varname> do not take effect until IfSearch is
+            started again.</para>
+          </warning> And lets capture our input frames by setting
+        <userinput>/Output/CaptureDir=Capture</userinput>.</para>
+
+        <programlisting>-17:20:25.189 Output/BaseDir changed to ../Output/@
+-17:20:25.314 AvgFace directory set to [None]
+-17:20:25.314 Charcol directory set to [None]
+-17:20:25.314 Detect directory set to [None]
+-17:20:25.314 Skin directory set to [None]
+-17:20:25.314 Enroll directory set to [None]
+-17:20:25.314 Generate directory set to [None]
+-17:20:25.314 BadFace directory set to [None]
+-17:20:25.314 Body directory set to [None]
+-17:20:25.314 Capture2 directory set to [None]
+-17:20:25.314 Capture directory set to [None]
+-17:20:25.314 Clothes directory set to [None]
+-17:20:25.314 FaceCache directory set to [None]
+-17:20:25.314 Face directory set to [None]
+-17:20:25.314 Height directory set to [None]
+-17:20:25.314 Image directory set to [None]
+-17:20:25.314 Marked directory set to [None]
+-17:20:25.314 MarkedFace directory set to [None]
+-17:20:25.314 Match directory set to [None]
+-17:20:25.314 NoEyes directory set to [None]
+-17:20:25.314 NoFace directory set to [None]
+-17:20:25.314 NoMatch directory set to [None]
+-17:20:25.314 Xml directory set to [None]
+-17:20:25.314 ResolveFace directory set to [None]
+-17:20:25.314 ResolveMarked directory set to [None]
+-17:20:25.314 Retrieve directory set to [None]
+-17:20:25.314 Search directory set to [None]
+-17:20:31.273 Output/CaptureDir changed to Capture
+-17:20:31.476 Capture directory set to D:/SVN2/trunk/IJM/Output/D20100715-T1719/Capture
+-17:20:41.416 Input/Pause changed to 0
++17:20:41.416 ---RESUME---
+&gt;17:20:41.416 IfSearchSlots 82  Nothing for InputHotdir::cacheFirst()
++17:20:42.182 ===Processing D20100715-T172042166
+-17:20:42.182 ^^^No faces in D20100715-T172042166
++17:20:43.012 ===Processing D20100715-T172042996
+-17:20:43.012 ^^^No faces in D20100715-T172042996
++17:20:44.044 ===Processing D20100715-T172044029
+-17:20:44.044 ^^^No faces in D20100715-T172044029
++17:20:45.061 ===Processing D20100715-T172045046
+-17:20:45.061 ^^^No faces in D20100715-T172045046
++17:20:46.063 ===Processing D20100715-T172046047
+-17:20:46.063 ^^^No faces in D20100715-T172046047
++17:20:47.080 ===Processing D20100715-T172047064
+-17:20:47.080 ^^^No faces in D20100715-T172047064
++17:20:48.112 ===Processing D20100715-T172048097
+-17:20:48.112 ^^^No faces in D20100715-T172048097
++17:20:49.098 ===Processing D20100715-T172049082
+-17:20:49.098 ^^^No faces in D20100715-T172049082
++17:20:50.162 ===Processing D20100715-T172050146
+-17:20:50.162 ^^^No faces in D20100715-T172050146
++17:20:51.161 ===Processing D20100715-T172051146
+-17:20:51.161 ^^^No faces in D20100715-T172051146
+-17:20:51.554 Input/Pause changed to 1</programlisting>
+
+        <informalfigure>
+          <para>What did we get? Looking at ../Output/Capture, you got images
+          like these two:</para>
+        </informalfigure>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/D20100715-T172045046.jpg"></imagedata>
+          </imageobject>
+        </mediaobject>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/D20100715-T172046047.jpg"></imagedata>
+          </imageobject>
+        </mediaobject>
+
+        <para>So we now have a poor-man's MJPEG capture facility to capture
+        live video from an IP camera to a directory of JPG files. If you were
+        using a hot directory for input, you've just invented the copy
+        command.</para>
+      </section>
+    </section>
+
+    <section xml:id="chapGettingStarted">
+      <title>Finding Faces</title>
+
+      <para></para>
+
+      <section>
+        <title>Detecting Possible Faces</title>
+
+        <para>The first step in the INDIface process is detection of potential
+        frontal faces in the capture image. We will enable it, but without any
+        other parameters it will accept almost anything as a potential face:
+        Any size, any quality, and any number per frame. Set
+        <userinput>/Output/FaceDir=Face</userinput>, then create a new
+        IfSearch registry key for Detect if necessary, and set
+        <userinput>/Detect/Enable=true</userinput>. Now we're detecting
+        potential faces.</para>
+
+        <programlisting>-17:28:25.833 Output/FaceDir changed to Face
+-17:27:31.078 Detect/Enable changed to true
+-17:28:25.958 Face directory set to D:/SVN2/trunk/IJM/Output/D20100715-T1719/Face
+-17:28:36.987 Input/Pause changed to false
++17:28:36.987 ---RESUME---
+&gt;17:28:36.987 IfSearchSlots 82  Nothing for InputHotdir::cacheFirst()
++17:28:37.737 ===Processing	 D20100715-T172837722
++17:28:37.957 ---75-pixel face at 414, 332 Q94
+-17:28:37.957    Good Consistency 0
+-17:28:37.989 ^^^Processing complete: D20100715-T172837722
++17:28:38.587 ===Processing	 D20100715-T172838571
++17:28:39.009 ---130-pixel face at 333, 144 Q985
+-17:28:39.009    Good Consistency 0
++17:28:39.148 ---232-pixel face at 451, 202 Q510
+-17:28:39.148    Good Consistency 0
++17:28:39.560 ---70-pixel face at 643, 441 Q391
+-17:28:39.560    Good Consistency 0
++17:28:39.590 ---78-pixel face at 488, 435 Q354
+-17:28:39.590    Good Consistency 0
++17:28:39.631 ---66-pixel face at 216, 134 Q342
+-17:28:39.631    Good Consistency 0
++17:28:39.666 ---69-pixel face at 647, 225 Q314
+-17:28:39.666    Good Consistency 0
++17:28:39.701 ---154-pixel face at 151, 281 Q300
+-17:28:39.701    Good Consistency 0
++17:28:39.895 ---57-pixel face at 244, 72 Q284
+-17:28:39.895    Good Consistency 0
++17:28:39.921 ---86-pixel face at 636, 296 Q250
+-17:28:39.921    Good Consistency 0
++17:28:39.967 ---89-pixel face at 44, 436 Q212
+-17:28:39.967    Good Consistency 0
++17:28:40.009 ---66-pixel face at 322, 332 Q189
+-17:28:40.009    Good Consistency 0
++17:28:40.041 ---37-pixel face at 580, 458 Q189
+-17:28:40.041    Good Consistency 0
++17:28:40.056 ---134-pixel face at 551, 200 Q164
+-17:28:40.056    Good Consistency 0
++17:28:40.223 ---62-pixel face at 500, 404 Q164
+-17:28:40.223    Good Consistency 0
++17:28:40.257 ---75-pixel face at 402, 96 Q134
+-17:28:40.257    Good Consistency 0
++17:28:40.306 ---69-pixel face at 163, 130 Q134
+-17:28:40.306    Good Consistency 0
++17:28:40.345 ---62-pixel face at 82, 84 Q134
+-17:28:40.345    Good Consistency 0
++17:28:40.377 ---63-pixel face at 631, 199 Q134
+-17:28:40.377    Good Consistency 0
++17:28:40.409 ---59-pixel face at 631, 355 Q134
+-17:28:40.409    Good Consistency 0
++17:28:40.432 ---52-pixel face at 661, 355 Q134
+-17:28:40.432    Good Consistency 0
++17:28:40.451 ---47-pixel face at 151, 185 Q134
+-17:28:40.451    Good Consistency 0
++17:28:40.469 ---35-pixel face at 343, 421 Q134
+-17:28:40.469    Good Consistency 0
++17:28:40.501 ---122-pixel face at 208, 383 Q94
+-17:28:40.501    Good Consistency 0
++17:28:40.609 ---57-pixel face at 166, 218 Q94
+-17:28:40.609    Good Consistency 0
++17:28:40.637 ---57-pixel face at 442, 446 Q94
+-17:28:40.637    Good Consistency 0
++17:28:40.658 ---52-pixel face at 575, 299 Q94
+-17:28:40.658    Good Consistency 0
++17:28:40.676 ---43-pixel face at 21, 207 Q94
+-17:28:40.676    Good Consistency 0
++17:28:40.688 ---39-pixel face at 347, 29 Q94
+-17:28:40.688    Good Consistency 0
++17:28:40.698 ---39-pixel face at 521, 31 Q94
+-17:28:40.698    Good Consistency 0
++17:28:40.709 ---39-pixel face at 235, 67 Q94
+-17:28:40.709    Good Consistency 0
++17:28:40.722 ---39-pixel face at 79, 307 Q94
+-17:28:40.722    Good Consistency 0
++17:28:40.734 ---35-pixel face at 543, 63 Q94
+-17:28:40.734    Good Consistency 0
++17:28:40.832 ---35-pixel face at 651, 101 Q94
+-17:28:40.833    Good Consistency 0
++17:28:40.842 ---32-pixel face at 107, 99 Q94
+-17:28:40.842    Good Consistency 0
++17:28:40.850 ---32-pixel face at 485, 327 Q94
+-17:28:40.850    Good Consistency 0
++17:28:40.858 ---32-pixel face at 429, 341 Q94
+-17:28:40.858    Good Consistency 0
++17:28:40.866 ---32-pixel face at 315, 363 Q94
+-17:28:40.866    Good Consistency 0
+-17:28:40.875 ^^^Processing complete: D20100715-T172838571
++17:28:40.888 ===Processing	 D20100715-T172840501
++17:28:41.321 ---277-pixel face at 421, 228 Q999
+-17:28:41.321    Good Consistency 0
++17:28:41.908 ---261-pixel face at 214, 270 Q379
+-17:28:41.908    Good Consistency 0
++17:28:42.404 ---88-pixel face at 404, 413 Q284
+-17:28:42.404    Good Consistency 0
++17:28:42.462 ---196-pixel face at 482, 305 Q268
+-17:28:42.462    Good Consistency 0
++17:28:42.749 ---72-pixel face at 644, 442 Q268
+-17:28:42.749    Good Consistency 0
++17:28:42.781 ---66-pixel face at 216, 136 Q268
+-17:28:42.781    Good Consistency 0
++17:28:42.839 ---67-pixel face at 641, 233 Q268
+-17:28:42.839    Good Consistency 0
++17:28:42.871 ---85-pixel face at 639, 299 Q232
+-17:28:42.872    Good Consistency 0
++17:28:42.918 ---122-pixel face at 345, 159 Q212
+-17:28:42.918    Good Consistency 0
++17:28:43.040 ---62-pixel face at 84, 82 Q212
+-17:28:43.040    Good Consistency 0
++17:28:43.070 ---59-pixel face at 633, 353 Q212
+-17:28:43.070    Good Consistency 0
++17:28:43.129 ---40-pixel face at 237, 69 Q212
+-17:28:43.129    Good Consistency 0
++17:28:43.144 ---59-pixel face at 581, 449 Q189
+-17:28:43.144    Good Consistency 0
++17:28:43.170 ---57-pixel face at 162, 132 Q134
+-17:28:43.170    Good Consistency 0
++17:28:43.198 ---54-pixel face at 664, 356 Q134
+-17:28:43.198    Good Consistency 0
++17:28:43.217 ---83-pixel face at 51, 435 Q94
+-17:28:43.217    Good Consistency 0
++17:28:43.256 ---62-pixel face at 440, 426 Q94
+-17:28:43.257    Good Consistency 0
++17:28:43.286 ---57-pixel face at 636, 200 Q94
+-17:28:43.286    Good Consistency 0
++17:28:43.311 ---52-pixel face at 145, 87 Q94
+-17:28:43.311    Good Consistency 0
++17:28:43.332 ---52-pixel face at 29, 317 Q94
+-17:28:43.332    Good Consistency 0
++17:28:43.372 ---52-pixel face at 247, 389 Q94
+-17:28:43.373    Good Consistency 0
++17:28:43.393 ---39-pixel face at 519, 33 Q94
+-17:28:43.393    Good Consistency 0
++17:28:43.404 ---35-pixel face at 423, 455 Q94
+-17:28:43.404    Good Consistency 0
++17:28:43.413 ---32-pixel face at 103, 25 Q94
+-17:28:43.413    Good Consistency 0
++17:28:43.421 ---32-pixel face at 227, 39 Q94
+-17:28:43.421    Good Consistency 0
++17:28:43.429 ---32-pixel face at 649, 103 Q94
+-17:28:43.430    Good Consistency 0
++17:28:43.438 ---32-pixel face at 471, 431 Q94
+-17:28:43.438    Good Consistency 0
+-17:28:43.446 ^^^Processing complete: D20100715-T172840501</programlisting>
+
+        <para>You see that the log reports each possible face noting the width
+        (in pixels) of the detected face, the x- and y-coordinates of the
+        center, and a "Quality" of face detection, ranging here from 999 down
+        to 94.</para>
+
+        <informalfigure>
+          <para>What did we get in the Face directory? There are a few good
+          faces in there, probably the ones with the 999 quality; but there
+          are some that really only look like a face to a computer.</para>
+        </informalfigure>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/Sheet_002.jpg"></imagedata>
+          </imageobject>
+        </mediaobject>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/Sheet_001.jpg"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </section>
+
+      <section>
+        <title>Better Faces</title>
+
+        <para>Let's only look at fairly good quality possible face detections.
+        Set <userinput>/Detect/MinQuality=400</userinput> and maybe
+        <userinput>/Detect/MaxResults=5</userinput> to limit the bad
+        faces.</para>
+
+        <programlisting>-18:20:02.771 Input/URL changed to http://demo:demo@192.168.85.90/jpg/image.jpg
++18:20:07.624 http://demo:demo@192.168.85.90/jpg/image.jpg Started
+-18:20:07.624 Input/Pause changed to 1
+-18:20:07.624 Options/Shutdown changed to false
+-18:21:49.234 Detect/MinQuality changed to 
+-18:21:50.248 Detect/MinQuality changed to 0
+-18:21:51.262 Detect/MinQuality changed to 400
+-18:21:59.374 Detect/MaxResults changed to 
+-18:22:00.388 Detect/MaxResults changed to 0
+-18:22:01.402 Detect/MaxResults changed to 
+-18:22:02.416 Detect/MaxResults changed to 0
+-18:22:03.430 Detect/MaxResults changed to 5
+-18:22:20.668 Input/Pause changed to 0
++18:22:20.668 ---RESUME---
+&gt;18:23:53.948 IfSearchSlots 82  Nothing for InputHotdir::cacheFirst()
++18:23:55.010 ===Processing	 D20100715-T182354995
++18:23:55.370 ---169-pixel face at 348, 167 Q994
+-18:23:55.370    Good Consistency 0
+-18:23:55.531 ^^^Processing complete: D20100715-T182354995
++18:23:55.858 ===Processing	 D20100715-T182355842
++18:23:56.233 ---155-pixel face at 353, 214 Q999
+-18:23:56.233    Good Consistency 0
+-18:23:56.396 ^^^Processing complete: D20100715-T182355842
++18:23:56.878 ===Processing	 D20100715-T182356862
++18:23:57.331 ---151-pixel face at 348, 198 Q999
+-18:23:57.331    Good Consistency 0
+-18:23:57.506 ^^^Processing complete: D20100715-T182356862
++18:23:57.911 ===Processing	 D20100715-T182357895
++18:23:58.426 ---179-pixel face at 323, 225 Q999
+-18:23:58.426    Good Consistency 0
+-18:23:58.714 ^^^Processing complete: D20100715-T182357895
++18:23:58.895 ===Processing	 D20100715-T182358879
++18:23:59.442 ---194-pixel face at 362, 202 Q999
+-18:23:59.442    Good Consistency 0
+-18:23:59.746 ^^^Processing complete: D20100715-T182358879
++18:23:59.927 ===Processing	 D20100715-T182359911
++18:24:00.427 ---164-pixel face at 363, 195 Q884
+-18:24:00.427    Good Consistency 0
+-18:24:00.646 ^^^Processing complete: D20100715-T182359911
++18:24:00.953 ===Processing	 D20100715-T182400938
++18:24:01.422 ---181-pixel face at 360, 176 Q782
+-18:24:01.422    Good Consistency 0
++18:24:01.657 ---70-pixel face at 210, 96 Q434
+-18:24:01.657    Good Consistency 0
+-18:24:01.698 ^^^Processing complete: D20100715-T182400938
++18:24:01.936 ===Processing	 D20100715-T182401920
++18:24:02.311 ---156-pixel face at 353, 206 Q999
+-18:24:02.311    Good Consistency 0
++18:24:02.482 ---76-pixel face at 169, 103 Q444
+-18:24:02.483    Good Consistency 0
+-18:24:02.523 ^^^Processing complete: D20100715-T182401920
++18:24:02.984 ===Processing	 D20100715-T182402969
++18:24:03.469 ---158-pixel face at 348, 204 Q999
+-18:24:03.469    Good Consistency 0
++18:24:03.679 ---93-pixel face at 608, 184 Q454
+-18:24:03.679    Good Consistency 0
+-18:24:03.765 ^^^Processing complete: D20100715-T182402969
++18:24:04.017 ===Processing	 D20100715-T182404002
++18:24:04.440 ---156-pixel face at 353, 211 Q999
+-18:24:04.440    Good Consistency 0
++18:24:04.628 ---91-pixel face at 641, 243 Q483
+-18:24:04.628    Good Consistency 0
+-18:24:04.693 ^^^Processing complete: D20100715-T182404002
++18:24:04.978 ===Processing	 D20100715-T182404962
++18:24:05.447 ---183-pixel face at 367, 177 Q999
+-18:24:05.447    Good Consistency 0
+-18:24:05.664 ^^^Processing complete: D20100715-T182404962
++18:24:06.010 ===Processing	 D20100715-T182405995
++18:24:06.401 ---173-pixel face at 367, 199 Q999
+-18:24:06.401    Good Consistency 0
+-18:24:06.624 ^^^Processing complete: D20100715-T182405995
++18:24:07.021 ===Processing	 D20100715-T182407006
+-18:24:07.272 ^^^No faces in D20100715-T182407006
++18:24:08.023 ===Processing	 D20100715-T182408007
+-18:24:08.273 ^^^No faces in D20100715-T182408007
++18:24:09.071 ===Processing	 D20100715-T182409055
+-18:24:09.321 ^^^No faces in D20100715-T182409055
++18:24:10.088 ===Processing	 D20100715-T182410072
+-18:24:10.338 ^^^No faces in D20100715-T182410072
++18:24:11.058 ===Processing	 D20100715-T182411042
+-18:24:11.309 ^^^No faces in D20100715-T182411042
++18:24:12.107 ===Processing	 D20100715-T182412092
+-18:24:12.358 ^^^No faces in D20100715-T182412092
++18:24:13.124 ===Processing	 D20100715-T182413093
+-18:24:13.359 ^^^No faces in D20100715-T182413093
++18:24:14.110 ===Processing	 D20100715-T182414094
+-18:24:14.361 ^^^No faces in D20100715-T182414094
+</programlisting>
+
+        <informalfigure>
+          <para>This time we have a much higher percentage of good versus bad
+          possible face detection.</para>
+        </informalfigure>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/Q400.jpg" scalefit="1" width="4in"></imagedata>
+          </imageobject>
+        </mediaobject>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>Faces with Eyes</title>
+
+        <para>The next step for INDIface is looking in the area of the
+        detected potential faces and detecting eyes and other features in
+        preparation for INDIface template generation. Lets enable it and set a
+        threshold to separate the "good" eye locations from the bad
+        by<varname> /Generate/Enable=true</varname> and
+        <varname>/Generate/MinConsistency=400</varname>. Also set
+        /Output/MarkedDir=Marked so we can separate the good, the bad, and the
+        ugly.</para>
+
+        <informalfigure>
+          <para>This time we got only "good" faces.</para>
+        </informalfigure>
+
+        <informalfigure>
+          <para></para>
+        </informalfigure>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/C400.jpg"></imagedata>
+          </imageobject>
+        </mediaobject>
+
+        <informalfigure>
+          <para>And what of the "marked" image?</para>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="art/D20100715-T183858550.JPG" scalefit="1"
+                         width="5.5in"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </informalfigure>
+
+        <para>The yellow boxes indicate the potential detected face location
+        with the yellow eyes where we found the eyes; these were considered to
+        be "good" enough faces to generate useful templates. The green boxes
+        and eyes indicate the detected face and eye locations, but they fell
+        (slightly) below the threshold for a good template. If there were
+        potential faces detected (above the
+        <varname>/Detect/Quality=400</varname> we set above), they would be
+        indicated with blue boxes, as shown below:</para>
+
+        <para><informalfigure>
+            <para></para>
+          </informalfigure><mediaobject>
+            <imageobject>
+              <imagedata fileref="art/D20100719-T135830352.JPG" scalefit="1"
+                         width="5.5in"></imagedata>
+            </imageobject>
+          </mediaobject></para>
+      </section>
+    </section>
+
+    <section>
+      <title>Enrolling</title>
+
+      <para></para>
+
+      <section>
+        <title>Gathering Faces for Enrollment</title>
+
+        <para>The Face output directory contains faces that have been
+        detected, confirmed as reasonably consistent, and had INDIface
+        templates generated for them. (This also applies to the
+        <filename>FaceCache</filename> and <filename>MarkedFace</filename>
+        output directories as well). Gather up faces from these sources and
+        separate them by person.</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/PS001037.png" scalefit="1" width="6in"></imagedata>
+          </imageobject>
+        </mediaobject>
+
+        <note>
+          <para>This directory is available in the SDK at
+          <filename>./Sample/Input/SampleEnroll</filename>.</para>
+        </note>
+      </section>
+
+      <section xml:id="chapGettingStarted-Enrolling">
+        <title>Enrolling</title>
+
+        <para>Set up a temporary enrollment directory and add the following to
+        the current registry key:
+        <varname>Enroll/InputDir=T:/Enroll</varname>.</para>
+
+        <para>To enroll each person:</para>
+
+        <orderedlist>
+          <listitem>
+            <para>Ensure the temporary enrollment directory is empty when you
+            start.</para>
+          </listitem>
+
+          <listitem>
+            <para>Copy five to ten distinctive images for one person to the
+            temporary enrollment directory.</para>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="art/PS001038.png" scalefit="1" width="6in"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </listitem>
+
+          <listitem>
+            <para>Set <varname>Input/Pause=true</varname>; this isn't
+            required, but will give more consistent time performance if you
+            can pause regular input during enrollment.</para>
+          </listitem>
+
+          <listitem>
+            <para>Set <varname>Enroll/PersonId=Williams,Juan</varname> and
+            then set <varname>Enroll/Command=Enroll</varname> to start the
+            enrollment process for Juan Williams.</para>
+
+            <programlisting>-17:52:17.537 Enroll/Command changed to Enroll
++17:52:17.553 [ENROLL] Started
+-17:52:17.611 INDI EigenFace enrolled: 1 vector(s) 0 duplicates
+-17:52:17.643 INDI EigenFace enrolled: 1 vector(s) 0 duplicates
+-17:52:17.675 INDI EigenFace enrolled: 1 vector(s) 0 duplicates
+-17:52:17.707 INDI EigenFace enrolled: 1 vector(s) 0 duplicates
+-17:52:17.755 INDI EigenFace enrolled: 1 vector(s) 0 duplicates
+-17:52:17.787 INDI EigenFace enrolled: 1 vector(s) 0 duplicates
+-17:52:17.819 INDI EigenFace enrolled: 1 vector(s) 0 duplicates
+-17:52:17.851 INDI EigenFace enrolled: 1 vector(s) 0 duplicates
+-17:52:17.884 INDI EigenFace enrolled: 1 vector(s) 0 duplicates
+-17:52:17.916 INDI EigenFace enrolled: 1 vector(s) 0 duplicates
+-17:52:17.948 INDI EigenFace enrolled: 1 vector(s) 0 duplicates
+-17:52:17.980 INDI EigenFace enrolled: 1 vector(s) 0 duplicates
++17:52:18.028 [ENROLL] Done - Results:
+-17:52:18.028 PersonId=Williams,Juan PersonKey=126628
+-17:52:18.028 D20090120-T111723687-X0355Y0199C520E066 enrolled as 126628:321929 Active
+-17:52:18.028 D20090120-T111730640-X0335Y0191C515E070 enrolled as 126628:590766 Active
+-17:52:18.028 D20090120-T111739640-X0364Y0193C433E071 enrolled as 126628:816254 Active
+-17:52:18.028 D20090120-T111753671-X0378Y0194C446E073 enrolled as 126628:961995 Active
+-17:52:18.028 D20090120-T111757656-X0393Y0186C409E073 enrolled as 126628:233770 Active
+-17:52:18.028 D20090120-T111803656-X0394Y0199C402E054 enrolled as 126628:947711 Active
+-17:52:18.030 D20090120-T113948640-X0348Y0186C408E071 enrolled as 126628:349037 Active
+-17:52:18.030 D20090120-T114010656-X0346Y0181C413E054 enrolled as 126628:653962 Active
+-17:52:18.030 D20090120-T114011671-X0381Y0192C520E069 enrolled as 126628:976974 Active
+-17:52:18.030 D20090120-T114012671-X0368Y0183C534E070 enrolled as 126628:44626 Active
+-17:52:18.030 D20090120-T114014687-X0302Y0193C463E066 enrolled as 126628:611922 Active
+-17:52:18.030 D20090120-T114019656-X0342Y0194C410E055 enrolled as 126628:676765 Active
+-17:52:18.560 Enroll/Command changed to 
+</programlisting>
+          </listitem>
+
+          <listitem>
+            <para>Wait for <varname>Enroll/Status</varname> to be "Done" or
+            "Error". If "Done", monitor <varname>Enroll/Result</varname> for
+            successful results. If "Error", <varname>Enroll/Reason</varname>
+            will contain the basis of the error. Here is an example of an
+            error, I mistakenly set
+            <varname>Enroll/PersonKey=Williams,Juan</varname> and issued an
+            enrollment command. It interpreted <varname>PersonKey</varname>
+            (which should be numeric) as zero and <varname>PersonId</varname>
+            was missing. Renaming the <varname>PersonKey</varname> to
+            <varname>PersonId</varname> registry value succeeded and generated
+            the results above.</para>
+
+            <programlisting>-17:49:00.820 Enroll/Command changed to Enroll
++17:49:00.836 [ENROLL] Started
+*17:49:00.836 IfSearchEnroll 311 [ENROLL] Error: PersonId must be specified for new person
+-17:49:01.835 Enroll/Command changed to 
+</programlisting>
+          </listitem>
+        </orderedlist>
+
+        <para>Repeat for each person that you wish to enroll. This will fill
+        your INDIbase (by default at <filename>../FaceBase</filename> relative
+        to the directory where <command>IfSearch</command> is run,
+        <filename>./INDIface/FaceBase</filename> relative to
+        <filename>./INDIface/bin</filename>) with normalized face image files
+        (FI folders), template XML files (FT folders), and person XML files
+        (PR folders) as well as your internal matcher memory. For basic
+        purposes, the FaceBase directory have no user serviceable parts
+        inside.</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/PS001040.png" scalefit="1" width="7in"></imagedata>
+          </imageobject>
+        </mediaobject>
+
+        <note>
+          <para>This FaceBase data is available in the SDK at
+          <filename>./INDIface/Input/SampleFaceBase</filename>.</para>
+        </note>
+      </section>
+    </section>
+
+    <section>
+      <title>Matching</title>
+
+      <para></para>
+
+      <section>
+        <title>Casual Matching</title>
+
+        <para>Now that we have faces enrolled in an INDIbase, we can have the
+        SDK compare each face found in every frame against all of the enrolled
+        faces in the current INDIbase. This is not the most reliable form for
+        accurate facial recognition, but allows your application to show some
+        eye candy and may provide some useful data. To enable casual matching,
+        set <varname>Match/Enable=true</varname>,
+        <varname>Match/MinConfidence=500</varname>,
+        <varname>Match/MaxResults=12</varname>,
+        <varname>Output/ImageDir=Image</varname>, and
+        <varname>Output/MatchDir=Match</varname>. You can point
+        <varname>Input/URL</varname> to
+        <filename>./Sample/Input/ObamaSpeach</filename> and, if you were
+        paused while enrolling, set
+        <varname>Input/Pause=false</varname>.</para>
+
+        <para>In the Image output directory, you will find composite images
+        with the face found in the current frame in the center surrounded by
+        the (up to twelve) best matches starting at the upper left and
+        continuing clockwise. Examples are:</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/Composite4.png" scalefit="1" width="6in"></imagedata>
+          </imageobject>
+        </mediaobject>
+
+        <para>In the following image, you will note that the automatic eye
+        detection failed. (The left--as viewed by the camera--eye is on the
+        ear and the right eye is on the left.) So, you will also note that the
+        matching results are less than stellar.</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/D20090324-T170236921-X0317Y0156C442E065.JPG"
+                       scalefit="1" width="2.3in"></imagedata>
+          </imageobject>
+        </mediaobject>
+
+        <para>The individual enrolled normalized images of the closest
+        enrolled match for each person matching the face from the current
+        frame are also written to the Match output directory.</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/PS001041.png" scalefit="1" width="7in"></imagedata>
+          </imageobject>
+        </mediaobject>
+
+        <para>In the image above, the highlighted file,
+        <filename>D20090324-T170452250-X0350Y0150C666E053-R01.PNG</filename>,
+        is the best enrolled match for the face found at 350,150 in the
+        original image captured at 5:04:52.250 PM on March 24, 2009. The
+        following ten files (-R02 to -R11) are the next best matches from the
+        enrollment.</para>
+
+        <section xml:id="secFormatSearch">
+          <title>Formal Search</title>
+
+          <para>The best results are obtained when you can gather a few faces
+          of the same person for searching against the enrolled FaceBase.
+          Create a temporary directory, place a few faces (gathered from
+          <varname>FaceDir</varname>, <varname>FaceCacheDir</varname>, or
+          <varname>MarkedFaceDir</varname>) in the directory, and set
+          Search/InputDir to point to that directory. You can set parameters
+          such as <varname>MaxResults</varname> or
+          <varname>MinConfidence</varname> to limit the results and you can
+          set <varname>OutputDir</varname> to receive enrolled face results.
+          Then set <varname>Search/Command=Search</varname> and wait for
+          <varname>Search/Status</varname> to be "Done" or "Error".
+          <varname>Search/Reason</varname> will explain an "Error" or
+          <varname>Search/Results</varname> will contain the results if
+          "Done".</para>
+
+          <para><programlisting>-18:23:43.585 Input/Pause changed to 1
+-18:26:43.073 Search/OutputDir changed to T:\SearchOutput
+-18:26:43.120 Search directory set to T:/SearchOutput
+-18:27:46.958 Search/Command changed to Search
++18:27:46.974 [SEARCH] Started for Search
+-18:27:47.132 [SEARCH] 44 writes pending
+-18:27:47.244 [SEARCH] 41 writes pending
+-18:27:47.362 [SEARCH] 34 writes pending
+-18:27:47.474 [SEARCH] 31 writes pending
+-18:27:47.573 [SEARCH] 25 writes pending
+-18:27:47.689 [SEARCH] 19 writes pending
+-18:27:47.804 [SEARCH] 13 writes pending
+-18:27:47.920 [SEARCH] 7 writes pending
+-18:27:48.034 [SEARCH] 1 writes pending
++18:27:48.145 [SEARCH] Done - Results:
+-18:27:48.145 
+-18:27:48.145 D20090119-T200050562-X0169Y0244C583E087.PNG search image Active
+-18:27:48.145 D20090119-T200109578-X0234Y0192C573E044.PNG search image Active
+-18:27:48.145 D20090119-T200114562-X0269Y0189C623E034.PNG search image Active
+-18:27:48.145 D20090119-T200115609-X0386Y0184C680E046.PNG search image Active
+-18:27:48.145 D20090119-T200441593-X0284Y0258C506E126.PNG search image Active
+-18:27:48.145 10 results
+-18:27:48.145  1. 793   316057 Hume,Brit
+-18:27:48.145  2. 793   970578 Biden,Joe
+-18:27:48.145  3. 789    98797 Obama,Barak
+-18:27:48.145  4. 773   707299 Baer,Brett
+-18:27:48.145  5. 728   126628 Williams,Juan
+-18:27:48.145  6. 710    59290 Obama,Michelle
+-18:27:48.145  7. 682   305166 Smith,Sheppard
+-18:27:48.145  8. 642   657519 Reid,Harry
+-18:27:48.145  9. 593   837859 Guilianni,Rudy
+-18:27:48.145 10. 548   170123 GeicoGuy
+-18:27:48.988 Search/Command changed to 
+</programlisting></para>
+
+          <para>The "Verify" and "VerifyList" (future) commands can be used to
+          limit the results to one person or a handful of enrolled persons of
+          interest.</para>
+        </section>
+      </section>
+
+      <section xml:id="chapGettingStarted-Search">
+        <title>Formal Search</title>
+
+        <para>The best results are obtained when you can gather a few faces of
+        the same person for searching against the enrolled FaceBase. Create a
+        temporary directory, place a few faces (gathered from
+        <varname>FaceDir</varname>, <varname>FaceCacheDir</varname>, or
+        <varname>MarkedFaceDir</varname>) in the directory, and set
+        Search/InputDir to point to that directory. You can set parameters
+        such as <varname>MaxResults</varname> or
+        <varname>MinConfidence</varname> to limit the results and you can set
+        <varname>OutputDir</varname> to receive enrolled face results. Then
+        set <varname>Search/Command=Search</varname> and wait for
+        <varname>Search/Status</varname> to be "Done" or "Error".
+        <varname>Search/Reason</varname> will explain an "Error" or
+        <varname>Search/Results</varname> will contain the results if
+        "Done".</para>
+
+        <para><programlisting>-18:23:43.585 Input/Pause changed to 1
+-18:26:43.073 Search/OutputDir changed to T:\SearchOutput
+-18:26:43.120 Search directory set to T:/SearchOutput
+-18:27:46.958 Search/Command changed to Search
++18:27:46.974 [SEARCH] Started for Search
+-18:27:47.132 [SEARCH] 44 writes pending
+-18:27:47.244 [SEARCH] 41 writes pending
+-18:27:47.362 [SEARCH] 34 writes pending
+-18:27:47.474 [SEARCH] 31 writes pending
+-18:27:47.573 [SEARCH] 25 writes pending
+-18:27:47.689 [SEARCH] 19 writes pending
+-18:27:47.804 [SEARCH] 13 writes pending
+-18:27:47.920 [SEARCH] 7 writes pending
+-18:27:48.034 [SEARCH] 1 writes pending
++18:27:48.145 [SEARCH] Done - Results:
+-18:27:48.145 
+-18:27:48.145 D20090119-T200050562-X0169Y0244C583E087.PNG search image Active
+-18:27:48.145 D20090119-T200109578-X0234Y0192C573E044.PNG search image Active
+-18:27:48.145 D20090119-T200114562-X0269Y0189C623E034.PNG search image Active
+-18:27:48.145 D20090119-T200115609-X0386Y0184C680E046.PNG search image Active
+-18:27:48.145 D20090119-T200441593-X0284Y0258C506E126.PNG search image Active
+-18:27:48.145 10 results
+-18:27:48.145  1. 793   316057 Hume,Brit
+-18:27:48.145  2. 793   970578 Biden,Joe
+-18:27:48.145  3. 789    98797 Obama,Barak
+-18:27:48.145  4. 773   707299 Baer,Brett
+-18:27:48.145  5. 728   126628 Williams,Juan
+-18:27:48.145  6. 710    59290 Obama,Michelle
+-18:27:48.145  7. 682   305166 Smith,Sheppard
+-18:27:48.145  8. 642   657519 Reid,Harry
+-18:27:48.145  9. 593   837859 Guilianni,Rudy
+-18:27:48.145 10. 548   170123 GeicoGuy
+-18:27:48.988 Search/Command changed to 
+</programlisting></para>
+
+        <para>The "Verify" and "VerifyList" (future) commands can be used to
+        limit the results to one person or a handful of enrolled persons of
+        interest.</para>
+      </section>
+    </section>
+
+    <section>
+      <title>Managing</title>
+
+      <para></para>
+
+      <section>
+        <title>INDIbase Retrieval</title>
+
+        <para>To retrieve enrollments from the FaceBase, use the Retrieve
+        commands. If you want the images and Person XML files, set
+        <varname>Retrieve/OutputDir</varname> (to
+        <filename>F:/INDIout/@/Retrieve</filename> in this example). Set
+        <varname>Retrieve/PersonId</varname> (to "Obama,Barak" in this
+        example) and set <varname>Retrieve/Command=Retrieve</varname>. Wait
+        for <varname>Retrieve/Status</varname> to be either "Done", "Error",
+        or "NotFound". If "Done", you will find the results in
+        <varname>Retrieve/Results</varname> and, if set, files in the retrieve
+        directory. If "Error", the reason will be in
+        <varname>Retrieve/Reason</varname>.</para>
+
+        <para><programlisting>-16:33:08.885 Retrieve/Command changed to Retrieve
++16:33:08.895 [RETRIEVE] Started
+-16:33:08.984 [RETRIEVE] 16 writes pending
+-16:33:09.085 [RETRIEVE] 16 writes pending
+-16:33:09.197 [RETRIEVE] 16 writes pending
+-16:33:09.308 [RETRIEVE] 16 writes pending
+.16:33:09.351 IfSearchSlots 36  0 grabs in cache
+~16:33:09.355 FileWriter 458 Retrieve file: F:/INDIout/D20110319-T1627/Retrieve/PR098797.xml written
+.16:33:09.355 IfSearchSlots 109 Wrote F:/INDIout/D20110319-T1627/Retrieve/PR098797.xml
+~16:33:09.460 FileWriter 458 Retrieve file: F:/INDIout/D20110319-T1627/Retrieve/FI097748.PNG written
+.16:33:09.460 IfSearchSlots 109 Wrote F:/INDIout/D20110319-T1627/Retrieve/FI097748.PNG
+-16:33:09.462 [RETRIEVE] 14 writes pending
+~16:33:09.534 FileWriter 458 Retrieve file: F:/INDIout/D20110319-T1627/Retrieve/FI134173.PNG written
+.16:33:09.535 IfSearchSlots 109 Wrote F:/INDIout/D20110319-T1627/Retrieve/FI134173.PNG
+-16:33:09.570 [RETRIEVE] 13 writes pending
+~16:33:09.593 FileWriter 458 Retrieve file: F:/INDIout/D20110319-T1627/Retrieve/FI288062.PNG written
+.16:33:09.593 IfSearchSlots 109 Wrote F:/INDIout/D20110319-T1627/Retrieve/FI288062.PNG
+.16:33:09.594 ImageSource 240 Paused
+~16:33:09.661 FileWriter 458 Retrieve file: F:/INDIout/D20110319-T1627/Retrieve/FI312767.PNG written
+.16:33:09.662 IfSearchSlots 109 Wrote F:/INDIout/D20110319-T1627/Retrieve/FI312767.PNG
+-16:33:09.679 [RETRIEVE] 11 writes pending
+~16:33:09.741 FileWriter 458 Retrieve file: F:/INDIout/D20110319-T1627/Retrieve/FI368784.PNG written
+.16:33:09.741 IfSearchSlots 109 Wrote F:/INDIout/D20110319-T1627/Retrieve/FI368784.PNG
+-16:33:09.788 [RETRIEVE] 10 writes pending
+~16:33:09.807 FileWriter 458 Retrieve file: F:/INDIout/D20110319-T1627/Retrieve/FI374828.PNG written
+.16:33:09.807 IfSearchSlots 109 Wrote F:/INDIout/D20110319-T1627/Retrieve/FI374828.PNG
+.16:33:09.850 ImageSource 240 Paused
+~16:33:09.882 FileWriter 458 Retrieve file: F:/INDIout/D20110319-T1627/Retrieve/FI476155.PNG written
+.16:33:09.882 IfSearchSlots 109 Wrote F:/INDIout/D20110319-T1627/Retrieve/FI476155.PNG
+.16:33:09.883 IfSearchSlots 36  0 grabs in cache
+-16:33:09.897 [RETRIEVE] 8 writes pending
+~16:33:09.961 FileWriter 458 Retrieve file: F:/INDIout/D20110319-T1627/Retrieve/FI557232.PNG written
+.16:33:09.961 IfSearchSlots 109 Wrote F:/INDIout/D20110319-T1627/Retrieve/FI557232.PNG
+-16:33:10.011 [RETRIEVE] 7 writes pending
+~16:33:10.034 FileWriter 458 Retrieve file: F:/INDIout/D20110319-T1627/Retrieve/FI565060.PNG written
+.16:33:10.034 IfSearchSlots 109 Wrote F:/INDIout/D20110319-T1627/Retrieve/FI565060.PNG
+~16:33:10.088 FileWriter 458 Retrieve file: F:/INDIout/D20110319-T1627/Retrieve/FI573688.PNG written
+.16:33:10.088 IfSearchSlots 109 Wrote F:/INDIout/D20110319-T1627/Retrieve/FI573688.PNG
+-16:33:10.115 [RETRIEVE] 5 writes pending
+.16:33:10.115 ImageSource 240 Paused
+~16:33:10.148 FileWriter 458 Retrieve file: F:/INDIout/D20110319-T1627/Retrieve/FI607696.PNG written
+.16:33:10.148 IfSearchSlots 109 Wrote F:/INDIout/D20110319-T1627/Retrieve/FI607696.PNG
+~16:33:10.224 FileWriter 458 Retrieve file: F:/INDIout/D20110319-T1627/Retrieve/FI624506.PNG written
+.16:33:10.224 IfSearchSlots 109 Wrote F:/INDIout/D20110319-T1627/Retrieve/FI624506.PNG
+-16:33:10.225 [RETRIEVE] 3 writes pending
+~16:33:10.291 FileWriter 458 Retrieve file: F:/INDIout/D20110319-T1627/Retrieve/FI664819.PNG written
+.16:33:10.291 IfSearchSlots 109 Wrote F:/INDIout/D20110319-T1627/Retrieve/FI664819.PNG
+-16:33:10.334 [RETRIEVE] 2 writes pending
+~16:33:10.356 FileWriter 458 Retrieve file: F:/INDIout/D20110319-T1627/Retrieve/FI671731.PNG written
+.16:33:10.356 IfSearchSlots 109 Wrote F:/INDIout/D20110319-T1627/Retrieve/FI671731.PNG
+~16:33:10.414 FileWriter 458 Retrieve file: F:/INDIout/D20110319-T1627/Retrieve/FI967365.PNG written
+.16:33:10.414 IfSearchSlots 109 Wrote F:/INDIout/D20110319-T1627/Retrieve/FI967365.PNG
++16:33:10.445 [RETRIEVE] Done - Results:
+-16:33:10.445 Person: 98797=Obama,Barak
+-16:33:10.445    Face: 54224=D20090120-T115145671-X0275Y0145C563E035 {Deleted}
+-16:33:10.445    Face: 97748=D20090120-T132402781-X0439Y0104C413E036 {Active}
+-16:33:10.445    Face: 134173=D20090120-T130606078-X0207Y0177C513E029 {Active}
+-16:33:10.445    Face: 288062=D20090120-T130555078-X0352Y0183C510E044 {Active}
+-16:33:10.445    Face: 312767=D20090120-T202239906-X0333Y0217C581E068 {Active}
+-16:33:10.445    Face: 368784=D20090120-T115637640-X0364Y0170C701E057 {Active}
+-16:33:10.445    Face: 374828=D20090120-T115109671-X0256Y0155C685E032 {Active}
+-16:33:10.445    Face: 476155=D20090120-T203144906-X0409Y0185C421E064 {Active}
+-16:33:10.448    Face: 557232=D20090120-T130557062-X0334Y0186C720E039 {Active}
+-16:33:10.448    Face: 565060=D20090120-T115213640-X0370Y0156C732E051 {Active}
+-16:33:10.448    Face: 573688=D20090120-T203701937-X0312Y0137C520E043 {Active}
+-16:33:10.448    Face: 607696=D20090120-T115215671-X0359Y0167C655E037 {Active}
+-16:33:10.448    Face: 624506=D20090120-T115231656-X0385Y0170C634E051 {Active}
+-16:33:10.448    Face: 664819=D20090120-T204523906-X0313Y0122C576E036 {Active}
+-16:33:10.448    Face: 671731=D20090120-T115154687-X0313Y0189C562E032 {Active}
+-16:33:10.448    Face: 967365=D20090120-T115108640-X0231Y0154C462E030 {Active}
+</programlisting><mediaobject>
+            <imageobject>
+              <imagedata fileref="art/PS004380.png" scalefit="1" width="6in"></imagedata>
+            </imageobject>
+          </mediaobject><programlisting>&lt;!DOCTYPE INDIface-Person&gt; &lt;PersonRecord Active="1" PersonKey="98797"&gt; &lt;Id&gt;Obama,Barak&lt;/Id&gt; &lt;/PersonRecord&gt; </programlisting></para>
+      </section>
+
+      <section>
+        <title>Enrollment Management</title>
+
+        <para>To delete a face from active matching, you can use the "Delete"
+        command for enrollment. Set <varname>Enroll/PersonId</varname> (to
+        "Obama,Barak" in this example) for faces that were enrolled to a
+        person and <varname>Enroll/FaceId</varname> (to
+        "D20090120-T115145671-X0275Y0145C563E035" in this example) and then
+        set <varname>Enroll/Command=Delete</varname>. Wait for
+        <varname>Status</varname> to be "Done" or "Error" and check either
+        <varname>Enroll/Results</varname> or
+        <varname>Enroll/Reason</varname>.</para>
+
+        <para><programlisting>-15:58:52.306 Enroll/Command changed to Delete 
++15:58:52.316 [ENROLL] Started for Delete Face 
+~15:58:52.319 EigenFaceFace 112 Face written: D:/SVN2/trunk/EclipseIR/FaceBase/FT054/FT054224.xml 
++15:58:52.331 [ENROLL] Done - Results: 
+-15:58:52.331 Deleted FaceKey=54224 FaceId=D20090120-T115145671-X0275Y0145C563E035 PersonKey=98797 PersonId=Obama,Barak</programlisting></para>
+
+        <para>You also have the option to remove all face enrollments for a
+        person with the "Remove" command or set a new
+        <varname>PersonId</varname> with the "Rename" command. The "RemoveAll"
+        command can be used to erase a FaceBase.</para>
+      </section>
+    </section>
+  </chapter>

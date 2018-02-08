@@ -1,0 +1,2302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
+ <office:meta><meta:creation-date>2012-03-13T22:01:16.15</meta:creation-date><dc:date>2012-03-19T21:31:46.26</dc:date><meta:editing-duration>PT12M10S</meta:editing-duration><meta:editing-cycles>10</meta:editing-cycles><meta:generator>LibreOffice/3.5$Windows_x86 LibreOffice_project/7e68ba2-a744ebf-1f241b7-c506db1-7d53735</meta:generator><meta:document-statistic meta:table-count="8" meta:image-count="1" meta:object-count="0" meta:page-count="9" meta:paragraph-count="180" meta:word-count="2165" meta:character-count="14059" meta:non-whitespace-character-count="12053"/></office:meta>
+ <office:settings>
+  <config:config-item-set config:name="ooo:view-settings">
+   <config:config-item config:name="ViewAreaTop" config:type="int">245068</config:config-item>
+   <config:config-item config:name="ViewAreaLeft" config:type="int">2198</config:config-item>
+   <config:config-item config:name="ViewAreaWidth" config:type="int">19087</config:config-item>
+   <config:config-item config:name="ViewAreaHeight" config:type="int">8170</config:config-item>
+   <config:config-item config:name="ShowRedlineChanges" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="InBrowseMode" config:type="boolean">false</config:config-item>
+   <config:config-item-map-indexed config:name="Views">
+    <config:config-item-map-entry>
+     <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="int">2907</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="int">251989</config:config-item>
+     <config:config-item config:name="VisibleLeft" config:type="int">2198</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="int">245068</config:config-item>
+     <config:config-item config:name="VisibleRight" config:type="int">21283</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="int">253236</config:config-item>
+     <config:config-item config:name="ZoomType" config:type="short">1</config:config-item>
+     <config:config-item config:name="ViewLayoutColumns" config:type="short">0</config:config-item>
+     <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="ZoomFactor" config:type="short">183</config:config-item>
+     <config:config-item config:name="IsSelectedFrame" config:type="boolean">false</config:config-item>
+    </config:config-item-map-entry>
+   </config:config-item-map-indexed>
+  </config:config-item-set>
+  <config:config-item-set config:name="ooo:configuration-settings">
+   <config:config-item config:name="ChartAutoUpdate" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="IsLabelDocument" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="MathBaselineAlignment" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="OutlineLevelYieldsNumbering" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintLeftPages" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="DoNotJustifyLinesWithManualBreak" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="AlignTabStopPosition" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrintTextPlaceholder" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="UseOldNumbering" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="CurrentDatabaseCommand" config:type="string"/>
+   <config:config-item config:name="ProtectForm" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintBlackFonts" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintProspectRTL" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="SmallCapsPercentage66" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintControls" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="CharacterCompressionType" config:type="short">0</config:config-item>
+   <config:config-item config:name="PrintHiddenText" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="UseFormerTextWrapping" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="IsKernAsianPunctuation" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintProspect" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="UnbreakableNumberings" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintEmptyPages" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="UseFormerObjectPositioning" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="ConsiderTextWrapOnObjPos" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="TableRowKeep" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintReversed" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="TabsRelativeToIndent" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrintRightPages" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrintPaperFromSetup" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="AddFrameOffsets" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="AddParaSpacingToTableCells" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="UpdateFromTemplate" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="AddExternalLeading" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrintSingleJobs" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrinterIndependentLayout" config:type="string">high-resolution</config:config-item>
+   <config:config-item config:name="LinkUpdateMode" config:type="short">1</config:config-item>
+   <config:config-item config:name="PrintAnnotationMode" config:type="short">0</config:config-item>
+   <config:config-item config:name="UseOldPrinterMetrics" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="RedlineProtectionKey" config:type="base64Binary"/>
+   <config:config-item config:name="PrinterSetup" config:type="base64Binary"/>
+   <config:config-item config:name="IgnoreFirstLineIndentInNumbering" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="CollapseEmptyCellPara" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrinterName" config:type="string"/>
+   <config:config-item config:name="InvertBorderSpacing" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintPageBackground" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="DoNotCaptureDrawObjsOnPage" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="TabOverflow" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="ApplyUserData" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="TabAtLeftIndentForParagraphsInList" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="UnxForceZeroExtLeading" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="SaveVersionOnClose" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintFaxName" config:type="string"/>
+   <config:config-item config:name="AddParaTableSpacing" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrintDrawings" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="LoadReadonly" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintGraphics" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="FieldAutoUpdate" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="AllowPrintJobCancel" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="UseFormerLineSpacing" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="SaveGlobalDocumentLinks" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="CurrentDatabaseDataSource" config:type="string"/>
+   <config:config-item config:name="IgnoreTabsAndBlanksForLineCalculation" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="CurrentDatabaseCommandType" config:type="int">0</config:config-item>
+   <config:config-item config:name="DoNotResetParaAttrsForNumFont" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="ClipAsCharacterAnchoredWriterFlyFrames" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintTables" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="AddParaTableSpacingAtStart" config:type="boolean">true</config:config-item>
+  </config:config-item-set>
+ </office:settings>
+ <office:scripts>
+  <office:script script:language="ooo:Basic">
+   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <ooo:library-embedded ooo:name="Standard"/>
+   </ooo:libraries>
+  </office:script>
+ </office:scripts>
+ <office:font-face-decls>
+  <style:font-face style:name="Mangal1" svg:font-family="Mangal"/>
+  <style:font-face style:name="OpenSymbol" svg:font-family="OpenSymbol"/>
+  <style:font-face style:name="DejaVu Serif3" svg:font-family="&apos;DejaVu Serif&apos;" style:font-family-generic="roman"/>
+  <style:font-face style:name="OCR A Extended" svg:font-family="&apos;OCR A Extended&apos;" style:font-family-generic="modern" style:font-pitch="variable"/>
+  <style:font-face style:name="Bookman Old Style" svg:font-family="&apos;Bookman Old Style&apos;" style:font-adornments="Regular" style:font-family-generic="roman" style:font-pitch="variable"/>
+  <style:font-face style:name="DejaVu Serif2" svg:font-family="&apos;DejaVu Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
+  <style:font-face style:name="DejaVu Serif1" svg:font-family="&apos;DejaVu Serif&apos;" style:font-adornments="Bold" style:font-family-generic="roman" style:font-pitch="variable"/>
+  <style:font-face style:name="DejaVu Serif" svg:font-family="&apos;DejaVu Serif&apos;" style:font-adornments="Book" style:font-family-generic="roman" style:font-pitch="variable"/>
+  <style:font-face style:name="Times New Roman" svg:font-family="&apos;Times New Roman&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
+  <style:font-face style:name="Arial" svg:font-family="Arial" style:font-family-generic="swiss" style:font-pitch="variable"/>
+  <style:font-face style:name="DejaVu Sans Condensed" svg:font-family="&apos;DejaVu Sans Condensed&apos;" style:font-adornments="Book" style:font-family-generic="swiss" style:font-pitch="variable"/>
+  <style:font-face style:name="Mangal" svg:font-family="Mangal" style:font-family-generic="system" style:font-pitch="variable"/>
+  <style:font-face style:name="Microsoft YaHei" svg:font-family="&apos;Microsoft YaHei&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
+  <style:font-face style:name="SimSun" svg:font-family="SimSun" style:font-family-generic="system" style:font-pitch="variable"/>
+ </office:font-face-decls>
+ <office:styles>
+  <style:default-style style:family="graphic">
+   <style:graphic-properties svg:stroke-color="#808080" draw:fill-color="#cfe7f5" fo:wrap-option="no-wrap" draw:shadow-offset-x="0.1181in" draw:shadow-offset-y="0.1181in" draw:start-line-spacing-horizontal="0.1114in" draw:start-line-spacing-vertical="0.1114in" draw:end-line-spacing-horizontal="0.1114in" draw:end-line-spacing-vertical="0.1114in" style:flow-with-text="false"/>
+   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:line-break="strict" style:writing-mode="lr-tb" style:font-independent-line-spacing="false">
+    <style:tab-stops/>
+   </style:paragraph-properties>
+   <style:text-properties style:use-window-font-color="true" fo:font-size="12pt" fo:language="en" fo:country="US" style:letter-kerning="true" style:font-size-asian="10.5pt" style:language-asian="zh" style:country-asian="CN" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN"/>
+  </style:default-style>
+  <style:default-style style:family="paragraph">
+   <style:paragraph-properties fo:hyphenation-ladder-count="no-limit" style:text-autospace="ideograph-alpha" style:punctuation-wrap="hanging" style:line-break="strict" style:tab-stop-distance="0.4925in" style:writing-mode="page"/>
+   <style:text-properties style:use-window-font-color="true" style:font-name="Times New Roman" fo:font-size="12pt" fo:language="en" fo:country="US" style:letter-kerning="true" style:font-name-asian="SimSun" style:font-size-asian="10.5pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Mangal" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN" fo:hyphenate="false" fo:hyphenation-remain-char-count="2" fo:hyphenation-push-char-count="2"/>
+  </style:default-style>
+  <style:default-style style:family="table">
+   <style:table-properties table:border-model="collapsing"/>
+  </style:default-style>
+  <style:default-style style:family="table-row">
+   <style:table-row-properties fo:keep-together="auto"/>
+  </style:default-style>
+  <style:style style:name="Standard" style:family="paragraph" style:class="text">
+   <style:text-properties style:font-name="DejaVu Sans Condensed" fo:font-size="10pt" style:font-size-asian="10.5pt" style:language-asian="ja" style:country-asian="JP"/>
+  </style:style>
+  <style:style style:name="Heading" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Text_20_body" style:class="text" style:master-page-name="">
+   <style:paragraph-properties fo:margin-top="0.0701in" fo:margin-bottom="0.0201in" style:page-number="auto" fo:background-color="transparent" style:shadow="none" fo:keep-with-next="always">
+    <style:background-image/>
+   </style:paragraph-properties>
+   <style:text-properties fo:text-transform="capitalize" fo:color="#800000" style:font-name="Bookman Old Style" fo:font-size="14pt" style:text-underline-style="solid" style:text-underline-type="double" style:text-underline-width="auto" style:text-underline-color="#000000" fo:font-weight="250" style:font-name-asian="Microsoft YaHei" style:font-size-asian="14pt" style:font-name-complex="Mangal" style:font-size-complex="14pt"/>
+  </style:style>
+  <style:style style:name="Text_20_body" style:display-name="Text body" style:family="paragraph" style:parent-style-name="Standard" style:class="text">
+   <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0.0201in"/>
+  </style:style>
+  <style:style style:name="List" style:family="paragraph" style:parent-style-name="Text_20_body" style:class="list">
+   <style:text-properties style:font-size-asian="12pt" style:font-name-complex="Mangal1"/>
+  </style:style>
+  <style:style style:name="Caption" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
+   <style:paragraph-properties fo:margin-top="0.0835in" fo:margin-bottom="0.0835in" text:number-lines="false" text:line-number="0"/>
+   <style:text-properties fo:font-size="12pt" fo:font-style="italic" style:font-size-asian="12pt" style:font-style-asian="italic" style:font-name-complex="Mangal1" style:font-size-complex="12pt" style:font-style-complex="italic"/>
+  </style:style>
+  <style:style style:name="Index" style:family="paragraph" style:parent-style-name="Standard" style:class="index">
+   <style:paragraph-properties text:number-lines="false" text:line-number="0"/>
+   <style:text-properties style:font-size-asian="12pt" style:font-name-complex="Mangal1"/>
+  </style:style>
+  <style:style style:name="Header" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
+   <style:paragraph-properties text:number-lines="false" text:line-number="0">
+    <style:tab-stops>
+     <style:tab-stop style:position="3.4626in" style:type="center"/>
+     <style:tab-stop style:position="6.9252in" style:type="right"/>
+    </style:tab-stops>
+   </style:paragraph-properties>
+  </style:style>
+  <style:style style:name="Footer" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
+   <style:paragraph-properties text:number-lines="false" text:line-number="0">
+    <style:tab-stops>
+     <style:tab-stop style:position="3.4626in" style:type="center"/>
+     <style:tab-stop style:position="6.9252in" style:type="right"/>
+    </style:tab-stops>
+   </style:paragraph-properties>
+  </style:style>
+  <style:style style:name="Table_20_Contents" style:display-name="Table Contents" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
+   <style:paragraph-properties text:number-lines="false" text:line-number="0"/>
+   <style:text-properties style:font-name="DejaVu Serif" style:font-size-asian="10.5pt"/>
+  </style:style>
+  <style:style style:name="Heading_20_1" style:display-name="Heading 1" style:family="paragraph" style:parent-style-name="Heading" style:next-style-name="Text_20_body" style:default-outline-level="1" style:class="text">
+   <style:text-properties fo:font-size="115%" fo:font-weight="bold" style:font-size-asian="115%" style:font-weight-asian="bold" style:font-size-complex="115%" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="Heading_20_2" style:display-name="Heading 2" style:family="paragraph" style:parent-style-name="Heading" style:next-style-name="Text_20_body" style:default-outline-level="2" style:class="text">
+   <style:text-properties fo:font-size="12pt" fo:font-style="normal" fo:font-weight="bold" style:font-size-asian="14pt" style:font-style-asian="italic" style:font-weight-asian="bold" style:font-size-complex="14pt" style:font-style-complex="italic" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="Heading_20_3" style:display-name="Heading 3" style:family="paragraph" style:parent-style-name="Heading" style:next-style-name="Text_20_body" style:default-outline-level="3" style:class="text">
+   <style:text-properties fo:font-size="10pt" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="#000000" fo:font-weight="bold" style:font-size-asian="14pt" style:font-weight-asian="bold" style:font-size-complex="14pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="Table_20_Heading" style:display-name="Table Heading" style:family="paragraph" style:parent-style-name="Table_20_Contents" style:class="extra">
+   <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" text:number-lines="false" text:line-number="0"/>
+   <style:text-properties style:font-name="DejaVu Serif1" fo:font-weight="bold" style:font-size-asian="10.5pt" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="Bullet_20_Symbols" style:display-name="Bullet Symbols" style:family="text">
+   <style:text-properties style:font-name="OpenSymbol" style:font-name-asian="OpenSymbol" style:font-name-complex="OpenSymbol"/>
+  </style:style>
+  <style:style style:name="Numbering_20_Symbols" style:display-name="Numbering Symbols" style:family="text"/>
+  <style:style style:name="Internet_20_link" style:display-name="Internet link" style:family="text">
+   <style:text-properties fo:color="#000080" fo:language="zxx" fo:country="none" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color" style:language-asian="zxx" style:country-asian="none" style:language-complex="zxx" style:country-complex="none"/>
+  </style:style>
+  <style:style style:name="Emphasis" style:family="text">
+   <style:text-properties fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/>
+  </style:style>
+  <style:style style:name="Strong_20_Emphasis" style:display-name="Strong Emphasis" style:family="text">
+   <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="Graphics" style:family="graphic">
+   <style:graphic-properties text:anchor-type="paragraph" svg:x="0in" svg:y="0in" style:wrap="dynamic" style:number-wrapped-paragraphs="no-limit" style:wrap-contour="false" style:vertical-pos="top" style:vertical-rel="paragraph" style:horizontal-pos="center" style:horizontal-rel="paragraph"/>
+  </style:style>
+  <text:outline-style style:name="Outline">
+   <text:outline-level-style text:level="1" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.3in" fo:text-indent="-0.3in" fo:margin-left="0.3in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="2" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.4in" fo:text-indent="-0.4in" fo:margin-left="0.4in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="3" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.5in" fo:text-indent="-0.5in" fo:margin-left="0.5in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="4" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.6in" fo:text-indent="-0.6in" fo:margin-left="0.6in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="5" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.7in" fo:text-indent="-0.7in" fo:margin-left="0.7in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="6" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.8in" fo:text-indent="-0.8in" fo:margin-left="0.8in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="7" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.9in" fo:text-indent="-0.9in" fo:margin-left="0.9in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="8" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1in" fo:text-indent="-1in" fo:margin-left="1in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="9" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.1in" fo:text-indent="-1.1in" fo:margin-left="1.1in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="10" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.2in" fo:text-indent="-1.2in" fo:margin-left="1.2in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+  </text:outline-style>
+  <text:notes-configuration text:note-class="footnote" style:num-format="1" text:start-value="0" text:footnotes-position="page" text:start-numbering-at="document"/>
+  <text:notes-configuration text:note-class="endnote" style:num-format="i" text:start-value="0"/>
+  <text:linenumbering-configuration text:number-lines="false" text:offset="0.1965in" style:num-format="1" text:number-position="left" text:increment="5"/>
+ </office:styles>
+ <office:automatic-styles>
+  <style:style style:name="Table1" style:family="table">
+   <style:table-properties style:width="7in" table:align="margins"/>
+  </style:style>
+  <style:style style:name="Table1.A" style:family="table-column">
+   <style:table-column-properties style:column-width="5.5in" style:rel-column-width="51491*"/>
+  </style:style>
+  <style:style style:name="Table1.B" style:family="table-column">
+   <style:table-column-properties style:column-width="1in" style:rel-column-width="9362*"/>
+  </style:style>
+  <style:style style:name="Table1.C" style:family="table-column">
+   <style:table-column-properties style:column-width="0.5in" style:rel-column-width="4682*"/>
+  </style:style>
+  <style:style style:name="Table2" style:family="table">
+   <style:table-properties style:width="7in" table:align="margins"/>
+  </style:style>
+  <style:style style:name="Table2.A" style:family="table-column">
+   <style:table-column-properties style:column-width="2.3333in" style:rel-column-width="21845*"/>
+  </style:style>
+  <style:style style:name="Table1" style:family="table">
+   <style:table-properties style:width="7in" table:align="margins"/>
+  </style:style>
+  <style:style style:name="Table1.A" style:family="table-column">
+   <style:table-column-properties style:column-width="5.5in" style:rel-column-width="51491*"/>
+  </style:style>
+  <style:style style:name="Table1.B" style:family="table-column">
+   <style:table-column-properties style:column-width="1in" style:rel-column-width="9362*"/>
+  </style:style>
+  <style:style style:name="Table1.C" style:family="table-column">
+   <style:table-column-properties style:column-width="0.5in" style:rel-column-width="4682*"/>
+  </style:style>
+  <style:style style:name="Table2" style:family="table">
+   <style:table-properties style:width="7in" table:align="margins"/>
+  </style:style>
+  <style:style style:name="Table2.A" style:family="table-column">
+   <style:table-column-properties style:column-width="2.3333in" style:rel-column-width="21845*"/>
+  </style:style>
+  <style:style style:name="Table6" style:family="table">
+   <style:table-properties style:width="7in" table:align="margins"/>
+  </style:style>
+  <style:style style:name="Table6.A" style:family="table-column">
+   <style:table-column-properties style:column-width="0.9958in" style:rel-column-width="9323*"/>
+  </style:style>
+  <style:style style:name="Table6.B" style:family="table-column">
+   <style:table-column-properties style:column-width="2.5049in" style:rel-column-width="23450*"/>
+  </style:style>
+  <style:style style:name="Table6.C" style:family="table-column">
+   <style:table-column-properties style:column-width="3.4993in" style:rel-column-width="32762*"/>
+  </style:style>
+  <style:style style:name="Table6.A1" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="0.05pt solid #000000" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table6.C1" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table6.A2" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table6.C2" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="0.05pt solid #000000" fo:border-top="none" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table3" style:family="table">
+   <style:table-properties style:width="7in" table:align="margins"/>
+  </style:style>
+  <style:style style:name="Table3.A" style:family="table-column">
+   <style:table-column-properties style:column-width="0.9958in" style:rel-column-width="9323*"/>
+  </style:style>
+  <style:style style:name="Table3.B" style:family="table-column">
+   <style:table-column-properties style:column-width="2.5049in" style:rel-column-width="23450*"/>
+  </style:style>
+  <style:style style:name="Table3.C" style:family="table-column">
+   <style:table-column-properties style:column-width="3.4993in" style:rel-column-width="32762*"/>
+  </style:style>
+  <style:style style:name="Table3.A1" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="0.05pt solid #000000" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table3.C1" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table3.A2" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table3.C2" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="0.05pt solid #000000" fo:border-top="none" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table3.C6" style:family="table-cell">
+   <style:table-cell-properties style:vertical-align="middle" fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="0.05pt solid #000000" fo:border-top="none" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table4" style:family="table">
+   <style:table-properties style:width="7in" table:align="margins"/>
+  </style:style>
+  <style:style style:name="Table4.A" style:family="table-column">
+   <style:table-column-properties style:column-width="0.9958in" style:rel-column-width="9323*"/>
+  </style:style>
+  <style:style style:name="Table4.B" style:family="table-column">
+   <style:table-column-properties style:column-width="2.5049in" style:rel-column-width="23450*"/>
+  </style:style>
+  <style:style style:name="Table4.C" style:family="table-column">
+   <style:table-column-properties style:column-width="3.4993in" style:rel-column-width="32762*"/>
+  </style:style>
+  <style:style style:name="Table4.A1" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="0.05pt solid #000000" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table4.C1" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table4.A2" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table4.C2" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="0.05pt solid #000000" fo:border-top="none" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table5" style:family="table">
+   <style:table-properties style:width="7in" table:align="margins"/>
+  </style:style>
+  <style:style style:name="Table5.A" style:family="table-column">
+   <style:table-column-properties style:column-width="0.9958in" style:rel-column-width="9323*"/>
+  </style:style>
+  <style:style style:name="Table5.B" style:family="table-column">
+   <style:table-column-properties style:column-width="2.5049in" style:rel-column-width="23450*"/>
+  </style:style>
+  <style:style style:name="Table5.C" style:family="table-column">
+   <style:table-column-properties style:column-width="3.4993in" style:rel-column-width="32762*"/>
+  </style:style>
+  <style:style style:name="Table5.A1" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="0.05pt solid #000000" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table5.C1" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table5.A2" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table5.C2" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="0.05pt solid #000000" fo:border-top="none" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table7" style:family="table">
+   <style:table-properties style:width="7in" table:align="margins"/>
+  </style:style>
+  <style:style style:name="Table7.A" style:family="table-column">
+   <style:table-column-properties style:column-width="0.9958in" style:rel-column-width="9323*"/>
+  </style:style>
+  <style:style style:name="Table7.B" style:family="table-column">
+   <style:table-column-properties style:column-width="2.5049in" style:rel-column-width="23450*"/>
+  </style:style>
+  <style:style style:name="Table7.C" style:family="table-column">
+   <style:table-column-properties style:column-width="3.4993in" style:rel-column-width="32762*"/>
+  </style:style>
+  <style:style style:name="Table7.A1" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="0.05pt solid #000000" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table7.C1" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table7.A2" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table7.C2" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="0.05pt solid #000000" fo:border-top="none" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table8" style:family="table">
+   <style:table-properties style:width="7in" table:align="margins"/>
+  </style:style>
+  <style:style style:name="Table8.A" style:family="table-column">
+   <style:table-column-properties style:column-width="0.9958in" style:rel-column-width="9323*"/>
+  </style:style>
+  <style:style style:name="Table8.B" style:family="table-column">
+   <style:table-column-properties style:column-width="2.5049in" style:rel-column-width="23450*"/>
+  </style:style>
+  <style:style style:name="Table8.C" style:family="table-column">
+   <style:table-column-properties style:column-width="3.4993in" style:rel-column-width="32762*"/>
+  </style:style>
+  <style:style style:name="Table8.A1" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="0.05pt solid #000000" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table8.C1" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table8.A2" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table8.C2" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="0.05pt solid #000000" fo:border-top="none" fo:border-bottom="0.05pt solid #000000"/>
+  </style:style>
+  <style:style style:name="P1" style:family="paragraph" style:parent-style-name="Standard">
+   <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
+   <style:text-properties style:font-name="Arial" fo:font-size="3pt" style:font-size-asian="2.59999990463257pt" style:font-size-complex="3pt"/>
+  </style:style>
+  <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Footer">
+   <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
+   <style:text-properties style:font-name="Arial" fo:font-size="9pt" style:font-size-asian="7.84999990463257pt" style:font-size-complex="9pt"/>
+  </style:style>
+  <style:style style:name="P3" style:family="paragraph" style:parent-style-name="Standard">
+   <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
+   <style:text-properties style:font-name="Arial" fo:font-size="3pt" style:font-size-asian="2.59999990463257pt" style:font-size-complex="3pt"/>
+  </style:style>
+  <style:style style:name="P4" style:family="paragraph" style:parent-style-name="Footer">
+   <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
+   <style:text-properties style:font-name="Arial" fo:font-size="9pt" style:font-size-asian="7.84999990463257pt" style:font-size-complex="9pt"/>
+  </style:style>
+  <style:style style:name="P5" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+   <style:text-properties style:font-name="OCR A Extended" fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="P6" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+   <style:text-properties fo:color="#800000" style:font-name="Arial" fo:font-size="18pt" fo:font-weight="bold" style:font-size-asian="18pt" style:font-weight-asian="bold" style:font-size-complex="18pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="P7" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+   <style:text-properties fo:color="#800000" style:font-name="Arial" fo:font-size="12pt" fo:font-style="italic" style:font-size-asian="10.5pt" style:font-style-asian="italic" style:font-size-complex="12pt" style:font-style-complex="italic"/>
+  </style:style>
+  <style:style style:name="P8" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+   <style:text-properties fo:color="#800000" style:font-name="Arial" fo:font-size="9pt" style:font-size-asian="7.84999990463257pt" style:font-size-complex="9pt"/>
+  </style:style>
+  <style:style style:name="P9" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+   <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
+   <style:text-properties fo:color="#800000" style:font-name="Arial" fo:font-size="9pt" fo:font-weight="bold" style:font-size-asian="9pt" style:font-weight-asian="bold" style:font-size-complex="9pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="P10" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+   <style:text-properties fo:color="#800000" style:font-name="Arial" fo:font-size="9pt" fo:font-style="italic" style:font-size-asian="9pt" style:font-style-asian="italic" style:font-size-complex="9pt" style:font-style-complex="italic"/>
+  </style:style>
+  <style:style style:name="P11" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+   <style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
+   <style:text-properties fo:color="#800000" style:font-name="Arial" fo:font-size="9pt" fo:font-style="italic" style:font-size-asian="9pt" style:font-style-asian="italic" style:font-size-complex="9pt" style:font-style-complex="italic"/>
+  </style:style>
+  <style:style style:name="P12" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+   <style:text-properties style:font-name="DejaVu Serif2"/>
+  </style:style>
+  <style:style style:name="P13" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+   <style:text-properties style:font-name="DejaVu Serif2" fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="P14" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+   <style:text-properties style:font-name="DejaVu Serif2" fo:font-weight="normal" style:font-weight-asian="normal" style:font-weight-complex="normal"/>
+  </style:style>
+  <style:style style:name="P15" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+   <style:text-properties style:font-name="DejaVu Serif2" fo:font-size="8pt" style:font-size-asian="8pt" style:font-size-complex="8pt"/>
+  </style:style>
+  <style:style style:name="P16" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+   <style:text-properties fo:font-size="8pt" style:font-size-asian="8pt" style:font-size-complex="8pt"/>
+  </style:style>
+  <style:style style:name="P17" style:family="paragraph" style:parent-style-name="Table_20_Heading">
+   <style:text-properties style:font-name="DejaVu Serif2"/>
+  </style:style>
+  <style:style style:name="P18" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+   <style:text-properties style:font-name="DejaVu Serif2"/>
+  </style:style>
+  <style:style style:name="P19" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+   <style:text-properties style:font-name="DejaVu Serif2" fo:font-size="8pt" style:font-size-asian="8pt" style:font-size-complex="8pt"/>
+  </style:style>
+  <style:style style:name="P20" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+   <style:text-properties style:font-name="DejaVu Serif2" fo:font-weight="normal" style:font-weight-asian="normal" style:font-weight-complex="normal"/>
+  </style:style>
+  <style:style style:name="P21" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+   <style:text-properties fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/>
+  </style:style>
+  <style:style style:name="T1" style:family="text">
+   <style:text-properties style:text-position="super 58%"/>
+  </style:style>
+  <style:style style:name="T2" style:family="text">
+   <style:text-properties style:font-name="DejaVu Serif3"/>
+  </style:style>
+  <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
+   <style:graphic-properties style:mirror="none" fo:clip="rect(0in, 0in, 0in, 0in)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
+  </style:style>
+  <style:page-layout style:name="pm1">
+   <style:page-layout-properties fo:page-width="8.5in" fo:page-height="11in" style:num-format="1" style:print-orientation="portrait" fo:margin-top="0.5in" fo:margin-bottom="0.5in" fo:margin-left="0.75in" fo:margin-right="0.75in" style:shadow="none" fo:background-color="transparent" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="20" style:layout-grid-base-height="0.278in" style:layout-grid-ruby-height="0.139in" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="true" style:layout-grid-display="true" style:footnote-max-height="0in">
+    <style:background-image/>
+    <style:columns fo:column-count="1" fo:column-gap="0in"/>
+    <style:footnote-sep style:width="0.0071in" style:distance-before-sep="0.0402in" style:distance-after-sep="0.0402in" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
+   </style:page-layout-properties>
+   <style:header-style>
+    <style:header-footer-properties fo:min-height="0.4in" fo:margin-left="0in" fo:margin-right="0in" fo:margin-bottom="0.2in" fo:border-top="0.06pt solid #000000" fo:border-bottom="0.06pt solid #000000" fo:border-left="none" fo:border-right="none" fo:padding="0.0201in" style:shadow="none" style:dynamic-spacing="false"/>
+   </style:header-style>
+   <style:footer-style>
+    <style:header-footer-properties fo:min-height="0.4in" fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.2in" fo:border-top="0.06pt solid #000000" fo:border-bottom="0.06pt solid #000000" fo:border-left="none" fo:border-right="none" fo:padding="0.0201in" style:shadow="none" style:dynamic-spacing="false"/>
+   </style:footer-style>
+  </style:page-layout>
+ </office:automatic-styles>
+ <office:master-styles>
+  <style:master-page style:name="Standard" style:page-layout-name="pm1">
+   <style:header>
+    <table:table table:name="Table1" table:style-name="Table1">
+     <table:table-column table:style-name="Table1.A"/>
+     <table:table-column table:style-name="Table1.B"/>
+     <table:table-column table:style-name="Table1.C"/>
+     <table:table-row>
+      <table:table-cell office:value-type="string">
+       <text:p text:style-name="P6">Technology Glossary</text:p>
+       <text:p text:style-name="P7">Tech Note 229</text:p>
+       <text:p text:style-name="P8">March 19, 2012</text:p>
+      </table:table-cell>
+      <table:table-cell office:value-type="string">
+       <text:p text:style-name="P5">Eclipse </text:p>
+       <text:p text:style-name="P5">Identity </text:p>
+       <text:p text:style-name="P5">Recognition </text:p>
+       <text:p text:style-name="P5">Corporation</text:p>
+      </table:table-cell>
+      <table:table-cell office:value-type="string">
+       <text:p text:style-name="Table_20_Contents"><draw:frame draw:style-name="fr1" draw:name="graphics1" text:anchor-type="paragraph" svg:width="0.5008in" svg:height="0.5008in" draw:z-index="0"><draw:image>
+          <office:binary-data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+
+           CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8p
+           IC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEu
+           MS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHht
+           bG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIK
+           ICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0
+           dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53
+           My5vcmcvMTk5OS94bGluayIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5z
+           b3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxuczppbmtzY2FwZT0i
+           aHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgd2lkdGg9
+           IjY4MCIKICAgaGVpZ2h0PSI2ODAiCiAgIGlkPSJzdmcyIgogICB2ZXJzaW9uPSIxLjEiCiAg
+           IGlua3NjYXBlOnZlcnNpb249IjAuNDguMiByOTgxOSIKICAgc29kaXBvZGk6ZG9jbmFtZT0i
+           TG9nby1GdWxsLnN2ZyIKICAgaW5rc2NhcGU6ZXhwb3J0LWZpbGVuYW1lPSJEOlxlaXJjX3N2
+           bjNcdHJ1bmtcY29tbW9uXGFydFxsb2dvc1xHcmFkU3RhY2szMDAucG5nIgogICBpbmtzY2Fw
+           ZTpleHBvcnQteGRwaT0iMzAwIgogICBpbmtzY2FwZTpleHBvcnQteWRwaT0iMzAwIj4KICA8
+           ZGVmcwogICAgIGlkPSJkZWZzNCI+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlkPSJs
+           aW5lYXJHcmFkaWVudDM4MzIiPgogICAgICA8c3RvcAogICAgICAgICBzdHlsZT0ic3RvcC1j
+           b2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eToxOyIKICAgICAgICAgb2Zmc2V0PSIwIgogICAg
+           ICAgICBpZD0ic3RvcDM4MzQiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIGlkPSJzdG9wMzg1
+           OSIKICAgICAgICAgb2Zmc2V0PSIwLjc1MDgxMDgiCiAgICAgICAgIHN0eWxlPSJzdG9wLWNv
+           bG9yOiM3ZjdmN2Y7c3RvcC1vcGFjaXR5OjAuNDk4MDM5MjI7IiAvPgogICAgICA8c3RvcAog
+           ICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojMDAwMDAwO3N0b3Atb3BhY2l0eTowOyIKICAg
+           ICAgICAgb2Zmc2V0PSIxIgogICAgICAgICBpZD0ic3RvcDM4MzYiIC8+CiAgICA8L2xpbmVh
+           ckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50CiAgICAgICBpZD0ibGluZWFyR3JhZGll
+           bnQzNjU4Ij4KICAgICAgPHN0b3AKICAgICAgICAgc3R5bGU9InN0b3AtY29sb3I6IzEwMTAx
+           MDtzdG9wLW9wYWNpdHk6MTsiCiAgICAgICAgIG9mZnNldD0iMCIKICAgICAgICAgaWQ9InN0
+           b3AzNjYwIiAvPgogICAgICA8c3RvcAogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojMzAz
+           MDMwO3N0b3Atb3BhY2l0eToxOyIKICAgICAgICAgb2Zmc2V0PSIxIgogICAgICAgICBpZD0i
+           c3RvcDM2NjIiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50
+           CiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQzNjUwIj4KICAgICAgPHN0b3AKICAgICAgICAg
+           c3R5bGU9InN0b3AtY29sb3I6IzgwODA4MDtzdG9wLW9wYWNpdHk6MTsiCiAgICAgICAgIG9m
+           ZnNldD0iMCIKICAgICAgICAgaWQ9InN0b3AzNjUyIiAvPgogICAgICA8c3RvcAogICAgICAg
+           ICBzdHlsZT0ic3RvcC1jb2xvcjojNDA0MDQwO3N0b3Atb3BhY2l0eToxOyIKICAgICAgICAg
+           b2Zmc2V0PSIxIgogICAgICAgICBpZD0ic3RvcDM2NTQiIC8+CiAgICA8L2xpbmVhckdyYWRp
+           ZW50PgogICAgPGxpbmVhckdyYWRpZW50CiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQzNjQy
+           Ij4KICAgICAgPHN0b3AKICAgICAgICAgc3R5bGU9InN0b3AtY29sb3I6IzIwMjAyMDtzdG9w
+           LW9wYWNpdHk6MTsiCiAgICAgICAgIG9mZnNldD0iMCIKICAgICAgICAgaWQ9InN0b3AzNjQ0
+           IiAvPgogICAgICA8c3RvcAogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojNjA2MDYwO3N0
+           b3Atb3BhY2l0eToxOyIKICAgICAgICAgb2Zmc2V0PSIxIgogICAgICAgICBpZD0ic3RvcDM2
+           NDYiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50CiAgICAg
+           ICBpZD0ibGluZWFyR3JhZGllbnQzNjI2Ij4KICAgICAgPHN0b3AKICAgICAgICAgc3R5bGU9
+           InN0b3AtY29sb3I6I2YwZjBmMDtzdG9wLW9wYWNpdHk6MTsiCiAgICAgICAgIG9mZnNldD0i
+           MCIKICAgICAgICAgaWQ9InN0b3AzNjI4IiAvPgogICAgICA8c3RvcAogICAgICAgICBzdHls
+           ZT0ic3RvcC1jb2xvcjojYzBjMGMwO3N0b3Atb3BhY2l0eToxOyIKICAgICAgICAgb2Zmc2V0
+           PSIxIgogICAgICAgICBpZD0ic3RvcDM2MzAiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50Pgog
+           ICAgPGxpbmVhckdyYWRpZW50CiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQzNjE4Ij4KICAg
+           ICAgPHN0b3AKICAgICAgICAgc3R5bGU9InN0b3AtY29sb3I6I2U0ZTRlNDtzdG9wLW9wYWNp
+           dHk6MTsiCiAgICAgICAgIG9mZnNldD0iMCIKICAgICAgICAgaWQ9InN0b3AzNjIwIiAvPgog
+           ICAgICA8c3RvcAogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojZTRlNGU0O3N0b3Atb3Bh
+           Y2l0eTowOyIKICAgICAgICAgb2Zmc2V0PSIxIgogICAgICAgICBpZD0ic3RvcDM2MjIiIC8+
+           CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGlua3NjYXBlOnBlcnNwZWN0aXZlCiAgICAg
+           ICBzb2RpcG9kaTp0eXBlPSJpbmtzY2FwZTpwZXJzcDNkIgogICAgICAgaW5rc2NhcGU6dnBf
+           eD0iMCA6IDUyNi4xODEwOSA6IDEiCiAgICAgICBpbmtzY2FwZTp2cF95PSIwIDogMTAwMCA6
+           IDAiCiAgICAgICBpbmtzY2FwZTp2cF96PSI3NDQuMDk0NDggOiA1MjYuMTgxMDkgOiAxIgog
+           ICAgICAgaW5rc2NhcGU6cGVyc3AzZC1vcmlnaW49IjM3Mi4wNDcyNCA6IDM1MC43ODczOSA6
+           IDEiCiAgICAgICBpZD0icGVyc3BlY3RpdmUxMCIgLz4KICAgIDxyYWRpYWxHcmFkaWVudAog
+           ICAgICAgaW5rc2NhcGU6Y29sbGVjdD0iYWx3YXlzIgogICAgICAgeGxpbms6aHJlZj0iI2xp
+           bmVhckdyYWRpZW50MzYyNiIKICAgICAgIGlkPSJyYWRpYWxHcmFkaWVudDM2MzIiCiAgICAg
+           ICBjeD0iMzgwIgogICAgICAgY3k9IjM4NSIKICAgICAgIGZ4PSIzODAiCiAgICAgICBmeT0i
+           Mzg1IgogICAgICAgcj0iMTAwLjUiCiAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VP
+           blVzZSIgLz4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICAgaW5rc2NhcGU6Y29sbGVjdD0i
+           YWx3YXlzIgogICAgICAgeGxpbms6aHJlZj0iI2xpbmVhckdyYWRpZW50MzY0MiIKICAgICAg
+           IGlkPSJsaW5lYXJHcmFkaWVudDM2NDgiCiAgICAgICB4MT0iMjM5LjUiCiAgICAgICB5MT0i
+           Mzg1IgogICAgICAgeDI9IjUyMC41IgogICAgICAgeTI9IjM4NSIKICAgICAgIGdyYWRpZW50
+           VW5pdHM9InVzZXJTcGFjZU9uVXNlIiAvPgogICAgPGxpbmVhckdyYWRpZW50CiAgICAgICBp
+           bmtzY2FwZTpjb2xsZWN0PSJhbHdheXMiCiAgICAgICB4bGluazpocmVmPSIjbGluZWFyR3Jh
+           ZGllbnQzNjUwIgogICAgICAgaWQ9ImxpbmVhckdyYWRpZW50MzY1NiIKICAgICAgIHgxPSIx
+           OTkuNSIKICAgICAgIHkxPSIzODUiCiAgICAgICB4Mj0iNTYwLjUiCiAgICAgICB5Mj0iMzg1
+           IgogICAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIC8+CiAgICA8bGluZWFy
+           R3JhZGllbnQKICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIHhsaW5r
+           OmhyZWY9IiNsaW5lYXJHcmFkaWVudDM2NTgiCiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQz
+           NjY0IgogICAgICAgeDE9IjExOS41IgogICAgICAgeTE9IjM4NSIKICAgICAgIHgyPSI2NDAu
+           NSIKICAgICAgIHkyPSIzODUiCiAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVz
+           ZSIgLz4KICAgIDxyYWRpYWxHcmFkaWVudAogICAgICAgaW5rc2NhcGU6Y29sbGVjdD0iYWx3
+           YXlzIgogICAgICAgeGxpbms6aHJlZj0iI2xpbmVhckdyYWRpZW50MzgzMiIKICAgICAgIGlk
+           PSJyYWRpYWxHcmFkaWVudDM4MzgiCiAgICAgICBjeD0iMzQwIgogICAgICAgY3k9IjM4NSIK
+           ICAgICAgIGZ4PSIzNDAiCiAgICAgICBmeT0iMzg1IgogICAgICAgcj0iMzAwIgogICAgICAg
+           Z3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIC8+CiAgICA8bGluZWFyR3JhZGllbnQK
+           ICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIHhsaW5rOmhyZWY9IiNs
+           aW5lYXJHcmFkaWVudDM2NTgiCiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQzODQyIgogICAg
+           ICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiCiAgICAgICB4MT0iMTE5LjUiCiAg
+           ICAgICB5MT0iMzg1IgogICAgICAgeDI9IjY0MC41IgogICAgICAgeTI9IjM4NSIgLz4KICAg
+           IDxsaW5lYXJHcmFkaWVudAogICAgICAgaW5rc2NhcGU6Y29sbGVjdD0iYWx3YXlzIgogICAg
+           ICAgeGxpbms6aHJlZj0iI2xpbmVhckdyYWRpZW50MzY1MCIKICAgICAgIGlkPSJsaW5lYXJH
+           cmFkaWVudDM4NDQiCiAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIKICAg
+           ICAgIHgxPSIxOTkuNSIKICAgICAgIHkxPSIzODUiCiAgICAgICB4Mj0iNTYwLjUiCiAgICAg
+           ICB5Mj0iMzg1IiAvPgogICAgPGxpbmVhckdyYWRpZW50CiAgICAgICBpbmtzY2FwZTpjb2xs
+           ZWN0PSJhbHdheXMiCiAgICAgICB4bGluazpocmVmPSIjbGluZWFyR3JhZGllbnQzNjQyIgog
+           ICAgICAgaWQ9ImxpbmVhckdyYWRpZW50Mzg0NiIKICAgICAgIGdyYWRpZW50VW5pdHM9InVz
+           ZXJTcGFjZU9uVXNlIgogICAgICAgeDE9IjIzOS41IgogICAgICAgeTE9IjM4NSIKICAgICAg
+           IHgyPSI1MjAuNSIKICAgICAgIHkyPSIzODUiIC8+CiAgICA8cmFkaWFsR3JhZGllbnQKICAg
+           ICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIHhsaW5rOmhyZWY9IiNsaW5l
+           YXJHcmFkaWVudDM2MjYiCiAgICAgICBpZD0icmFkaWFsR3JhZGllbnQzODQ4IgogICAgICAg
+           Z3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiCiAgICAgICBjeD0iMzgwIgogICAgICAg
+           Y3k9IjM4NSIKICAgICAgIGZ4PSIzODAiCiAgICAgICBmeT0iMzg1IgogICAgICAgcj0iMTAw
+           LjUiIC8+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFs
+           d2F5cyIKICAgICAgIHhsaW5rOmhyZWY9IiNsaW5lYXJHcmFkaWVudDM2NTgiCiAgICAgICBp
+           ZD0ibGluZWFyR3JhZGllbnQzODYxIgogICAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNl
+           T25Vc2UiCiAgICAgICB4MT0iMTE5LjUiCiAgICAgICB5MT0iMzg1IgogICAgICAgeDI9IjY0
+           MC41IgogICAgICAgeTI9IjM4NSIgLz4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICAgaW5r
+           c2NhcGU6Y29sbGVjdD0iYWx3YXlzIgogICAgICAgeGxpbms6aHJlZj0iI2xpbmVhckdyYWRp
+           ZW50MzY1MCIKICAgICAgIGlkPSJsaW5lYXJHcmFkaWVudDM4NjMiCiAgICAgICBncmFkaWVu
+           dFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIKICAgICAgIHgxPSIxOTkuNSIKICAgICAgIHkxPSIz
+           ODUiCiAgICAgICB4Mj0iNTYwLjUiCiAgICAgICB5Mj0iMzg1IiAvPgogICAgPGxpbmVhckdy
+           YWRpZW50CiAgICAgICBpbmtzY2FwZTpjb2xsZWN0PSJhbHdheXMiCiAgICAgICB4bGluazpo
+           cmVmPSIjbGluZWFyR3JhZGllbnQzNjQyIgogICAgICAgaWQ9ImxpbmVhckdyYWRpZW50Mzg2
+           NSIKICAgICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIgogICAgICAgeDE9IjIz
+           OS41IgogICAgICAgeTE9IjM4NSIKICAgICAgIHgyPSI1MjAuNSIKICAgICAgIHkyPSIzODUi
+           IC8+CiAgICA8cmFkaWFsR3JhZGllbnQKICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5
+           cyIKICAgICAgIHhsaW5rOmhyZWY9IiNsaW5lYXJHcmFkaWVudDM2MjYiCiAgICAgICBpZD0i
+           cmFkaWFsR3JhZGllbnQzODY3IgogICAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25V
+           c2UiCiAgICAgICBjeD0iMzgwIgogICAgICAgY3k9IjM4NSIKICAgICAgIGZ4PSIzODAiCiAg
+           ICAgICBmeT0iMzg1IgogICAgICAgcj0iMTAwLjUiIC8+CiAgICA8cmFkaWFsR3JhZGllbnQK
+           ICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIHhsaW5rOmhyZWY9IiNs
+           aW5lYXJHcmFkaWVudDM4MzIiCiAgICAgICBpZD0icmFkaWFsR3JhZGllbnQzOTEzIgogICAg
+           ICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiCiAgICAgICBjeD0iMzQwIgogICAg
+           ICAgY3k9IjM4NSIKICAgICAgIGZ4PSIzNDAiCiAgICAgICBmeT0iMzg1IgogICAgICAgcj0i
+           MzAwIiAvPgogICAgPGxpbmVhckdyYWRpZW50CiAgICAgICBpbmtzY2FwZTpjb2xsZWN0PSJh
+           bHdheXMiCiAgICAgICB4bGluazpocmVmPSIjbGluZWFyR3JhZGllbnQzNjU4IgogICAgICAg
+           aWQ9ImxpbmVhckdyYWRpZW50MzkxNSIKICAgICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFj
+           ZU9uVXNlIgogICAgICAgeDE9IjExOS41IgogICAgICAgeTE9IjM4NSIKICAgICAgIHgyPSI2
+           NDAuNSIKICAgICAgIHkyPSIzODUiIC8+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlu
+           a3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIHhsaW5rOmhyZWY9IiNsaW5lYXJHcmFk
+           aWVudDM2NTAiCiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQzOTE3IgogICAgICAgZ3JhZGll
+           bnRVbml0cz0idXNlclNwYWNlT25Vc2UiCiAgICAgICB4MT0iMTk5LjUiCiAgICAgICB5MT0i
+           Mzg1IgogICAgICAgeDI9IjU2MC41IgogICAgICAgeTI9IjM4NSIgLz4KICAgIDxsaW5lYXJH
+           cmFkaWVudAogICAgICAgaW5rc2NhcGU6Y29sbGVjdD0iYWx3YXlzIgogICAgICAgeGxpbms6
+           aHJlZj0iI2xpbmVhckdyYWRpZW50MzY0MiIKICAgICAgIGlkPSJsaW5lYXJHcmFkaWVudDM5
+           MTkiCiAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIKICAgICAgIHgxPSIy
+           MzkuNSIKICAgICAgIHkxPSIzODUiCiAgICAgICB4Mj0iNTIwLjUiCiAgICAgICB5Mj0iMzg1
+           IiAvPgogICAgPHJhZGlhbEdyYWRpZW50CiAgICAgICBpbmtzY2FwZTpjb2xsZWN0PSJhbHdh
+           eXMiCiAgICAgICB4bGluazpocmVmPSIjbGluZWFyR3JhZGllbnQzNjI2IgogICAgICAgaWQ9
+           InJhZGlhbEdyYWRpZW50MzkyMSIKICAgICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9u
+           VXNlIgogICAgICAgY3g9IjM4MCIKICAgICAgIGN5PSIzODUiCiAgICAgICBmeD0iMzgwIgog
+           ICAgICAgZnk9IjM4NSIKICAgICAgIHI9IjEwMC41IiAvPgogICAgPHJhZGlhbEdyYWRpZW50
+           CiAgICAgICBpbmtzY2FwZTpjb2xsZWN0PSJhbHdheXMiCiAgICAgICB4bGluazpocmVmPSIj
+           bGluZWFyR3JhZGllbnQzODMyIgogICAgICAgaWQ9InJhZGlhbEdyYWRpZW50Mzk1MiIKICAg
+           ICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIgogICAgICAgY3g9IjM0MCIKICAg
+           ICAgIGN5PSIzODUiCiAgICAgICBmeD0iMzQwIgogICAgICAgZnk9IjM4NSIKICAgICAgIHI9
+           IjMwMCIgLz4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICAgaW5rc2NhcGU6Y29sbGVjdD0i
+           YWx3YXlzIgogICAgICAgeGxpbms6aHJlZj0iI2xpbmVhckdyYWRpZW50MzY1OCIKICAgICAg
+           IGlkPSJsaW5lYXJHcmFkaWVudDM5NTQiCiAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3Bh
+           Y2VPblVzZSIKICAgICAgIHgxPSIxMTkuNSIKICAgICAgIHkxPSIzODUiCiAgICAgICB4Mj0i
+           NjQwLjUiCiAgICAgICB5Mj0iMzg1IiAvPgogICAgPGxpbmVhckdyYWRpZW50CiAgICAgICBp
+           bmtzY2FwZTpjb2xsZWN0PSJhbHdheXMiCiAgICAgICB4bGluazpocmVmPSIjbGluZWFyR3Jh
+           ZGllbnQzNjUwIgogICAgICAgaWQ9ImxpbmVhckdyYWRpZW50Mzk1NiIKICAgICAgIGdyYWRp
+           ZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIgogICAgICAgeDE9IjE5OS41IgogICAgICAgeTE9
+           IjM4NSIKICAgICAgIHgyPSI1NjAuNSIKICAgICAgIHkyPSIzODUiIC8+CiAgICA8bGluZWFy
+           R3JhZGllbnQKICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIHhsaW5r
+           OmhyZWY9IiNsaW5lYXJHcmFkaWVudDM2NDIiCiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQz
+           OTU4IgogICAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiCiAgICAgICB4MT0i
+           MjM5LjUiCiAgICAgICB5MT0iMzg1IgogICAgICAgeDI9IjUyMC41IgogICAgICAgeTI9IjM4
+           NSIgLz4KICAgIDxyYWRpYWxHcmFkaWVudAogICAgICAgaW5rc2NhcGU6Y29sbGVjdD0iYWx3
+           YXlzIgogICAgICAgeGxpbms6aHJlZj0iI2xpbmVhckdyYWRpZW50MzYyNiIKICAgICAgIGlk
+           PSJyYWRpYWxHcmFkaWVudDM5NjAiCiAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VP
+           blVzZSIKICAgICAgIGN4PSIzODAiCiAgICAgICBjeT0iMzg1IgogICAgICAgZng9IjM4MCIK
+           ICAgICAgIGZ5PSIzODUiCiAgICAgICByPSIxMDAuNSIgLz4KICA8L2RlZnM+CiAgPHNvZGlw
+           b2RpOm5hbWVkdmlldwogICAgIGlkPSJiYXNlIgogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIK
+           ICAgICBib3JkZXJjb2xvcj0iIzY2NjY2NiIKICAgICBib3JkZXJvcGFjaXR5PSIxLjAiCiAg
+           ICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgICBpbmtzY2FwZTpwYWdlc2hhZG93
+           PSIyIgogICAgIGlua3NjYXBlOnpvb209IjAuODQzMTgxODIiCiAgICAgaW5rc2NhcGU6Y3g9
+           IjY2MCIKICAgICBpbmtzY2FwZTpjeT0iMzgyLjUiCiAgICAgaW5rc2NhcGU6ZG9jdW1lbnQt
+           dW5pdHM9InB4IgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9ImxheWVyMSIKICAgICBz
+           aG93Z3JpZD0idHJ1ZSIKICAgICBncmlkdG9sZXJhbmNlPSIxMCIKICAgICBpbmtzY2FwZTp3
+           aW5kb3ctd2lkdGg9IjEyODAiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iMTAyNCIK
+           ICAgICBpbmtzY2FwZTp3aW5kb3cteD0iODYiCiAgICAgaW5rc2NhcGU6d2luZG93LXk9IjAi
+           CiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgICBpbmtzY2FwZTpzbmFw
+           LWdyaWRzPSJmYWxzZSI+CiAgICA8aW5rc2NhcGU6Z3JpZAogICAgICAgdHlwZT0ieHlncmlk
+           IgogICAgICAgaWQ9ImdyaWQyODE2IgogICAgICAgZW1wc3BhY2luZz0iNCIKICAgICAgIHZp
+           c2libGU9ImZhbHNlIgogICAgICAgZW5hYmxlZD0idHJ1ZSIKICAgICAgIHNuYXB2aXNpYmxl
+           Z3JpZGxpbmVzb25seT0iZmFsc2UiCiAgICAgICBzcGFjaW5neD0iMTBweCIKICAgICAgIHNw
+           YWNpbmd5PSIxMHB4IiAvPgogIDwvc29kaXBvZGk6bmFtZWR2aWV3PgogIDxtZXRhZGF0YQog
+           ICAgIGlkPSJtZXRhZGF0YTciPgogICAgPHJkZjpSREY+CiAgICAgIDxjYzpXb3JrCiAgICAg
+           ICAgIHJkZjphYm91dD0iIj4KICAgICAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2Rj
+           OmZvcm1hdD4KICAgICAgICA8ZGM6dHlwZQogICAgICAgICAgIHJkZjpyZXNvdXJjZT0iaHR0
+           cDovL3B1cmwub3JnL2RjL2RjbWl0eXBlL1N0aWxsSW1hZ2UiIC8+CiAgICAgICAgPGRjOnRp
+           dGxlPjwvZGM6dGl0bGU+CiAgICAgIDwvY2M6V29yaz4KICAgIDwvcmRmOlJERj4KICA8L21l
+           dGFkYXRhPgogIDxnCiAgICAgaW5rc2NhcGU6bGFiZWw9IkxheWVyIDEiCiAgICAgaW5rc2Nh
+           cGU6Z3JvdXBtb2RlPSJsYXllciIKICAgICBpZD0ibGF5ZXIxIgogICAgIHRyYW5zZm9ybT0i
+           dHJhbnNsYXRlKDAsLTM3Mi4zNjIxOCkiPgogICAgPGZsb3dSb290CiAgICAgICB4bWw6c3Bh
+           Y2U9InByZXNlcnZlIgogICAgICAgaWQ9ImZsb3dSb290MjgyNiIKICAgICAgIHN0eWxlPSJm
+           b250LXNpemU6NDBweDtmb250LXN0eWxlOm5vcm1hbDtmb250LXdlaWdodDpub3JtYWw7Zmls
+           bDojMDAwMDAwO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO2ZvbnQtZmFtaWx5OlNhbnM7
+           LWlua3NjYXBlLWZvbnQtc3BlY2lmaWNhdGlvbjpTYW5zIj48Zmxvd1JlZ2lvbgogICAgICAg
+           ICBpZD0iZmxvd1JlZ2lvbjI4MjgiPjxyZWN0CiAgICAgICAgICAgaWQ9InJlY3QyODMwIgog
+           ICAgICAgICAgIHdpZHRoPSIzMDguMDk2NTMiCiAgICAgICAgICAgaGVpZ2h0PSI2Mi42Mjk0
+           NTkiCiAgICAgICAgICAgeD0iNjgyLjg2MzEiCiAgICAgICAgICAgeT0iMjI5LjYxOTE2IiAv
+           PjwvZmxvd1JlZ2lvbj48Zmxvd1BhcmEKICAgICAgICAgaWQ9ImZsb3dQYXJhMjgzMiIgLz48
+           L2Zsb3dSb290PiAgICA8dGV4dAogICAgICAgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAg
+           IHN0eWxlPSJmb250LXNpemU6NDhweDtmb250LXN0eWxlOm5vcm1hbDtmb250LXdlaWdodDpu
+           b3JtYWw7ZmlsbDojMDAwMDAwO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO2ZvbnQtZmFt
+           aWx5Ok9DUkE7LWlua3NjYXBlLWZvbnQtc3BlY2lmaWNhdGlvbjpPQ1JBIgogICAgICAgeD0i
+           NzY5LjczNjI3IgogICAgICAgeT0iNDk4Ljc5ODU4IgogICAgICAgaWQ9InRleHQyODYwIj48
+           dHNwYW4KICAgICAgICAgc29kaXBvZGk6cm9sZT0ibGluZSIKICAgICAgICAgaWQ9InRzcGFu
+           Mjg2MiIKICAgICAgICAgeD0iNzY5LjczNjI3IgogICAgICAgICB5PSI0OTguNzk4NTgiIC8+
+           PC90ZXh0PgogICAgPHBhdGgKICAgICAgIHNvZGlwb2RpOnR5cGU9ImFyYyIKICAgICAgIHN0
+           eWxlPSJmaWxsOiNmMGYwZjA7ZmlsbC1vcGFjaXR5OjA7ZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ry
+           b2tlOm5vbmUiCiAgICAgICBpZD0icGF0aDI4MTgiCiAgICAgICBzb2RpcG9kaTpjeD0iMzgw
+           IgogICAgICAgc29kaXBvZGk6Y3k9IjM4NSIKICAgICAgIHNvZGlwb2RpOnJ4PSIzMDAiCiAg
+           ICAgICBzb2RpcG9kaTpyeT0iMzAwIgogICAgICAgZD0iTSA2ODAsMzg1IEMgNjgwLDU1MC42
+           ODU0MiA1NDUuNjg1NDIsNjg1IDM4MCw2ODUgMjE0LjMxNDU4LDY4NSA4MCw1NTAuNjg1NDIg
+           ODAsMzg1IDgwLDIxOS4zMTQ1OCAyMTQuMzE0NTgsODUgMzgwLDg1IDU0NS42ODU0Miw4NSA2
+           ODAsMjE5LjMxNDU4IDY4MCwzODUgeiIKICAgICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAs
+           Mjg3LjM2MjE4KSIgLz4KICAgIDxnCiAgICAgICBpZD0iZzM4NjkiCiAgICAgICB0cmFuc2Zv
+           cm09Im1hdHJpeCgxLjAwMDAwMTEsMCwwLDEsLTQuNTMzMzMzM2UtNSw0MCkiCiAgICAgICBp
+           bmtzY2FwZTpleHBvcnQtZmlsZW5hbWU9IkQ6XElOREkyXElOREkyXGNvbW1vblxhcnRcbG9n
+           b3NcTG9nby1GdWxsLTMwLnBuZyIKICAgICAgIGlua3NjYXBlOmV4cG9ydC14ZHBpPSIzMCIK
+           ICAgICAgIGlua3NjYXBlOmV4cG9ydC15ZHBpPSIzMCI+CiAgICAgIDxwYXRoCiAgICAgICAg
+           IHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsMjg3LjM2MjE4KSIKICAgICAgICAgZD0iTSA2NDAs
+           Mzg1IEMgNjQwLDU1MC42ODU0MiA1MDUuNjg1NDIsNjg1IDM0MCw2ODUgMTc0LjMxNDU4LDY4
+           NSA0MCw1NTAuNjg1NDIgNDAsMzg1IDQwLDIxOS4zMTQ1OCAxNzQuMzE0NTgsODUgMzQwLDg1
+           IDUwNS42ODU0Miw4NSA2NDAsMjE5LjMxNDU4IDY0MCwzODUgeiIKICAgICAgICAgc29kaXBv
+           ZGk6cnk9IjMwMCIKICAgICAgICAgc29kaXBvZGk6cng9IjMwMCIKICAgICAgICAgc29kaXBv
+           ZGk6Y3k9IjM4NSIKICAgICAgICAgc29kaXBvZGk6Y3g9IjM0MCIKICAgICAgICAgaWQ9InBh
+           dGgzMDYyIgogICAgICAgICBzdHlsZT0iZmlsbDp1cmwoI3JhZGlhbEdyYWRpZW50Mzk1Mik7
+           ZmlsbC1vcGFjaXR5OjE7ZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlOm5vbmUiCiAgICAgICAg
+           IHNvZGlwb2RpOnR5cGU9ImFyYyIgLz4KICAgICAgPGcKICAgICAgICAgaW5rc2NhcGU6ZXhw
+           b3J0LXlkcGk9Ijk2LjA0NjA2NiIKICAgICAgICAgaW5rc2NhcGU6ZXhwb3J0LXhkcGk9Ijk2
+           LjA0NjA2NiIKICAgICAgICAgaW5rc2NhcGU6ZXhwb3J0LWZpbGVuYW1lPSIvZGF0YS9OaXBv
+           bW8vcHJvai9FY2xpcHNlSVIvYXJ0L2xvZ29zL0dyYWRMZW5zLnBuZyIKICAgICAgICAgaWQ9
+           ImczNjc4Ij4KICAgICAgICA8cGF0aAogICAgICAgICAgIHNvZGlwb2RpOnR5cGU9ImFyYyIK
+           ICAgICAgICAgICBzdHlsZT0iZmlsbDp1cmwoI2xpbmVhckdyYWRpZW50Mzk1NCk7ZmlsbC1v
+           cGFjaXR5OjE7ZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRo
+           OjFweDtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRlcjtzdHJva2Ut
+           b3BhY2l0eToxIgogICAgICAgICAgIGlkPSJwYXRoMjgyMCIKICAgICAgICAgICBzb2RpcG9k
+           aTpjeD0iMzgwIgogICAgICAgICAgIHNvZGlwb2RpOmN5PSIzODUiCiAgICAgICAgICAgc29k
+           aXBvZGk6cng9IjI2MCIKICAgICAgICAgICBzb2RpcG9kaTpyeT0iMjYwIgogICAgICAgICAg
+           IGQ9Ik0gNjQwLDM4NSBDIDY0MCw1MjguNTk0MDMgNTIzLjU5NDAzLDY0NSAzODAsNjQ1IDIz
+           Ni40MDU5Nyw2NDUgMTIwLDUyOC41OTQwMyAxMjAsMzg1IDEyMCwyNDEuNDA1OTcgMjM2LjQw
+           NTk3LDEyNSAzODAsMTI1IGMgMTQzLjU5NDAzLDAgMjYwLDExNi40MDU5NyAyNjAsMjYwIHoi
+           CiAgICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQwLDI4NS45MzM2MSkiIC8+CiAg
+           ICAgICAgPHBhdGgKICAgICAgICAgICBzb2RpcG9kaTp0eXBlPSJhcmMiCiAgICAgICAgICAg
+           c3R5bGU9ImZpbGw6dXJsKCNsaW5lYXJHcmFkaWVudDM5NTYpO2ZpbGwtb3BhY2l0eToxO2Zp
+           bGwtcnVsZTpldmVub2RkO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxcHg7c3Ryb2tl
+           LWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW9wYWNpdHk6MSIK
+           ICAgICAgICAgICBpZD0icGF0aDI4MjIiCiAgICAgICAgICAgc29kaXBvZGk6Y3g9IjM4MCIK
+           ICAgICAgICAgICBzb2RpcG9kaTpjeT0iMzg1IgogICAgICAgICAgIHNvZGlwb2RpOnJ4PSIx
+           ODAiCiAgICAgICAgICAgc29kaXBvZGk6cnk9IjE4MCIKICAgICAgICAgICBkPSJtIDU2MCwz
+           ODUgYyAwLDk5LjQxMTI1IC04MC41ODg3NSwxODAgLTE4MCwxODAgLTk5LjQxMTI1LDAgLTE4
+           MCwtODAuNTg4NzUgLTE4MCwtMTgwIDAsLTk5LjQxMTI1IDgwLjU4ODc1LC0xODAgMTgwLC0x
+           ODAgOTkuNDExMjUsMCAxODAsODAuNTg4NzUgMTgwLDE4MCB6IgogICAgICAgICAgIHRyYW5z
+           Zm9ybT0idHJhbnNsYXRlKC00MCwyODUuOTMzNjEpIiAvPgogICAgICAgIDxwYXRoCiAgICAg
+           ICAgICAgc29kaXBvZGk6dHlwZT0iYXJjIgogICAgICAgICAgIHN0eWxlPSJmaWxsOnVybCgj
+           bGluZWFyR3JhZGllbnQzOTU4KTtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZDtz
+           dHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MXB4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ry
+           b2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgICAgICAgaWQ9InBh
+           dGgyODI0IgogICAgICAgICAgIHNvZGlwb2RpOmN4PSIzODAiCiAgICAgICAgICAgc29kaXBv
+           ZGk6Y3k9IjM4NSIKICAgICAgICAgICBzb2RpcG9kaTpyeD0iMTQwIgogICAgICAgICAgIHNv
+           ZGlwb2RpOnJ5PSIxNDAiCiAgICAgICAgICAgZD0ibSA1MjAsMzg1IGMgMCw3Ny4zMTk4NiAt
+           NjIuNjgwMTQsMTQwIC0xNDAsMTQwIC03Ny4zMTk4NiwwIC0xNDAsLTYyLjY4MDE0IC0xNDAs
+           LTE0MCAwLC03Ny4zMTk4NiA2Mi42ODAxNCwtMTQwIDE0MCwtMTQwIDc3LjMxOTg2LDAgMTQw
+           LDYyLjY4MDE0IDE0MCwxNDAgeiIKICAgICAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgt
+           NDAsMjg1LjkzMzYxKSIgLz4KICAgICAgICA8cGF0aAogICAgICAgICAgIHNvZGlwb2RpOnR5
+           cGU9ImFyYyIKICAgICAgICAgICBzdHlsZT0iZmlsbDp1cmwoI3JhZGlhbEdyYWRpZW50Mzk2
+           MCk7ZmlsbC1vcGFjaXR5OjE7ZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlOiMwMDAwMDA7c3Ry
+           b2tlLXdpZHRoOjFweDtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRl
+           cjtzdHJva2Utb3BhY2l0eToxIgogICAgICAgICAgIGlkPSJwYXRoMjgyNiIKICAgICAgICAg
+           ICBzb2RpcG9kaTpjeD0iMzgwIgogICAgICAgICAgIHNvZGlwb2RpOmN5PSIzODUiCiAgICAg
+           ICAgICAgc29kaXBvZGk6cng9IjEwMCIKICAgICAgICAgICBzb2RpcG9kaTpyeT0iMTAwIgog
+           ICAgICAgICAgIGQ9Im0gNDgwLDM4NSBjIDAsNTUuMjI4NDcgLTQ0Ljc3MTUzLDEwMCAtMTAw
+           LDEwMCAtNTUuMjI4NDcsMCAtMTAwLC00NC43NzE1MyAtMTAwLC0xMDAgMCwtNTUuMjI4NDcg
+           NDQuNzcxNTMsLTEwMCAxMDAsLTEwMCA1NS4yMjg0NywwIDEwMCw0NC43NzE1MyAxMDAsMTAw
+           IHoiCiAgICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQwLDI4NS45MzM2MSkiIC8+
+           CiAgICAgICAgPGcKICAgICAgICAgICBpZD0iZzM2NjYiPgogICAgICAgICAgPHBhdGgKICAg
+           ICAgICAgICAgIHNvZGlwb2RpOm9wZW49InRydWUiCiAgICAgICAgICAgICBzb2RpcG9kaTpl
+           bmQ9IjUuNDk3Nzg3MSIKICAgICAgICAgICAgIHNvZGlwb2RpOnN0YXJ0PSIwLjc4NTM5ODE2
+           IgogICAgICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQwLDI4NS45MzM2MSkiCiAg
+           ICAgICAgICAgICBkPSJtIDUzNS41NjM0OSw1NDAuNTYzNDkgYyAtODUuOTE1MzQsODUuOTE1
+           MzUgLTIyNS4yMTE2NCw4NS45MTUzNSAtMzExLjEyNjk4LDAgLTg1LjkxNTM1LC04NS45MTUz
+           NCAtODUuOTE1MzUsLTIyNS4yMTE2NCAwLC0zMTEuMTI2OTggODUuOTE1MzQsLTg1LjkxNTM0
+           IDIyNS4yMTE2MywtODUuOTE1MzUgMzExLjEyNjk4LC0xZS01IgogICAgICAgICAgICAgc29k
+           aXBvZGk6cnk9IjIyMCIKICAgICAgICAgICAgIHNvZGlwb2RpOnJ4PSIyMjAiCiAgICAgICAg
+           ICAgICBzb2RpcG9kaTpjeT0iMzg1IgogICAgICAgICAgICAgc29kaXBvZGk6Y3g9IjM4MCIK
+           ICAgICAgICAgICAgIGlkPSJwYXRoMzYwMCIKICAgICAgICAgICAgIHN0eWxlPSJmaWxsOm5v
+           bmU7c3Ryb2tlOiNmZjAxMDE7c3Ryb2tlLXdpZHRoOjIwO3N0cm9rZS1taXRlcmxpbWl0OjQ7
+           c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtZGFzaGFycmF5Om5vbmUiCiAgICAgICAgICAgICBz
+           b2RpcG9kaTp0eXBlPSJhcmMiIC8+CiAgICAgICAgICA8cGF0aAogICAgICAgICAgICAgaW5r
+           c2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICAgICAgICAgIGlkPSJwYXRoMzYw
+           NCIKICAgICAgICAgICAgIGQ9Im0gMTMwLDY3MC45MzM2MSAzMTAsMCIKICAgICAgICAgICAg
+           IHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiNmZjAxMDE7c3Ryb2tlLXdpZHRoOjIwO3N0cm9r
+           ZS1saW5lY2FwOnNxdWFyZTtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW1pdGVybGlt
+           aXQ6NDtzdHJva2Utb3BhY2l0eToxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZSIgLz4KICAgICAg
+           ICA8L2c+CiAgICAgIDwvZz4KICAgICAgPHRleHQKICAgICAgICAgaWQ9InRleHQyOTE1Igog
+           ICAgICAgICB5PSI5MzIuMzYyMTgiCiAgICAgICAgIHg9IjU2MCIKICAgICAgICAgc3R5bGU9
+           ImZvbnQtc2l6ZTozMnB4O2ZvbnQtc3R5bGU6bm9ybWFsO2ZvbnQtd2VpZ2h0Om5vcm1hbDtm
+           aWxsOiMwMDAwMDA7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7Zm9udC1mYW1pbHk6RGVq
+           YVZ1IFNhbnM7LWlua3NjYXBlLWZvbnQtc3BlY2lmaWNhdGlvbjpEZWphVnUgU2FucyIKICAg
+           ICAgICAgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHRzcGFuCiAgICAgICAgICAgeT0iOTMyLjM2
+           MjE4IgogICAgICAgICAgIHg9IjU2MCIKICAgICAgICAgICBpZD0idHNwYW4yOTE3IgogICAg
+           ICAgICAgIHNvZGlwb2RpOnJvbGU9ImxpbmUiPlRNPC90c3Bhbj48L3RleHQ+CiAgICA8L2c+
+           CiAgPC9nPgo8L3N2Zz4K
+          </office:binary-data>
+         </draw:image>
+        </draw:frame></text:p>
+      </table:table-cell>
+     </table:table-row>
+    </table:table>
+    <text:p text:style-name="P1"/>
+   </style:header>
+   <style:footer>
+    <table:table table:name="Table2" table:style-name="Table2">
+     <table:table-column table:style-name="Table2.A" table:number-columns-repeated="3"/>
+     <table:table-row>
+      <table:table-cell office:value-type="string">
+       <text:p text:style-name="P10">TN229 – Technology Glossary</text:p>
+      </table:table-cell>
+      <table:table-cell office:value-type="string">
+       <text:p text:style-name="P9">INTERNAL DOCUMENT</text:p>
+      </table:table-cell>
+      <table:table-cell office:value-type="string">
+       <text:p text:style-name="P11">Page <text:page-number text:select-page="current">9</text:page-number> of <text:page-count>9</text:page-count></text:p>
+      </table:table-cell>
+     </table:table-row>
+    </table:table>
+    <text:p text:style-name="P2">Copyright (c) 2012, Eclipse Identity Recognition Corporation. All rights reserved worldwide.</text:p>
+   </style:footer>
+  </style:master-page>
+ </office:master-styles>
+ <office:body>
+  <office:text text:use-soft-page-breaks="true">
+   <text:sequence-decls>
+    <text:sequence-decl text:display-outline-level="0" text:name="Illustration"/>
+    <text:sequence-decl text:display-outline-level="0" text:name="Table"/>
+    <text:sequence-decl text:display-outline-level="0" text:name="Text"/>
+    <text:sequence-decl text:display-outline-level="0" text:name="Drawing"/>
+   </text:sequence-decls>
+   <text:h text:style-name="Heading_20_1" text:outline-level="1">EclipseIR-specific</text:h>
+   <text:p text:style-name="Text_20_body"/>
+   <table:table table:name="Table6" table:style-name="Table6">
+    <table:table-column table:style-name="Table6.A"/>
+    <table:table-column table:style-name="Table6.B"/>
+    <table:table-column table:style-name="Table6.C"/>
+    <table:table-header-rows>
+     <table:table-row>
+      <table:table-cell table:style-name="Table6.A1" office:value-type="string">
+       <text:p text:style-name="P17">Term</text:p>
+      </table:table-cell>
+      <table:table-cell table:style-name="Table6.A1" office:value-type="string">
+       <text:p text:style-name="P17">Definition</text:p>
+      </table:table-cell>
+      <table:table-cell table:style-name="Table6.C1" office:value-type="string">
+       <text:p text:style-name="P17">Usage</text:p>
+      </table:table-cell>
+     </table:table-row>
+    </table:table-header-rows>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12">INDI</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12">INDIface</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12">INDIbase</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12">INDImage</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12">detector group method</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12">INDIface vector</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12">INDIface template</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12">qualified faces</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12">(frontal face) detection quality</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12">template consistency</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12">feature congruence</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12">match rank</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12">match confidence</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12">person mode</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12">BAGger</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table6.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+   </table:table>
+   <text:h text:style-name="Heading_20_1" text:outline-level="1"/>
+   <text:h text:style-name="Heading_20_1" text:outline-level="1">Facial Biometrics</text:h>
+   <text:p text:style-name="Text_20_body"/>
+   <table:table table:name="Table3" table:style-name="Table3">
+    <table:table-column table:style-name="Table3.A"/>
+    <table:table-column table:style-name="Table3.B"/>
+    <table:table-column table:style-name="Table3.C"/>
+    <table:table-header-rows>
+     <table:table-row>
+      <table:table-cell table:style-name="Table3.A1" office:value-type="string">
+       <text:p text:style-name="Table_20_Heading">Term</text:p>
+      </table:table-cell>
+      <table:table-cell table:style-name="Table3.A1" office:value-type="string">
+       <text:p text:style-name="Table_20_Heading">Definition</text:p>
+      </table:table-cell>
+      <table:table-cell table:style-name="Table3.C1" office:value-type="string">
+       <text:p text:style-name="Table_20_Heading">Usage</text:p>
+      </table:table-cell>
+     </table:table-row>
+    </table:table-header-rows>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">biometric character­istic</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16">Any distinguishing characteristics of an individual that can be measured and extracted from a biometric sample for the purpose of biometric identification. Biometric characteristics may include a <text:soft-page-break/>fingerprint, signature, voice pattern, ear form, DNA or other distinguishing characteristic.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.C2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">INDIface is primarily a frontal face template-based biometric that also includes other face-based analytics: <text:s/>Visible skin tone, upper and lower clothes color, and estimated height.</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">biometric template</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16">A biometric template (also called template) is a digital reference of distinct characteristics that have been extracted from a biometric sample. Templates are used during the biometric authentication process.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.C2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">INDIface templates are collections of eigenface vectors from a single detected frontal face.</text:p>
+      <text:p text:style-name="P21">Note: In future generations, templates may be composites of similar templates and not traceable back to a single sample.</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">biometric sample</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16">The data obtained by a biometric system&apos;s capture device-such as a facial image, voice recording or a fingerprint.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.C2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">For INDIface, a single frame of surveillance video, either stored or captured live, is the biometric sample.</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">biometric engine</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16">The aspect of a biometric security system that administers the biometric data during the enrollment, capture, extraction, comparison and matching stages of the process. The biometric engine is a software program that works in conjunction with the hardware devices that a biometric system uses.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.C2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">INDIface with its associated INDIbase (enrollment management) and INDImage (image management) services comprise a biometric engine.</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">CBEFF</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16">Short for Common Biometric Exchange Formats Framework, it is a standard format for exchanging biometric data between different biometric devices and systems.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.C6" table:number-rows-spanned="2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">If a business case can be made, INDIbase<text:span text:style-name="T1">2</text:span> will support a wrapper for interchanging data with CBEFF- or BioAPI-compliant systems.</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">BioAPI</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16"/>
+     </table:table-cell>
+     <table:covered-table-cell/>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">equal error rate</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16">Abbreviated as EER. A biometric security system predetermines the threshold values for its false acceptance rate and its false rejection rate, and when the rates are equal, the common value is referred to as the equal error rate. The value indicates that the proportion of false acceptances is equal to the proportion of false rejections. The lower the equal error rate value, the higher the accuracy of the biometric system.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.C2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">frontal face detection</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.C2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">feature</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.C2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">feature location</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.C2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">normal­ization</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.C2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">eigenface</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16">Wikipedia: Eigenfaces are a set of eigenvectors used in the computer vision problem of human face recognition. The approach of using eigenfaces for recognition was developed by Sirovich and Kirby (1987) and used by Matthew Turk and Alex Pentland in face classification. It is considered the first successful example of facial recognition technology. These <text:soft-page-break/>eigenvectors are derived from the covariance matrix of the probability distribution of the high-dimensional vector space of possible faces of human beings.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.C2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">INDIface template generation is based upon what could be considered the third generation of eigenfaces. INDIface is a C++ implementation of a Java implementation released by NIST.</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">eigenface layer</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.C2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">skin tone/color</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.C2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">frontal face detection</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.C2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents">raw detectors</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.C2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+      <text:p text:style-name="P16"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table3.C2" office:value-type="string">
+      <text:p text:style-name="Table_20_Contents"/>
+     </table:table-cell>
+    </table:table-row>
+   </table:table>
+   <text:p text:style-name="Text_20_body"/>
+   <text:h text:style-name="Heading_20_1" text:outline-level="1">Software Development</text:h>
+   <text:p text:style-name="Text_20_body"/>
+   <table:table table:name="Table4" table:style-name="Table4">
+    <table:table-column table:style-name="Table4.A"/>
+    <table:table-column table:style-name="Table4.B"/>
+    <table:table-column table:style-name="Table4.C"/>
+    <table:table-header-rows>
+     <table:table-row>
+      <table:table-cell table:style-name="Table4.A1" office:value-type="string">
+       <text:p text:style-name="P17">Term</text:p>
+      </table:table-cell>
+      <table:table-cell table:style-name="Table4.A1" office:value-type="string">
+       <text:p text:style-name="P17">Definition</text:p>
+      </table:table-cell>
+      <table:table-cell table:style-name="Table4.C1" office:value-type="string">
+       <text:p text:style-name="P17">Usage</text:p>
+      </table:table-cell>
+     </table:table-row>
+    </table:table-header-rows>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">variable</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">Every variable has a name, called the variable name, and a data type. A variable&apos;s data type indicates what sort of value the variable represents, such as whether it is an integer, a floating-point number, or a character.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P13">eirCore <text:s/>Variable class</text:p>
+      <text:p text:style-name="P12">General container for named variant with specified data type. In particular it also has default value.</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">control (GUI)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">An object in a window or dialog box. Examples of controls include push-buttons, scroll bars, radio buttons, and pull-down menus.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">attribute</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">A language construct that programmers use to add additional information (i.e., metadata) to code elements (e.g., assemblies, modules, members, types, return values, and parameters) to extend their functionality.</text:p>
+      <text:p text:style-name="P15">A characteristic. In a word processing application, an underlined word would be said to have the underline attribute. In database systems, a field can have various attributes. For example, if it contains numeric data, it has the numeric attribute.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">specification</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">A formal description of a software system that is used as a blueprint for implementing the program. At minimum, a functional specification should precisely state the purpose (e.g., the function) of the software. Depending on the software engineering methodology used, the functional specification might also provide implementation details, such as how the project is divided into modules and how the different modules interact. In addition, a functional specification often describes the software from the user&apos;s perspective -- <text:soft-page-break/>how the user interface appears and how a user would use the program to perform specific functions.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">parameter</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">Characteristic. For example, specifying parameters means defining the characteristics of something. In general, parameters are used to customize a program. For example, filenames, page lengths, and font specifications could all be considered parameters.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">argument</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">parameter</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14">Formal parameter passed to a function.</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">module</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">Webopedia: (1) In software, a module is a part of a program. Programs are composed of one or more independently developed modules that are not combined until the program is linked. A single module can contain one or several routines. (2) In hardware, a module is a self-contained component. </text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">[executable]binary [file]</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">Webopedia: All executable programs are stored in binary files, as are most numeric data files.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">[class] library</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">Webopedia: A collection of prewritten, ready-made software routines that act as templates for programmers to use in writing object-oriented application programs. Class libraries are typically used to provide GUI functions like buttons, scroll bars, icons and windows. Class libraries greatly simplify the work of the programmer who can use the pretested code instead of having to write new code. </text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">platform</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">Webopedia: The underlying hardware or software for a system. For example, the platform might be an Intel 80486 processor running DOS Version 6.0. The platform could also be UNIX machines on an Ethernet network.</text:p>
+      <text:p text:style-name="P15"><text:tab/>The platform defines a standard around which a system can be developed. Once the platform has been defined, software developers can produce appropriate software and managers can purchase appropriate hardware and applications. The term is often used as a synonym of operating system.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">cross-platform</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">Webopedia: The term cross-platform refers to applications, formats, or devices that work on different platforms. For example, a cross-platform programming environment enables a programmer to develop programs for many platforms at once.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">[GUI] application</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">Executable binary file(s) and support library binary files that are typically oriented toward user interaction.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <text:soft-page-break/>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">console [application]</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">Executable binary file(s) and support library binary files that are typically oriented toward system support.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">daemon</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">Webopedia: A process that runs in the background and performs a specified operation at predefined times or in response to certain events. The term daemon is a UNIX term, though many other operating systems provide support for daemons, though they&apos;re sometimes called other names. </text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">[Windows] service </text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">On Windows platforms, a daemon is called a service or system agent.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">system</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">Webopedia: A complete, working computer. Computer systems will include the computer along with any software and peripheral devices that are necessary to make the computer function. Every computer system, for example, requires an operating system.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">feature</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">A notable property of a software application.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">feature creep</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">A term used in software development to refer to a software project release being delayed due to the additions of features that were not included in the original design plan or development goals.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">option</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">An option is specified on the command line and is not required. It overrides default behavior of an application.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">config­uration</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">Webopedia: The way a system is set up, or the assortment of components that make up the system. Configuration can refer to either hardware or software, or the combination of both. For instance, a typical configuration for a PC consists of 32MB (megabytes) main memory, a floppy drive, a hard disk, a modem, a CD-ROM drive, a VGA monitor, and the Windows operating system.</text:p>
+      <text:p text:style-name="P15"><text:tab/>Many software products require that the computer have a certain minimum configuration. For example, the software might require a graphics display monitor and a video adapter, a particular microprocessor, and a minimum amount of main memory.</text:p>
+      <text:p text:style-name="P15"><text:tab/>When you install a new device or program, you sometimes need to configure it, which means to set various switches and jumpers (for hardware) and to define values of parameters (for software). For example, the device or program may need to know what type of video adapter you have and what type of printer is connected to the computer. Thanks to new technologies, such as plug-and-play, much of this configuration is performed <text:soft-page-break/>automatically. </text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">Qt</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">“cutie” or “cute” </text:p>
+      <text:p text:style-name="P15">Qt, Qt Quick and the supporting tools are developed as an open source project governed by an inclusive meritocratic model. Qt can be used under open source (LGPL v2.1) or commercial terms.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">Qt SDK</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">Qt SDK packages Qt Creator with compatible versions of the Qt Library.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">Qt Creator</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">Qt Creator is the supporting Qt IDE.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">Qt Library</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">Qt is a cross-platform application and GUI framework for developers using C++.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P12">function</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.A2" office:value-type="string">
+      <text:p text:style-name="P15">Webopedia: <text:s/>A named section of a program that performs a specific task. In this sense, a function is a type of procedure or routine. Some programming languages make a distinction between a function, which returns a value, and a procedure, which performs some operation but does not return a value.</text:p>
+      <text:p text:style-name="P15"><text:tab/>Most programming languages come with a prewritten set of functions that are kept in a library. You can also write your own functions to perform specialized tasks. </text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+   </table:table>
+   <text:p text:style-name="Text_20_body"/>
+   <text:h text:style-name="Heading_20_1" text:outline-level="1">Image Processing</text:h>
+   <text:p text:style-name="Text_20_body"/>
+   <table:table table:name="Table5" table:style-name="Table5">
+    <table:table-column table:style-name="Table5.A"/>
+    <table:table-column table:style-name="Table5.B"/>
+    <table:table-column table:style-name="Table5.C"/>
+    <table:table-header-rows>
+     <table:table-row>
+      <table:table-cell table:style-name="Table5.A1" office:value-type="string">
+       <text:p text:style-name="P17">Term</text:p>
+      </table:table-cell>
+      <table:table-cell table:style-name="Table5.A1" office:value-type="string">
+       <text:p text:style-name="P17">Definition</text:p>
+      </table:table-cell>
+      <table:table-cell table:style-name="Table5.C1" office:value-type="string">
+       <text:p text:style-name="P17">Usage</text:p>
+      </table:table-cell>
+     </table:table-row>
+    </table:table-header-rows>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12">image</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12">frame</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12">object detection</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12">Haar detector</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12">Haar detector cascade</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12">character­istic color</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <text:soft-page-break/>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table5.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+   </table:table>
+   <text:p text:style-name="Text_20_body"/>
+   <text:h text:style-name="Heading_20_1" text:outline-level="1">Mathematics</text:h>
+   <text:p text:style-name="Text_20_body"/>
+   <table:table table:name="Table7" table:style-name="Table7">
+    <table:table-column table:style-name="Table7.A"/>
+    <table:table-column table:style-name="Table7.B"/>
+    <table:table-column table:style-name="Table7.C"/>
+    <table:table-header-rows>
+     <table:table-row>
+      <table:table-cell table:style-name="Table7.A1" office:value-type="string">
+       <text:p text:style-name="P17">Term</text:p>
+      </table:table-cell>
+      <table:table-cell table:style-name="Table7.A1" office:value-type="string">
+       <text:p text:style-name="P17">Definition</text:p>
+      </table:table-cell>
+      <table:table-cell table:style-name="Table7.C1" office:value-type="string">
+       <text:p text:style-name="P17">Usage</text:p>
+      </table:table-cell>
+     </table:table-row>
+    </table:table-header-rows>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12">eigenvector</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15">Wikipedia: The eigenvectors of a square matrix are the non-zero vectors that, after being multiplied by the matrix, remain parallel to the original vector. For each eigenvector, the corresponding eigenvalue is the factor by which the eigenvector is scaled when multiplied by the matrix. The prefix eigen- is adopted from the German word &quot;eigen&quot; for &quot;own&quot; in the sense of a characteristic description.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table7.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+   </table:table>
+   <text:p text:style-name="Text_20_body"/>
+   <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:soft-page-break/>Personal Computers &amp; Networking</text:h>
+   <text:p text:style-name="Text_20_body"/>
+   <table:table table:name="Table8" table:style-name="Table8">
+    <table:table-column table:style-name="Table8.A"/>
+    <table:table-column table:style-name="Table8.B"/>
+    <table:table-column table:style-name="Table8.C"/>
+    <table:table-header-rows>
+     <table:table-row>
+      <table:table-cell table:style-name="Table8.A1" office:value-type="string">
+       <text:p text:style-name="P17">Term</text:p>
+      </table:table-cell>
+      <table:table-cell table:style-name="Table8.A1" office:value-type="string">
+       <text:p text:style-name="P17">Definition</text:p>
+      </table:table-cell>
+      <table:table-cell table:style-name="Table8.C1" office:value-type="string">
+       <text:p text:style-name="P17">Usage</text:p>
+      </table:table-cell>
+     </table:table-row>
+    </table:table-header-rows>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">URL</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P12"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">URI</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">host</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15">Webopedia: (1) A computer system that is accessed by a user working at a remote location. The system that contains the data is called the host, while the computer at which the user sits is called the remote terminal. (2) A computer that is connected to a TCP/IP network, including the Internet. Each host has a unique IP address. (3) To provide the infrastructure for a computer service. For example, there are many companies that host files, programs, applications or even a Web server for companies and individuals. In the case of a Web server, it means that they provide the hardware, software, and communications lines required by the server, but the content on the server may be controlled by someone else. </text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">client</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">processor</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P13"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">core</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">process</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">thread</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">operating system</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15">Webopedia: The most important program that runs on a computer. Every general-purpose computer must have an operating system to run other programs. Operating systems perform basic tasks, such as recognizing input from the keyboard, sending output to the display screen, keeping track of files and directories on the disk, and controlling peripheral devices such as disk drives and printers.</text:p>
+      <text:p text:style-name="P15"><text:tab/>For large systems, the operating system has even greater responsibilities and powers. It is like a traffic cop--it makes sure that different programs and users running at the same time do not interfere with each other. The operating system is also responsible for security, ensuring that unauthorized users do not access the system.</text:p>
+      <text:p text:style-name="P15"><text:tab/>Operating systems can be classified as follows:</text:p>
+      <text:p text:style-name="P15"><text:span text:style-name="T2">· </text:span>multi-user : Allows two or more users to run programs at the same time. Some operating systems permit hundreds or even thousands of concurrent users.</text:p>
+      <text:p text:style-name="P15"><text:span text:style-name="T2">· </text:span>multiprocessing : Supports running a program on more than one CPU.</text:p>
+      <text:p text:style-name="P15">multitasking : Allows more than one <text:soft-page-break/>program to run concurrently.</text:p>
+      <text:p text:style-name="P15"><text:span text:style-name="T2">· </text:span>multithreading : Allows different parts of a single program to run concurrently.</text:p>
+      <text:p text:style-name="P15"><text:span text:style-name="T2">· </text:span>real time: Responds to input instantly. General-purpose operating systems, such as DOS and UNIX, are not real-time.</text:p>
+      <text:p text:style-name="P15"><text:tab/>Operating systems provide a software platform on top of which other programs, called application programs, can run. The application programs must be written to run on top of a particular operating system. Your choice of operating system, therefore, determines to a great extent the applications you can run. For PCs, the most popular operating systems are DOS, OS/2, and Windows, but others are available, such as Linux.</text:p>
+      <text:p text:style-name="P15"><text:tab/>As a user, you normally interact with the operating system through a set of commands. For example, the DOS operating system contains commands such as COPY and RENAME for copying files and changing the names of files, respectively. The commands are accepted and executed by a part of the operating system called the command processor or command line interpreter. Graphical user interfaces allow you to enter commands by pointing and clicking at objects that appear on the screen.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">blade</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">rack</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">virtual machine</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">open source</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">open standard</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">open interface</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">domain</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">IP</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">IPv4 address</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">DNS</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">HTTP</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">Onvif</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P12">PSIA</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.A2" office:value-type="string">
+      <text:p text:style-name="P15"/>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table8.C2" office:value-type="string">
+      <text:p text:style-name="P14"/>
+     </table:table-cell>
+    </table:table-row>
+   </table:table>
+   <text:p text:style-name="Text_20_body"/>
+  </office:text>
+ </office:body>
+</office:document>

@@ -1,0 +1,11 @@
+140103aho ImageMarker::title(... font ...); may need better default font
+
+140104aho QHttp no longer exists; hope to use QtHttp compatibility.
+            May look at switching to QNetworkAccessManager in the future.
+
+140105aho SIGSEGV returning from FrontalFaceDetector c'tor
+            Remove interface_ from FFD and HaarDetector classes to simplify diagnosing
+140115aho   Removed Detect/Interface
+            Will develop an object detector plugin in the future.
+
+140120aho In eirBase/BaseLog replace qInstallMsgHandler for Qt5

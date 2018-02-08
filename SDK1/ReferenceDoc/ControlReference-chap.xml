@@ -1,0 +1,2421 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+    <title>Control Parameter Reference</title>
+
+    <para>There are over 140 control parameters that you can use to tailor the
+    SDK's actions. The control variables are broken into sections that
+    correspond to their key in the registry (or section of an XML
+    configuration file in the future).</para>
+
+    <variablelist>
+      <varlistentry>
+        <term>Clothes</term>
+
+        <listitem>
+          <para>Clothes color matching</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Detect</term>
+
+        <listitem>
+          <para>Face detection</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>FaceBase</term>
+
+        <listitem>
+          <para>Enrolled person records, face templates, and face
+          images.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>FaceColor</term>
+
+        <listitem>
+          <para>Face skin tone detection</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Generate</term>
+
+        <listitem>
+          <para>Template generation</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Height</term>
+
+        <listitem>
+          <para>Approximate height detection</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Input</term>
+
+        <listitem>
+          <para>Image acquisition</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Mark</term>
+
+        <listitem>
+          <para>Image marking colors and attributes</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Match</term>
+
+        <listitem>
+          <para>Informal matching</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Options</term>
+
+        <listitem>
+          <para>Operation of the SDK executable itself</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Output</term>
+
+        <listitem>
+          <para>Location of output files and method of marking marked
+          files</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>PreProcess</term>
+
+        <listitem>
+          <para>Transformation</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Resolve</term>
+
+        <listitem>
+          <para>Controls for combining the face-based analytics.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para>The Enroll, Retrieve, and Search keys in the registry will be
+      discussed in the next chapter.</para>
+    </note>
+
+    <section>
+      <title>Command Line</title>
+
+      <para>When we utilize the Windows registry, controls are placed in the
+      HKCU/Software section of the registry under <varname>OrgName</varname>
+      and <varname>AppName</varname> keys. The default is
+      <filename>HKCU/Software/EclipseIR/IfSearch</filename> but it can be
+      specified on the command line as <command>%OrgName/AppName</command> or
+      <command>%AppName</command>. Control parameters can be specified on the
+      command line, and will override what is read from the registry, in the
+      form <command>/Key/Name=Value</command>. Examples include
+      <userinput>/Input/URL=http://demo:demo@192.168.1.90/jpg/image.jpg</userinput>
+      to specify a different camera or
+      <filename>/FaceBase/BaseDir=W:/herever/else</filename> could be used to
+      load a different INDIbase for matching.</para>
+    </section>
+
+    <section>
+      <title>Control Types</title>
+
+      <para>The controls are strings (URLs, directory names, file names,
+      etc.), numbers, booleans, or colors. All can be in REG_SZ format in the
+      Windows registry. Integer numbers can be in REG_DWORD format.</para>
+
+      <section xml:id="secSpecifyingOutputDirectories">
+        <title>Specifying Directories</title>
+
+        <para>All input or output directories can be specified in absolute
+        (starting from the root) or relative (from a base directory) terms.
+        The Output/BaseDir control parameter can be used to specify a the base
+        directory upon which all other input or output directories can be
+        specified in relative terms. In addition, it can be relative to the
+        current directory at the time that the SDK console was started. An at
+        sign (@) can be specified anywhere in the directory name and it will
+        be replaced by the time stamp of when the console was started in
+        "Dyyyymmdd-Thhmm" format.</para>
+
+        <note xml:id="noteMultipleOutputDirs">
+          <para>Multiple output directories for the same class of files can be
+          specified, delimited with a semicolon.</para>
+        </note>
+      </section>
+
+      <section xml:id="secSpecifyingColors">
+        <title xml:id="titleSpecifyingColors">Specifying Colors</title>
+
+        <para>Colors can be specified in three ways.</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>A blank entry (value name present, but empty data in the
+            registry) will be interpreted as an "empty" color which will
+            disable the particular function.</para>
+          </listitem>
+
+          <listitem>
+            <para>A string value in the form #RRGGBB to specify RR as two hex
+            digits for red, GG for green, and BB for blue. The hash sign is
+            required.</para>
+          </listitem>
+
+          <listitem>
+            <para>A string value with a named SVG color, such as "black"
+            "salmon" or "blanchedalmond". See the W3 SVG standard for a list
+            of named colors.</para>
+          </listitem>
+        </itemizedlist>
+
+        <note>
+          <para>If an entry is missing (not present at all in the registry),
+          then the default specified for the control below is used. If no
+          default is specified then that item would be disabled.</para>
+        </note>
+      </section>
+
+      <section>
+        <title>Specifying Booleans</title>
+
+        <para>Boolean values can be specified as REG_SZs with "true" or "1"
+        versus "false" or "0". They can also be specified as REG_DWORDs with
+        value zero or one. Other combinations may work, but have not been
+        tested.</para>
+      </section>
+    </section>
+
+    <section xml:id="secClothesColor">
+      <title>Clothes Color Controls</title>
+
+      <para>If clothes color testing is enabled, once the eyes have been
+      located and confirmed to match a reasonable face template, the location
+      in the input image of the upper and lower parts of the body are
+      estimated. The predominate characteristic color is then collected from
+      both of those areas to the extent they are present in the input image. A
+      confidence value is calculated for each area based upon the
+      preponderance of pixels that are near the specified target
+      colors.</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="art/ErinAndrews-Clothes.jpg" scalefit="1"
+                     width="3in"></imagedata>
+        </imageobject>
+      </mediaobject>
+
+      <para>The shoulder, waist, and ankle controls are used to estimate the
+      vertical boundaries of the upper and lower body rectangles. The width
+      control provides the horizontal size of those rectangles. These values
+      are basically in number of millimeters below the center of the face
+      (nose tip). The UnderCrop control is used to determine how far inside
+      the upper/lower body rectangles is sampled for characteristic
+      color.</para>
+
+      <para>The calling application provides a target color and minimum
+      confidence level for either or both upper and lower clothes. If the
+      colors match above the specified confidence levels, it is considered a
+      match and an input image with the face marked is written to the Clothes
+      output directory.</para>
+
+      <note>
+        <para>If both upper and lower confidence values are specified, both
+        have to be present in the input image for a match to be
+        declared.</para>
+      </note>
+
+      <para>The following images show the matches at 900, 800, and 700 to the
+      background color of the image.</para>
+
+      <figure>
+        <title>Pink 900 Confidence</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/Pink900.png" scalefit="1" width="6in"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <figure>
+        <title>Pink 800 Confidence</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/Pink800.png" scalefit="1" width="6in"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <figure>
+        <title>Pink 700 Confidence</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/Pink700.png" scalefit="1" width="6in"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <figure>
+        <title>Navy 700 Confidence</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/Navy700.png" scalefit="1" width="6in"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <section>
+        <title>Ankle</title>
+
+        <para>The approximate distance below the center of the detected face
+        for the lower boundary of the lower clothes color sampling in
+        millimeters.</para>
+
+        <para>Special Value: 0 translates to 1536.</para>
+
+        <para>Default: 0 (translates to 1536mm or approximately 5
+        feet).</para>
+      </section>
+
+      <section>
+        <title>Enable</title>
+
+        <para>Set to true to enable upper or lower clothes color
+        detection.</para>
+
+        <para>Default: false (disabled).</para>
+      </section>
+
+      <section>
+        <title>LowerColor</title>
+
+        <para>The target color for the lower clothes color. See also <link
+        linkend="secSpecifyingColors">Specifying Colors</link> above.</para>
+
+        <para>Default: none (Upper clothes color is not tested for
+        match.)</para>
+      </section>
+
+      <section>
+        <title>LowerConfidence</title>
+
+        <para>The minimum confidence level accepted for a match of the
+        detected lower clothes color to the specified target from 1 to
+        999.</para>
+
+        <para>Default: 0 (Lower clothes color is not tested for match.)</para>
+      </section>
+
+      <section>
+        <title>Shoulder</title>
+
+        <para>The approximate distance below the center of the detected face
+        for the upper boundary of the upper clothes color sampling in
+        millimeters.</para>
+
+        <para>Special Value: 0 translates to 128.</para>
+
+        <para>Default: 0 (translates to 128mm or approximately 5
+        inches).</para>
+      </section>
+
+      <section>
+        <title>UnderCrop</title>
+
+        <para>The percentage that the rectangles determined by Ankle, Waist,
+        Shoulder, and Width will be reduced for characteristic color
+        sampling.</para>
+
+        <para>Special Value: 0 translates to 80.</para>
+
+        <para>Default: 0 (translates to 80%).</para>
+      </section>
+
+      <section>
+        <title>UpperColor</title>
+
+        <para>The target color for the lower clothes color. See also <link
+        linkend="secSpecifyingColors">Specifying Colors</link> above.</para>
+
+        <para>Default: none (Upper clothes color is not tested for
+        match.)</para>
+      </section>
+
+      <section>
+        <title>UpperConfidence</title>
+
+        <para>The minimum confidence level accepted for a match of the
+        detected upper clothes color to the specified target from 1 to
+        999.</para>
+
+        <para>Default: 0 (Upper clothes color is not tested for match.)</para>
+      </section>
+
+      <section>
+        <title>Waist</title>
+
+        <para>The approximate distance below the center of the detected face
+        for the boundary between the upper and lower clothes color sampling in
+        millimeters.</para>
+
+        <para>Special Value: 0 translates to 512.</para>
+
+        <para>Default: 0 (translates to 512mm or approximately 20
+        inches).</para>
+      </section>
+
+      <section>
+        <title>Width</title>
+
+        <para>The approximate width of the upper and lower clothes color
+        sampling area in millimeters.</para>
+
+        <para>Special Value: 0 translates to 256.</para>
+
+        <para>Default: 0 (translates to 256).</para>
+      </section>
+    </section>
+
+    <section>
+      <title>Detect Controls</title>
+
+      <para>The <varname>MinAcross</varname>, <varname>MaxAcross</varname>,
+      and <varname>Factor</varname> controls affect how the raw detectors are
+      generated and are interpreted. <varname>MinAcross</varname> and
+      <varname>MaxAcross</varname> are the inverse of
+      <varname>MaxPixels</varname> and <varname>MinPixels</varname> and are
+      scaled by the width of the image. They basically specify the minimum and
+      maximum number of people shoulder to shoulder expected in a frame. At
+      default (<varname>MinAcross=0</varname> and
+      <varname>MaxAcross=0</varname>), the raw detectors can range from their
+      base size (typically 20x20 to 32x32 pixels) up to the size of the entire
+      frame. In this case, they may detect many false positives: undersize,
+      oversize, or both.</para>
+
+      <para><figure>
+          <title>Detect: MinAcross=0 MaxAcross=0</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="art/Detect-Min0Max0.jpg" scalefit="1"
+                         width="6.5in"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure>Pretending that this is a camera watching an entrance and we
+      expect that people generally are walking in at six abreast, we can set
+      <varname>MaxAcross=8</varname> just to be safe. Doing that eliminates
+      the many tiny false positive detections.</para>
+
+      <note>
+        <para>This also saves CPU resources by starting the raw detectors at
+        an appropriate size.</para>
+      </note>
+
+      <para><figure>
+          <title>Detect: MinAcross=0, MaxAcross=8</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="art/Detect-Min0Max8.jpg" scalefit="1"
+                         width="6.5in"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure>Now, we can eliminate the two very oversize detections by
+      setting <varname>MinAcross=4</varname>.</para>
+
+      <para><figure>
+          <title>Detect: MinAcross=4, MaxAcross=8</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="art/Detect-Min4Max8.jpg" scalefit="1"
+                         width="6.5in"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure>The detectors are appropriately sized now, so we are not
+      using excessive CPU. We can afford to increase the Factor from the
+      default 10 to 5 and get back the missing face.</para>
+
+      <para><figure>
+          <title>Detect: MinAcross=4, MaxAcross=8, Factor=5</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="art/Detect-Factor5.jpg" scalefit="1"
+                         width="6.5in"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <section>
+        <title>CharcolDir</title>
+
+        <para>Enabling this directory will output a diagnostic image of the
+        entire input frame converted to characteristic colors that are used
+        for clothes detection. See also <link
+        linkend="secSpecifyingOutputDirectories">Specifying
+        Directories</link>.</para>
+
+        <para>Default: blank (output disabled)</para>
+      </section>
+
+      <section>
+        <title>DetectorsXml</title>
+
+        <para>This specifies the location of the XML file that identifies and
+        locates the various object detectors.</para>
+
+        <warning>
+          <para>This is not a volatile value: It is used at startup and
+          changes are ignored.</para>
+        </warning>
+
+        <para>Default: <filename>../Detectors/Detectors.XML</filename></para>
+      </section>
+
+      <section>
+        <title>Enable</title>
+
+        <para>Set this value to true to enable frontal face detection. If
+        disabled, the SDK will assume that the entire input frame contains a
+        face using <varname>InputOverCrop</varname> to scale the detected
+        face.</para>
+
+        <para>Default: false</para>
+      </section>
+
+      <section>
+        <title>Factor</title>
+
+        <para>Specifies the factor by which raw detectors width are increased
+        in each pass over the input image; this value divided by 100 is added
+        to 1.0. Smaller numbers yield greater accuracy at the cost of more
+        processing time. Larger numbers yield faster processing with the
+        greater possibility of false positive and false negative detections.
+        Typical values are 0.5 (1.005) to 20 (1.20).</para>
+
+        <para><figure>
+            <title>Detect/Factor default (10)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="art/FactorDefault.JPG" scalefit="1"
+                           width="6in"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure><figure>
+            <title>Detect/Factor=5 (denser)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="art/Factor5.JPG" scalefit="1" width="6in"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure><figure>
+            <title>Detect/Factor=15 (sparser)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="art/Factor15.JPG" scalefit="1" width="6in"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+
+        <para>Special value: 0.0 translates to 10.0 (1.10).</para>
+
+        <para>Default: 0.0 (1.10).</para>
+      </section>
+
+      <section>
+        <title>ForceFind</title>
+
+        <para>Depricated. Will be removed in future versions.</para>
+      </section>
+
+      <section>
+        <title>GroupMethod</title>
+
+        <para>Specifies how raw face detectors will be grouped to identify a
+        possible face. Set to one of the follow values (or leave it
+        zero):</para>
+
+        <orderedlist>
+          <listitem>
+            <para>GroupByCenters</para>
+          </listitem>
+
+          <listitem>
+            <para>GroupByOverlap</para>
+          </listitem>
+
+          <listitem>
+            <para>GroupByNeighbors</para>
+          </listitem>
+
+          <listitem>
+            <para>GroupInternal</para>
+          </listitem>
+
+          <listitem>
+            <para>GroupInternalAllObjects</para>
+          </listitem>
+        </orderedlist>
+
+        <para>Default: zero (let the engine decide)</para>
+      </section>
+
+      <section>
+        <title>GroupThreshold</title>
+
+        <para>Future: Controls the detection threshold for GroupMethod=4
+        (GroupInternal) or 5 (GroupInternalAllObjects)</para>
+      </section>
+
+      <section>
+        <title>InputOverCrop</title>
+
+        <para>This value is used when <varname>Detect/Enable=false</varname>.
+        In the case when processing a set of images where face detection has
+        already taken place. This value should match
+        <varname>Output/MarkOverCrop</varname> when the previous face
+        detection was processed.</para>
+
+        <para>Default: zero</para>
+      </section>
+
+      <section>
+        <title>Interface</title>
+
+        <para>Internal control. Leave at the default (zero) unless directed by
+        an EIRC representative.</para>
+      </section>
+
+      <section>
+        <title>MaxAcross</title>
+
+        <para>The maximum number of people expected in a video frame standing
+        shoulder to shoulder. The minimum detector size is calculated from
+        this value.</para>
+
+        <para>Special value: zero uses the minimum detector size
+        available.</para>
+
+        <para>Default: zero</para>
+      </section>
+
+      <section>
+        <title>MaxPixels</title>
+
+        <para>The maximum size of the detector in pixels.</para>
+
+        <para>Special value: zero allows the detector to grow to the smallest
+        dimension of the input frame.</para>
+
+        <para>Default: zero</para>
+      </section>
+
+      <section>
+        <title>MaxResults</title>
+
+        <para>The maximum number of potential face detections per
+        frame.</para>
+
+        <para>Default: zero (no limit)</para>
+      </section>
+
+      <section>
+        <title>MinAcross</title>
+
+        <para>The minimum number of people expected in a video frame standing
+        shoulder to shoulder. The maximum detector size is calculated from
+        this value.</para>
+
+        <para>Default: zero (no <varname>MaxPixels</varname>)</para>
+      </section>
+
+      <section>
+        <title>MinPixels</title>
+
+        <para>The minimum size of the detector.</para>
+
+        <para>Default: zero (use the smallest detector available)</para>
+      </section>
+
+      <section>
+        <title>MinQuality</title>
+
+        <para>Sets the minimum quality of face detection that will be allowed
+        on a scale from 1 to 999.</para>
+
+        <para>Default: zero</para>
+      </section>
+
+      <section>
+        <title>NeighborThreshold</title>
+
+        <para>Future: Controls the detection threshold for GroupMethod=3
+        (GroupByNeighbors)</para>
+      </section>
+
+      <section>
+        <title>OverlapThreshold</title>
+
+        <para>Future: Controls the detection threshold for GroupMethod=2
+        (GroupByOverlap)</para>
+      </section>
+
+      <section>
+        <title>SkinDir</title>
+
+        <para>Enabling this directory will output a diagnostic image of the
+        entire input frame masked to show only detected skin areas. See also
+        <link linkend="secSpecifyingOutputDirectories">Specifying
+        Directories</link> below.</para>
+
+        <para>Default: empty (output disabled)</para>
+      </section>
+    </section>
+
+    <section>
+      <title>FaceBase controls</title>
+
+      <section>
+        <title>BaseDir</title>
+
+        <para>Specifies the base directory for a file-based INDIbase storage
+        of faces, templates, images, and person records. No user serviceable
+        parts inside.</para>
+
+        <para>Default: ../FaceBase</para>
+      </section>
+
+      <section>
+        <title>MaxLoad</title>
+
+        <para>Limits the number of enrollments that are loaded in
+        memory.</para>
+
+        <tip>
+          <para>This is typically only used while debugging and developing to
+          reduce facial database load time.</para>
+        </tip>
+
+        <para>Special Value: 0 (no limit)</para>
+
+        <para>Default: 0 (no limit)</para>
+      </section>
+    </section>
+
+    <section>
+      <title>FaceColor Controls</title>
+
+      <para>If enabled, the skin tone of the cheeks, nose, and forehead are
+      collected.</para>
+
+      <para><mediaobject>
+          <imageobject>
+            <imagedata fileref="art/ErinAndrews-Face.png" width="2.5in"></imagedata>
+          </imageobject>
+        </mediaobject>An application can then specify one or more named skin
+      colors (such as "African" "Asian" "Anglo") to be compared with the
+      detected data. The named color becomes a key in the
+      <varname>FaceColor</varname> section of the registry. Within each of
+      those keys, a <varname>TargetColor</varname>, a
+      <varname>MinConfidence</varname> value, and an
+      <varname>OutputDir</varname> are expected.</para>
+
+      <para>When a face is detected and a consistent template can be
+      generated, the collected skin tone color is compared against each of the
+      specified target colors. If any of the matches are above the individual
+      specified minimum confidence levels, the normalized face image is
+      written to the output directory of the closest matching color.</para>
+
+      <section>
+        <title>Enable</title>
+
+        <para>Set to true to enable face color detection.</para>
+
+        <para>Default: false (disabled).</para>
+      </section>
+
+      <section>
+        <title>MinConfidence</title>
+
+        <para>The minimum confidence level from 1 to 999 that will allow that
+        color to be considered the best match.</para>
+
+        <para>Default: zero (any confidence will be considered)</para>
+      </section>
+
+      <section>
+        <title>OutputDir</title>
+
+        <para>The directory where the normalized face image will be written if
+        this named color is considered the best match.</para>
+
+        <para>Default: none (nothing written)</para>
+      </section>
+
+      <section>
+        <title>TargetColor</title>
+
+        <para>The target color for a particular named skin color.</para>
+
+        <para>Default: none (disabled)</para>
+      </section>
+    </section>
+
+    <section>
+      <title>Generate Controls</title>
+
+      <section>
+        <title>DataDir</title>
+
+        <para>Specifies the directory where INDIface XML datafiles will be
+        loaded.</para>
+
+        <warning>
+          <para>This is not a volatile value: It is used at initialization and
+          changes are ignored.</para>
+        </warning>
+
+        <para>Default: <filename>../Data/Face1</filename></para>
+      </section>
+
+      <section>
+        <title>Enable</title>
+
+        <para>Enables feature location and template generation.</para>
+
+        <para>Default: false</para>
+      </section>
+
+      <section>
+        <title>EyeScale</title>
+
+        <para>Can be used to adjust the minimum and maximum sizes of the eye
+        detectors in percent. Larger numbers (&gt; 100) will decrease the
+        variation in eye size detectors; smaller numbers (&lt;100) will
+        increase it the range.</para>
+
+        <para>Default: zero (use default eye detector range)</para>
+      </section>
+
+      <section>
+        <title>LeftDetector</title>
+
+        <para>The name of an eye detector to be used for the (camera) left
+        eye.</para>
+
+        <para>Default: empty (use default)</para>
+      </section>
+
+      <section>
+        <title>LeftInterface</title>
+
+        <para>Internal control. Leave at the default (zero) unless directed by
+        an EIRC representative.</para>
+      </section>
+
+      <section>
+        <title>MinConsistency</title>
+
+        <para>The minimum consistency on a scale from 1 to 999 that will
+        generate a template for searching or enrollment.</para>
+
+        <para>Default: zero</para>
+      </section>
+
+      <section>
+        <title>OutputDir</title>
+
+        <para>Specifies a directory to receive diagnostic face detection
+        images. See <link linkend="secSpecifyingOutputDirectories">Specifying
+        Directories</link>.</para>
+
+        <para>Default: empty (no output)</para>
+      </section>
+
+      <section>
+        <title>RightDetector</title>
+
+        <para>The name of an eye detector to be used for the (camera) right
+        eye.</para>
+
+        <para>Default: empty (use default)</para>
+      </section>
+
+      <section>
+        <title>RightInterface</title>
+
+        <para>Internal control. Leave at the default (zero) unless directed by
+        an EIRC representative.</para>
+      </section>
+
+      <section>
+        <title>RoiScale</title>
+
+        <para>Can be used to adjust the size of the region of the detected
+        face where the eyes are expected in percent. Larger numbers (&gt; 100)
+        will decrease the size of the region; smaller numbers (&lt;100) will
+        decrease it. Typically this can be set to 150 in cases where large
+        amounts of head roll are expected. It could be decreased slightly
+        below 100 in cases where the faces are from "passport quality"
+        images.</para>
+
+        <para>Default: zero (no adjustment)</para>
+      </section>
+    </section>
+
+    <section xml:id="secHeightControls">
+      <title>Height Controls</title>
+
+      <para>For fixed camera positions, a grid can be calibrated to provide an
+      estimate of the height of a person standing a target distance away from
+      the camera as scaled by the detected distance between the eyes.
+      <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/GridImage.png"></imagedata>
+          </imageobject>
+        </mediaobject></para>
+
+      <para>For this example, <varname>GridCols=3</varname>,
+      <varname>GridRows=7</varname>, and <varname>GridFile</varname> points to
+      a file (<filename>GridFile.cdf</filename>) that contains the following,
+      and <varname>TargetEyePixels=62</varname>.</para>
+
+      <programlisting>0 0 0 
+0 74 0 
+0 68 0 
+0 62 0 
+0 56 0 
+0 50 0 </programlisting>
+
+      <section>
+        <title>Enable</title>
+
+        <para>Set true to enable height estimation processing. You must set
+        <varname>GridCols</varname> and <varname>GridRows</varname> then
+        specify a <varname>GridFile</varname> before the results will be
+        calculated.</para>
+
+        <para>Default: false (no height estimation)</para>
+      </section>
+
+      <section>
+        <title>GridCols</title>
+
+        <para>Specifies the number of columns expected in the
+        <varname>GridFile</varname>.</para>
+
+        <para>Default: zero (not used)</para>
+      </section>
+
+      <section>
+        <title>GridFile</title>
+
+        <para>Provides the location of a file containing the height values (in
+        inches or centimeters) for each grid row and column. The file must
+        have numeric entries for each (rows * cols) cell. Specify
+        <varname>GridCols</varname> and <varname>GridRows</varname> before
+        changing this value.</para>
+
+        <para>Default: none (not used)</para>
+      </section>
+
+      <section>
+        <title>GridRows</title>
+
+        <para>Specifies the number of rows expected in the
+        <varname>GridFile</varname>.</para>
+      </section>
+
+      <section>
+        <title>HeightScale</title>
+
+        <para>Adjusts the estimation of the top of the head. If the camera is
+        significantly above the subjects heads, you may want to decrease the
+        value to allow for image foreshortening. Specify in per cent.</para>
+
+        <para>Default: zero (1.0)</para>
+      </section>
+
+      <section>
+        <title>HeightUnits</title>
+
+        <para>Sets the units that are specified in the grid file and in
+        TargetHeight. This parameter allows the height confidence to be
+        independent of the units units used. It is basically the number of
+        millimeters in the unit specified. For example: 10 for centimeters, 25
+        for inches, or 305 for feet.</para>
+
+        <para>Added: v1.71A</para>
+
+        <para>Default: 25 (inches)</para>
+      </section>
+
+      <section>
+        <title>MinConfidence</title>
+
+        <para>The minimum confidence level that will be considered a height
+        match for output to the <varname>Output/HeightDir</varname>.</para>
+
+        <para>Default: zero (anything matches)</para>
+      </section>
+
+      <section>
+        <title>MinConsistency</title>
+
+        <para>The minimum template generation consistency that will be
+        submitted for height estimation.</para>
+
+        <para>Default: zero (try anything that passed
+        <varname>Generate/MinConsistency</varname>)</para>
+      </section>
+
+      <section>
+        <title>TargetEyePixels</title>
+
+        <para>The expected number of pixels between the eyes at the target
+        distance from the camera.</para>
+
+        <para>Default: zero (not used)</para>
+      </section>
+
+      <section>
+        <title>TargetHeight</title>
+
+        <para>The target height of the subject (in inches or centimeters as
+        defined in the <varname>GridFile</varname>).</para>
+
+        <para>Default: zero (not used)</para>
+      </section>
+    </section>
+
+    <section xml:id="secInputControls">
+      <title>Input Controls</title>
+
+      <section>
+        <title>BeginDateTime</title>
+
+        <para>Specify the earliest files of interest (by last modified time)
+        in an input hot directory using ISO 8601 extended format:
+        YYYY-MM-DDTHH:MM:SS</para>
+
+        <para>Special value: blank (or anything invalid) disables</para>
+
+        <para>Default: blank</para>
+      </section>
+
+      <section>
+        <title>DeleteAfter</title>
+
+        <para>If true, files are deleted from the "hot directory" input as
+        they are ingested into the SDK.</para>
+
+        <para>Default: false</para>
+
+        <warning>
+          <para>Use this very, very carefully. If you pause while an image is
+          in the input cache, these images will be lost forever.</para>
+        </warning>
+      </section>
+
+      <section>
+        <title>EndDateTime</title>
+
+        <para>Specify the latest files (by last modified time) of interest in
+        an input hot directory using ISO 8601 extended format:
+        YYYY-MM-DDTHH:MM:SS</para>
+
+        <para>Special value: blank (or anything invalid) disables</para>
+
+        <para>Default: blank</para>
+      </section>
+
+      <section>
+        <title>Format</title>
+
+        <para>Specifies the image encoding format that the data from an IP
+        camera. This is useful if the URL suffix doesn't match the data
+        format. For example,
+        <uri>http://root:wireless@192.168.1.228/axis-cgi/jpg/image.cgi</uri>
+        returns JPG format data.</para>
+
+        <note>
+          <para>This value is semi-volatile. It is only read at the time a new
+          HTTP-scheme Input/URL.</para>
+        </note>
+
+        <para>Special value: blank reverts to the suffix of the
+        <varname>URL</varname>.</para>
+
+        <para>Default: blank</para>
+
+        <para>Added: Version 1.68</para>
+      </section>
+
+      <section>
+        <title>Loop</title>
+
+        <para>If true, causes the input directory to be restarted from the
+        beginning when all images in the directory have been processed. This
+        is useful for demonstration or testing purposes.</para>
+
+        <para>Default: false</para>
+      </section>
+
+      <section>
+        <title>MaxCache</title>
+
+        <para>The SDK caches a few images from either the IP camera or the hot
+        directory so that it doesn't have to wait for an image to be acquired
+        when it is ready to process the next image. This value controls the
+        maximum number of frames that are cached. Smaller values will reduce
+        perceived latency.</para>
+
+        <para>Special value: Zero translates to five.</para>
+
+        <para>Default: Zero</para>
+      </section>
+
+      <section>
+        <title>MoveAfter</title>
+
+        <para>Specifies where image files will be moved after the frame has
+        been ingested into the SDK.</para>
+
+        <para>Special value: Blank, no action</para>
+
+        <para>Default: Blank</para>
+      </section>
+
+      <section>
+        <title>NewestOnly</title>
+
+        <para>If true only the most recently arrived file is retrieved from
+        the input directory when the SDK is ready to cache another
+        frame.</para>
+
+        <para>Default: false</para>
+      </section>
+
+      <section>
+        <title>NewOnly</title>
+
+        <para>If true only images that arrive in the hot directory after the
+        Input/URL is changed are used.</para>
+
+        <para>Default: false</para>
+      </section>
+
+      <section>
+        <title>NumFiles</title>
+
+        <para>Output only value. Upon a change of Input/URL that results in a
+        hot directory, this value specifies the number of files in the hot
+        directory at the time of the change.</para>
+      </section>
+
+      <section>
+        <title>Pause</title>
+
+        <para>Specifies whether acquisition of frames from the input URL is
+        paused or not. Be sure to heed the <link
+        linkend="warnInputPause">warning above</link>. Also note that when
+        pause occurs (transition from false to true), all input frames in the
+        cache are dropped. The frame and faces currently being processed will
+        continue to be output.</para>
+
+        <para>Default: false (not paused)</para>
+      </section>
+
+      <section>
+        <title>RestartSecs</title>
+
+        <para>Number of seconds to wait without receiving HTTP frames before
+        restarting HTTP connection.</para>
+
+        <para>Special value: 0 (no restart)</para>
+
+        <para>Default: 3</para>
+
+        <para><warning>
+            <para>Removed: v1.69</para>
+          </warning></para>
+      </section>
+
+      <section>
+        <title>SampleMsec</title>
+
+        <para>Specifies the number of milliseconds that the SDK will wait
+        between taking samples from the IP camera or the hot directory.</para>
+
+        <para>Special value: Zero for one second</para>
+
+        <para>Default: Zero</para>
+      </section>
+
+      <section>
+        <title>Skip</title>
+
+        <para>Specifies the number of files to be skipped for each file
+        processed from an input hot directory.</para>
+
+        <para>Default: 0 (no skipping)</para>
+      </section>
+
+      <section>
+        <title>SourceId</title>
+
+        <para>Specified an identifier for an IP camera. It is prepended to a
+        time stamp for the ImageId.</para>
+
+        <para>Default: blank (none)</para>
+      </section>
+
+      <section>
+        <title>URL</title>
+
+        <para>/Image/URL controls the input to the IfSearch console for "hot
+        directory" input or live retrieval from an IP camera. See the <link
+        linkend="secImageInput">Image Input section</link> above for
+        details.</para>
+
+        <para>Default: none (will not function)</para>
+      </section>
+    </section>
+
+    <section>
+      <title>Mark Controls</title>
+
+      <section>
+        <title>BodyColor</title>
+
+        <para>Marks the body below a detected face that meets
+        <varname>Generate/MinConsistency</varname>.</para>
+
+        <para>Default: magenta</para>
+      </section>
+    </section>
+
+    <section xml:id="secMatchControls">
+      <title>Match Controls</title>
+
+      <section>
+        <title>AppendPersonId</title>
+
+        <para>If true, if a face in the source image meets "red box"
+        conditions, then =M999-PersonId is appended to the SearchId when
+        writing to <varname>FaceDir</varname> or
+        <varname>FaceCacheDir</varname>, where 999 is the match
+        confidence.</para>
+
+        <note>
+          <para>Was briefly (between v1.68C and v1.68E) =C999-PersonId.</para>
+        </note>
+
+        <para>Default: false</para>
+
+        <para>Added: v1.68C</para>
+      </section>
+
+      <section>
+        <title>DuplicateThreshold</title>
+
+        <para>RESERVED for future use.</para>
+
+        <para>Default: 6</para>
+      </section>
+
+      <section>
+        <title>Enable</title>
+
+        <para>If true, casual matching is enabled allowing Image, Match, and
+        XML output, and "red box" mode for the Marked image.</para>
+
+        <para>Default: false (disabled)</para>
+      </section>
+
+      <section>
+        <title>MarkConfidence</title>
+
+        <para>Overrides <varname>MinConfidence</varname> for
+        <varname>Output/MarkMatchColor</varname>.</para>
+
+        <para>Default: zero (use <varname>MinConfidence</varname>)</para>
+      </section>
+
+      <section>
+        <title>MarkMaxPersons</title>
+
+        <para>Used for <varname>Output/MarkMatchColor</varname>; not
+        considered a match if specified number of people are over
+        <varname>MarkConfidence</varname>.</para>
+
+        <para>Default: zero (no check)</para>
+      </section>
+
+      <section>
+        <title>MaxDistance</title>
+
+        <para>Override MinConfidence with the Euclidean distance between
+        vectors to be considered a match.</para>
+
+        <para>Default: 0 (no override)</para>
+      </section>
+
+      <section>
+        <title>MaxFaces</title>
+
+        <para>If <varname>PersonMode=true</varname>, the maximum number of
+        total faces to be returned from the matcher before PersonMode
+        combining.</para>
+
+        <para>Default: 0 (no limit)</para>
+      </section>
+
+      <section>
+        <title>MaxPersonFaces</title>
+
+        <para>If <varname>PersonMode=true</varname>, the maximum number of
+        faces for an enrolled person that will be combined in the final
+        results.</para>
+
+        <para>Default: 5</para>
+      </section>
+
+      <section>
+        <title>MaxResults</title>
+
+        <para>The maximum number of results to return from the matching
+        process.</para>
+
+        <para>Default: 0</para>
+      </section>
+
+      <section>
+        <title>MinConfidence</title>
+
+        <para>The minimum "confidence" value, in the range from 1 to 999, that
+        will be returned as a possible match.</para>
+
+        <para><figure>
+            <title>Without MinConfidence</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="art/D20090324-T170221562-X0310Y0151C652E051-before.JPG"
+                           scalefit="1" width="4in"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure><figure>
+            <title>With MinConfidence=650</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="art/D20090324-T170221562-X0310Y0151C652E051-MinConf650.JPG"
+                           scalefit="1" width="4in"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+
+        <para>Default: 0</para>
+      </section>
+
+      <section>
+        <title>MinDistance</title>
+
+        <para>The minimum Euclidean distance allow from the matching
+        process.</para>
+
+        <para>Default: 0 (no limit)</para>
+      </section>
+
+      <section>
+        <title>PersonMethod</title>
+
+        <para>RESERVED for future use.</para>
+
+        <para>Default: 0</para>
+      </section>
+
+      <section>
+        <title>PersonMode</title>
+
+        <para>If true, up to <varname>MaxPersonFaces</varname> results will be
+        combined in the match results. Otherwise, each enrolled face is
+        considered independent.</para>
+
+        <para>Default: true</para>
+      </section>
+    </section>
+
+    <section>
+      <title>Options Controls</title>
+
+      <section>
+        <title>Message</title>
+
+        <para>Receives warning, error, and fatal messages from the SDK. They
+        are formatted with a "W", "E", or "F" followed by an 8 character
+        hexadecimal error code (or zeros) then the time of the message and the
+        message text itself. The OEM application can clear this message to
+        receive the next message. The next message is set after one minute if
+        the previous message is not cleared. Fatal messages are moved to the
+        front of the queue.</para>
+      </section>
+
+      <section>
+        <title>NoPrompt</title>
+
+        <para>If true, IfSearch does NOT prompt for a key to continue before
+        closing itself.</para>
+
+        <para>Default: true (NO prompt)</para>
+
+        <warning>
+          <para><emphasis>NOT volatile</emphasis>; must be specified on the
+          command line or set in the registry before starting
+          IfSearch.exe.</para>
+        </warning>
+      </section>
+
+      <section>
+        <title>PollCount</title>
+
+        <para><emphasis>Output only</emphasis>: Zero during initialization,
+        one at application startup, incremented each time options are
+        scanned.</para>
+      </section>
+
+      <section>
+        <title>Shutdown</title>
+
+        <para>Set to true to command IfSearch.exe to close itself. This is the
+        preferred way to shutdown the console application. In order to prevent
+        multiple instances of IfSearch to be running against the same base
+        registry key, IfSearch sets this true during initialization then false
+        while running. A calling application should set this to true before it
+        closes itself. See <link linkend="secMultipleInstances">Multiple
+        Instances</link> below.</para>
+      </section>
+
+      <section>
+        <title>UpdateMsec</title>
+
+        <para>Default: zero (no check for volatile updates)</para>
+      </section>
+    </section>
+
+    <section>
+      <title>Output Controls for Directories</title>
+
+      <para>Output data consists of capture images, frame images, detection
+      images, cropped face images, normalized face images, and XML data files.
+      The following table describes the various output categories. The output
+      files are distributed to a set of directories specified in the
+      configuration.</para>
+
+      <table>
+        <title>Output Files</title>
+
+        <tgroup cols="4">
+          <thead>
+            <row>
+              <entry align="center">Name</entry>
+
+              <entry align="center">Data</entry>
+
+              <entry align="center">Markings</entry>
+
+              <entry align="center">Description</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry>Capture</entry>
+
+              <entry>Capture</entry>
+
+              <entry>none</entry>
+
+              <entry>Raw captured image</entry>
+            </row>
+
+            <row>
+              <entry>Capture2</entry>
+
+              <entry>Frame</entry>
+
+              <entry>none</entry>
+
+              <entry>Preprocessed image</entry>
+            </row>
+
+            <row>
+              <entry>Marked</entry>
+
+              <entry>Frame</entry>
+
+              <entry>head, eyes, body</entry>
+
+              <entry>Marked input frame</entry>
+            </row>
+
+            <row>
+              <entry>NoFace</entry>
+
+              <entry>Capture</entry>
+
+              <entry>none</entry>
+
+              <entry>No faces detected</entry>
+            </row>
+
+            <row>
+              <entry>NoEyes</entry>
+
+              <entry>Crop</entry>
+
+              <entry>none</entry>
+
+              <entry>Potential face detected, but no eyes</entry>
+            </row>
+
+            <row>
+              <entry>BadFace</entry>
+
+              <entry>Norm</entry>
+
+              <entry>none</entry>
+
+              <entry>Eyes detected, but low template consistency</entry>
+            </row>
+
+            <row>
+              <entry>Face</entry>
+
+              <entry>Norm</entry>
+
+              <entry>none</entry>
+
+              <entry>Face and eyes detected. If casual match enabled, also
+              meets match criteria</entry>
+            </row>
+
+            <row>
+              <entry>NoMatch</entry>
+
+              <entry>Norm</entry>
+
+              <entry>none</entry>
+
+              <entry>Good face, but doesn't meet match criteria</entry>
+            </row>
+
+            <row>
+              <entry>XML</entry>
+
+              <entry>XML</entry>
+
+              <entry>n/a</entry>
+
+              <entry>Data of frame, faces, analytics, matches</entry>
+            </row>
+
+            <row>
+              <entry>FaceCache</entry>
+
+              <entry>Norm</entry>
+
+              <entry>none</entry>
+
+              <entry>Faces with directory contents managed by SDK</entry>
+            </row>
+
+            <row>
+              <entry>Height</entry>
+
+              <entry>Detect</entry>
+
+              <entry>head</entry>
+
+              <entry>Meets height estimate criteria</entry>
+            </row>
+
+            <row>
+              <entry>Clothes</entry>
+
+              <entry>Detect</entry>
+
+              <entry>head</entry>
+
+              <entry>Meets clothes color criteria</entry>
+            </row>
+
+            <row>
+              <entry>NoClothes</entry>
+
+              <entry>Detect</entry>
+
+              <entry>head</entry>
+
+              <entry>Does not meet clothes color criteria</entry>
+            </row>
+
+            <row>
+              <entry>SkinColor</entry>
+
+              <entry>Norm</entry>
+
+              <entry>none</entry>
+
+              <entry>Meets that skin tone criteria</entry>
+            </row>
+
+            <row>
+              <entry>Resolved</entry>
+
+              <entry>Detect</entry>
+
+              <entry>head</entry>
+
+              <entry>Meets resolver criteria</entry>
+            </row>
+
+            <row>
+              <entry>ResolvedFace</entry>
+
+              <entry>Norm</entry>
+
+              <entry>none</entry>
+
+              <entry>Meets resolver criteria</entry>
+            </row>
+
+            <row>
+              <entry>Match</entry>
+
+              <entry>Norm</entry>
+
+              <entry>none</entry>
+
+              <entry>Matching faces from INDIbase enrollment</entry>
+            </row>
+
+            <row>
+              <entry>Body</entry>
+
+              <entry>other</entry>
+
+              <entry>none</entry>
+
+              <entry>Body below the detected face</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <para>Normalized face image files written to the Face, FaceCache, and
+      MarkedFace directories have INDIface templates embedded into them. They
+      are suitable to be transferred to Search or Enroll command mode input
+      directories. Search and Retrieve command mode output directories receive
+      normalized face image files from the INDIbase.</para>
+
+      <table>
+        <title>Diagnostic Files</title>
+
+        <tgroup cols="4">
+          <thead>
+            <row>
+              <entry align="center">Name</entry>
+
+              <entry align="center">Data</entry>
+
+              <entry align="center">Markings</entry>
+
+              <entry align="center">Description</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry>MarkedFace</entry>
+
+              <entry>Norm</entry>
+
+              <entry>eyes, skin</entry>
+
+              <entry>Face with eyes and skin tone detection markings</entry>
+            </row>
+
+            <row>
+              <entry>Recon</entry>
+
+              <entry>other</entry>
+
+              <entry>eyes</entry>
+
+              <entry>A reconstruction image from a generated template</entry>
+            </row>
+
+            <row>
+              <entry>Vector</entry>
+
+              <entry>other</entry>
+
+              <entry>n/a</entry>
+
+              <entry>A graph representing a generated template</entry>
+            </row>
+
+            <row>
+              <entry>Detect</entry>
+
+              <entry>Frame</entry>
+
+              <entry>heads, detectors</entry>
+
+              <entry>Image used to detect faces</entry>
+            </row>
+
+            <row>
+              <entry>Generate</entry>
+
+              <entry>Crop</entry>
+
+              <entry>eyes, detectors</entry>
+
+              <entry>Image used to generate template</entry>
+            </row>
+
+            <row>
+              <entry>Skin</entry>
+
+              <entry>Frame</entry>
+
+              <entry>none</entry>
+
+              <entry>Input image with non-skin areas masked</entry>
+            </row>
+
+            <row>
+              <entry>Charcol</entry>
+
+              <entry>Frame</entry>
+
+              <entry>none</entry>
+
+              <entry>Input image converted to characteristic colors for
+              clothes color matching</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <para>Frame images and XML data files are identified by an Image ID. For
+      frames captured from IP cameras, the image ID consists of a date stamp
+      to the thousands of the second optionally prepended with a specified
+      Camera ID. For images read from a directory, the image ID is the
+      complete base name of the file. Cropped and normalized face image files
+      are identified by a Face ID. The face ID consists of the image ID
+      appended with the x,y coordinates of the position of the face in the
+      original image and the quality and consistency values for the detected
+      face.</para>
+
+      <para>Nomenclature for SDK Output File Names:</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>X1234Y0567</term>
+
+          <listitem>
+            <para>The center of the face was detected at pixel x,y coordinates
+            (1234,0567)</para>
+
+            <note>
+              <para>Pixel coordinates are grow to the left and down.</para>
+            </note>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>W194</term>
+
+          <listitem>
+            <para>The detected face was 194 pixels wide.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Q789</term>
+
+          <listitem>
+            <para>The face was detected at 78.9% "quality"</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>C543</term>
+
+          <listitem>
+            <para>A face template with 54.3% "consistency" was
+            generated</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>E092</term>
+
+          <listitem>
+            <para>Eyes located 92 pixels apart were used to generate the
+            template</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>R03</term>
+
+          <listitem>
+            <para>This person or face was ranked 3rd in a search or casual
+            match.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>M890</term>
+
+          <listitem>
+            <para>This person or face has a 89.0% "match confidence"</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>Capture image file format is controlled by
+      <varname>Input/Format</varname>. Face, FaceCache, MarkedFace, Generate,
+      and ResolveFace images are controlled by
+      <varname>Output/FaceFormat</varname> and
+      <varname>Output/FaceQuality</varname>. All other image files are
+      controlled by <varname>Output/Format</varname> and
+      <varname>Output/Quality</varname>.</para>
+
+      <para>Except for BaseDir all the controls below default to empty (i.e.
+      no output for that class of file). See <link
+      linkend="secSpecifyingOutputDirectories">Specifying Directories</link>
+      above for details relating to these output directories as well as input
+      or output directories in other sections.</para>
+
+      <section>
+        <title>BadFaceDir</title>
+
+        <para>Faces where eyes were detected, but didn't meet
+        <varname>Generate/MinConsistency</varname>.</para>
+      </section>
+
+      <section>
+        <title>BaseDir</title>
+
+        <para>This can be used as a base directory for the other input and
+        output directories if they are relative. See <link
+        linkend="secSpecifyingOutputDirectories">Specifying Directories</link>
+        above for details.</para>
+
+        <para>Default: <filename>../Output</filename></para>
+      </section>
+
+      <section>
+        <title>BodyDir</title>
+
+        <para>Outputs an image containing the detected head and a rectangle
+        below the head where a body would be expected.</para>
+      </section>
+
+      <section>
+        <title>Capture2Dir</title>
+
+        <para>The input image for face detection after preprocessing.</para>
+
+        <note>
+          <para>Files written to this directory are in
+          <varname>Output/Format</varname>.</para>
+        </note>
+
+        <warning>
+          <para>This will change to Output/InputDir in the future.</para>
+        </warning>
+      </section>
+
+      <section>
+        <title>CaptureDir</title>
+
+        <para>A copy of the raw original (before preprocessing) image from
+        camera or file.</para>
+
+        <note>
+          <para>Files written to this directory are in
+          <varname>Input/Format</varname>.</para>
+        </note>
+      </section>
+
+      <section>
+        <title>ClothesDir</title>
+
+        <para>A frame image with the face marked that met the criteria for a
+        clothes color match. See the <link linkend="secClothesColor">Clothes
+        Color Controls</link> section.</para>
+      </section>
+
+      <section>
+        <title>FaceCacheDir</title>
+
+        <para>Faces that have been detected and templates generated (if
+        <varname>Generate/Enable=true</varname>) and are matched to the
+        INDIbase (if <varname>Match/Enable=true</varname>) are placed here in
+        addition to FaceDir. The SDK manages this directory and periodically
+        scans this directory and deletes the oldest files to bring the number
+        of files in the cache directory down to
+        <varname>Output/MaxCache</varname>.</para>
+
+        <para>Change: v1.69E - Faces written to the
+        <varname>NoMatchDir</varname> are also cached here.</para>
+      </section>
+
+      <section>
+        <title>FaceDir</title>
+
+        <para>Faces that have been detected and templates generated (if
+        <varname>Generate/Enable=true</varname>) and are matched to the
+        INDIbase (if <varname>Match/Enable=true</varname>) are placed
+        here.</para>
+      </section>
+
+      <section>
+        <title>HeightDir</title>
+
+        <para>A frame image with the face marked that met the criteria for
+        height estimation match. See the <link
+        linkend="secHeightControls">Height Controls</link> section
+        above.</para>
+      </section>
+
+      <section>
+        <title>ImageDir</title>
+
+        <para>When casual matching is in effect
+        (<varname>Match/Enable=true</varname>) a composite image with the
+        detected face at the center surrounded by up to twelve closest
+        matching enrolled faces is written here.</para>
+      </section>
+
+      <section>
+        <title>MatchDir</title>
+
+        <para>The enrolled face image files are written to this directory for
+        matches that meet the criteria set in the <link
+        linkend="secMatchControls">Match Controls</link> section. The file
+        name is the format {ImageId}-X0123Y0456C678E099-R01.ext where
+        (123,456) are the x,y coordinates of the center of the detected face,
+        678 is the template consistency, 99 is the number of pixels between
+        the eyes, and the rank of the match is 1.</para>
+      </section>
+
+      <section>
+        <title>MarkedDir</title>
+
+        <para>The input frame with various items detected marked. See <link
+        linkend="secOutputMark">Output Controls for Marking Images</link>
+        below for what can be marked.</para>
+      </section>
+
+      <section>
+        <title>MarkedFaceDir</title>
+
+        <para>Faces that have been detected and templates generated (if
+        <varname>Generate/Enable=true</varname>) and are matched to the
+        INDIbase (if <varname>Match/Enable=true</varname>) are placed here
+        with the eye locations marked and, if Face Color detection is enabled,
+        the sampled skin areas are marked.</para>
+      </section>
+
+      <section>
+        <title>NoClothesDir</title>
+
+        <para>Destination of face-marked images in which clothes matching
+        <emphasis>didn't</emphasis> detect a match.</para>
+
+        <para>Added: v1.68</para>
+      </section>
+
+      <section>
+        <title>NoEyesDir</title>
+
+        <para>Faces where we were unable to detect eyes are placed
+        here.</para>
+      </section>
+
+      <section>
+        <title>NoFaceDir</title>
+
+        <para>Frames where no faces were detected are placed here.</para>
+      </section>
+
+      <section>
+        <title>NoMatchDir</title>
+
+        <para>When casual matching is enabled, faces where good templates were
+        generated, but did not meet the criteria set in the <link
+        linkend="secMatchControls">Match Controls</link> section are written
+        here.</para>
+
+        <para>Change: v1.69E - Faces that written to this directory are also
+        cached in <varname>FaceCacheDir</varname>.</para>
+      </section>
+
+      <section>
+        <title>ReconDir</title>
+
+        <para>Diagnostic reconstruction images of generated face templates are
+        written to this directory. See <link
+        linkend="figReconstruction">Reconstruction figure</link>.</para>
+      </section>
+
+      <section>
+        <title>VectorDir</title>
+
+        <para>Diagnostic vector graph images of generated face templates are
+        written to this directory. See <link linkend="figVector">Vector
+        figure</link>.</para>
+      </section>
+
+      <section>
+        <title>XMLDir</title>
+
+        <para>An XML file is written to this directory describing the frame,
+        faces found, and matches is written to this directory.</para>
+
+        <warning>
+          <para>The XML format is likely to change. Please contact EIRC before
+          using these files.</para>
+        </warning>
+      </section>
+    </section>
+
+    <section xml:id="secOutputMark">
+      <title>Output Controls for Marking Images</title>
+
+      <para>Most of these controls are for setting colors for
+      <varname>Output/MarkedDir</varname> images. See <link
+      linkend="secSpecifyingColors">Setting Colors</link>. If a control is
+      missing it's default is used; if a control is present, but blank, that
+      mark is disabled.</para>
+
+      <section>
+        <title>MarkAllColor</title>
+
+        <para>Marks all detectors in the Detect image.</para>
+
+        <para>Default: none</para>
+      </section>
+
+      <section>
+        <title>MarkBackgroundColor</title>
+
+        <para>Sets the background color for the Marked image.</para>
+
+        <para>Default: none</para>
+      </section>
+
+      <section>
+        <title>MarkBackgroundFile</title>
+
+        <para>Sets a file to be used instead of the input frame for the Marked
+        image.</para>
+
+        <para>Default: empty</para>
+      </section>
+
+      <section>
+        <title>MarkBackgroundTransparency</title>
+
+        <para>Sets the transparency of the background color.</para>
+
+        <para>Default: 100</para>
+      </section>
+
+      <section>
+        <title>MarkBadFaceColor</title>
+
+        <para>Marks faces where eyes were detected but were less than
+        Generate/MinConsistency.</para>
+
+        <para>Default: green</para>
+      </section>
+
+      <section>
+        <title>MarkClothes</title>
+
+        <para>If true, characteristic colors are shown where clothes color
+        detection is taking place.</para>
+
+        <para>Default: false</para>
+      </section>
+
+      <section>
+        <title>MarkEyeColor</title>
+
+        <para>Marks the eye location for generated templates.</para>
+
+        <para>Default: yellow</para>
+      </section>
+
+      <section>
+        <title>MarkEyeRoiColor</title>
+
+        <para>Marks the eye region of interest and indicators of the eye
+        detector sizes in the Generate image.</para>
+
+        <para>Default: none</para>
+      </section>
+
+      <section>
+        <title>MarkFaceColor</title>
+
+        <para>Marks the location of a detected face when
+        Generate/MinConsistency is met.</para>
+
+        <para>Default: yellow</para>
+      </section>
+
+      <section>
+        <title>MarkMatchColor</title>
+
+        <para>Marks the location of a detected face when it has found a match
+        in the INDIbase. See also the <varname>MarkMinConfidence</varname> and
+        <varname>MarkMaxPersons</varname> in <link
+        linkend="secMatchControls">Match Controls</link>.</para>
+
+        <para>Default: red (hence the name "Red Box" mode)</para>
+
+        <figure>
+          <title>Marking MarkMatchColor</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="art/26-.999000.JPG"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure>
+      </section>
+
+      <section>
+        <title>MarkNoEyesColor</title>
+
+        <para>Marks detected potential faces where no eyes were
+        detected.</para>
+
+        <para>Default: blue</para>
+      </section>
+
+      <section>
+        <title>MarkOverCrop</title>
+
+        <para>The amount outside of the detected face that is written over the
+        background of the Marked image.</para>
+
+        <para>Default: 133</para>
+      </section>
+    </section>
+
+    <section>
+      <title>Output Controls for Other Purposes</title>
+
+      <section>
+        <title>FaceFormat</title>
+
+        <para>Sets the image file format for Face, FaceCache, MarkedFace,
+        Generate, and ResolveFace images.</para>
+
+        <para>Default: PNG</para>
+      </section>
+
+      <section>
+        <title>FaceQuality</title>
+
+        <para>Sets the compression quality level for Face, FaceCache,
+        MarkedFace, Generate, and ResolveFace image files. Ranges from 0 for
+        highly compressed files to 100 for uncompressed files.</para>
+
+        <para>Special value: -1, let the compressor decide.</para>
+
+        <para>Default: -1</para>
+      </section>
+
+      <section>
+        <title>FacesProcessed</title>
+
+        <para>Output only. Shows the number of faces processed.</para>
+      </section>
+
+      <section>
+        <title>Format</title>
+
+        <para>Sets the image file format for non-face images.</para>
+
+        <para>Default: JPG</para>
+      </section>
+
+      <section>
+        <title>ForceMarked</title>
+
+        <para>Forces a marked image to be output even if there are no
+        markings. This is used to make sure a marked image is written for
+        every input frame even if no faces are found.</para>
+
+        <para>Default: false</para>
+      </section>
+
+      <section>
+        <title>FramesProcessed</title>
+
+        <para>Output only. Shows the number of frames processed.</para>
+      </section>
+
+      <section>
+        <title>LogDetail</title>
+
+        <para>Specifies the minimum level of detail written to the log file.
+        Levels are Leave (log everything), Enter (log function entry), Detail
+        (detailed data), Debug (debugging information), Info (informational
+        messages), Progress (progress messages), Warning (only warnings or
+        worse), Error (only severe errors or worse), Fatal (only error that
+        shutdown the console).</para>
+
+        <para>Default: Info</para>
+      </section>
+
+      <section>
+        <title>LogFile</title>
+
+        <para>Special value: "none" for no log file</para>
+
+        <para>Default: <filename>./log/IfSearch-@.log</filename> relative to
+        <varname>Output/BaseDir</varname></para>
+      </section>
+
+      <section>
+        <title>LogStdout</title>
+
+        <para>If true also logs to stdout of the console at Info level.</para>
+
+        <para>Default: true</para>
+      </section>
+
+      <section>
+        <title>MaxCache</title>
+
+        <para>The target number of files to maintain in the
+        <varname>Output/FileCacheDir</varname>.</para>
+
+        <para>Default: 64</para>
+      </section>
+
+      <section>
+        <title>Quality</title>
+
+        <para>Sets the compression quality level for non-face image files.
+        Ranges from 0 for highly compressed files to 100 for uncompressed
+        files.</para>
+
+        <para>Special value: -1, let the compressor decide.</para>
+
+        <para>Default: -1</para>
+      </section>
+
+      <section>
+        <title>WriteFaceInfo</title>
+
+        <para>If true, generated templates are embedded in face image files.
+        Requires <varname>Output/FaceFormat=PNG</varname>.</para>
+
+        <para>Default: true</para>
+      </section>
+    </section>
+
+    <section>
+      <title>PreProcess Controls</title>
+
+      <para>As more preprocessing controls are exposed (skin tone detection,
+      low variance detection, luminance stretching, etc) they will complete
+      this section.</para>
+
+      <section>
+        <title>Aspect</title>
+
+        <para>Specify the adjustment of the ratio of the vertical scale to the
+        horizontal scale.</para>
+
+        <para>Special value: 0.0 converts to 1.0 (no change)</para>
+
+        <para>Default: 0.0 (no change)</para>
+      </section>
+
+      <section>
+        <title>Rotate</title>
+
+        <para>Specify the number of degrees the input image is to be rotated
+        counter-clockwise.</para>
+
+        <para>Special value: 0.0 converts to 1.0 (no change)</para>
+
+        <para>Default: 0.0 (no change).</para>
+      </section>
+
+      <section>
+        <title>Scale</title>
+
+        <para>Specify a scale factor for the input image.</para>
+
+        <para>Special value: 0.0 converts to 1.0 (no change).</para>
+
+        <para>Default: 1.0 (no change).</para>
+      </section>
+    </section>
+
+    <section>
+      <title>Resolve Controls</title>
+
+      <para>The "Resolver" takes confidence levels from all steps of the
+      facial analytics and combines the results to get an overall confidence
+      level. If this overall level falls between the specified
+      <varname>MinConfidence</varname> and <varname>MaxConfidence</varname>,
+      then that frame marking the detected face and/or the face image will be
+      written to output directories. Each factor (<varname>Quality</varname>,
+      <varname>Consistency</varname>, <varname>FaceColor</varname>,
+      <varname>Height</varname>, <varname>LowerClothes</varname>, and
+      <varname>UpperClothes</varname>) can be weighted (even negatively) in
+      the overall value.</para>
+
+      <section>
+        <title>Consistency</title>
+
+        <para>The weight given to generated template consistency.</para>
+
+        <para>Default: zero (not included)</para>
+      </section>
+
+      <section>
+        <title>Enable</title>
+
+        <para>Must be true for operation of the Resolver.</para>
+
+        <para>Default: false</para>
+      </section>
+
+      <section>
+        <title>FaceColor</title>
+
+        <para>The weight given to the confidence of the closest matching face
+        color key.</para>
+
+        <para>Default: zero (not included)</para>
+      </section>
+
+      <section>
+        <title>FaceDir</title>
+
+        <para>The output directory for resolved faces.</para>
+
+        <para>Default: blank (no face output)</para>
+      </section>
+
+      <section>
+        <title>Height</title>
+
+        <para>The weight given to height estimation confidence.</para>
+
+        <para>Default: zero (not included)</para>
+      </section>
+
+      <section>
+        <title>LowerClothes</title>
+
+        <para>The weight given to lower clothes color match.</para>
+
+        <para>Default: zero (not included)</para>
+      </section>
+
+      <section>
+        <title>MarkedDir</title>
+
+        <para>The output directory for frames with the resolved face
+        marked.</para>
+
+        <para>Default: blank (no frame output)</para>
+      </section>
+
+      <section>
+        <title>MaxConfidence</title>
+
+        <para>The maximum overall confidence level to be consider
+        resolved.</para>
+
+        <para>Default: zero (no maximum)</para>
+      </section>
+
+      <section>
+        <title>MinConfidence</title>
+
+        <para>The minimum overall confidence level to be considered
+        resolved.</para>
+
+        <para>Default: zero (no minimum)</para>
+      </section>
+
+      <section>
+        <title>Quality</title>
+
+        <para>The weight given to face detection quality.</para>
+
+        <para>Default: zero (not included)</para>
+      </section>
+
+      <section>
+        <title>UpperClothes</title>
+
+        <para>The weight given to upper clothes color match.</para>
+
+        <para>Default: zero (not included)</para>
+      </section>
+    </section>
+  </chapter>

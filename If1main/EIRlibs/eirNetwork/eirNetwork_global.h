@@ -1,0 +1,12 @@
+#ifndef EIRNETWORK_GLOBAL_H
+#define EIRNETWORK_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(EIRNETWORK_LIBRARY)
+#  define EIRNETWORKSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define EIRNETWORKSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // EIRNETWORK_GLOBAL_H

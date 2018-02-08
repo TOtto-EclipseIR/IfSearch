@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Dr. Dobb's | Addressing the Corruption of Agile | April 01, 2014</title>
+<title>Dr. Dobb's | Good stuff for serious developers: Programming Tools, Code, C++, Java, HTML5, Cloud, Mobile, Testing</title><style>
+.illowide {
+    border: 1px solid #5BABF9;
+    max-width: 635px;
+}
+</style></head>
+
+<body bgcolor="#ffffff">
+<!-- SiteCatalyst code version: H.16.
+Copyright 1997-2008 Omniture, Inc. More info available at
+http://www.omniture.com -->
+<script type="text/javascript" src="Dr.%20Dobb%27s%20_%20Addressing%20the%20Corruption%20of%20Agile%20_%20April%2001,%202014_files/h_s_code_remote.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+	var referer = '';
+	var eVar23 = '';
+	var slr="";	
+	var host="";	
+	var userAgent = '';
+	
+	$.ajax({
+	   type: "GET",
+	   url: host+"/omniture",
+	   data: "referer="+slr+encodeURIComponent(document.referrer),
+	   success: function(data){		   
+		   if (data != null)
+			{
+				referer = data.referer;
+				eVar23 = data.eVar23;	
+				userAgent = data.userAgent;					
+			}
+	   },
+	   dataType: "json",
+	   async: false,
+	   cache: false
+	 }	
+	 );
+	
+	 
+</script>
+
+<script language="JavaScript" type="text/javascript">
+<!--	
+s.pageURL="http://www.drdobbs.com/article/print?articleId=240166890&siteSectionName=architecture-and-design";
+s.pageName="";
+s.referrer=referer;
+s.server="";
+s.channel="drdobbs.com/article";
+s.pageType="";
+s.prop1="";
+s.prop2="240166890";
+s.prop3="Dr. Dobb's Journal | 240166890 | Addressing the Corruption of Agile";
+s.prop4="Addressing the Corruption of Agile";
+s.prop5="article";
+s.prop6="";
+s.prop7="Andrew Binstock";
+s.prop8=userAgent;
+s.prop9="";
+s.prop10="complete";
+s.prop11="Feature";
+s.prop12="";
+s.prop14="";
+s.prop15="";
+s.prop16="";
+s.prop19="True";
+s.prop20="20140401";
+s.prop21="";
+
+/* Conversion Variables */
+s.campaign="";
+s.state="";
+s.zip="";
+s.events="";
+s.products="";
+s.purchaseID="";
+s.eVar1="";
+s.eVar2="";
+s.eVar3="";
+s.eVar4="";
+s.eVar5="";
+s.eVar6="";
+s.eVar8="";
+s.eVar21="";
+s.eVar22="";
+s.eVar23=eVar23;
+s.eVar31="";
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//-->	
+</script>
+
+<noscript><a href="http://www.omniture.com" title="Web Analytics"><img
+src="http://cmpglobalvista.112.2O7.net/b/ss/cmpglobalvista/1/H.16--NS/0"
+height="1" width="1" border="0" alt="" /></a></noscript><!--/DO NOT REMOVE/-->
+
+<script language="JavaScript" type="text/javascript">
+	function trackComment(){
+        var s=s_gi('cmpglobalvista'); 
+        s.evar24=s.prop7 +" | "+ s.prop4;  
+	    s.events='event8';
+	    s.tl(this,'o','Article Comment Posted'); 
+   }
+</script>
+
+<!-- End SiteCatalyst code version: H.16  --><div id="leaderboard1">
+		<div id="div-gpt-ad-942957474691236830-3">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-3');
+	 </script>
+	</div>
+</div>
+<br>
+<table class="elfixo" cellpadding="0" cellspacing="0" border="0" width="900">
+		<tbody><tr>
+		<td align="center" bgcolor=""><a href="http://www.drdobbs.com/"><img alt="" src="Dr.%20Dobb%27s%20_%20Addressing%20the%20Corruption%20of%20Agile%20_%20April%2001,%202014_files/header_top_bw.jpg" border="0"></a></td>
+		<td align="right" bgcolor="" valign="top"></td>
+	</tr>
+</tbody></table>
+<br>
+<font size="5">Addressing the Corruption of Agile</font>
+<p><font size="4">Of the many responses to my editorial on the corruption of Agile, two that disagreed stand out. </font><br>
+</p><p><font face="geneva,arial,helvetica" size="2"><br>April 01, 2014<br>
+URL:<a href="http://www.drdobbs.com/architecture-and-design/addressing-the-corruption-of-agile/240166890">http://www.drdobbs.com/architecture-and-design/addressing-the-corruption-of-agile/240166890 </a><br>
+<br>
+</font>
+
+
+</p><p>My recent editorial on the <a href="http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/240166698">corruption of Agile</a>
+ lamented the religious aspects of Agile and assailed the view held by 
+some developers today that without Agile practices, it's not possible to
+ write good software. These points clearly touched a sore 
+point,&nbsp;for within hours of posting the editorial, I'd received 
+several letters thanking me for writing a long overdue piece. The 
+comments both on our site and on the popular programming aggregators 
+were thoughtful and generally refined points I made. Among the responses
+ that disagreed in part or in whole, two noteworthy ones were an <a href="http://powersoftwo.agileinstitute.com/2014/03/an-open-letter-to-editor-in-chief-of-dr.html">open letter from Rob Myers</a> at the Agile Institute and <a href="http://blog.8thlight.com/uncle-bob/2014/03/28/The-Corruption-of-Agile.html">a lengthy blog post by "Uncle Bob" Martin</a>, one of the leading exponents of Agile practices, who more directly took me to task. </p>
+<p>Myers agreed with my overarching points about Agile, but disagreed 
+with my use of TDD as an example of the wayward religious aspects. He 
+felt that the enthusiasm for TDD is due to the benefits people derive 
+from its use. Specifically, the ability to try out code and, from the 
+tests, tell whether it works correctly with the larger code base. And, 
+as he insightfully points out, given the ascending complexity of today's
+ apps, not many practices enable such quick feedback. He also likes 
+tests' ability to be "comprehensive, executable engineering 
+documentation describing all the discrete behaviors of the system in a 
+non-combinatorial fashion," plus "the ability to change the code rapidly
+ and confidently." I have no difficulty with any of Myers' points, save 
+the implication that you need TDD to do this. All the benefits he lists 
+could be attained equally by writing tests after the code, rather than 
+before. And nothing requires that code be written in the smallest 
+testable increments — a foundational tenet of TDD. Fundamentally, he's 
+praising the benefits of writing many unit tests. I agree with the 
+perspective. But TDD is definitely not required to do this.</p>
+<p>Bob Martin took on my contention that Agile is a set of values, not a
+ set of practices. He repeatedly explained how all cultures, including 
+Agile, are known through their practices ("If you see a bride and groom 
+breaking glass under a canopy, you can guess the culture.") He extended 
+this analogy to other religions and to martial arts, each time 
+expressing how the practices define the culture. I don't find this 
+argument persuasive.</p>
+<p>Many, many practices are so disassociated from the values they 
+originally expressed that they have become hollow, empty, ritualistic 
+behaviors. Religions, corporations, and Agile shops are just some of the
+ institutions that engage in practices despite having long ago lost the 
+understanding of the values they were intended to instantiate. </p>
+<p>As I pointed out in the original article, organizations that don't 
+use the defined Agile practices can still be Agile if they welcome 
+change and exhibit the values expressed in the manifesto. I thought 
+Martin might run with this and talk about the need to remind 
+organizations of those values, to make them living once again. But 
+instead, Martin argues that Agile should have <em>more practices</em>: 
+"The biggest problem I have seen within the Agile movement is the 
+elimination of the practices. One by one, over the years, the practices 
+have been de-emphasized, or even stripped away. This loss of practice 
+has diluted and changed the Agile culture into something that I don't 
+recognize as Agile anymore." </p>
+<p>I find this view untenable. The reason many of these practices have 
+been abandoned is because they did not generate sufficient lift for the 
+cost they imposed. Pair programming being perhaps the defining example 
+of this perceived lack of ROI. &nbsp;In response to Martin's post, this 
+comment was posted on <a href="http://www.reddit.com/r/programming/comments/21m3rl/the_true_corruption_of_agile/cgenayz">Reddit</a>:
+ "I work at Google. Most teams don't use Agile. A very few do, and the 
+team members complain about all the time wasted in 6-hour planning 
+sessions. Google has great software engineering discipline, with a huge 
+focus on design reviews, code reviews, and strong unit testing and 
+integration testing. Most people there recognize that Agile is just a 
+religion." It was one of many comments on Reddit to express similar 
+dissatisfaction with Agile "religion."</p>
+<p>Martin concludes his essay saying, "If you've got better practices, 
+I'd love to see them. If I believe they are better, I'll adopt them in a
+ heartbeat." However, he does not appear to see the link between the two
+ points he's made. He cannot both state that he's willing to abandon 
+Agile practices for better ones, and then begrudge the many 
+organizations that have done just that.</p>
+<p>It may well be that Agile has reached its high-water mark and the 
+appreciation of its benefits has begun to recede. If so, Agile itself 
+will need agility to adapt to changes. I believe those changes will mean
+ that a few core practices will remain and new ones will be adopted as 
+the needs of software development dictate. For this to occur 
+productively, the values of Agile will need to be retained, while the 
+practices change. If you look at Agile being a set of values, this is 
+entirely possible, and likely the only way it can move forward.</p>
+<p>— Andrew Binstock<br>
+Editor in Chief<br>
+<a href="mailto:alb@drdobbs.com">alb@drdobbs.com</a><br>Twitter: <a href="https://twitter.com/#%21/platypusguy">platypusguy</a>
+<br><a href="https://plus.google.com/u/0/100765058738215638345/?rel=author">Google+</a></p>
+<br>
+<p><em>Update: The original version of this article omitted the last paragraph.</em></p>        <p>
+	</p><div id="div-gpt-ad-942957474691236830-8">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-8');
+	 </script>
+	</div>
+<p><font face="geneva,ms sans serif,helvetica" size="1"><a target="_blank" href="http://legal.us.ubm.com/terms-of-service/?itc=footer">Terms of Service</a> | <a target="_blank" href="http://legal.us.ubm.com/privacy-notice/?itc=footer">Privacy Statement</a> | <a target="_blank" href="http://legal.us.ubm.com/copyright-notice/?itc=footer">Copyright © 2012 UBM Tech, All rights reserved.</a></font>
+<!--145-->
+
+
+
+
+
+
+
+
+
+</p></body></html>

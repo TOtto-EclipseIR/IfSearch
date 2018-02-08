@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Dr. Dobb's | Use Frequent Branches to Tell a Story and Simplify Code Reviews | April 01, 2014</title>
+<title>Dr. Dobb's | Good stuff for serious developers: Programming Tools, Code, C++, Java, HTML5, Cloud, Mobile, Testing</title><style>
+.illowide {
+    border: 1px solid #5BABF9;
+    max-width: 635px;
+}
+</style></head>
+
+<body bgcolor="#ffffff">
+<!-- SiteCatalyst code version: H.16.
+Copyright 1997-2008 Omniture, Inc. More info available at
+http://www.omniture.com -->
+<script type="text/javascript" src="Dr.%20Dobb%27s%20_%20Use%20Frequent%20Branches%20to%20Tell%20a%20Story%20and%20Simplify%20Code%20Reviews%20_%20April%2001,%202014_files/h_s_code_remote.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+	var referer = '';
+	var eVar23 = '';
+	var slr="";	
+	var host="";	
+	var userAgent = '';
+	
+	$.ajax({
+	   type: "GET",
+	   url: host+"/omniture",
+	   data: "referer="+slr+encodeURIComponent(document.referrer),
+	   success: function(data){		   
+		   if (data != null)
+			{
+				referer = data.referer;
+				eVar23 = data.eVar23;	
+				userAgent = data.userAgent;					
+			}
+	   },
+	   dataType: "json",
+	   async: false,
+	   cache: false
+	 }	
+	 );
+	
+	 
+</script>
+
+<script language="JavaScript" type="text/javascript">
+<!--	
+s.pageURL="http://www.drdobbs.com/article/print?articleId=240166895&siteSectionName=architecture-and-design";
+s.pageName="";
+s.referrer=referer;
+s.server="";
+s.channel="drdobbs.com/article";
+s.pageType="";
+s.prop1="";
+s.prop2="240166895";
+s.prop3="Dr. Dobb's Journal | 240166895 | Use Frequent Branches to Tell a Story and Simplify Code Reviews";
+s.prop4="Use Frequent Branches to Tell a Story and Simplify Code Reviews";
+s.prop5="article";
+s.prop6="";
+s.prop7="Pablo Santos";
+s.prop8=userAgent;
+s.prop9="";
+s.prop10="complete";
+s.prop11="Feature";
+s.prop12="";
+s.prop14="";
+s.prop15="";
+s.prop16="";
+s.prop19="False";
+s.prop20="20140401";
+s.prop21="";
+
+/* Conversion Variables */
+s.campaign="";
+s.state="";
+s.zip="";
+s.events="";
+s.products="";
+s.purchaseID="";
+s.eVar1="";
+s.eVar2="";
+s.eVar3="";
+s.eVar4="";
+s.eVar5="";
+s.eVar6="";
+s.eVar8="";
+s.eVar21="";
+s.eVar22="";
+s.eVar23=eVar23;
+s.eVar31="";
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//-->	
+</script>
+
+<noscript><a href="http://www.omniture.com" title="Web Analytics"><img
+src="http://cmpglobalvista.112.2O7.net/b/ss/cmpglobalvista/1/H.16--NS/0"
+height="1" width="1" border="0" alt="" /></a></noscript><!--/DO NOT REMOVE/-->
+
+<script language="JavaScript" type="text/javascript">
+	function trackComment(){
+        var s=s_gi('cmpglobalvista'); 
+        s.evar24=s.prop7 +" | "+ s.prop4;  
+	    s.events='event8';
+	    s.tl(this,'o','Article Comment Posted'); 
+   }
+</script>
+
+<!-- End SiteCatalyst code version: H.16  --><div id="leaderboard1">
+		<div id="div-gpt-ad-942957474691236830-3">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-3');
+	 </script>
+	</div>
+</div>
+<br>
+<table class="elfixo" cellpadding="0" cellspacing="0" border="0" width="900">
+		<tbody><tr>
+		<td align="center" bgcolor=""><a href="http://www.drdobbs.com/"><img alt="" src="Dr.%20Dobb%27s%20_%20Use%20Frequent%20Branches%20to%20Tell%20a%20Story%20and%20Simplify%20Code%20Reviews%20_%20April%2001,%202014_files/header_top_bw.jpg" border="0"></a></td>
+		<td align="right" bgcolor="" valign="top"></td>
+	</tr>
+</tbody></table>
+<br>
+<font size="5">Use Frequent Branches to Tell a Story and Simplify Code Reviews</font>
+<p><font size="4">Capturing the coding by frequent branching and small check-ins. </font><br>
+</p><p><font face="geneva,arial,helvetica" size="2"><br>April 01, 2014<br>
+URL:<a href="http://www.drdobbs.com/architecture-and-design/use-frequent-branches-to-tell-a-story-an/240166895">http://www.drdobbs.com/architecture-and-design/use-frequent-branches-to-tell-a-story-an/240166895 </a><br>
+<br>
+</font>
+
+
+</p><p>The frequency of check-ins reveals a lot about your way of 
+working. When I'm coding, I check-in very frequently. By "very 
+frequently" I mean sometimes I'm checking-in every time I get something 
+done, and this can be a very small refactor that only took two minutes. 
+This approach means that I create an enormous collection of check-ins.</p>
+<p>Sometimes I check-in code that it is not even complete or not even 
+working. I do that in order to "explain what I'm doing." I can create as
+ many check-ins as I need without breaking the build or bothering my 
+teammates because I'm using a separate branch. I create a branch for 
+each entry in our issue-tracking system and then I check-in as often as I
+ need.</p>
+<p>My check-ins look something like Figure 1.</p>
+<p><img src="Dr.%20Dobb%27s%20_%20Use%20Frequent%20Branches%20to%20Tell%20a%20Story%20and%20Simplify%20Code%20Reviews%20_%20April%2001,%202014_files/BranchesFig1.gif" alt="Frequent Check-Ins" title="Frequent Check-Ins" width="450"><br><b>Figure 1.</b></p>
+<p>Mine would be <code>12</code>, <code>13</code>, <code>14</code>, and <code>15</code>.</p>
+<p>I really prefer mapping branches to individual tasks for several 
+reasons, but one of them is to create a clean and simple link between 
+tasks and code. It is also very easy to review <code>task001</code>: You just diff the branch.</p>
+<p>Now let me explain why I don't like using a single working branch as a shared place to check-in.</p>
+<h3>Shared Working Branch?</h3>
+<p>If the entire team uses the same branch to check-in, chances are that a task will look like Figure 2:</p>
+<p><img src="Dr.%20Dobb%27s%20_%20Use%20Frequent%20Branches%20to%20Tell%20a%20Story%20and%20Simplify%20Code%20Reviews%20_%20April%2001,%202014_files/BranchesFig2.gif" alt="One shared branch" title="Frequent Check-Ins" width="450"><br><b>Figure 2.</b></p>
+<p>
+</p><p>Unless you're lucky enough to finish all your work on a single 
+check-in, your task likely will be split into several check-ins, which 
+are sprinkled in the middle of other unrelated check-ins. This makes 
+code review much harder because you need to diff each changeset. When 
+working this way, it is  common to end up setting  mechanisms to send 
+the changes to be code reviewed prior to being checked in…while it would
+ be much easier to just code review the branch and only get it merged 
+when it is correctly reviewed. I say "mechanisms" because I've seen 
+tools creating temporary patches, pushing to different repositories, and
+ all sorts of overly complicated solutions to avoid creating a "task 
+branch" and just let things flow.</p>
+<h3>Branches as Units of Change</h3>
+<p>Hence, I strongly prefer using branches as units of change (one 
+branch for each task), instead of individually linking each changeset as
+ part of a change (task). At the end of the day, the branch acts simply 
+and efficiently as an organized changeset container.</p>
+<p>Nowadays, continuous delivery proponents tend to default to "avoid 
+branches at all costs," especially when describing  excellent results 
+for huge teams (Facebook- or Google-sized), but I still think branching 
+is an extraordinarily good tool for most teams out there (in fact, also 
+for huge ones, but I'll discuss that in a later article).</p>
+<p>
+</p><h3>Tell a Story</h3>
+<p>Returning to the "branch per task" approach: How often do you 
+check-in and why do you check-in? Suppose you have to fix a bug, but 
+decide to rearrange the code before applying the fix, so the fix ends up
+ being trivial. There are several ways to do the job: One is to do all 
+changes and then check-in. I'll call it a "big bang check-in." This is a
+ common pattern for people not accustomed to working on their own task 
+branch because this is what you tend to do in a shared branch (see 
+Figure 3).</p>
+<p><img src="Dr.%20Dobb%27s%20_%20Use%20Frequent%20Branches%20to%20Tell%20a%20Story%20and%20Simplify%20Code%20Reviews%20_%20April%2001,%202014_files/BranchesFig3.gif" alt="Big Bang Check-in" title="Big Bang Check-in" width="200"><br><b>Figure 3.</b></p>
+<p>
+</p><p>Suppose the change actually involves the following:</p>
+<ul>
+  <li>Split the class <code>Storage</code> into two: <code>Storage</code> and <code>FileStorage</code>.</li>
+  <li>Create a new class for <code>FileStorage</code> (<code>FileStorage.cs</code>).</li>
+  <li>Rename all references to the old <code>Storage</code> modifying 15 files.</li>
+  <li>Adapt the unit tests (modifying another 4 files).</li>
+  <li>Then fix the bug in <code>FileStorage.Write()</code>.</li>
+</ul>
+<p>The developer doing the code review will diff the branch (or the changeset) and see a list of 20 modified files plus a new file.</p>
+<p>He will take some time looking into the code before really 
+understanding that most of the changes are just related to the refactor,
+ and the bug fix actually takes only a few lines inside the new <code>FileStorage.Write()</code> method.</p>
+<h3>Telling a Story Check-in After Check-in</h3>
+<p>Now, suppose the developer decides to explain the story of the bug fix check-in after check-in as in Figure 4.</p>
+<p><img src="Dr.%20Dobb%27s%20_%20Use%20Frequent%20Branches%20to%20Tell%20a%20Story%20and%20Simplify%20Code%20Reviews%20_%20April%2001,%202014_files/BranchesFig4.gif" alt="Rranches tell a story" title="Branches tell a story" width="450"><br><b>Figure 4.</b></p>
+<p>
+</p><p>The reviewer can quickly check the comments of the changesets in the branch <code>task001</code> and find out that the real change is in <code>cs:15</code>. He might even take a look at <code>cs:15</code>
+ to check if the change is OK before actually going back and review the 
+rest of the changes. Also, simply "replaying" what the developer did 
+changeset after changeset will be much easier to understand than dealing
+ with the entire diff.</p>
+<p>
+</p><p>It may sound counter-intuitive because  one of the advantages of 
+task branches over "shared working branches" is the ability to group the
+ changes and avoid going "cset by cset" to see  changes, and now I'm 
+proposing exactly the opposite: go cset by cset. But it is important to 
+note that the <em>type</em> of check-ins you can do with task branches 
+are not like the many check-ins you do on a shared branch. With task 
+branches, you can split your task into steps, explaining what you've 
+done step-by-step, something unlikely to be done when you deliver to a 
+shared branch.</p>
+<p>
+</p><h3>Big Reviews Put You Off</h3>
+<p>Additionally, the whole point of "telling a story with check-ins" is 
+to help the reviewer when facing the code review. If he sees a big bunch
+ of files to be reviewed, he'll instantly think, "Oh, wow, that's big. 
+It is going to take a while to complete," which is really discouraging.</p>
+<p>On the other hand, if he knows that the real change is not that big 
+because he can quickly glance through the individual changes and 
+understand how the developer proceeded, chances are he'll be in a better
+ frame of mind to get the task reviewed, even if he's reviewing the same
+ number of lines of code. It is all about better communicating the task 
+and helping simple things look simple.</p>
+<p>
+</p><h3>Positive Side Effects of Changeset Storytelling</h3>
+<p>If you end up working this way, you'll be using your version control not only to track what has been done but also <em>how it was done</em>. </p>
+<p>Capturing how  changes are actually done has several advantages:</p>
+<ul>
+  <li>It will help the reviewer better understanding the changes.</li>
+  <li>You can  use the task branch to teach new team members how certain
+ operations are performed or how more-experienced developers work. At 
+the end of the day, you'll be capturing a sort of "task recording" of 
+the steps performed to complete it.</li>
+</ul>
+<hr>
+<p><em><a href="https://plus.google.com/100758015839419981104/?rel=author">Pablo Santos</a> is a blogger for </em>Dr. Dobb's<em> and an expert on the operations of version control systems.</em> </p>        <p>
+	</p><div id="div-gpt-ad-942957474691236830-8">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-8');
+	 </script>
+	</div>
+<p><font face="geneva,ms sans serif,helvetica" size="1"><a target="_blank" href="http://legal.us.ubm.com/terms-of-service/?itc=footer">Terms of Service</a> | <a target="_blank" href="http://legal.us.ubm.com/privacy-notice/?itc=footer">Privacy Statement</a> | <a target="_blank" href="http://legal.us.ubm.com/copyright-notice/?itc=footer">Copyright © 2012 UBM Tech, All rights reserved.</a></font>
+<!--489-->
+
+
+
+
+
+
+
+
+
+</p></body></html>

@@ -1,0 +1,33 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>nextPage.png</file>
+        <file>nextStep.png</file>
+        <file>prevPage.png</file>
+        <file>prevStep.png</file>
+        <file>showFirst.png</file>
+        <file>showLast.png</file>
+        <file>eIRonly.svg</file>
+    </qresource>
+    <qresource prefix="/icons/standard">
+        <file>media-playback-pause.svg</file>
+        <file>media-playback-resume.svg</file>
+        <file>action-cancel.svg</file>
+        <file>action-proceed.svg</file>
+        <file>action-finish.svg</file>
+        <file>database-enrollment-add.svg</file>
+        <file>database-enrollment-new.svg</file>
+        <file>database-enrollment-search.svg</file>
+        <file>database-enrollment-export.svg</file>
+        <file>database-enrollment-import.svg</file>
+        <file>item-select-remove-unselected.svg</file>
+        <file>item-select-unselect-all.svg</file>
+        <file>database-enrollment-clear.svg</file>
+        <file>action-confirm.svg</file>
+        <file>action-reject.svg</file>
+        <file>action-cancelled.svg</file>
+        <file>action-quit.svg</file>
+        <file>action-abort.png</file>
+        <file>action-start.png</file>
+        <file>action-stop.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<appendix version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+    <title>Tech Notes</title>
+
+    <section>
+      <title>Tools</title>
+
+      <para>These are some of the tools we have found helpful in implementing
+      the INDIface SDK.</para>
+
+      <section>
+        <title>Process Monitor</title>
+
+        <para>ProcMon by Sysinternals (a subsidiary of Microsoft) has proven
+        valuable to monitoring the reading/writing of files and registry
+        entries as an application interacts with IfSearch. Start at <olink
+        targetptr="http://technet.microsoft.com/en-us/sysinternals/bb896645.aspx">http://technet.microsoft.com/en-us/sysinternals/bb896645.aspx</olink>
+        to download it.</para>
+      </section>
+
+      <section>
+        <title>Network Monitor</title>
+
+        <para>WireShark has proven useful when connecting new IP cameras. Get
+        it at <olink
+        targetptr="http://ww.wireshark.org">http://www.wireshark.org</olink>.</para>
+      </section>
+
+      <section>
+        <title>Image Viewing and Manipulation</title>
+
+        <para>IrfanView is a very helpful utility for viewing, manipulating,
+        and converting still images and directories of images. Visit <olink
+        targetptr="http://www.irfanview.com/">http://www.irfanview.com/</olink>
+        if you are interested. Unfortunately it is only available on Windows
+        at the moment.</para>
+      </section>
+
+      <section>
+        <title>Screen Capture</title>
+
+        <para>If you don't already have a favorite Print Screen utility, check
+        out Gadwin PrintScreen. We have found the free version very capable,
+        but the Professional version has more power. Visit them at <olink
+        targetptr="http://www.gadwin.com/download/">http://www.gadwin.com/download/</olink>
+        to see their products.</para>
+      </section>
+
+      <section>
+        <title>Video File Manipulation</title>
+
+        <para>AVS4YOU (r) has an excellent suite of multimedia and other
+        applications. Start by downloading their Video Converter at
+        <olink>http://www.avs4you.com/</olink> and see the note on exporting
+        to a directory of PNGs at
+        <olink>http://onlinehelp.avs4you.com/AVS-Video-Converter/Features/Editing/exportimage.aspx</olink>.</para>
+
+        <informalfigure>
+          <para></para>
+        </informalfigure>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/ExportImagesWindow.png"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </section>
+    </section>
+
+    <section xml:id="secTechNote2">
+      <title>How a Frame Becomes a Match</title>
+
+      <subtitle>Sung to the tune of "How a Bill Becomes a Law"</subtitle>
+
+      <para>This note describes in sequence how the INDIface SDK1 control
+      parameters are applied at each step.</para>
+
+      <para>The first figure shows how faces are detected from input frames
+      and what criteria are used to qualify them for casual matching against
+      INDIbase enrollments.</para>
+
+      <figure>
+        <title>Match Flow</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/SDK1-MatchBlocks.svg"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>The second figure shows how a face earns "RedBox"
+      distinction.</para>
+
+      <figure>
+        <title>"RedBox" Match</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/SDK1-RedBoxMatch.svg"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>The third figure shows how a face can succeed at the Height
+      Estimation, Skin Color, and Clothes Color analytics.</para>
+
+      <figure>
+        <title>Face-based Analytics</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/SDK1-Analytics.svg"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </section>
+
+    <section xml:id="secMultipleInstances">
+      <title>Multiple Instances</title>
+
+      <para>Since the v1.60 release of the SDK, you have the ability to have
+      multiple instances of the SDK running.</para>
+
+      <para>Keep the following guidelines in mind:</para>
+
+      <orderedlist>
+        <listitem>
+          <para>You can now specify the base registry key on the command line
+          as <command>%[orgName/]appName</command>. The default is
+          <filename>HKCU/Software/EclipseIR/IfSearch</filename>. Only one
+          instance of <filename>IfSearch.exe</filename> should be running on a
+          given registry base key at a time. If an instance of IfSearch is
+          started while another is running, the running instance will
+          terminate itself. There is a possibility that two instances could be
+          started almost simultaneously and not know the other exists, so you
+          should guard against this.</para>
+        </listitem>
+
+        <listitem>
+          <para>Multiple instances can use different or share enrollment
+          FaceBases. If multiple instances are sharing a FaceBase,</para>
+
+          <itemizedlist>
+            <listitem>
+              <para>If multiple instances will be enrolling, they should have
+              non-overlapping ranges of PersonKey and FaceKey. [External
+              specification of key ranges isn't supported yet, but can be if
+              needed.]</para>
+            </listitem>
+
+            <listitem>
+              <para>Enrollment from one instance will not be visible in other
+              instances until they are restarted. [This restriction can be
+              eliminated if it becomes a problem before we switch to SQL-based
+              enrollment.]</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+
+        <listitem>
+          <para>The data files and paths are now relative to the application's
+          directory, so W:\hatever\INDIface\bin can be added to the system
+          PATH and IfSearch.exe can be executed from any current directory
+          now.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </appendix>
+  

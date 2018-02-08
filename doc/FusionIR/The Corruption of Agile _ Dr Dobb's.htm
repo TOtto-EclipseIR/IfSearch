@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/tag.htm" async="" type="text/javascript"></script><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/elqCfg.js" async="" type="text/javascript"></script><script async="" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/cbgapi.loaded_1"></script><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/client.js" async="" type="text/javascript" id="LR1"></script><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/auth016.js" type="text/javascript"></script><link media="all" href="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/widget119.css" type="text/css" rel="stylesheet">
+<!--  default/layout/scripts/article -->
+		<meta charset="UTF-8">		
+		<meta http-equiv="X-UA-Compatible" content="IE=EDGE">		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />-->
+	<script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/insight.js" async="" type="text/javascript"></script><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/all.js" id="facebook-jssdk"></script><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/widgets.js" id="twitter-wjs"></script><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/ga.js" async="" type="text/javascript"></script><script async="" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/cbgapi.loaded_0"></script><script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/detect.js"></script>
+	<link rel="stylesheet" type="text/css" href="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/poll.css">
+		
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/jquery_002.js"></script>
+
+<title>The Corruption of Agile | Dr Dobb's</title><meta name="description" content="What was intended as a set of personal practices has become a doctrine. And despite the mainstream adoption of Agile, the loss of its original intent has undermined its effectiveness.">
+<meta name="headline" content="The Corruption of Agile">
+<meta name="news_keywords" content="Agile,scrum,TDD">
+<meta name="created" content="March 18, 2014">
+<meta name="google-site-verification" content="HqG7-1r7RoBTg-CKrClDy746Njj0o8y-9CgeYSK4CyM">
+<meta name="original-source" content="http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/240166698">
+<meta property="og:title" content="The Corruption of Agile">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/240166698">
+<meta property="og:image" content="http://i.cmpnet.com/ddj/digital/ddj.gif">
+<meta property="og:site_name" content="Dr. Dobb's">
+<meta property="og:description" content="What was intended as a set of personal practices has become a doctrine. And despite the mainstream adoption of Agile, the loss of its original intent has undermined its effectiveness.">
+<meta property="fb:admins" content="550301723,1033888255">
+<meta property="fb:app_id" content="17631669579">
+<meta property="twitter:card" content="summary">
+<meta property="twitter:site" content="@dr_dobbs">
+<meta property="twitter:title" content="The Corruption of Agile">
+<meta property="twitter:description" content="What was intended as a set of personal practices has become a doctrine. And despite the mainstream adoption of Agile, the loss of its original intent has undermined its effectiveness.">
+<meta property="twitter:creator" content="@#!">
+<meta property="twitter:url" content="http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/240166698">
+<meta property="twitter:image:src" content="http://i.cmpnet.com/ddj/digital/ddj.gif">
+<meta property="twitter:domain" content="http://www.drdobbs.com"> 
+	<link rel="image_src" href="http://twimgs.com/ddj/v2/images/fb_thumbnail.jpg">
+	<link rel="stylesheet" href="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/thickbox.css">
+	<link rel="stylesheet" href="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/style.css">
+	<link rel="SHORTCUT ICON" href="http://twimgs.com/ddj/v2/images/favicon.ico">
+	
+
+<!--	<script language="JavaScript" type="text/javascript" src="http://twimgs.com/nc/mt/js/jquery-1.2.6.min.js"></script>-->
+	<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/jquery-ui-1.js"></script>
+	
+	<script language="JavaScript" type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/sidebar.js"></script>
+	<script language="JavaScript" type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/thickbox.js"></script>
+	<script language="JavaScript" type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/togglediv.js"></script>
+
+	<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/addthis_widget.js"></script><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000;"><iframe src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/sh154.htm" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border: 0px none; left: 0px; top: 0px;" title="AddThis utility frame" id="_atssh404"></iframe></div><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/core128.js" type="text/javascript"></script>
+	<script language="JavaScript" type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/scripts.js"></script>
+	<script language="JavaScript" type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/popwindow.js"></script>
+
+	
+	
+	<script gapi_processed="true" type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/plusone.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/h-nav.css">     
+	<link rel="stylesheet" href="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/devtest_style.css">
+	<style>
+		#container #header #nav { font-size: .9em; margin-top: 0px; margin-left: 5px; width: 999px; position: relative; top: 4px;  } /* Absolutely positioned #nav is lower on homepage, see home.css */
+		
+	@media screen and (max-width : 320px) {
+		#techwebCommentLogin {
+		    border-radius: 10px 10px 10px 10px;
+		    width: 275px !important;
+		}
+		.subsection.best {
+		    float: none !important;
+		}
+		.doublepage .dcol2 {
+		    width: auto !important;
+		}
+	}
+	</style>
+<link href="http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/240166698" rel="canonical">
+<link href="http://www.drdobbs.com/rss/all" rel="alternate" type="application/rss+xml" title="Dr. Dobb's All Articles">
+<link href="http://www.drdobbs.com/rss/all" rel="alternate" type="application/rss+xml" title="Dr. Dobb's All Articles">
+<link href="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/tabs.css" media="screen" rel="stylesheet" type="text/css">
+<link href="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/devtest_left-col-slim.css" media="screen" rel="stylesheet" type="text/css">
+<link href="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/twlightbox.css" media="screen" rel="stylesheet" type="text/css"><script type="text/javascript">
+    //<![CDATA[
+$.ajax({
+	   type: "GET",
+	   url: "/checkauth",
+	   data: {"referer": encodeURIComponent(document.referrer), "redirectTo": encodeURIComponent(window.location.href)},
+	   success: function(data){
+		   if (data != null)
+			{
+				window.location = data.redirectTo;
+			}
+	   },
+	   dataType: "json",
+	   async: false,
+	   cache: false
+	 });    //]]>
+</script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/jquery_003.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/md5_hash.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/twlightbox.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/nextgen.js"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function() {
+    			$.ajax({
+			  url: "/index/welcome",
+			  type: 'POST',
+			  data: {"redirectTo": encodeURIComponent(window.location.href) , "refferURL":"http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/240166698"},
+			  success: function(data) {			  
+			    $('.welcome').html(data);
+			    $('.welcome').nextGenInit({				
+					width: 780,
+					siteUrlPrefix:'',
+					siteRedirectPrefix: ''
+				});
+			  }
+			});
+});
+//]]>
+
+</script><script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/custom_tracking.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#nav2 a,.main-menu a,#h-nav_main a,#h-nav a,#tw_superfooter_936 a,.articles.archive a,.subsection.mostpopular a,.articles.no-border a,.article-resources.wrap a,.recent-articles a,.related-resources.first.tabs a,.related-resources.tabs a,.related-resources.first a,.related-resources a,#footergrey a').click
+		(function(event){		
+			itc_tracking($(this),event);		
+		});		
+	});
+</script><script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-33304291-1']);
+        _gaq.push(['_setDomainName', 'drdobbs.com']);
+	_gaq.push(['_trackPageview']);
+		(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+	<!-- Start: GPT Sync -->
+<script type="text/javascript">
+ var gptadslots=[];
+ (function(){
+  var useSSL = 'https:' == document.location.protocol;
+  var src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+  document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+ })();
+</script><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/gpt.js"></script>
+
+<script type="text/javascript">
+
+
+ googletag.pubads().setTargeting('kw',['Agile','scrum','TDD']);
+ googletag.pubads().setTargeting('aid',['240166698']);
+ googletag.pubads().setTargeting('tax',['Architecture-Design']);
+gptadslots[1]=googletag.defineSlot('/2441/DrDobbs/architecture-and-design',[[2,2]],'div-gpt-ad-942957474691236830-1')
+.addService(googletag.pubads())
+.setTargeting('pos',['welcome']);
+gptadslots[2]=googletag.defineSlot('/2441/DrDobbs/architecture-and-design',[[1,2]],'div-gpt-ad-942957474691236830-2')
+.addService(googletag.pubads())
+.setTargeting('pos',['wallpaper']);
+gptadslots[3]=googletag.defineSlot('/2441/DrDobbs/architecture-and-design',[[728,90],[970,250]],'div-gpt-ad-942957474691236830-3')
+.addService(googletag.pubads())
+.setTargeting('pos',['top']);
+gptadslots[4]=googletag.defineSlot('/2441/DrDobbs/architecture-and-design',[[300,250],[300,600],[336,280],[336,850]],'div-gpt-ad-942957474691236830-4')
+.addService(googletag.pubads())
+.setTargeting('pos',['rec1']);
+gptadslots[5]=googletag.defineSlot('/2441/DrDobbs/architecture-and-design',[[300,250],[300,600],[336,280],[336,850]],'div-gpt-ad-942957474691236830-5')
+.addService(googletag.pubads())
+.setTargeting('pos',['rec2']);
+gptadslots[28]=googletag.defineSlot('/2441/DrDobbs/architecture-and-design',[[160,600]],'div-gpt-ad-942957474691236830-28')
+.addService(googletag.pubads())
+.setTargeting('pos',['sky']);
+gptadslots[24]=googletag.defineSlot('/2441/DrDobbs/architecture-and-design',[[1,1]],'div-gpt-ad-942957474691236830-24')
+.addService(googletag.pubads())
+.setTargeting('pos',['infolink1']);
+gptadslots[25]=googletag.defineSlot('/2441/DrDobbs/architecture-and-design',[[1,1]],'div-gpt-ad-942957474691236830-25')
+.addService(googletag.pubads())
+.setTargeting('pos',['infolink2']);
+gptadslots[26]=googletag.defineSlot('/2441/DrDobbs/architecture-and-design',[[1,1]],'div-gpt-ad-942957474691236830-26')
+.addService(googletag.pubads())
+.setTargeting('pos',['infolink3']);
+gptadslots[27]=googletag.defineSlot('/2441/DrDobbs/architecture-and-design',[[1,1]],'div-gpt-ad-942957474691236830-27')
+.addService(googletag.pubads())
+.setTargeting('pos',['infolink4']);
+gptadslots[8]=googletag.defineSlot('/2441/DrDobbs/architecture-and-design',[[728,90]],'div-gpt-ad-942957474691236830-8')
+.addService(googletag.pubads())
+.setTargeting('pos',['bottom']);
+gptadslots[29]=googletag.defineSlot('/2441/DrDobbs/architecture-and-design',[[4,4]],'div-gpt-ad-942957474691236830-29')
+.addService(googletag.pubads())
+.setTargeting('pos',['video']);
+googletag.pubads().enableSingleRequest();
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+</script><script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/pubads_impl_36.js"></script>	<meta name="pagecaching" content="893"><meta name="node" content="96">	<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/tabbed-content.js"></script>
+		<script language="JavaScript" type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/contentgating.js"></script>	
+<script type="text/javascript">
+	var _vwo_code=(function(){
+	var account_id=32069,
+	settings_tolerance=2000,
+	library_tolerance=1500,
+	use_existing_jquery=false,
+	// DO NOT EDIT BELOW THIS LINE
+	f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+</script><script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/j.js"></script>
+	
+	<link rel="stylesheet" href="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/mobile.css">	
+<script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/osd.js" type="text/javascript"></script><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/nonSecureAnonymousFramework"></script><style type="text/css">* html #li_ui_li_gen_1396465852232_0 a#li_ui_li_gen_1396465852232_0-link{height:1% !important;}#li_ui_li_gen_1396465852232_0{position:relative !important;overflow:visible !important;display:block !important;}#li_ui_li_gen_1396465852232_0 a#li_ui_li_gen_1396465852232_0-link{border:0 !important;height:20px !important;text-decoration:none !important;padding:0 !important;margin:0 !important;display:inline-block !important;}#li_ui_li_gen_1396465852232_0 a#li_ui_li_gen_1396465852232_0-link:link, #li_ui_li_gen_1396465852232_0 a#li_ui_li_gen_1396465852232_0-link:visited, #li_ui_li_gen_1396465852232_0 a#li_ui_li_gen_1396465852232_0-link:hover, #li_ui_li_gen_1396465852232_0 a#li_ui_li_gen_1396465852232_0-link:active{border:0 !important;text-decoration:none !important;}#li_ui_li_gen_1396465852232_0 a#li_ui_li_gen_1396465852232_0-link:after{content:"." !important;display:block !important;clear:both !important;visibility:hidden !important;line-height:0 !important;height:0 !important;}#li_ui_li_gen_1396465852232_0 #li_ui_li_gen_1396465852232_0-logo{background-image:url(http://s.c.lnkd.licdn.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png) !important;background-position:0px -276px !important;background-repeat:no-repeat !important;background-size:initial !important;cursor:pointer !important;border:0 !important;text-indent:-9999em !important;overflow:hidden !important;padding:0 !important;margin:0 !important;position:absolute !important;left:0px !important;top:0px !important;display:block !important;width:20px !important;height:20px !important;float:right !important;border-radius:0 !important;-moz-border-radius:0 !important;border-top-right-radius:2px !important;border-bottom-right-radius:2px !important;-moz-border-radius-topright:2px !important;-moz-border-radius-bottomright:2px !important;}#li_ui_li_gen_1396465852232_0.hovered #li_ui_li_gen_1396465852232_0-logo{background-position:-20px -276px !important;}#li_ui_li_gen_1396465852232_0.clicked #li_ui_li_gen_1396465852232_0-logo, #li_ui_li_gen_1396465852232_0.down #li_ui_li_gen_1396465852232_0-logo{background-position:-40px -276px !important;}.IN-shadowed #li_ui_li_gen_1396465852232_0 #li_ui_li_gen_1396465852232_0-logo{}#li_ui_li_gen_1396465852232_0 #li_ui_li_gen_1396465852232_0-title{color:#333 !important;cursor:pointer !important;display:block !important;white-space:nowrap !important;float:left !important;margin-left:1px !important;vertical-align:top !important;overflow:hidden !important;text-align:center !important;height:18px !important;padding:0 4px 0 23px !important;border:1px solid #000 !important;border-top-color:#E2E2E2 !important;border-right-color:#BFBFBF !important;border-bottom-color:#B9B9B9 !important;border-left-color:#E2E2E2 !important;border-left:0 !important;text-shadow:#FFFFFF -1px 1px 0 !important;line-height:20px !important;border-radius:0 !important;-moz-border-radius:0 !important;border-top-right-radius:2px !important;border-bottom-right-radius:2px !important;-moz-border-radius-topright:2px !important;-moz-border-radius-bottomright:2px !important;background-color:#ECECEC !important;background-image:-moz-linear-gradient(top, #FEFEFE 0%, #ECECEC 100%) !important;}#li_ui_li_gen_1396465852232_0.hovered #li_ui_li_gen_1396465852232_0-title{border:1px solid #000 !important;border-top-color:#ABABAB !important;border-right-color:#9A9A9A !important;border-bottom-color:#787878 !important;border-left-color:#04568B !important;border-left:0 !important;background-color:#EDEDED !important;background-image:-moz-linear-gradient(top, #EDEDED 0%, #DEDEDE 100%) !important;}#li_ui_li_gen_1396465852232_0.clicked #li_ui_li_gen_1396465852232_0-title, #li_ui_li_gen_1396465852232_0.down #li_ui_li_gen_1396465852232_0-title{color:#666 !important;border:1px solid #000 !important;border-top-color:#B6B6B6 !important;border-right-color:#B3B3B3 !important;border-bottom-color:#9D9D9D !important;border-left-color:#49627B !important;border-left:0 !important;background-color:#DEDEDE !important;background-image:-moz-linear-gradient(top, #E3E3E3 0%, #EDEDED 100%) !important;}.IN-shadowed #li_ui_li_gen_1396465852232_0 #li_ui_li_gen_1396465852232_0-title{}.IN-shadowed #li_ui_li_gen_1396465852232_0.hovered #li_ui_li_gen_1396465852232_0-title{}.IN-shadowed #li_ui_li_gen_1396465852232_0.clicked #li_ui_li_gen_1396465852232_0-title, .IN-shadowed #li_ui_li_gen_1396465852232_0.down #li_ui_li_gen_1396465852232_0-title{}#li_ui_li_gen_1396465852232_0 #li_ui_li_gen_1396465852232_0-title-text, #li_ui_li_gen_1396465852232_0 #li_ui_li_gen_1396465852232_0-title-text *{color:#333 !important;font-size:11px !important;font-family:Arial, sans-serif !important;font-weight:bold !important;font-style:normal !important;-webkit-font-smoothing:antialiased !important;display:inline-block !important;background:transparent none !important;vertical-align:top !important;height:18px !important;line-height:20px !important;float:none !important;}#li_ui_li_gen_1396465852232_0 #li_ui_li_gen_1396465852232_0-title-text strong{font-weight:bold !important;}#li_ui_li_gen_1396465852232_0 #li_ui_li_gen_1396465852232_0-title-text em{font-style:italic !important;}#li_ui_li_gen_1396465852232_0.hovered #li_ui_li_gen_1396465852232_0-title-text, #li_ui_li_gen_1396465852232_0.hovered #li_ui_li_gen_1396465852232_0-title-text *{color:#000 !important;}#li_ui_li_gen_1396465852232_0.clicked #li_ui_li_gen_1396465852232_0-title-text, #li_ui_li_gen_1396465852232_0.down #li_ui_li_gen_1396465852232_0-title-text, #li_ui_li_gen_1396465852232_0.clicked #li_ui_li_gen_1396465852232_0-title-text *, #li_ui_li_gen_1396465852232_0.down #li_ui_li_gen_1396465852232_0-title-text *{color:#666 !important;}#li_ui_li_gen_1396465852232_0 #li_ui_li_gen_1396465852232_0-title #li_ui_li_gen_1396465852232_0-mark{display:inline-block !important;width:0px !important;overflow:hidden !important;}.success #li_ui_li_gen_1396465852232_0 #li_ui_li_gen_1396465852232_0-title{color:#333 !important;border-top-color:#E2E2E2 !important;border-right-color:#BFBFBF !important;border-bottom-color:#B9B9B9 !important;border-left-color:#E2E2E2 !important;background-color:#ECECEC !important;background-image:-moz-linear-gradient(top, #FEFEFE 0%, #ECECEC 100%) !important;}.success #li_ui_li_gen_1396465852232_0 #li_ui_li_gen_1396465852232_0-title-text, .success #li_ui_li_gen_1396465852232_0 #li_ui_li_gen_1396465852232_0-title-text *{color:#333 !important;}.IN-shadowed .success #li_ui_li_gen_1396465852232_0 #li_ui_li_gen_1396465852232_0-title{}.success #li_ui_li_gen_1396465852232_0.hovered #li_ui_li_gen_1396465852232_0-title{color:#000 !important;border-top-color:#ABABAB !important;border-right-color:#9A9A9A !important;border-bottom-color:#787878 !important;border-left-color:#04568B !important;background-color:#EDEDED !important;background-image:-moz-linear-gradient(top, #EDEDED 0%, #DEDEDE 100%) !important;}.success #li_ui_li_gen_1396465852232_0.hovered #li_ui_li_gen_1396465852232_0-title-text, .success #li_ui_li_gen_1396465852232_0.hovered #li_ui_li_gen_1396465852232_0-title-text *{color:#000 !important;}.success #li_ui_li_gen_1396465852232_0.clicked #li_ui_li_gen_1396465852232_0-title, .success #li_ui_li_gen_1396465852232_0.down #li_ui_li_gen_1396465852232_0-title{color:#666 !important;border-top-color:#B6B6B6 !important;border-right-color:#B3B3B3 !important;border-bottom-color:#9D9D9D !important;border-left-color:#49627B !important;background-color:#DEDEDE !important;background-image:-moz-linear-gradient(top, #E3E3E3 0%, #EDEDED 100%) !important;}.success #li_ui_li_gen_1396465852232_0.clicked #li_ui_li_gen_1396465852232_0-title-text, .success #li_ui_li_gen_1396465852232_0.down #li_ui_li_gen_1396465852232_0-title-text, .success #li_ui_li_gen_1396465852232_0.clicked #li_ui_li_gen_1396465852232_0-title-text *, .success #li_ui_li_gen_1396465852232_0.down #li_ui_li_gen_1396465852232_0-title-text *{color:#666 !important;}.IN-shadowed .success #li_ui_li_gen_1396465852232_0.clicked #li_ui_li_gen_1396465852232_0-title, .IN-shadowed .success #li_ui_li_gen_1396465852232_0.down #li_ui_li_gen_1396465852232_0-title{}</style><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/embed.js" async="" type="text/javascript"></script><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/count.js" type="text/javascript" async=""></script><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/count-data.js" async=""></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_connect_bar_container div,.fb_connect_bar_container span,.fb_connect_bar_container a,.fb_connect_bar_container img,.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}.fb_connect_bar a:hover{color:#fff}.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}.fb_connect_bar div a,.fb_connect_bar span,.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fbpluginrecommendationsbarleft,.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}.fbpluginrecommendationsbarleft{left:10px}.fbpluginrecommendationsbarright{right:10px}</style><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/svrGP_002" type="text/javascript"></script><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/svrGP" type="text/javascript"></script><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/svrGP_003" type="text/javascript"></script><script charset="UTF-8" async="" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/alfie.js"></script><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/roundtrip.js" type="text/javascript" async="true"></script><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/s.js"></script><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/ACPJ7LN56VBITNNAUDPDMG" type="text/javascript" async="true"></script><div style="width: 1px; height: 1px; display: inline;"><img style="border-style:none;" alt="" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/out.gif" height="1" width="1">
+<img style="border-style:none;" alt="" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/a.gif" height="1" width="1">
+<img src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/seg.gif" height="1" width="1">
+</div></head>
+<body data-twttr-rendered="true"><iframe src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/hub.htm" style="position: absolute; top: -9999em; width: 10px; height: 10px;" name="twttrHubFrameSecure" tabindex="0" allowtransparency="true" id="twttrHubFrameSecure" frameborder="0" scrolling="no"></iframe><iframe src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/hub_002.htm" style="position: absolute; top: -9999em; width: 10px; height: 10px;" name="twttrHubFrame" tabindex="0" allowtransparency="true" id="twttrHubFrame" frameborder="0" scrolling="no"></iframe><div style="display: none;" id="cboxOverlay"></div><div class="" style="padding-bottom: 57px; padding-right: 28px; display: none;" id="colorbox"><div style="" id="cboxWrapper"><div style="" id="false"><div style="float: left;" id="cboxTopLeft"></div><div style="float: left;" id="cboxTopCenter"></div><div style="float: left;" id="cboxTopRight"></div></div><div style="clear: left;" id="false"><div style="float: left;" id="cboxMiddleLeft"></div><div style="float: left;" id="cboxContent"><div class="" style="width: 0px; height: 0px; overflow: hidden;" id="cboxLoadedContent"></div><div class="" style="" id="cboxLoadingOverlay"></div><div class="" style="" id="cboxLoadingGraphic"></div><div class="" style="" id="cboxTitle"></div><div class="" style="" id="cboxCurrent"></div><div class="" style="" id="cboxNext"></div><div class="" style="" id="cboxPrevious"></div><div class="" style="" id="cboxSlideshow"></div><div class="" style="" id="cboxClose"></div></div><div style="float: left;" id="cboxMiddleRight"></div></div><div style="clear: left;" id="false"><div style="float: left;" id="cboxBottomLeft"></div><div style="float: left;" id="cboxBottomCenter"></div><div style="float: left;" id="cboxBottomRight"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none;" id="false"></div></div><iframe src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/a.htm" style="display: none;" name="iframe_355967372113" id="iframe_355967372113" height="0" width="0"></iframe><iframe src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/t2tv2.htm" style="display: none;" name="iframe_994143136251" id="iframe_994143136251" height="0" width="0"></iframe>
+	<div id="div-gpt-ad-942957474691236830-1">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-1');
+	 </script><script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/ads"></script>
+	</div>
+<div id="topAdContainer">
+	<div id="div-gpt-ad-942957474691236830-2">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-2');
+	 </script>
+	</div>
+</div>
+<div id="container">
+	<style>
+		#login, #login a, #login strong { color: white;  font-weight: bold; font-size:12px;} 
+</style>
+
+
+<div id="login" class="welcome" style="padding-left: 12px;"><strong>Welcome <span id="firstName">Tony</span></strong> | <a rel="nofollow" href="http://www.drdobbs.com/logout?redirect=http%3A%2F%2Fwww.drdobbs.com%2Farchitecture-and-design%2Fthe-corruption-of-agile%2F240166698">Sign Out</a> |
+                        <a onclick="NextGen.register('/registration/index?assetId=322172&amp;updateProfile=true');" href="javascript:void(0)">Update Profile</a><style type="text/css">#techwebCommentLogin{display:none;}</style></div>	<div id="header">	   
+	   <!-- h-nav -->
+	  <header>  <div id="h-nav">
+	  <nav>
+	    	<ul>
+			<li><a href="http://www.drdobbs.com/subscribe/">Subscribe</a></li>
+		    <li><a href="http://www.drdobbs.com/newsletters/">Newsletters</a></li>
+			<li><a href="http://www.informationweek.com/whitepaper?itc=ddj-header-twdl">Digital Library</a></li>
+			<li><a href="http://www.drdobbs.com/rss/">RSS</a></li>
+			</ul>	
+		</nav>					
+		</div>
+    	<!-- / h-nav -->
+		
+	<div id="search">
+		<script language="JavaScript" type="text/javascript">
+<!--
+	$(
+		function()
+		{ 	 
+			$('input.search')
+				.click(
+					function()
+					{
+						queryText = $('input#queryText').val();
+						queryText = queryText.replace(/^\s*/, '').replace(/\s*$/, ''); 
+						if (!queryText)
+						{
+							return false;
+						}
+					}
+				)
+				.attr('disabled', false);
+			
+		}
+	);
+//-->
+</script>
+
+<form method="get" action="/sitesearch">
+	<input name="sort" value="publishDate desc" type="hidden">
+	<ul>
+		<li><input size="40" id="queryText" name="queryText" maxlength="100" class="text" type="text"></li>
+		<li><input value=" " class="search" type="submit"></li>
+	</ul>
+	Search: 
+	<input name="type" value="site" checked="checked" type="radio"> Site
+	<input name="type" value="sourcecode" type="radio"> Source Code
+</form>	</div>
+	<br><br>
+
+		<div id="h-nav_main">
+ 	
+<div id="h-nav_mainSection">
+<!-- main section indicator -->
+<nav>
+<ul class="navigation">
+  <li class="h-58"><a name="ddj-header-navbar-home" href="http://www.drdobbs.com/" class="h-58" style="float:left">Home</a></li><li class="h-68"><a name="ddj-header-navbar-articles" href="http://www.drdobbs.com/articles" class="h-68" style="float:left">Articles</a></li><li class="h-58"><a name="ddj-header-navbar-news" href="http://www.drdobbs.com/news" class="h-58" style="float:left">News</a></li><li class="h-58"><a name="ddj-header-navbar-blogs" href="http://www.drdobbs.com/blogs" class="h-58" style="float:left">Blogs</a></li><li class="h-108"><a name="ddj-header-navbar-sourcecode" href="http://www.drdobbs.com/sourcecode" class="h-108" style="float:left">Source Code</a></li><li class="h-118"><a name="ddj-header-navbar-store" href="https://store.drdobbs.com/" class="h-118" style="float:left">Dobb's on DVD</a></li><li class="h-88"><a name="ddj-header-navbar-tv" href="http://www.drdobbs.com/tv" class="h-88" style="float:left">Dobb's TV</a></li><li class="h-148"><a name="ddj-header-navbar-webinars" href="http://www.drdobbs.com/webinars" class="h-148" style="float:left">Webinars &amp; Events</a></li> 
+</ul>
+</nav>
+</div><div id="clearLeft"></div>
+<!-- / main section indicator -->
+<!-- header social icons -->
+  <div id="h-nav_social">	 	
+  	<ul>
+	<li><a href="http://www.facebook.com/pages/Dr-Dobbs/17631669579" style="float:left"><img src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/h-facebook_sm.png" alt="Facebook" border="0"></a></li>
+	<li><a href="http://twitter.com/dr_dobbs" style="float:left"><img src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/h-twitter_sm.png" alt="Twitter" border="0"></a></li>
+  	</ul>
+  </div>		
+<!-- / header social icons -->
+
+
+ <!-- go parallel indicator -->
+ <!-- <div id="h-nav_goParallel">	 	
+	<ul>  
+	 <li class="h-88">
+	<a title="Go Parallel" class="gp" href="/go-parallel/" name="ddj-header-navbar-goparallel" style="float:right">Go Parallel</a>
+	</li>
+	</ul>
+  </div>  -->
+ <!-- / go parallel indicator -->
+
+<div id="h-nav_mainSection-mobile" class="mobile-unit">	
+	        <a>Sections<i>&nbsp;▼</i></a>
+				<ul class="unstyled">				
+				     <li class="h-58"><a name="ddj-header-navbar-home" href="http://www.drdobbs.com/" class="h-58">Home</a></li><li class="h-68"><a name="ddj-header-navbar-articles" href="http://www.drdobbs.com/articles" class="h-68">Articles</a></li><li class="h-58"><a name="ddj-header-navbar-news" href="http://www.drdobbs.com/news" class="h-58">News</a></li><li class="h-58"><a name="ddj-header-navbar-blogs" href="http://www.drdobbs.com/blogs" class="h-58">Blogs</a></li><li class="h-108"><a name="ddj-header-navbar-sourcecode" href="http://www.drdobbs.com/sourcecode" class="h-108">Source Code</a></li><li class="h-118"><a name="ddj-header-navbar-store" href="https://store.drdobbs.com/" class="h-118">Dobb's on DVD</a></li><li class="h-88"><a name="ddj-header-navbar-tv" href="http://www.drdobbs.com/tv" class="h-88">Dobb's TV</a></li><li class="h-148"><a name="ddj-header-navbar-webinars" href="http://www.drdobbs.com/webinars" class="h-148">Webinars &amp; Events</a></li> 			    
+                </ul>	
+</div>  
+  
+  
+</div><!-- / h-nav_main -->
+<script type="application/javascript">
+    //events listing in universal header    
+	$("div#h-nav_mainSection-mobile").hover(function() {
+        $("div#h-nav_mainSection-mobile").children('ul').slideDown(200);        
+	}, function() {
+        $("div#h-nav_mainSection-mobile").children('ul').fadeOut(100);        
+	}); 
+</script>
+
+		<script type="text/javascript">
+var eventKey = "tw_dev2013";
+var eventValue = "01";
+document.write('<scr'+'ipt language="javascript1.1" src="http://adserver.adtechus.com/bind?ckey1='+eventKey+';cvalue1='+escape(eventValue.toLowerCase())+'; expiresDays=9125;adct=text/html;misc=123"></scri'+'pt>');
+</script><script language="javascript1.1" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/bind.htm"></script>
+
+
+</header>
+<br>
+</div>
+	<div id="subnav">
+	<div id="nav2">
+	<nav>
+		<ul class="navigation">
+		
+		 <li><a href="http://www.drdobbs.com/cloud" style="float:left;" name="ddj-channel-navbar-cloud">Cloud</a></li><li><a href="http://www.drdobbs.com/mobile" style="float:left;" name="ddj-channel-navbar-mobile">Mobile</a></li><li><a href="http://www.drdobbs.com/parallel" style="float:left;" name="ddj-channel-navbar-parallel">Parallel</a></li><li><a href="http://www.drdobbs.com/windows" style="float:left;" name="ddj-channel-navbar-windows">.NET</a></li><li><a href="http://www.drdobbs.com/jvm" style="float:left;" name="ddj-channel-navbar-jvm">JVM Languages</a></li><li><a href="http://www.drdobbs.com/cpp" style="float:left;" name="ddj-channel-navbar-cpp">C/C++</a></li><li><a href="http://www.drdobbs.com/tools" style="float:left;" name="ddj-channel-navbar-tools">Tools</a></li><li><a href="http://www.drdobbs.com/architecture-and-design" style="float:left;" class="channelActive" name="ddj-channel-navbar-architecture-and-design">Design</a></li><li><a href="http://www.drdobbs.com/testing" style="float:left;" name="ddj-channel-navbar-testing">Testing</a></li><li><a href="http://www.drdobbs.com/web-development" style="float:left;" name="ddj-channel-navbar-web-development">Web Dev</a></li><li class="lastitem"><a href="http://www.drdobbs.com/joltawards" style="float:left;" name="ddj-channel-navbar-joltawards">Jolt Awards</a></li> 
+</ul>
+</nav>
+</div>	 <!-- End: nav2 --> 
+</div><!-- End: subnav -->	
+<div id="h-nav2_mainSection-mobile" class="mobile-unit">	
+	        <a>Channels<i>&nbsp;▼</i></a>
+				<ul class="unstyled">				
+				      <li><a href="http://www.drdobbs.com/cloud" name="ddj-channel-navbar-cloud">Cloud</a></li><li><a href="http://www.drdobbs.com/mobile" name="ddj-channel-navbar-mobile">Mobile</a></li><li><a href="http://www.drdobbs.com/parallel" name="ddj-channel-navbar-parallel">Parallel</a></li><li><a href="http://www.drdobbs.com/windows" name="ddj-channel-navbar-windows">.NET</a></li><li><a href="http://www.drdobbs.com/jvm" name="ddj-channel-navbar-jvm">JVM Languages</a></li><li><a href="http://www.drdobbs.com/cpp" name="ddj-channel-navbar-cpp">C/C++</a></li><li><a href="http://www.drdobbs.com/tools" name="ddj-channel-navbar-tools">Tools</a></li><li><a href="http://www.drdobbs.com/architecture-and-design" class="channelActive" name="ddj-channel-navbar-architecture-and-design">Design</a></li><li><a href="http://www.drdobbs.com/testing" name="ddj-channel-navbar-testing">Testing</a></li><li><a href="http://www.drdobbs.com/web-development" name="ddj-channel-navbar-web-development">Web Dev</a></li><li class="lastitem"><a href="http://www.drdobbs.com/joltawards" name="ddj-channel-navbar-joltawards">Jolt Awards</a></li> 				    
+				    
+				    
+                </ul>	
+</div>  	
+<script type="application/javascript">
+    //events listing in universal header    
+	$("div#h-nav2_mainSection-mobile").hover(function() {
+        $("div#h-nav2_mainSection-mobile").children('ul').slideDown(200);        
+	}, function() {
+        $("div#h-nav2_mainSection-mobile").children('ul').fadeOut(100);        
+	}); 
+</script>	
+	<div id="leaderboard2">
+		<div style="margin: 0 auto 0 auto; width: 728px;">	<div id="div-gpt-ad-942957474691236830-3">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-3');
+	 </script><div id="div-gpt-ad-942957474691236830-3_ad_container"><!-- Template Id = 4,228 Template Name = HTML Image Banner + Optional Additional Tracking - [DFA] -->
+<a href="http://adclick.g.doubleclick.net/aclk?sa=L&amp;ai=C_GNttmA8U4TjGsmw-QOo0YCoApShtu8EAAAQASD80ZEhYMnO-YbIo-AayAEJ4AIAqAMBqgS5AU_Q7BHd-K2oYJ6JUy-7VM24yFyJfs6n38JobZnywex3HFTnTb_kw87OO7Jw5xNRSJ35Tjaocoa26_69RxOSJGzeBwxAv2eij-iUOQWtIT3Ltwg69ZW4FESiICIRjCFoZUqjuyII-FEExM1ETHdNPQPaNsxTKr3Ni-wJZ_uNzGUSRZwpmDlx5l7uqJvSigHyRuFsD_7YBNhzBqFdH68hbJxWw57SD1qt8kSdgXPz7gL9Vz6_ulZdZM7y4AQBoAYe&amp;num=0&amp;sig=AOD64_2A07GAd8OKCJztZtOr5xot2MvaDw&amp;client=ca-pub-3676602997119685&amp;adurl=http%3A%2F%2Fad.doubleclick.net/click%3Bh%3Dv8/3f25/3/0/%2a/b%3B280880416%3B0-0%3B0%3B107472961%3B3454-728/90%3B57551680/57440765/1%3B%3B%7Esscs%3D%3fhttp://www.ibm.com/software/websphere/events/impact/?source=infoweek_CMP=NEO2" target="_blank">
+<img src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/impact-banner-728x90.jpg" alt="" border="0"></a>
+<script language="JavaScript" type="text/javascript">
+if(""!=""){document.write('<img src="'+''+'" border="0" alt="" style="display:none"/>');}
+if (""!=""){document.write('<scr'+'ipt type="text/javascript" src="'+''+'"><\/scr'+'ipt>');}
+</script><script id="script_355967372113" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/dvtp_src.js" type="text/javascript"></script>
+
+
+</div>
+
+	</div>
+</div>
+	</div>
+	
+	<div id="columns">
+		
+		<div id="content">
+			<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shLegacy.js"></script>
+<!--<script type="text/javascript" src="http://i.cmpnet.com/ddj/v2/syntaxhighlighter/scripts/shCore.js"></script> -->
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shCore_new.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushXml.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushVb.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushSql.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushScala.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushSass.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushRuby.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushPython.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushPlain.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushPhp.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushPerl.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushJScript.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushJavaFX.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushJava.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushGroovy.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushErlang.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushDiff.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushDelphi.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushCss.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushCSharp.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushCpp.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushBash.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushAS3.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shAutoloader.js"></script>
+
+
+
+<link href="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shThemeDefault.css" rel="stylesheet" type="text/css">
+<link href="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shCoreDefault.css" rel="stylesheet" type="text/css">
+<link href="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/shCore.css" rel="stylesheet" type="text/css">
+<script>var ngGatedContentPage = '1';</script>
+<style>
+syntaxhighlighter {
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    width: 450px;
+}
+</style>
+<div class="articles no-border">
+ 	<span id="rss" style="float: right; margin-bottom: 3px;">
+        <a href="http://www.drdobbs.com/rss/architecture-and-design"><img alt="RSS" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/rss.gif"></a>
+
+    </span>
+
+				<h2>Design</h2>
+		<div class="sharing-tools">	 
+	<div class="share-index"> 
+				<div style="float: left; margin-right: 40px;" class="share-tweet">
+		    <!-- BEGIN TWEET BUTTON --><iframe style="width: 109px; height: 20px;" data-twttr-rendered="true" title="Twitter Tweet Button" class="twitter-share-button twitter-tweet-button twitter-count-horizontal" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/tweet_button.htm" allowtransparency="true" id="twitter-widget-0" frameborder="0" scrolling="no"></iframe><script type="text/javascript" charset="utf-8">window.twttr = (function (d,s,id) {var t, js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;js.src="//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });}(document, "script", "twitter-wjs"));
+twttr.ready(function (twttr) {
+	twttr.events.bind('tweet', function(event) {
+		var tweet_id = event.data.tweet_id;
+		var user_id = event.data.user_id;
+		var screen_name = event.data.screen_name;
+		var s=s_gi('cmpglobalvista');
+		s.evar33=tweet_id;
+		s.evar34='Twitter '+screen_name+' | '+user_id;
+		s.events='event10';
+		s.tl(this,'o','Twitter Tweet Submitted by User');
+	});
+	twttr.events.bind('follow', function(event) {
+		var followed_user_id = event.data.user_id;
+		var followed_screen_name = event.data.screen_name;
+		var s=s_gi('cmpglobalvista');
+		s.evar34='Twitter '+followed_screen_name+'| '+followed_user_id ;
+		s.events='event11';
+		s.tl(this,'o','Twitter Account Followed by User');
+	});
+});
+    </script><!-- END TWEET BUTTON -->
+	
+        </div>						 
+        					 
+		<!-- BEGIN FB LIKE  -->
+				<div style="float: left; margin-right: 5px;" class="share-facebook-likes">    	 
+			
+		<script>
+				
+				( function(d, s, id) {
+					  var js, fjs = d.getElementsByTagName(s)[0];
+					  if (d.getElementById(id)) return;
+					  js = d.createElement(s); js.id = id;
+					  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+					  fjs.parentNode.insertBefore(js, fjs);
+				}
+				(document, 'script', 'facebook-jssdk'));</script>
+        <fb:like fb-iframe-plugin-query="action=like&amp;app_id=&amp;href=http%3A%2F%2Fwww.drdobbs.com%2Farchitecture-and-design%2Fthe-corruption-of-agile%2F240166698&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=true&amp;width=450" fb-xfbml-state="rendered" class=" fb_iframe_widget" send="false" action="like" layout="button_count" href="http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/240166698" width="450" show_faces="true"><span style="vertical-align: bottom; width: 81px; height: 20px;"><iframe class="" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/like.htm" style="border: medium none; visibility: visible; width: 81px; height: 20px;" title="fb:like Facebook Social Plugin" allowtransparency="true" name="f465c2bb89fc72" frameborder="0" height="1000px" scrolling="no" width="450px"></iframe></span></fb:like>
+			
+		</div>
+		        <!-- END FB LIKE  --> 
+        		<!-- Linked In Button -->
+		<div class="share-tweet" style="float: left; margin-right: 6px;">
+		<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/in.js"></script>
+		<span class="IN-widget" style="line-height: 1; vertical-align: baseline; display: inline-block; text-align: center;"><span style="padding: 0px ! important; margin: 0px ! important; text-indent: 0px ! important; display: inline-block ! important; vertical-align: baseline ! important; font-size: 1px ! important;"><span id="li_ui_li_gen_1396465852232_0"><a id="li_ui_li_gen_1396465852232_0-link" href="javascript:void(0);"><span id="li_ui_li_gen_1396465852232_0-logo">in</span><span id="li_ui_li_gen_1396465852232_0-title"><span id="li_ui_li_gen_1396465852232_0-mark"></span><span id="li_ui_li_gen_1396465852232_0-title-text">Share</span></span></a></span></span></span><script type="in/share+init" data-url="http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/240166698"></script>
+		</div>
+		<!-- Linked In Button -->
+		<!-- Google +1 Button -->
+		<div style="float: left; margin-right: 2px;">
+		<div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 24px; height: 15px;"><iframe title="+1" data-gapiattached="true" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/fastbutton.htm" name="I0_1396465857323" id="I0_1396465857323" vspace="0" tabindex="0" style="position: static; top: 0px; width: 24px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 15px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div>
+		</div>
+		<!-- Google +1 Button -->		
+				
+		<div class="addthis_toolbox addthis_pill_combo_style" addthis:url="http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/240166698">
+						<a style="cursor: pointer;" class="addthis_button_stumbleupon at300b" href="http://www.addthis.com/bookmark.php?v=300&amp;winname=addthis&amp;pub=xa-4af4a81901b903fa&amp;source=tbx-300&amp;lng=en-US&amp;s=stumbleupon&amp;url=http%3A%2F%2Fwww.drdobbs.com%2Farchitecture-and-design%2Fthe-corruption-of-agile%2F240166698&amp;title=The%20Corruption%20of%20Agile%20%7C%20Dr%20Dobb%27s&amp;ate=AT-xa-4af4a81901b903fa/-/-/533c60b0c19733e3/2&amp;frommenu=1&amp;uid=533c60b043801a50&amp;ct=1&amp;pre=http%3A%2F%2Fwww.drdobbs.com%2Flogin%3FassetId%3D156642%26k%3D2LGCNTDD%26actionType%3Dcontentgating%26successfulLoginRedirect%3Dhttp%253A%252F%252Fwww.drdobbs.com%252Farchitecture-and-design%252Fthe-corruption-of-agile%252F240166698&amp;tt=0&amp;captcha_provider=nucaptcha" target="_blank" title="Send to StumbleUpon"> <span class="at300bs at15t_stumbleupon"></span></a>
+			<a title="Reddit" target="_blank" href="http://www.addthis.com/bookmark.php?v=300&amp;winname=addthis&amp;pub=xa-4af4a81901b903fa&amp;source=tbx-300&amp;lng=en-US&amp;s=reddit&amp;url=http%3A%2F%2Fwww.drdobbs.com%2Farchitecture-and-design%2Fthe-corruption-of-agile%2F240166698&amp;title=The%20Corruption%20of%20Agile%20%7C%20Dr%20Dobb%27s&amp;ate=AT-xa-4af4a81901b903fa/-/-/533c60b0c19733e3/3&amp;frommenu=1&amp;uid=533c60b08f208306&amp;ct=1&amp;pre=http%3A%2F%2Fwww.drdobbs.com%2Flogin%3FassetId%3D156642%26k%3D2LGCNTDD%26actionType%3Dcontentgating%26successfulLoginRedirect%3Dhttp%253A%252F%252Fwww.drdobbs.com%252Farchitecture-and-design%252Fthe-corruption-of-agile%252F240166698&amp;tt=0&amp;captcha_provider=nucaptcha" class="addthis_button_reddit at300b" style="cursor:pointer"><span class="at16nc at300bs at15nc at15t_reddit at16t_reddit"><span class="at_a11y">Share on reddit</span></span></a>			
+						
+			<a title="Send As Email" href="javascript:emailLauncher('/email?articleUrl=','/architecture-and-design/the-corruption-of-agile/240166698')" class="addthis_default_style"><img src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/share_email_icon.gif" border="0" hspace="0"></a> 
+			<a href="http://www.drdobbs.com/article/print?articleId=240166698&amp;siteSectionName=architecture-and-design" class="addthis_default_style"><img src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/share_print_icon.gif" border="0" hspace="4"></a>
+			<a href="http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/240166698#" class="addthis_permalink">Permalink</a>
+			<div class="atclear"></div>
+		<div class="atclear"></div></div>
+		<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+		<script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/addthis_widget.js" type="text/javascript"></script>
+		<!-- AddThis Button END -->		
+	</div>
+	<div style="clear: both;"></div>			
+</div>
+
+<script>
+function emailLauncher(filePath,storyURL) {	
+	uri = filePath + encodeURIComponent(storyURL);
+	window.open(uri,"","toolbar=no,scrollbars=auto,location=no,status=no,width=733,height=590,resizable=1");
+}
+</script>	
+
+<div id="article-header">
+<h1 class="story-title">The Corruption of Agile</h1>
+<p class="byline">
+By 					         <a href="http://www.drdobbs.com/authors/Andrew-Binstock"><strong>Andrew Binstock</strong></a>, March 18, 2014</p>
+<p class="byline-comments"><span>
+<a href="http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/240166698#disqus_thread" class="commentLink" data-disqus-identifier="article_240166698"><span class="bubble">27</span> Comments</a>
+ 
+</span></p>
+
+	
+<font class="story-teaser">What was intended as a set of personal 
+practices has become a doctrine. And despite the mainstream adoption of 
+Agile, the loss of its original intent has undermined its effectiveness.</font><br>
+
+</div>
+<div class="story">
+<article>
+	
+<p>Many people over the years have discussed their distress with the 
+religious tone that cloaks the implementation of Agile practices. 
+Particularly from the testing side of the world, there is a lot of 
+"should," "should not," and "can do better next time" dialogue that 
+sounds more like a man trying to fix ethical lapses than a developer 
+writing code. When I speak with adherents of test-driven development 
+(TDD) in particular, there is a seeming non-comprehension that truly 
+excellent, reliable code was ever developed prior to the advent of this 
+one practice. I sense their view that the long history of code that put 
+man on the moon, ran phone switches, airline reservation systems, and 
+electric grids was all the result of luck or unique talents, rather than
+ the a function of careful discipline and development rigor.</p>
+<p>The disconnect between today's Agile view and earlier reality is 
+equally evident in the wanton bashing of the waterfall model. To get any
+ programmer today to adopt your recommendation, simply state that not 
+doing so is just a new way of doing waterfall. Watch his toes curl 
+despite  never having used waterfall, nor seemingly having any awareness
+ that it served the industry really well for decades. What, was everyone
+ in that bygone era a fool? </p>
+<p>Alan Kay was entirely right when he said that <a href="http://www.drdobbs.com/architecture-and-design/interview-with-alan-kay/240003442">programming today has become a pop culture</a>:
+ "Pop culture is all about identity and feeling like you're 
+participating. It has nothing to do with cooperation, the past or the 
+future — it's living in the present. I think the same is true of most 
+people who write code for money. They have no idea where [their culture 
+came from] — and the Internet was done so well that most people think of
+ it as a natural resource like the Pacific Ocean, rather than something 
+that was man-made. When was the last time a technology with a scale like
+ that was so error-free?"</p>
+<p>It will pain some readers to know that the vast, error-free Internet predates Agile and even predates TDD. Crazy, right? </p>
+<p>What I'm saying here is certainly not new. The fascination with 
+today's way of doing things and the view that it is the one true path to
+ good code is a seemingly permanent part of the programming culture. But
+ it has been greatly abetted by the legions of Agile consultants. By 
+stressing the practices, they have corrupted what Agile was about. It's 
+important to remember that the Agile manifesto stated values, not 
+practices. Immediately, though, values were translated into programming 
+practices by consultants and, quickly, the former was lost. One of the 
+original formulators of the manifesto, Dave Thomas, whom I interviewed 
+this week, states his realization that a month after the manifesto was 
+written it was <a href="http://www.drdobbs.com/architecture-and-design/dave-thomas-interview-the-corruption-of/240166688?pgno=2">already being corrupted</a>:
+ "…it got immediately productized in many different ways. The whole 
+point, to my mind, of the Agile Manifesto is that it's a set of personal
+ practices that may scale to team level. You do not need a consultant to
+ show you how to do that. It may help to have someone facilitate, but 
+you do not need a consultant. And yet immediately what happened was that
+ everyone and their dog hung out an Agile shingle and the whole thing 
+turned into a branding exercise."</p>
+<p>What's interesting in Thomas's account is the view that Agile was a <em>personal</em> practice. Implicit is a personal way of orienting oneself towards a development process that accepts, even welcomes, change. </p>
+<p>By pure coincidence, Allen Holub has been driving this point home in several blog posts, the <a href="http://www.drdobbs.com/architecture-and-design/the-agile-holocracy/240166629">most recent of which</a>
+ is a brilliant little piece that reminds us that Agile is a culture, 
+not a set of practices. As he has previously explained, just because an 
+organization is using scrum, doesn't mean it's Agile. He could have said
+ the same thing about TDD, continuous integration, pair programming, or 
+the like. </p>
+<p>Whether a site is Agile or not depends on its culture. Does the 
+culture support the personal values of the manifesto? If so, it's Agile,
+ if not, then it's doing something else. So, indeed you could have a 
+fully Agile site without TDD, continuous integration, or scrum. 
+Likewise, you can have a site that uses all three practices, but cannot 
+adapt to changes and is wholly inflexible in its work — so, not at all 
+Agile. Yeah, I know, crazy, right?</p>
+	<p>— Andrew Binstock<br>
+Editor in Chief<br>
+<a href="mailto:alb@drdobbs.com">alb@drdobbs.com</a><br>Twitter: <a href="https://twitter.com/#%21/platypusguy">platypusguy</a></p>	<!-- send Article author Details-->
+		</article>
+</div>
+
+<!-- test -->
+<br>
+		<div class="nav1">
+<center>
+	</center>
+</div>
+
+<style type="text/css">
+<!--
+.nav1 {
+	clear: both;
+	text-align: center;
+}
+
+.topcommenttools .tools {
+	display: table;
+	font-size: .7em;
+	font-weight: bold;
+	padding-bottom: 10px;
+	width: 100%;
+}
+
+.topcommenttools .tools .reply {
+	float: left;
+}
+
+.topcommenttools .tools .share-email-report {
+	float: right;
+}
+
+.topcommenttools .tools .share-email-report span {
+	margin-left: 10px;
+}
+
+.topcommenttools .tools .reply a {
+	background: transparent
+		url('http://i.cmpnet.com/ddj/v2/images/reply.gif') no-repeat 0px 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.topcommenttools .tools .share {
+	background: transparent
+		url('http://i.cmpnet.com/ddj/v2/images/share_icon.gif') no-repeat
+		bottom left;
+	padding-left: 23px;
+}
+
+.topcommenttools .tools .email {
+	background: transparent
+		url('http://i.cmpnet.com/ddj/v2/images/mail_icon.gif') no-repeat
+		bottom left;
+	padding-left: 22px;
+}
+
+.topcommenttools .tools .report {
+	background: transparent
+		url('http://i.cmpnet.com/ddj/v2/images/report_icon.gif') no-repeat
+		bottom left;
+	padding-left: 16px;
+}
+-->
+</style>
+
+</div>
+<!--  Related Reading Box -->
+             
+     
+      
+    <h3 class="resources">Related Reading</h3>
+    <div class="related-resources first tabs" style="margin-bottom:10px;"><div id="t0" class="tabbed">
+        <ul class="toc clearfix">
+            <li class="first current"><a href="#toc-news" title="News">News</a></li>
+            <li><a href="#toc-commentary" title="Commentary">Commentary</a></li>
+        </ul>
+        <div style="display: block;" class="tab-content clearfix">
+            <h3 style="display: none;" class="tab"><a name="toc-news">News</a></h3>
+			<!--not from cache.cache key-->    <ul class="events">
+<li><a class="contentgating_article" href="http://www.drdobbs.com/security/suse-kgraft-live-patches-linux-kernel/240166909?cid=SBX_ddj_related_news_default_architecture_and_design&amp;itc=SBX_ddj_related_news_default_architecture_and_design" title="SUSE kGraft Live Patches Linux Kernel">SUSE kGraft Live Patches Linux Kernel</a></li><li><a class="contentgating_article" href="http://www.drdobbs.com/cpp/c-based-scientific-computing-made-ceempl/240166893?cid=SBX_ddj_related_news_default_architecture_and_design&amp;itc=SBX_ddj_related_news_default_architecture_and_design" title="C++-Based Scientific Computing Made Ceemple">C++-Based Scientific Computing Made Ceemple</a></li><li><a class="contentgating_article" href="http://www.drdobbs.com/open-source/mokitouch-for-tablet-kiosks/240166808?cid=SBX_ddj_related_news_default_architecture_and_design&amp;itc=SBX_ddj_related_news_default_architecture_and_design" title="MokiTouch For Tablet Kiosks">MokiTouch For Tablet Kiosks</a></li><li><a class="contentgating_article" href="http://www.drdobbs.com/testing/skytap-dev-and-test-on-amazon-web-servic/240166777?cid=SBX_ddj_related_news_default_architecture_and_design&amp;itc=SBX_ddj_related_news_default_architecture_and_design" title="Skytap Dev and Test on Amazon Web Services">Skytap Dev and Test on Amazon Web Services</a></li><a class="continue" href="http://www.drdobbs.com/news?cid=SBX_ddj_related_news_default_architecture_and_design&amp;itc=SBX_ddj_related_news_default_architecture_and_design" title="More News">More News<span>»</span></a>                        
+    </ul>                    
+        </div>
+        <div style="display: none;" class="tab-content clearfix">
+            <h3 style="display: none;" class="tab"><a name="toc-commentary">Commentary</a></h3>
+			<!--not from cache.cache key-->    <ul class="events">
+<li><a class="contentgating_article" href="http://www.drdobbs.com/mobile/liferay-releases-mobile-sdk/240166908?cid=SBX_ddj_related_commentary_default_architecture_and_design&amp;itc=SBX_ddj_related_commentary_default_architecture_and_design" title="Liferay Releases Mobile SDK">Liferay Releases Mobile SDK</a></li><li><a class="contentgating_article" href="http://www.drdobbs.com/cpp/c-based-scientific-computing-made-ceempl/240166893?cid=SBX_ddj_related_commentary_default_architecture_and_design&amp;itc=SBX_ddj_related_commentary_default_architecture_and_design" title="C++-Based Scientific Computing Made Ceemple">C++-Based Scientific Computing Made Ceemple</a></li><li><a class="contentgating_article" href="http://www.drdobbs.com/architecture-and-design/use-frequent-branches-to-tell-a-story-an/240166895?cid=SBX_ddj_related_commentary_default_architecture_and_design&amp;itc=SBX_ddj_related_commentary_default_architecture_and_design" title="Use Frequent Branches to Tell a Story and Simplify Code Reviews">Use Frequent Branches to Tell a Story and Simplify Code Reviews</a></li><li><a class="contentgating_article" href="http://www.drdobbs.com/cloud/box-releases-free-content-platform-tools/240166853?cid=SBX_ddj_related_commentary_default_architecture_and_design&amp;itc=SBX_ddj_related_commentary_default_architecture_and_design" title="Box Releases Free Content Platform Tools">Box Releases Free Content Platform Tools</a></li><a class="continue" href="http://www.drdobbs.com/articles?cid=SBX_ddj_related_commentary_default_architecture_and_design&amp;itc=SBX_ddj_related_commentary_default_architecture_and_design" title="More Commentary">More Commentary<span>»</span></a>                        
+    </ul>        </div>
+    </div></div>     
+      
+    <div class="related-resources tabs" style="margin-bottom:10px;"><div id="t1" class="tabbed">
+        <ul class="toc clearfix">
+            <li class="first current"><a href="#toc-slideshow" title="Slideshow">Slideshow</a></li>
+            <li><a href="#toc-video" title="Video">Video</a></li>
+        </ul>
+        <div style="display: block;" class="tab-content clearfix">
+            <h3 style="display: none;" class="tab"><a name="toc-slideshow">Slideshow</a></h3>
+			<!--not from cache.cache key-->    <ul class="events">
+<li><a class="contentgating_article" href="http://www.drdobbs.com/tools/developers-reading-list/240164389?cid=SBX_ddj_related_slideshow_default_architecture_and_design&amp;itc=SBX_ddj_related_slideshow_default_architecture_and_design" title="Developer's Reading List">Developer's Reading List</a></li><li><a class="contentgating_article" href="http://www.drdobbs.com/joltawards/jolt-awards-the-best-programming-utiliti/240159108?cid=SBX_ddj_related_slideshow_default_architecture_and_design&amp;itc=SBX_ddj_related_slideshow_default_architecture_and_design" title="Jolt Awards: The Best Programming Utilities">Jolt Awards: The Best Programming Utilities</a></li><li><a class="contentgating_article" href="http://www.drdobbs.com/architecture-and-design/developer-reading-list/240145159?cid=SBX_ddj_related_slideshow_default_architecture_and_design&amp;itc=SBX_ddj_related_slideshow_default_architecture_and_design" title="Developer Reading List">Developer Reading List</a></li><li><a class="contentgating_article" href="http://www.drdobbs.com/architecture-and-design/dr-dobbs-2012-salary-survey/240002742?cid=SBX_ddj_related_slideshow_default_architecture_and_design&amp;itc=SBX_ddj_related_slideshow_default_architecture_and_design" title="Dr. Dobb's 2012 Salary Survey">Dr. Dobb's 2012 Salary Survey</a></li><a class="continue" href="http://www.drdobbs.com/slideshows?cid=SBX_ddj_related_slideshow_default_architecture_and_design&amp;itc=SBX_ddj_related_slideshow_default_architecture_and_design" title="More Slideshows">More Slideshows<span>»</span></a>                        
+    </ul>        </div>        
+        <div style="display: none;" class="tab-content clearfix">
+            <h3 style="display: none;" class="tab"><a name="toc-video">Video</a></h3>
+			<!--not from cache.cache key-->    <ul class="events">
+<li><a class="contentgating_article" href="http://www.drdobbs.com/architecture-and-design/ibm-five-in-five-predictions/240164949?cid=SBX_ddj_related_video_default_architecture_and_design&amp;itc=SBX_ddj_related_video_default_architecture_and_design" title="IBM Five in Five Predictions">IBM Five in Five Predictions</a></li><li><a class="contentgating_article" href="http://www.drdobbs.com/cloud/ibm-watson-developers-cloud/240164016?cid=SBX_ddj_related_video_default_architecture_and_design&amp;itc=SBX_ddj_related_video_default_architecture_and_design" title="IBM Watson Developers Cloud">IBM Watson Developers Cloud</a></li><li><a class="contentgating_article" href="http://www.drdobbs.com/architecture-and-design/teen-computer-scientist-wins-big-at-isef/240155247?cid=SBX_ddj_related_video_default_architecture_and_design&amp;itc=SBX_ddj_related_video_default_architecture_and_design" title="Teen Computer Scientist Wins Big at ISEF">Teen Computer Scientist Wins Big at ISEF</a></li><li><a class="contentgating_article" href="http://www.drdobbs.com/mobile/new-communications-platform-from-ericsso/240146259?cid=SBX_ddj_related_video_default_architecture_and_design&amp;itc=SBX_ddj_related_video_default_architecture_and_design" title="New Communications Platform from Ericsson Gets Test Drive from Developers">New Communications Platform from Ericsson Gets Test Drive from Developers</a></li><a class="continue" href="http://www.drdobbs.com/video/archives?cid=SBX_ddj_related_video_default_architecture_and_design&amp;itc=SBX_ddj_related_video_default_architecture_and_design" title="More Videos">More Videos<span>»</span></a>                        
+    </ul>        </div>
+    </div></div> 
+    
+    <div class="related-resources tabs" style="margin-bottom:10px;"><div id="t2" class="tabbed">
+        <ul class="toc clearfix">
+            <li class="first current"><a href="#toc-most-popular" title="Most Popular">Most Popular</a></li>
+        </ul>
+        <div style="display: block;" class="tab-content clearfix">
+            <h3 style="display: none;" class="tab"><a name="toc-most-popular">Most Popular</a></h3>
+			<!--not from cache.cache key-->    <ul class="events">
+<li><a class="contentgating_article" href="http://www.drdobbs.com/architecture-and-design/addressing-the-corruption-of-agile/240166890?cid=SBX_ddj_related_mostpopular_default_architecture_and_design&amp;itc=SBX_ddj_related_mostpopular_default_architecture_and_design" title="Addressing the Corruption of Agile">Addressing the Corruption of Agile</a></li><li><a class="contentgating_article" href="http://www.drdobbs.com/jvm/java-se-8-beyond-lambdas-the-big-picture/240166881?cid=SBX_ddj_related_mostpopular_default_architecture_and_design&amp;itc=SBX_ddj_related_mostpopular_default_architecture_and_design" title="Java SE 8 Beyond Lambdas: The Big Picture">Java SE 8 Beyond Lambdas: The Big Picture</a></li><li><a class="contentgating_article" href="http://www.drdobbs.com/architecture-and-design/use-frequent-branches-to-tell-a-story-an/240166895?cid=SBX_ddj_related_mostpopular_default_architecture_and_design&amp;itc=SBX_ddj_related_mostpopular_default_architecture_and_design" title="Use Frequent Branches to Tell a Story and Simplify Code Reviews">Use Frequent Branches to Tell a Story and Simplify Code Reviews</a></li><li><a class="contentgating_article" href="http://www.drdobbs.com/architecture-and-design/dave-thomas-interview-the-corruption-of/240166688?cid=SBX_ddj_related_mostpopular_default_architecture_and_design&amp;itc=SBX_ddj_related_mostpopular_default_architecture_and_design" title="Dave Thomas Interview: The Corruption of Agile; Ruby and Elixir; Katas and More">Dave Thomas Interview: The Corruption of Agile; Ruby and Elixir; Katas and More</a></li><a class="continue" href="http://www.drdobbs.com/?cid=SBX_ddj_related_mostpopular_default_architecture_and_design&amp;itc=SBX_ddj_related_mostpopular_default_architecture_and_design" title="More Popular">More Popular<span>»</span></a>                        
+    </ul>        </div>        
+    </div></div>  
+    <hr style="margin-bottom:10px;">
+    
+        <h3 class="resources">More Insights</h3>
+    
+    <div class="related-resources first" style="margin-bottom:10px;">
+    <!-- Taxonomy ID: --><!--cache:--><!--brandId:--><!--not from cache.cache key--><h3>White Papers</h3>		 
+     <!-- Taxonomy ID: --> 
+<ul class="archive">
+				
+				<li><!--Rule 9 -->		
+					<a href="http://www.informationweek.com/whitepaper/Security/Attacks-Breaches/insider-threat-survey-report-wp1396286317?articleID=191741343&amp;cid=SBX_ddj_well_wp_default_architecture_and_design&amp;itc=SBX_ddj_well_wp_default_architecture_and_design" name="SBX_ddj_well_wp_default_architecture_and_design">
+				Insider Threat Survey Report				</a>
+								</li>
+				
+				<li><!--Rule 9 -->		
+					<a href="http://www.informationweek.com/whitepaper/Security/Attacks-Breaches/threat-intelligence-incident-response-a-study-o-wp1394564165?articleID=191741114&amp;cid=SBX_ddj_well_wp_default_architecture_and_design&amp;itc=SBX_ddj_well_wp_default_architecture_and_design" name="SBX_ddj_well_wp_default_architecture_and_design">
+				Threat Intelligence &amp; Incident Response: A Study of U.S. &amp; EMEA Organizations				</a>
+								</li>
+						
+</ul>
+<a title="More White Papers" href="http://www.drdobbs.com/whitepaper/architecture-and-design/more.html?cid=SBX_ddj_well_wp_default_architecture_and_design&amp;itc=SBX_ddj_well_wp_default_architecture_and_design" class="continue">More <span>&gt;&gt;</span></a>    </div>
+    <div class="related-resources" style="margin-bottom:10px;">
+    <!-- Taxonomy ID: --><!--cache:--><!--brandId:--><!--not from cache.cache key--><h3>Reports</h3>		 
+     <!-- Taxonomy ID: --> 
+<ul class="archive">
+				
+				<li><!--Rule 10 -->		
+					<a href="http://analytics.informationweek.com/abstract/21/7594/Security/research-state-of-the-it-service-desk.html?cid=SBX_ddj_well_Analytics_default_architecture_and_design&amp;itc=SBX_ddj_well_Analytics_default_architecture_and_design" name="SBX_ddj_well_Analytics_default_architecture_and_design">
+				Research: State of the IT Service Desk				</a>
+								</li>
+				
+				<li><!--Rule 10 -->		
+					<a href="http://analytics.informationweek.com/abstract/21/7375/Security/will-ipv6-make-us-unsafe*.html?cid=SBX_ddj_well_Analytics_default_architecture_and_design&amp;itc=SBX_ddj_well_Analytics_default_architecture_and_design" name="SBX_ddj_well_Analytics_default_architecture_and_design">
+				Will IPv6 Make Us Unsafe?				</a>
+								</li>
+						
+</ul>
+<a title="More Reports" href="http://www.drdobbs.com/analytics/architecture-and-design/more.html?cid=SBX_ddj_well_Analytics_default_architecture_and_design&amp;itc=SBX_ddj_well_Analytics_default_architecture_and_design" class="continue">More <span>&gt;&gt;</span></a>    </div>
+    <div class="related-resources" style="margin-bottom:10px;">
+    <!-- Taxonomy ID: --><!--cache:--><!--brandId:--><!--not from cache.cache key--><h3>Webcasts</h3>		 
+     <!-- Taxonomy ID: --> 
+<ul class="archive">
+				
+				<li><!--Rule 10 -->		
+					<a href="https://webinar.informationweek.com/16328?keycode=SBX&amp;cid=SBX_ddj_well_Webcast_default_architecture_and_design&amp;itc=SBX_ddj_well_Webcast_default_architecture_and_design&amp;K=SBX_DDJ_WL" name="SBX_ddj_well_Webcast_default_architecture_and_design">
+				OpenStack: Blueprint for Deployment Success				</a>
+								</li>
+				
+				<li><!--Rule 10 -->		
+					<a href="http://webinar.informationweek.com/15832?keycode=SBX&amp;cid=SBX_ddj_well_Webcast_default_architecture_and_design&amp;itc=SBX_ddj_well_Webcast_default_architecture_and_design&amp;K=SBX_DDJ_WL" name="SBX_ddj_well_Webcast_default_architecture_and_design">
+				Want Information Fast or Want it Right? Learn How to Have Both				</a>
+								</li>
+						
+</ul>
+<a title="More Webcast" href="http://www.drdobbs.com/webcast/architecture-and-design/more.html?cid=SBX_ddj_well_Webcast_default_architecture_and_design&amp;itc=SBX_ddj_well_Webcast_default_architecture_and_design" class="continue">More <span>&gt;&gt;</span></a>    </div>
+<hr><!-- /  Related Reading Box -->
+<div class="dcolmask doublepage">
+<div class="dcolleft">
+			<div class="dcol1">
+			<!-- Column 1 start -->
+ 			<div id="left-col" style="width:160px;">
+				<div class="infolink">
+					<span style="font-size: 0.7em; font-weight: bold;">INFO-LINK</span>
+<ul style="color: rgb(33, 82, 190); font-size: 0.7em; list-style: none outside none; margin-top: 0px; padding: 8px 0px 0px;">
+<li style="padding-left: 15px; background: url(&quot;http://i.cmpnet.com/nc/mt/bg_left-nav.png&quot;) no-repeat scroll 5px 7px transparent; color: rgb(0, 59, 176); margin: 0px 0pt;">
+		<div id="div-gpt-ad-942957474691236830-24">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-24');
+	 </script>
+	</div>
+</li>
+<li style="padding-left: 15px; background: url(&quot;http://i.cmpnet.com/nc/mt/bg_left-nav.png&quot;) no-repeat scroll 5px 7px transparent; color: rgb(0, 59, 176); margin: 0px 0pt;">
+		<div id="div-gpt-ad-942957474691236830-25">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-25');
+	 </script>
+	</div>
+</li>
+<li style="padding-left: 15px; background: url(&quot;http://i.cmpnet.com/nc/mt/bg_left-nav.png&quot;) no-repeat scroll 5px 7px transparent; color: rgb(0, 59, 176); margin: 0px 0pt;">
+		<div id="div-gpt-ad-942957474691236830-26">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-26');
+	 </script>
+	</div>
+</li>
+<li style="padding-left: 15px; background: url(&quot;http://i.cmpnet.com/nc/mt/bg_left-nav.png&quot;) no-repeat scroll 5px 7px transparent; color: rgb(0, 59, 176); margin: 0px 0pt;">
+		<div id="div-gpt-ad-942957474691236830-27">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-27');
+	 </script>
+	</div>
+</li>
+</ul>
+
+
+
+
+				</div>
+				<br>
+				<br>
+				
+					<div id="div-gpt-ad-942957474691236830-28">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-28');
+	 </script>
+	</div>
+				 	
+ 			</div>
+ 		</div>
+ 		<div class="dcol2" style="left:71%;width:70%;float:left;">
+		<!--  Commenting -->
+		<div id="dobbs_disqus">
+		<div id="disqus-hints-box">
+  <script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/jquery.js"></script>
+<script type="text/javascript">
+	var brainyardDomain  = 'www.drdobbs.com';
+</script>
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/disqusHints.js"></script>
+<!-- This section is for calling the commenting policy pop-up -->
+<script>
+	$(document).ready(function(){
+		$(".commentingPolicy").colorbox({width:"420px",height:"300px",inline:true,href:"#inlineCommenting"});//end .htmlTags
+	});//end doc ready
+</script>
+<link rel="stylesheet" href="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/colorbox.css" type="text/css">
+<link rel="stylesheet" href="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/disqusHints.css" type="text/css">
+
+<div style="display:none">
+	<div id="inlineModal" style="padding:10px;">
+    	<div class="newsletterHeader">
+    		<img src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/dobbs_disqus_logo.gif">
+    	</div>
+    	<br><br> 
+    	<div class="markdown">
+      		<h3>Currently we allow the following HTML tags in comments:</h3>
+			<h3>Single tags</h3>
+			<p><i>These tags can be used alone and don't need an ending tag. </i></p>
+			<p><code>&lt;br&gt;</code> Defines a single line break <br><br> 
+			<code>&lt;hr&gt;</code> Defines a horizontal line</p>
+
+			<h3>Matching tags</h3>
+			<p><i>These require an ending tag - e.g. <code>&lt;i&gt;italic text&lt;/i&gt;</code> </i></p>
+			<p><code>&lt;a&gt;</code> Defines an anchor<br><br>
+			<code>&lt;b&gt;</code> Defines bold text<br><br>
+			<code>&lt;big&gt;</code> Defines big text<br><br>
+
+			<code>&lt;blockquote&gt;</code> Defines a long quotation<br><br>
+			<code>&lt;caption&gt;</code> Defines a table caption<br><br>
+			<code>&lt;cite&gt;</code> Defines a citation<br><br>
+			<code>&lt;code&gt;</code> Defines computer code text<br><br>
+			<code>&lt;em&gt;</code> Defines emphasized text<br><br>
+
+			<code>&lt;fieldset&gt;</code> Defines a border around elements in a form<br><br>
+			<code>&lt;h1&gt;</code> This is heading 1<br><br>
+			<code>&lt;h2&gt;</code> This is heading 2<br><br>
+			<code>&lt;h3&gt;</code> This is heading 3<br><br>
+			<code>&lt;h4&gt;</code> This is heading 4<br><br>
+			
+			<code>&lt;h5&gt;</code> This is heading 5<br><br>
+			<code>&lt;h6&gt;</code> This is heading 6<br><br>
+			<code>&lt;i&gt;</code> Defines italic text<br><br>
+			<code>&lt;p&gt;</code> Defines a paragraph<br><br>
+			<code>&lt;pre&gt;</code> Defines preformatted text<br><br>
+			
+			<code>&lt;q&gt;</code> Defines a short quotation<br><br>
+			<code>&lt;samp&gt;</code> Defines sample computer code text<br><br>
+			<code>&lt;small&gt;</code> Defines small text<br><br>
+			<code>&lt;span&gt;</code> Defines a section in a document<br><br>
+			<code>&lt;s&gt;</code> Defines strikethrough text<br><br>
+			
+			<code>&lt;strike&gt;</code> Defines strikethrough text <br><br>
+			<code>&lt;strong&gt;</code> Defines strong text <br><br>
+			<code>&lt;sub&gt;</code> Defines subscripted text <br><br>
+			<code>&lt;sup&gt;</code> Defines superscripted text <br><br>
+			<code>&lt;u&gt;</code> Defines underlined text<br><br></p>
+    	</div>  
+	</div><!-- /end  inline_mailinglist-->
+
+	<div id="inlineCommenting" style="padding:10px;" class="markdown">
+		  <p><i>Dr. Dobb's</i> encourages readers to engage in spirited, healthy debate, including taking us to task.  
+		  However, <i>Dr. Dobb's</i> moderates all comments posted to our 
+site, and reserves the right to modify or remove any content that it 
+determines to be derogatory, offensive, inflammatory, vulgar, 
+irrelevant/off-topic, racist or obvious marketing or spam. <i>Dr. Dobb's</i> further reserves the right to disable the profile of any commenter participating in said activities.</p>
+	</div>	
+</div>
+<table cellpadding="0" cellspacing="0" bgcolor="#f3f3f3" border="0" width="100%">
+	<tbody><tr>
+    	<td colspan="2">&nbsp;</td>  
+	</tr>
+	<tr>
+   	 	<td width="34"><img src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/hintbox_info.jpg" alt="Disqus Tips" align="left" border="0" height="34"></td> 
+		<td><font style="font-family: Arial, Helvetica, Geneva, SunSans-Regular, sans-serif; color: #000000; font-size: 11px;">
+			<strong>To upload an avatar photo,</strong> first <a href="http://disqus.com/dashboard/" style="font-family: Arial,Helvetica,Geneva,SunSans-Regular,sans-serif; color: #003bb0; font-size: 11px;" target="_blank">complete your Disqus profile.</a> | <a href="#" class="htmlTags cboxElement" style="font-family: Arial,Helvetica,Geneva,SunSans-Regular,sans-serif; color: #003bb0; font-size: 11px;">View the list</a> of <strong>supported HTML tags</strong> you can use to style comments. | Please read our <a href="#" class="commentingPolicy cboxElement" style="font-family: Arial,Helvetica,Geneva,SunSans-Regular,sans-serif; color: #003bb0; font-size: 11px;"><strong>commenting policy.</strong></a>
+			</font>
+		</td>
+	</tr>
+	<tr>
+       <td colspan="2">&nbsp;</td>  
+	</tr>
+</tbody></table>  
+
+</div>
+<div id="mythread">
+</div>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+var jmessage = '';
+var jtimestamp = '';
+var jhmac = '';
+var jmessage = '';
+var isLoggedIn = '';
+$.ajax({
+   type: "GET",
+   url: "/disqussetting",
+   data: "referer="+encodeURIComponent(window.location.href),
+   success: function(data){		   
+	   if (data != null)
+		{
+		   jmessage = data.jmessage;
+		   jtimestamp = data.jtimestamp;
+		   jhmac = data.jhmac;
+		   isLoggedIn = data.isLoggedIn;
+		   if(!isLoggedIn) // do only if he is not logged in
+		   {
+			   $('#mythread').load('/disqus/showcomments/format/html', {'success':encodeURIComponent(window.location.href),
+				   'articleId': '240166698',				  
+				   'assetId': '156622',
+				   'actionType' : '' });
+		   }					
+		}
+   },
+   dataType: "json",
+   async: false,
+   cache: false
+ }	
+ );	
+
+				if(jhmac == null || jhmac == ''){
+				var headID = document.getElementsByTagName("head")[0];         
+				var cssNode = document.createElement('link');
+				cssNode.type = 'text/css';
+				cssNode.rel = 'stylesheet';
+				cssNode.href = 'http://i.techweb.com/brainyard/css/disqusLoggedOff.css';
+				cssNode.media = 'screen';
+				headID.appendChild(cssNode);
+			}
+			else
+			{
+								document.write("<style type=\"text/css\">#techwebCommentLogin{display:none;}</style>");
+
+			}
+	-->
+	 
+</script><style type="text/css">#techwebCommentLogin{display:none;}</style>
+<script type="text/javascript">
+  if (jmessage == null)
+        $("div#disqus-hints-box").hide();
+</script>
+<script type="text/javascript">
+var disqus_config = function () {
+
+	var hmac1 = jhmac;
+	var htimestamp = jtimestamp;
+	var hmessage = jmessage;	
+	if(hmac1 != null){		
+			this.page.remote_auth_s3 = hmessage + ' ' + hmac1 + ' ' + htimestamp;
+			this.page.api_key = "Qq6ImCn7MIzMK699FJY4iuhauNLipx3XghP08sjP0Wz9Ipk81mTrcqxz85A8OOqv";			
+	}
+	this.page.author_s3 = "eyJ1c2VybmFtZSI6IkFuZHJld0JpbnN0b2NrIn0= 6e2717bb06a4085dfec1ac35af4fdc5ae4c9d08a 1396465209";		
+    this.sso = {
+          name:    "UBM TechWeb",
+          button:  "http://i.techweb.com/informationweek/images/ubm-techweb-logo.gif",
+          icon:    "http://i.cmpnet.com/brainyard/images/favicon.ico",
+          url:     "javascript:NextGen.disqusCommentForm('http://www.drdobbs.com/login?assetId=156622&k=2LGCMTDD&successfulLoginRedirect=http%3A%2F%2Fwww.drdobbs.com%2Farchitecture-and-design%2Fthe-corruption-of-agile%2F240166698');",
+          logout:  "http://www.drdobbs.com/logout?redirect=http%3A%2F%2Fwww.drdobbs.com%2Farchitecture-and-design%2Fthe-corruption-of-agile%2F240166698",
+          width:   "800",
+          height:  "400"
+    };
+    this.callbacks.onNewComment = [function() {trackComment();}];
+};
+</script>
+
+<style type="text/css">
+.dsq-post-tools .dsq-post-as .dsq-button{
+	background: url(none);
+	background-color:#c90000;
+}
+
+.dsq-post-tools .dsq-post-as .dsq-button:active{
+	background: url(none);
+	background-color:#ed0404;
+}
+
+.dsq-post-tools .dsq-post-as .dsq-button:hover{
+	background: url(none);
+	background-color:#e00000;
+}
+.dsq-post-tools .dsq-post-as .dsq-button{
+text-shadow:none;
+color:white;
+}
+.dsq-comment-text blockquote{
+	border-left:1px solid #555555;
+	padding-left:15px;
+	padding-top:5px;
+	padding-bottom:5px;
+	font-style:italic;
+	font-size:15px;
+	margin:15px;
+	color:#999999;
+	margin-bottom:10px;
+	padding-right:15px;
+	font-weight:bold;
+}
+#dsq-content .dsq-comment-meta li, #dsq-content .dsq-comment-actions li {
+    float: left;
+    font-size: 65%;
+    margin: 0 10px 0 0;
+}
+
+#dsq-content #dsq-footer li {
+    float: left;
+    font-size: 0.75em;
+    margin: 0 10px 0 0;
+}
+
+#dsq-content .dsq-comment-text {
+    display: inline;
+    /* font-size: .80em; */
+}
+</style>
+
+<a name="comments"></a>
+<div id="disqus_thread"><iframe verticalscrolling="no" horizontalscrolling="no" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/a_002.htm" style="width: 100% ! important; border: medium none ! important; overflow: hidden ! important; height: 10085px ! important;" title="Disqus" tabindex="0" allowtransparency="true" data-disqus-uid="2" id="dsq-2" frameborder="0" scrolling="no" width="100%"></iframe><iframe style="width: 445px ! important; border: medium none ! important; overflow: hidden ! important; top: 0px ! important; min-width: 445px ! important; max-width: 445px ! important; position: fixed ! important; z-index: 2147483646 ! important; height: 29px ! important; min-height: 29px ! important; max-height: 29px ! important; display: none ! important;" title="Disqus" tabindex="0" allowtransparency="true" data-disqus-uid="indicator-north" id="dsq-indicator-north" frameborder="0" scrolling="no"></iframe><iframe style="width: 445px ! important; border: medium none ! important; overflow: hidden ! important; bottom: 0px ! important; min-width: 445px ! important; max-width: 445px ! important; position: fixed ! important; z-index: 2147483646 ! important; height: 29px ! important; min-height: 29px ! important; max-height: 29px ! important; display: none ! important;" title="Disqus" tabindex="0" allowtransparency="true" data-disqus-uid="indicator-south" id="dsq-indicator-south" frameborder="0" scrolling="no"></iframe></div>
+
+
+<script type="text/javascript">
+if(isLoggedIn) {
+			var disqus_developer = 1;
+		
+    var disqus_shortname = 'drdobbs';
+    var disqus_domain = 'disqus.com';
+    var disqus_identifier = 'article_240166698';
+	var disqus_url = 'http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/240166698';
+		var disqus_title = '"The Corruption of Agile"';
+		if(disqus_identifier !== null && disqus_identifier != '')
+{
+	/* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+	}
+}
+    
+</script>
+		</div> 
+		<!-- /  Commenting -->
+			</div>
+</div>
+</div>
+
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+     SyntaxHighlighter.all();
+</script>	
+		</div>
+		<script>var ngGatedContentPage = '1';</script>
+		<div id="right-col">
+			<!-- div class="subsection " -->
+ <!-- /div -->				<div id="div-gpt-ad-942957474691236830-4">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-4');
+	 </script><div id="div-gpt-ad-942957474691236830-4_ad_container">
+<ins style="width: 300px; height: 250px; display: inline-table; position: relative; border: 0px none; vertical-align: bottom;"><ins style="width: 300px; height: 250px; display: block; position: relative; border: 0px none;"><iframe style="border: 0px none; position: absolute; top: 0px; left: 0px;" marginheight="0" marginwidth="0" name="google_ads_iframe_/2441/DrDobbs/architecture-and-design_3" id="google_ads_iframe_/2441/DrDobbs/architecture-and-design_3" frameborder="0" height="250" scrolling="no" width="300"></iframe></ins></ins></div>
+<script>googletag.impl.pubads.createDomIframe("div-gpt-ad-942957474691236830-4_ad_container" ,"/2441/DrDobbs/architecture-and-design_3",false,undefined);</script>
+	</div>
+	<!--
+			<br/><br/>
+			
+			<div class="subsection sponsored-content"> -->
+				<!-- ?php echo $this->render('/shared/right/articlepremiumcontent.phtml')? -->
+			<!-- </div> -->
+			<div class="recent-articles non-mobile-unit">
+				
+	<h2>Design Recent Articles</h2>
+	<ul>	
+				<li><a href="http://www.drdobbs.com/architecture-and-design/addressing-the-corruption-of-agile/240166890" class="contentgating_article">Addressing the Corruption of Agile</a></li>
+				<li><a href="http://www.drdobbs.com/architecture-and-design/use-frequent-branches-to-tell-a-story-an/240166895" class="contentgating_article">Use Frequent Branches to Tell a Story and Simplify Code Reviews</a></li>
+				<li><a href="http://www.drdobbs.com/architecture-and-design/java-8-arrives/240166820" class="contentgating_article">Java 8 Arrives!</a></li>
+				<li><a href="http://www.drdobbs.com/architecture-and-design/parallel-array-operations-in-java-8/240166287" class="contentgating_article">Parallel Array Operations in Java 8</a></li>
+				<li><a href="http://www.drdobbs.com/architecture-and-design/dave-thomas-interview-the-corruption-of/240166688" class="contentgating_article">Dave Thomas Interview: The Corruption of Agile; Ruby and Elixir; Katas and More</a></li>
+				<li><a href="http://www.drdobbs.com/architecture-and-design/" class="contentgating_article"></a></li>
+				<li><a href="http://www.drdobbs.com/architecture-and-design/" class="contentgating_article"></a></li>
+			</ul>			</div>
+			 
+			<span class="non-mobile-unit">
+						
+			<div class="subsection mostpopular">
+				<h2>Most Popular</h2>
+
+<div class="tab_controls">
+	<a id="articles" class="current" href="#">Stories</a>
+	<a id="blogs" href="#">Blogs</a>
+</div>
+<div id="mostpopular" class="box_wrap">
+	<ul>
+				<li>
+					<a name="dobbs-callout-mostpop" href="http://www.drdobbs.com/architecture-and-design/addressing-the-corruption-of-agile/240166890" class="contentgating_article">Addressing the Corruption of Agile</a>
+					</li>
+				<li>
+					<a name="dobbs-callout-mostpop" href="http://www.drdobbs.com/architecture-and-design/use-frequent-branches-to-tell-a-story-an/240166895" class="contentgating_article">Use Frequent Branches to Tell a Story and Simplify Code Reviews</a>
+					</li>
+				<li>
+					<a name="dobbs-callout-mostpop" href="http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/240166698" class="contentgating_article">The Corruption of Agile</a>
+					</li>
+				<li>
+					<a name="dobbs-callout-mostpop" href="http://www.drdobbs.com/architecture-and-design/jolt-awards-coding-tools/240165725" class="contentgating_article">Jolt Awards: Coding Tools</a>
+					</li>
+				<li>
+					<a name="dobbs-callout-mostpop" href="http://www.drdobbs.com/architecture-and-design/2013-developer-salary-survey/240163580" class="contentgating_article">2013 Developer Salary Survey</a>
+					</li>
+				<li>
+					<a name="dobbs-callout-mostpop" href="http://www.drdobbs.com/architecture-and-design/" class="contentgating_article"></a>
+					</li>
+				<li>
+					<a name="dobbs-callout-mostpop" href="http://www.drdobbs.com/architecture-and-design/" class="contentgating_article"></a>
+					</li>
+		</ul></div>
+
+<div id="mostpopular" class="box_wrap" style="display: none;">
+	<ul>
+				<li>
+					<a name="dobbs-callout-mostpop-blog" href="http://www.drdobbs.com/architecture-and-design/java-se-8-beyond-lambdas-the-big-picture/240166881" class="contentgating_article">Java SE 8 Beyond Lambdas: The Big Picture</a>
+					</li>
+				<li>
+					<a name="dobbs-callout-mostpop-blog" href="http://www.drdobbs.com/architecture-and-design/the-agile-holocracy/240166629" class="contentgating_article">The Agile Holocracy</a>
+					</li>
+				<li>
+					<a name="dobbs-callout-mostpop-blog" href="http://www.drdobbs.com/architecture-and-design/c11-uniqueptr/240002708" class="contentgating_article">C++11: unique_ptr</a>
+					</li>
+				<li>
+					<a name="dobbs-callout-mostpop-blog" href="http://www.drdobbs.com/architecture-and-design/sdlc-sdlc-models-advantages-disadvantag/228701074" class="contentgating_article">SDLC: SDLC models Advantages &amp; disadvantages</a>
+					</li>
+				<li>
+					<a name="dobbs-callout-mostpop-blog" href="http://www.drdobbs.com/architecture-and-design/scrum-agile/240164386" class="contentgating_article">Scrum != Agile</a>
+					</li>
+				<li>
+					<a name="dobbs-callout-mostpop-blog" href="http://www.drdobbs.com/architecture-and-design/" class="contentgating_article"></a>
+					</li>
+				<li>
+					<a name="dobbs-callout-mostpop-blog" href="http://www.drdobbs.com/architecture-and-design/" class="contentgating_article"></a>
+					</li>
+		</ul></div>
+			</div>
+			
+			<div class="box video">
+				<h3 class="video"><span>Video</span></h3>	<div class="box_wrap">
+		<!-- Start of Brightcove Player -->
+	<!--
+By use of this code snippet, I agree to the Brightcove Publisher T and C 
+found at https://accounts.brightcove.com/en/terms-and-conditions/. 
+-->
+
+<script language="JavaScript" type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/BrightcoveExperiences.js"></script>
+
+<object seamlesstabbing="undefined" class="BrightcoveExperience" id="myExperience" data="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/federated_f9" type="application/x-shockwave-flash" height="540" width="300"><param value="always" name="allowScriptAccess"><param value="true" name="allowFullScreen"><param value="false" name="seamlessTabbing"><param value="true" name="swliveconnect"><param value="transparent" name="wmode"><param value="high" name="quality"><param value="#FFFFFF" name="bgcolor"></object>
+
+<!-- 
+This script tag will cause the Brightcove Players defined above it to be created as soon
+as the line is read by the browser. If you wish to have the player instantiated only after
+the rest of the HTML is processed and the page load is complete, remove the line.
+-->
+<script type="text/javascript">brightcove.createExperiences();</script>
+
+<!-- End of Brightcove Player -->
+	</div>
+	
+	<div class="slide_controls"> 
+				<a href="http://www.drdobbs.com/tv"><strong>View All Videos</strong></a>
+			</div>
+	
+			</div>
+			
+			<div class="subsection sponsored-content">
+				<style>
+#right-col .subsection .sponsored{
+    font-size: 0.7em !important;
+}
+
+</style>
+
+	<h2>This month's Dr. Dobb's Journal</h2>
+	<div class="sponsored">
+		<div class="whitepaper">
+			<div align="center">
+				<a href="http://www.drdobbs.com/digital/012214?k=ddjtm&amp;cid=onedit_ds_ddjtm">
+					<img alt="The Dr. Dobb's Digital Digest cover - February Issue" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/ddj201401-314.jpg" border="0" height="115" width="190">
+				</a>
+			</div>
+			<p>
+				<a href="http://www.drdobbs.com/digital/012214?k=ddjtm&amp;cid=onedit_ds_ddjtm"><b>This month</b></a>,
+ we focus in on languages. The creator of Nimrod gives you a tour of a 
+language that compiles to C, C++, Objective-C, and JavaScript. Walter 
+Bright fills you in on how he came to write D. The dark details of unit 
+testing in Python are revealed, <b><a href="http://www.drdobbs.com/digital/012214?k=ddjtm&amp;cid=onedit_ds_ddjtm">and much more!</a></b><br><br>
+				<a href="http://www.drdobbs.com/digital/012214?k=ddjtm&amp;cid=onedit_ds_ddjtm">Download the latest issue today. &gt;&gt;</a> 
+			</p>
+		</div>	
+	</div>				 
+			</div>
+			
+	<div id="div-gpt-ad-942957474691236830-5">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-5');
+	 </script><div id="div-gpt-ad-942957474691236830-5_ad_container">
+<ins style="width: 300px; height: 250px; display: inline-table; position: relative; border: 0px none; vertical-align: bottom;"><ins style="width: 300px; height: 250px; display: block; position: relative; border: 0px none;"><iframe style="border: 0px none; position: absolute; top: 0px; left: 0px;" marginheight="0" marginwidth="0" name="google_ads_iframe_/2441/DrDobbs/architecture-and-design_4" id="google_ads_iframe_/2441/DrDobbs/architecture-and-design_4" frameborder="0" height="250" scrolling="no" width="300"></iframe></ins></ins></div>
+<script>googletag.impl.pubads.createDomIframe("div-gpt-ad-942957474691236830-5_ad_container" ,"/2441/DrDobbs/architecture-and-design_4",false,undefined);</script>
+	</div>
+	</span>
+			<!-- Upcoming Events -->
+<style>
+#upcoming_tabs .tab-content {
+	border: 1px solid #5F953C;
+	border-top: none;
+	margin-top: -10px;
+	width: 323px;
+	font-size: 12px;
+	padding: 20px 5px 10px;
+}
+#upcoming_tabs .tab-content li {
+	margin: 0 15px;
+	list-style: none;
+}
+#upcoming_tabs .tab-content p {
+	margin: 0 10px;
+}
+#upcoming_tabs .tab-content p img {
+	max-width: 100px;
+	margin-bottom: 5px;
+}
+#upcoming_tabs .tab-content a {
+ font-size: 12px;
+  font-weight: normal;
+}
+</style>
+
+
+   
+<div class="subsection">
+
+    <h2>Upcoming Events</h2>
+    
+    <div id="upcoming_tabs">
+    
+       <div class="tab_controls">
+         <a class="current" title="Live Events" href="#tab_live-events">Live Events</a>
+         <a title="WebCasts" href="#tab_webcasts">WebCasts</a>
+                 
+       </div>
+              
+       <div class="tab-content" style="" id="tab_live-events">
+           <!-- Taxonomy ID: --><!--cache:--><!--brandId:--><!--not from cache.cache key-->		 
+     	  <ul class="events">
+
+                
+
+                     <li><a href="http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/www.towersummit.com/lasvegas/?sourceCode=BA_IW_LE_TSC14&amp;cid=SBX_ddj_fture_LiveEvent_default_architecture_and_design&amp;itc=SBX_ddj_fture_LiveEvent_default_architecture_and_design&amp;_mc=MP_BTMSBXDDJFT" target="_blank">Tower &amp; Small Cell Summit<span class="eventName"> - Tower &amp; Small Cell Summit</span></a>
+	                 </li>     
+
+                           
+
+                     <li><a href="http://www.interop.com/lasvegas/conference/cloud-computing-and-virtualization.php?cid=SBX_ddj_fture_LiveEvent_default_architecture_and_design&amp;itc=SBX_ddj_fture_LiveEvent_default_architecture_and_design&amp;_mc=MP_BTMSBXDDJFT" target="_blank">Explore more about Cloud Computing &amp; Virtualization at Interop Las Vegas, March 31 - April 4<span class="eventName"> - Interop Las Vegas</span></a>
+	                 </li>     
+
+                           
+
+                     <li><a href="http://www.interop.com/lasvegas/schedule-builder/session-id/71?cid=SBX_ddj_fture_LiveEvent_default_architecture_and_design&amp;itc=SBX_ddj_fture_LiveEvent_default_architecture_and_design&amp;_mc=MP_BTMSBXDDJFT" target="_blank">No CIO Ever Got Promoted For…<span class="eventName"> - Interop Las Vegas</span></a>
+	                 </li>     
+
+                           
+
+                     <li><a href="http://www.interop.com/lasvegas/schedule-builder/session-id/22?cid=SBX_ddj_fture_LiveEvent_default_architecture_and_design&amp;itc=SBX_ddj_fture_LiveEvent_default_architecture_and_design&amp;_mc=MP_BTMSBXDDJFT" target="_blank">The CIO &amp; CMO -- Adversaries No More<span class="eventName"> - Interop Las Vegas</span></a>
+	                 </li>     
+
+                           
+
+                     <li><a href="http://www.interop.com/lasvegas/conference/applications.php?cid=SBX_ddj_fture_LiveEvent_default_architecture_and_design&amp;itc=SBX_ddj_fture_LiveEvent_default_architecture_and_design&amp;_mc=MP_BTMSBXDDJFT" target="_blank">Check out the Applications Track at Interop Las Vegas, March 31-April 4, 2014<span class="eventName"> - Interop Las Vegas</span></a>
+	                 </li>     
+
+           <br>
+	<div class="sbarchive_bottomleft"><a href="http://www.drdobbs.com/live-event/architecture_and_design/more.html?cid=SBX_ddj_fture_LiveEvent_default_architecture_and_design&amp;itc=SBX_ddj_fture_LiveEvent_default_architecture_and_design" class="continue">More Live Events<span>&gt;&gt;</span></a></div>
+</ul>
+  
+ 
+   
+			
+       </div>
+      
+       <div class="tab-content" style="display: none;" id="tab_webcasts">                 
+         <!-- Taxonomy ID: --><!--cache:--><!--brandId:--><!--not from cache.cache key-->		 
+     <!-- Taxonomy ID: --> 
+                        	<li><!--Rule 10 --><a target="_new" href="https://webinar.informationweek.com/16479?keycode=SBX&amp;cid=SBX_ddj_fture_Webcast_default_architecture_and_design&amp;itc=SBX_ddj_fture_Webcast_default_architecture_and_design&amp;K=SBX_DDJ_FT">Simple, Effective Patch Management: From Dilemma to Done Deed</a>                        	
+                            </li>
+                                                	<li><!--Rule 10 --><a target="_new" href="https://webinar.informationweek.com/14525?keycode=SBX&amp;cid=SBX_ddj_fture_Webcast_default_architecture_and_design&amp;itc=SBX_ddj_fture_Webcast_default_architecture_and_design&amp;K=SBX_DDJ_FT">WinXP at the 11th Hour</a>                        	
+                            </li>
+                                                	<li><!--Rule 10 --><a target="_new" href="https://webinar.drdobbs.com/FairCom20131001?keycode=SBX&amp;cid=SBX_ddj_fture_Webcast_default_architecture_and_design&amp;itc=SBX_ddj_fture_Webcast_default_architecture_and_design&amp;K=SBX_DDJ_FT">COBOL in the Big Data Era: A Guide</a>                        	
+                            </li>
+                                                	<li><!--Rule 10 --><a target="_new" href="http://webinar.informationweek.com/16502?keycode=SBX&amp;cid=SBX_ddj_fture_Webcast_default_architecture_and_design&amp;itc=SBX_ddj_fture_Webcast_default_architecture_and_design&amp;K=SBX_DDJ_FT">Are You Really Ready for a Software Audit?</a>                        	
+                            </li>
+                                                	<li><!--Rule 10 --><a target="_new" href="http://webinar.informationweek.com/15832?keycode=SBX&amp;cid=SBX_ddj_fture_Webcast_default_architecture_and_design&amp;itc=SBX_ddj_fture_Webcast_default_architecture_and_design&amp;K=SBX_DDJ_FT">Want Information Fast or Want it Right? Learn How to Have Both</a>                        	
+                            </li>
+                          <br>  <br>
+  
+		   
+		   <br>
+           		 <div class="sbarchive_bottomleft"><a href="http://www.drdobbs.com/webcast/architecture_and_design/more.html?cid=SBX_ddj_fture_Webcast_default_architecture_and_design&amp;itc=SBX_ddj_fture_Webcast_default_architecture_and_design" class="continue">More Webcasts<span>&gt;&gt;</span></a></div>
+     	   
+ <!-- Render Assets of CurationType 'Webcast' -->       
+		       
+       </div>       
+                
+    
+    </div><!--/upcoming_border-->
+</div><!--/upcoming-->
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#upcoming_tabs .tab-content').hide();
+	$('#upcoming_tabs .tab-content:first').show();
+	$('#upcoming_tabs .tab_controls a:first').addClass('current');
+ 
+	$('#upcoming_tabs .tab_controls a').click(function(){
+		$('#upcoming_tabs .tab_controls a').removeClass('current');
+		$(this).addClass('current');
+		var currentTab = $(this).attr('href');
+		$('#upcoming_tabs .tab-content').hide();
+		$(currentTab).show();
+		return false;
+	});
+});
+</script>
+<div class="recent-articles">
+<div id="smartbox">
+	<h2>Featured Reports</h2>
+	<div class="bar" style="padding-top:8px;padding-bottom:8px;">&nbsp;
+			<div class="left">&nbsp;</div>
+			<div class="right"><a title="UBM Smart boxes auto deliver premium content that is contextually relevant to the article or site section where it is located" href="#">What's this?</a></div>
+		</div>
+	<div class="resources clearfix">
+		<!-- Taxonomy ID: --><!--cache:--><!--brandId:--><!--not from cache.cache key-->		 
+     <!-- Taxonomy ID: --> 
+<ul class="archive">
+				
+				<li><!--Rule 10 -->		
+					<a href="http://analytics.informationweek.com/abstract/1/7955/Application-Performance-Optimization/return-of-the-silos.html?cid=SBX_ddj_fture_Analytics_default_architecture_and_design&amp;itc=SBX_ddj_fture_Analytics_default_architecture_and_design" name="SBX_ddj_fture_Analytics_default_architecture_and_design">
+				Return of the Silos				</a>
+								</li>
+				
+				<li><!--Rule 10 -->		
+					<a href="http://analytics.informationweek.com/abstract/5/5116/Cloud-Computing/research-2011-state-of-cloud.html?cid=SBX_ddj_fture_Analytics_default_architecture_and_design&amp;itc=SBX_ddj_fture_Analytics_default_architecture_and_design" name="SBX_ddj_fture_Analytics_default_architecture_and_design">
+				State of Cloud 2011: Time for Process Maturation				</a>
+								</li>
+				
+				<li><!--Rule 10 -->		
+					<a href="http://analytics.informationweek.com/abstract/13/6134/Outsourcing-Services/research-federal-government-cloud-computing-survey.html?cid=SBX_ddj_fture_Analytics_default_architecture_and_design&amp;itc=SBX_ddj_fture_Analytics_default_architecture_and_design" name="SBX_ddj_fture_Analytics_default_architecture_and_design">
+				Research: Federal Government Cloud Computing Survey				</a>
+								</li>
+				
+				<li><!--Rule 10 -->		
+					<a href="http://analytics.informationweek.com/abstract/21/7594/Security/research-state-of-the-it-service-desk.html?cid=SBX_ddj_fture_Analytics_default_architecture_and_design&amp;itc=SBX_ddj_fture_Analytics_default_architecture_and_design" name="SBX_ddj_fture_Analytics_default_architecture_and_design">
+				Research: State of the IT Service Desk				</a>
+								</li>
+				
+				<li><!--Rule 10 -->		
+					<a href="http://analytics.informationweek.com/abstract/21/7375/Security/will-ipv6-make-us-unsafe*.html?cid=SBX_ddj_fture_Analytics_default_architecture_and_design&amp;itc=SBX_ddj_fture_Analytics_default_architecture_and_design" name="SBX_ddj_fture_Analytics_default_architecture_and_design">
+				Will IPv6 Make Us Unsafe?				</a>
+								</li>
+						
+</ul>
+		<div class="left" style="margin-left: 28px !important;font-family: verdana;font-size: 10px;"><a href="http://www.drdobbs.com/analytics/architecture_and_design/more.html?cid=SBX_ddj_fture_Analytics_default_architecture_and_design&amp;itc=SBX_ddj_fture_Analytics_default_architecture_and_design">More &gt;&gt;</a></div>
+		<div class="right"><img src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/smartbox.PNG"></div>	
+	</div>
+</div>
+<br>
+<div id="smartbox">
+	<h2>Featured Whitepapers</h2>
+	<div class="bar" style="padding-top:8px;padding-bottom:8px;">&nbsp;
+			<div class="left">&nbsp;</div>
+			<div class="right"><a title="UBM Smart boxes auto deliver premium content that is contextually relevant to the article or site section where it is located" href="#">What's this?</a></div>
+		</div>
+	<div class="resources clearfix">
+		<!-- Taxonomy ID: --><!--cache:--><!--brandId:--><!--not from cache.cache key-->		 
+     <!-- Taxonomy ID: --> 
+<ul class="archive">
+				
+				<li><!--Rule 9 -->		
+					<a href="http://www.informationweek.com/whitepaper/Infrastructure/Network-Systems-Management/organization-ensures-performance-security-with-n-wp1395342738?articleID=191741253&amp;cid=SBX_ddj_fture_wp_default_architecture_and_design&amp;itc=SBX_ddj_fture_wp_default_architecture_and_design" name="SBX_ddj_fture_wp_default_architecture_and_design">
+				Organization Ensures Performance &amp; Security with Network Visibility				</a>
+								</li>
+				
+				<li><!--Rule 9 -->		
+					<a href="http://www.informationweek.com/whitepaper/Infrastructure/Network-Systems-Management/visibility-for-converged-infrastructure-solutions-wp1395342468?articleID=191741217&amp;cid=SBX_ddj_fture_wp_default_architecture_and_design&amp;itc=SBX_ddj_fture_wp_default_architecture_and_design" name="SBX_ddj_fture_wp_default_architecture_and_design">
+				Visibility for Converged Infrastructure Solutions				</a>
+								</li>
+				
+				<li><!--Rule 9 -->		
+					<a href="http://www.informationweek.com/whitepaper/Business-Intelligence/Business-Process-Management/ebook-iam-for-the-real-world-simplifying-complex-wp1394139542?articleID=191741041&amp;cid=SBX_ddj_fture_wp_default_architecture_and_design&amp;itc=SBX_ddj_fture_wp_default_architecture_and_design" name="SBX_ddj_fture_wp_default_architecture_and_design">
+				eBook: IAM for the Real World: Simplifying Complexity				</a>
+								</li>
+				
+				<li><!--Rule 9 -->		
+					<a href="http://www.informationweek.com/whitepaper/Security/Security-Administration/the-ficam-framework-challenges-and-guidance-for-f-wp1394139620?articleID=191741060&amp;cid=SBX_ddj_fture_wp_default_architecture_and_design&amp;itc=SBX_ddj_fture_wp_default_architecture_and_design" name="SBX_ddj_fture_wp_default_architecture_and_design">
+				The FICAM Framework: Challenges and Guidance for Federal Identity, Credential and Access Management				</a>
+								</li>
+				
+				<li><!--Rule 9 -->		
+					<a href="http://www.informationweek.com/whitepaper/Business-Intelligence/Business-Process-Management/financial-services-firm-chooses-egnyte-over-box-an-wp1395167105?articleID=191741198&amp;cid=SBX_ddj_fture_wp_default_architecture_and_design&amp;itc=SBX_ddj_fture_wp_default_architecture_and_design" name="SBX_ddj_fture_wp_default_architecture_and_design">
+				Financial Services Firm Chooses Egnyte over Box and Dropbox				</a>
+								</li>
+						
+</ul>
+		<div class="left" style="margin-left: 28px !important;font-family: verdana;font-size: 10px;"><a href="http://www.drdobbs.com/whitepaper/architecture_and_design/more.html?cid=SBX_ddj_fture_wp_default_architecture_and_design&amp;itc=SBX_ddj_fture_wp_default_architecture_and_design">More &gt;&gt;</a></div>
+		<div class="right"><img src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/smartbox.PNG"></div>	
+	</div>
+</div>
+<br>
+</div>
+ 
+			<div class="subsection mostrecent non-mobile-unit">
+				<h2>Most Recent Premium Content</h2>
+<div class="tab_controls">
+	<a class="current" href="http://www.drdobbs.com/digitaledition/">Digital Issues</a>
+</div>	
+<div class="box_wrap">
+<ul>
+<b>2014</b><br>
+<b>Dr. Dobb's Journal</b>
+<li><a href="http://dc.ubm-us.com/i/245989">February - <strong>Languages</strong></a></li><br>
+<b>Dr. Dobb's Tech Digest</b>
+<li><a href="http://www.drdobbs.com/digital/012914/">The Design of Messaging Middleware and 10 Tips from Tech Writers</a></li>
+<li><a href="http://www.drdobbs.com/digital/022614">Parallel Array Operations in Java 8 and Android on x86: Java Native Interface and the Android Native Development Kit</a></li><br>
+<b>2013</b>
+<li><a href="http://www.drdobbs.com/digital/121712/?cid=ddj_premium_January2013">January - <strong>Mobile Development</strong></a></li>
+
+<li><a href="http://www.drdobbs.com/digital/012213/?cid=ddj_premium_February2013">February - <strong>Parallel Programming</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/022513/?cid=ddj_premium_March2013">March - <strong>Windows Programming</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/032513/?cid=ddj_premium_April2013">April - <strong>Programming Languages</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/042213/?cid=ddj_premium_May2013">May - <strong>Web Development</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/052013/?cid=ddj_premium_June2013">June - <strong>Database Development</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/062413/?cid=ddj_premium_July2013">July - <strong>Testing</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/072213/?cid=ddj_premium_August2013">August - <strong>Debugging and Defect Management</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/082613">September - <strong>Version Control</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/092313/">October - <strong>DevOps</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/102113">November- <strong>Really Big Data</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/111113?k=ddjtm&amp;cid=onedit_ds_ddjtm">December - <strong>Design</strong></a></li>
+<br>
+<b>2012</b>
+<li><a href="http://www.drdobbs.com/digital/121911/?cid=ddj_premium_January2012">January - <strong>C &amp; C++</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/011912/?cid=ddj_premium_February2012">February - <strong>Parallel Programming</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/021912/?cid=ddj_premium_March2012">March - <strong>Microsoft Technologies</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/031912/?cid=ddj_premium_April2012">April - <strong>Mobile Development</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/042312/?cid=ddj_premium_May2012">May - <strong>Database Programming</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/052112/?cid=ddj_premium_June2012">June - <strong>Web Development</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/061812/?cid=ddj_premium_July2012">July - <strong>Security</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/072312/?cid=ddj_premium_August2012">August - <strong>ALM &amp; Development Tools</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/082012/?cid=ddj_premium_September2012">September - <strong>Cloud &amp; Web Development</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/092412/?cid=ddj_premium_October2012">October - <strong>JVM Languages</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/102212/?cid=ddj_premium_November2012">November - <strong>Testing</strong></a></li>
+<li><a href="http://www.drdobbs.com/digital/111912/?cid=ddj_premium_December2012">December - <strong>DevOps</strong></a></li>
+<br>		
+<a href="http://www.drdobbs.com/digitaledition/"><strong>2011</strong></a>
+</ul>
+</div>			</div>
+			
+		</div>
+		
+		<script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/nodetag.js"></script>
+		<div id="bottom" style="clear: both;" align="center">
+			<footer>
+	<div id="div-gpt-ad-942957474691236830-8">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-8');
+	 </script><div id="div-gpt-ad-942957474691236830-8_ad_container">
+<ins style="width: 728px; height: 90px; display: inline-table; position: relative; border: 0px none; vertical-align: bottom;"><ins style="width: 728px; height: 90px; display: block; position: relative; border: 0px none;"><iframe style="border: 0px none; position: absolute; top: 0px; left: 0px;" marginheight="0" marginwidth="0" name="google_ads_iframe_/2441/DrDobbs/architecture-and-design_10" id="google_ads_iframe_/2441/DrDobbs/architecture-and-design_10" frameborder="0" height="90" scrolling="no" width="728"></iframe></ins></ins></div>
+<script>googletag.impl.pubads.createDomIframe("div-gpt-ad-942957474691236830-8_ad_container" ,"/2441/DrDobbs/architecture-and-design_10",false,undefined);</script>
+	</div>
+	<div id="div-gpt-ad-942957474691236830-29">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-29');
+	 </script>
+	</div>
+<!-- CCM Tag -->
+<script type="text/javascript">
+$(document).ready(function(){
+	$.get("/madison", function( my_usr_id ) {
+(function () {
+_ml = window._ml || {};
+_ml.pub = '769';
+if (my_usr_id != 'blank') {
+	_ml.em = my_usr_id;
+	_ml.ht = "shex";
+}
+_ml.ef = ['#email-field', '#CSBJs_elementId_0-131', '*131', '#email', '#sender_email', '#email1', '#SENDER', '*EMAIL', '#csbLoginEmailField', '#login_email', '#pEpKWX06', '*x_Email_Address_display', '#control_EMAIL', '#CZeKLz37', '#login'];
+var s = document.getElementsByTagName('script')[0], cd = new Date(), mltag = document.createElement('script');
+mltag.type = 'text/javascript'; mltag.async = true;
+mltag.src = '//ml314.com/tag.aspx?' + cd.getDate() + cd.getMonth() + cd.getFullYear();
+s.parentNode.insertBefore(mltag, s);
+})();
+}, 'text');
+});
+</script>
+<!-- End CCM Tag --><br><br>
+<link rel="stylesheet" type="text/css" href="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/footergreyblack.css">
+
+<!-- BEGIN GREY FOOTER -->
+<div align="center">
+  <div id="footergrey">
+    <!--GREY FOOTER LEFT SIDE -->
+    <div id="left">
+    <a href="http://tech.ubm.com/" target="_blank"><img src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/ubm_tech_logo_footer_grey88x111.jpg" alt="UBM Tech" border="0" height="111" width="88"></a>
+    </div><!-- / GREY FOOTER LEFT SIDE -->
+    <!-- GREY FOOTER rightlinks SIDE -->
+    <div id="rightlinks">
+      <ul>
+        <li>FEATURED UBM TECH SITES:</li> 
+        <li><a name="footer" href="http://www.informationweek.com/" target="_blank">InformationWeek</a></li> | 
+        <li><a name="footer" href="http://www.networkcomputing.com/" target="_blank">Network Computing</a></li> | 
+        <li><a name="footer" href="http://www.drdobbs.com/" target="_blank">Dr. Dobb's</a></li> | 
+        <li><a name="footer" href="http://www.darkreading.com/" target="_blank">Dark Reading</a></li> 
+      </ul>
+      <ul>
+      <li>OUR MARKETS:</li>
+        <li><a href="http://tech.ubm.com/businesses/business-technology/" target="_blank">Business Technology</a></li> | 
+        <li><a href="http://tech.ubm.com/businesses/electronics/" target="_blank">Electronics</a></li> | 
+        <li><a href="http://tech.ubm.com/businesses/game-app-development/" target="_blank">Game &amp; App Development</a></li>
+      </ul>
+      <ul class="normal">
+      <li><b>Working With Us:</b></li>
+        <li><a href="http://createyournextcustomer.techweb.com/contact-us/" target="_blank" class="normal">Advertising Contacts</a></li> | 
+        <li><a href="http://events.ubm.com/?company=10" target="_blank" class="normal">Event Calendar</a></li> | 
+        <li><a href="http://createyournextcustomer.techweb.com/" target="_blank" class="normal">Tech Marketing Solutions</a></li> | 
+        <li><a href="http://tech.ubm.com/" target="_blank" class="normal">Corporate Site</a></li> | 
+        <li><a href="mailto:feedback@techweb.com" target="_blank" class="normal">Contact Us / Feedback</a></li> 
+      </ul>
+      <ul class="blue">
+        <li><a href="http://legal.us.ubm.com/terms-of-service/" target="_blank" class="blue">Terms of Service</a></li>  |
+        <li><a href="http://legal.us.ubm.com/privacy-policy/" target="_blank" class="blue">Privacy Statement</a></li>  |
+        <li><a href="http://legal.us.ubm.com/copyright-notice/" target="_blank" class="blue">Copyright © 2014 UBM Tech, All rights reserved</a></li>   
+        <li><a href="http://www.zend.com/" target="_blank" class="blue" style="float:right">Powered by Zend/PHP</a></li>
+      </ul> 
+    </div><!-- / GREY FOOTER rightlinks -->
+    <div style="clear:both;"></div><!-- // to clear the right and left evenly // -->
+    
+  </div><!-- / END footergrey -->
+</div><!-- / END align="center" -->
+<!-- / END GREY FOOTER -->
+
+<style>
+
+/* BEGIN FOOTER CSS */
+
+#footer {
+	clear: both;
+	font-family:arial, helvetica, sans-serif;
+	color: #fff;
+	border-top: 4px solid #febc00;
+	/* border-bottom: 2px solid #ccc;
+	orignal footer bottom color.  changed w/ refresh 0/19/2010 - JH
+	border-bottom: 4px solid #971c10;
+	*/
+	font-size: .9em;
+	text-align:center;
+}
+
+ 
+
+#footer a,
+#footer a:visited {
+	color: #fff;	
+	text-decoration: none;
+	
+}
+ 
+
+#footer #footer2 ul {
+	margin: 0;
+	padding: 5px 0;
+	list-style:none;
+	line-height: 1.4em;
+	text-align:center;
+	width:999px;
+}
+
+#footer #footer2 li {
+	font-weight: normal;
+	padding: 0 0 0 15px;
+	display: inline;
+	text-indent:0;
+	text-decoration: none;	
+}
+ 
+#footer-a {
+	background-color: #369f2b;
+	text-align:center;
+}
+
+#footer-b {
+	background-color: #16530f;
+	text-align:center;
+}
+ 
+#footer #footer2 #footer-a li a,
+#footer #footer2 #footer-c li a {
+	background: url("http://twimgs.com/ddj/v2/images/footer_vertline.gif") no-repeat 1px .15em;
+	padding-left:20px;
+	margin-top:10px;
+	text-indent:0;	
+}
+
+#footer #footer2 #footer-b li a {
+	background: url("http://twimgs.com/ddj/v2/images/footer_vertline.gif") no-repeat 1px .15em;
+	padding-left:20px;
+	margin-top:10px;
+	text-indent:0;
+}
+
+#footer #footer2 #footer-a .first,
+#footer #footer2 #footer-b .first,
+#footer #footer2 #footer-c .first {
+	background: none;
+	padding-left:0;
+	text-indent:0;
+}
+
+
+#footer #footer2 li{
+	background: none;
+	
+}
+
+/* END FOOTER CSS */
+
+</style>
+
+<div id="footer">
+
+<div id="footer2">
+      
+	<div id="footer-a">
+	  <center>
+      <ul>  
+        
+<li><a href="http://www.drdobbs.com/" class="first">Dr. Dobb's Home</a></li><li><a href="http://www.drdobbs.com/articles">Articles</a></li><li><a href="http://www.drdobbs.com/news">News</a></li><li><a href="http://www.drdobbs.com/blogs">Blogs</a></li><li><a href="http://www.drdobbs.com/sourcecode">Source Code</a></li><li><a href="https://store.drdobbs.com/">Dobb's on DVD</a></li><li><a href="http://www.drdobbs.com/tv">Dobb's TV</a></li><li><a href="http://www.drdobbs.com/webinars">Webinars &amp; Events</a></li>      </ul>
+	  </center>
+	</div>
+	  
+	<div id="footer-b">
+	  <center>
+      <ul> 
+        <li><a href="http://www.drdobbs.com/aboutus" class="first">About Us</a></li>
+        <li><a href="http://www.drdobbs.com/contactus">Contact Us</a></li>
+        <li><a href="http://www.drdobbs.com/sitemap">Site Map</a></li>
+        <li><a href="http://www.drdobbs.com/edcal">Editorial Calendar</a></li>
+     </ul>
+	  </center>
+	</div>
+  
+</div>
+<!-- END: Footer2 -->
+</div> 
+<!-- END: Footer -->
+
+</footer></div>
+</div>
+<br>
+
+
+<script type="text/javascript" language="JavaScript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/elqCfg_002.js"></script>
+<script type="text/javascript" language="JavaScript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/elqImg.js"></script>
+
+
+
+<!-- Ad Roll Retargeting Cookie added as per Loria 3/25/12 -->
+<script type="text/javascript">
+adroll_adv_id = "TQSV74R4GVCSJITSZC2MCP";
+adroll_pix_id = "ACPJ7LN56VBITNNAUDPDMG";
+(function () {
+var oldonload = window.onload;
+window.onload = function(){
+   __adroll_loaded=true;
+   var scr = document.createElement("script");
+   var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+   scr.setAttribute('async', 'true');
+   scr.type = "text/javascript";
+   scr.src = host + "/j/roundtrip.js";
+   ((document.getElementsByTagName('head') || [null])[0] ||
+    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+   if(oldonload){oldonload()}};
+}());
+</script>
+<!-- /Ad Roll Retargeting Cookie -->
+
+		</div><div class=" fb_reset" id="fb-root"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/wTH8U0osOYl.htm" style="border: medium none;" tab-index="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_http" allowtransparency="true" name="fb_xdm_frame_http" frameborder="0" scrolling="no"></iframe><iframe src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/wTH8U0osOYl_002.htm" style="border: medium none;" tab-index="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_https" allowtransparency="true" name="fb_xdm_frame_https" frameborder="0" scrolling="no"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+		
+	
+
+
+<!-- Default Insight Tag -->
+<script type="text/javascript">
+  var _bizo_data_partner_id = "590";
+  </script>
+<script type="text/javascript">
+  var _bizo_p = (("https:" == document.location.protocol) ? "https://sjs." : "http://js.");
+  document.write(unescape("%3Cscript src='" + _bizo_p + "bizographics.com/convert_data.js?partner_id=" + _bizo_data_partner_id + "' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/convert_data.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/beacon-min.js"></script>
+<script type="text/javascript">
+var beacon = new UBM.Beacon({environment: 'p', apiKey: '5ac7aa5086fee4857c07e34378c8cac81fef7abe304b7086721ba57ff85247d8'});
+beacon.pageview();
+</script>
+ <script type="text/javascript">
+                           
+                var disqus_shortname = 'drdobbs';
+                                                var disqus_developer = 1;
+                                /* * * DON'T EDIT BELOW THIS LINE * * */
+                 (function () {
+                var s = document.createElement('script'); s.async = true;
+                  s.type = 'text/javascript';
+                 s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+                 (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+                 }());
+</script>
+<!-- SiteCatalyst code version: H.16.
+Copyright 1997-2008 Omniture, Inc. More info available at
+http://www.omniture.com -->
+<script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/h_s_code_remote.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+	var referer = '';
+	var eVar23 = '';
+	var slr="";	
+	var host="";	
+	var userAgent = '';
+	
+	$.ajax({
+	   type: "GET",
+	   url: host+"/omniture",
+	   data: "referer="+slr+encodeURIComponent(document.referrer),
+	   success: function(data){		   
+		   if (data != null)
+			{
+				referer = data.referer;
+				eVar23 = data.eVar23;	
+				userAgent = data.userAgent;					
+			}
+	   },
+	   dataType: "json",
+	   async: false,
+	   cache: false
+	 }	
+	 );
+	
+	 
+</script>
+
+<script language="JavaScript" type="text/javascript">
+<!--	
+s.pageURL="http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/240166698";
+s.pageName="";
+s.referrer=referer;
+s.server="";
+s.channel="drdobbs.com/architecture-and-design";
+s.pageType="";
+s.prop1="";
+s.prop2="240166698";
+s.prop3="Dr. Dobb's Journal | 240166698 | The Corruption of Agile";
+s.prop4="The Corruption of Agile";
+s.prop5="architecture-and-design";
+s.prop6="";
+s.prop7="Andrew Binstock";
+s.prop8=userAgent;
+s.prop9="";
+s.prop10="complete";
+s.prop11="Feature";
+s.prop12="";
+s.prop14="";
+s.prop15="";
+s.prop16="";
+s.prop19="False";
+s.prop20="20140318";
+s.prop21="";
+
+/* Conversion Variables */
+s.campaign="";
+s.state="";
+s.zip="";
+s.events="";
+s.products="";
+s.purchaseID="";
+s.eVar1="";
+s.eVar2="";
+s.eVar3="";
+s.eVar4="";
+s.eVar5="";
+s.eVar6="";
+s.eVar8="";
+s.eVar21="";
+s.eVar22="";
+s.eVar23=eVar23;
+s.eVar31="Related Reading|Insights|Events|Reports|Whitepapers";
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//-->	
+</script>
+
+<noscript><a href="http://www.omniture.com" title="Web Analytics"><img
+src="http://cmpglobalvista.112.2O7.net/b/ss/cmpglobalvista/1/H.16--NS/0"
+height="1" width="1" border="0" alt="" /></a></noscript><!--/DO NOT REMOVE/-->
+
+<script language="JavaScript" type="text/javascript">
+	function trackComment(){
+        var s=s_gi('cmpglobalvista'); 
+        s.evar24=s.prop7 +" | "+ s.prop4;  
+	    s.events='event8';
+	    s.tl(this,'o','Article Comment Posted'); 
+   }
+</script>
+
+<!-- End SiteCatalyst code version: H.16  -->
+
+<iframe src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/record.htm" style="display:none" tabindex="-1" frameborder="0" height="0" width="0"></iframe><script type="text/javascript" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/a"></script><iframe tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/postmessageRelay.htm" id="oauth2relay1449528552" name="oauth2relay1449528552"></iframe><div style="background: none repeat scroll 0px 0px rgb(0, 0, 0); opacity: 0.9; position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 1000; display: none;" id="TWLightBoxOverlay"></div><div style="width: 780px; margin-left: -405px; margin-top: -250px; position: fixed; display: none; top: 50%; left: 50%; z-index: 6000000;" id="TWLightBoxPanel" class="drdobbs"><div id="topLoginHeader"><div class="nextGenContainer_title">Techweb</div><div class="nextGenContainer_closeButton"><div id="nextGenContainer_closeButton_inner" onclick="NextGen.close();"></div></div></div><div id="nextGenLoginContainer" class=""><div id="nextGenContainer" class=""></div></div><div class="emptyFix" id="nextGenFooterContainer"></div></div><img style="display: none;" alt="" src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/seg_002.gif" border="0" height="1" width="1"><iframe src="The%20Corruption%20of%20Agile%20_%20Dr%20Dobb%27s_files/knownUser.htm" style="display:none" tabindex="-1" frameborder="0" height="0" width="0"></iframe><iframe style="display: none; width: 0px; height: 0px;" name="google_osd_static_frame" id="google_osd_static_frame_7026673909510"></iframe></body><iframe src="" style="display: none;"></iframe></html>

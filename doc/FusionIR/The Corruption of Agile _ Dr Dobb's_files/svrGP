@@ -1,0 +1,2 @@
+function GetElqContentPersonalizationValue(strDataField){ var strTemp = '';        if(strDataField == 'V_Email_Address' || strDataField == 'Email_Address'){strTemp = 'tony\x40dyndez.com';}
+	return strTemp; } if (this.SetElqContent){ SetElqContent(); }

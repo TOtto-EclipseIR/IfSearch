@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Basic Steps</title>
+
+  <para>Every facial detection and recognition system follows the same basic
+  steps:</para>
+
+  <orderedlist>
+    <listitem>
+      <para>Image Acquisition</para>
+
+      <para>The images for any analytic system are basically analog
+      reflections of visible light passing through a lens and detected on some
+      sensor. For any analysis of the image, it needs to be digitized for
+      processing. The digitized images can be preprocessed to improve the
+      performance of the analysis.</para>
+    </listitem>
+
+    <listitem>
+      <para>Frontal Face Detection</para>
+
+      <para>Areas of the image that might contain a frontal face are
+      identified, generally by looking for patterns of light and dark areas,
+      such as a light nose between darker eyes topped by a lighter
+      forehead.</para>
+    </listitem>
+
+    <listitem>
+      <para>Location of Features</para>
+
+      <para>Different facial recognition systems identify and locate different
+      numbers of facial features, from a few (left and right eye orbit
+      centers, nose tip, upper mouth, etc) to as many as sixty
+      locations.</para>
+    </listitem>
+
+    <listitem>
+      <para>Template Generation</para>
+
+      <para>Based upon the location of facial features, the detected face
+      image is "normalized" and sequences of numbers ("vectors") that
+      represents the subjects face are calculated. Multiple vectors can be
+      combined into a template.</para>
+    </listitem>
+
+    <listitem>
+      <para>Template Storage and Searching</para>
+
+      <para>The templates can then be stored in a database or other storage
+      mechanism, such as a smart card. The stored templates can then be
+      compared to one or a few templates of a new subject to sort the database
+      by closeness of face match or to determine the difference for
+      verification purposes.</para>
+    </listitem>
+  </orderedlist>
+
+  <para>The INDIface system blends some of these basic steps since in can use
+  template generation to "qualify" a detected face and the location of
+  features. Also INDIface can perform face-based analytics after the face has
+  been qualified.</para>
+
+  <section>
+    <title>Image Acquisition</title>
+
+    <para>The INDIface SDK accepts single still images or sequences of frames,
+    such as Motion JPEG. Image formats supported include BMP, PNG, and JPG.
+    The image source can be a live IP camera or a “hot directory.” Live IP
+    input expects an HTTP-scheme URL that will return a single frame. The SDK
+    has been used with Axis 210-series cameras (and 240-series NTSC video
+    encoders) and Arecont IP cameras. It should be compatible with ONVIF
+    compliant cameras.</para>
+
+    <para>Stored images (whether individual stills or sequences) are processed
+    from a “hot directory.” Hot directories have several advantages: When all
+    images have been processed, you can start processing again-mostly useful
+    for testing or demonstrating. Images can be deleted from the directory
+    after they have been processed. Image files can be moved to a separate
+    directory after they have been processed. Processing can be started on an
+    empty directory and image files are processed as they are dropped in to
+    the "hot" directory.</para>
+
+    <para>The input frames can be preprocessed after they are acquired. The
+    INDIface SDK supports scaling, rotation, and aspect ratio
+    correction.</para>
+
+    <figure>
+      <title>Multiple Face Detection</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="art/Shopping-cropped.jpg" scale="100"
+                     width="3in"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+  </section>
+
+  <section>
+    <title>Face Detection and Feature Location</title>
+
+    <para>Once a single frame has been collected from an IP camera or hot
+    directory, a frontal face detector is used to scan for potential faces in
+    the image. Each of the potential faces is extracted from the original
+    frame, optionally scaled and filtered, and a face feature detector is
+    applied.</para>
+
+    <figure>
+      <title>Feature Location</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="art/E177-0104KB-Q662X0115Y0162W0113-X0139Y0138C544E056.PNG"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+  </section>
+
+  <section>
+    <title>Template Generation</title>
+
+    <para>From the detected location of facial features the face image is
+    “normalized” by aligning the eyes to fixed points. From the normalized
+    image, an INDIface template generation will be performed.</para>
+
+    <figure>
+      <title>Normalized Face Image</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="art/shopping6-X0574Y0238C455E043.PNG"
+                     width="2in"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <figure xml:id="figVector">
+      <title>INDIface Vector Graph</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="art/shopping6-X0574Y0238C455E043-Vector0.JPG"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <figure xml:id="figReconstruction">
+      <title>Reconstruction from Vector</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="art/shopping6-X0574Y0238C455E043-Recon0.PNG"
+                     width="1.5in"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+  </section>
+
+  <section>
+    <title>Informal Matching</title>
+
+    <para>This template can be enabled for informal matching where a
+    one-to-many search is executed against any active INDIbase
+    enrollments.</para>
+
+    <figure>
+      <title>Matching against INDIbase</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="art/PS004382.jpg" scalefit="1" width="5in"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+  </section>
+
+  <section>
+    <title>Face-based Analytics</title>
+
+    <para>If the template generation process confirms a likely human face,
+    then other analytic data can be collected</para>
+
+    <section>
+      <title>Clothes Color</title>
+
+      <para>The location of the upper and lower body can be determined and the
+      characteristic color of those areas can be collected and compared
+      against specified target colors.</para>
+
+      <figure>
+        <title>Clothes Color Detection</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/BodyClothes.jpg" scalefit="1"
+                       width="2.5in"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </section>
+
+    <section>
+      <title>Face Skin Color</title>
+
+      <para>Representative areas of the face can be sampled to collect an
+      average skin tone for comparison against multiple specified target
+      colors.</para>
+    </section>
+
+    <section>
+      <title>Height Estimation</title>
+
+      <para>The face position and size can be applied to calibration data for
+      fixed camera positions to interpolate an estimated height of the
+      person.</para>
+    </section>
+
+    <section>
+      <title>Resolver</title>
+
+      <para>The quality of the detected potential face, the consistency of the
+      generated template, and the confidences of informal face match, upper
+      and lower close color matches, height estimation, and skin tone match
+      can then be fed to the resolver. The (positive or negative) weighted
+      average of each of these factors can be combined to a resolved
+      confidence value.</para>
+    </section>
+  </section>
+
+  <section>
+    <title>Output</title>
+
+    <para>Output data consists of frame images, cropped face images,
+    normalized face images, and XML data files. Frame images and XML data
+    files are identified by an Image ID. For frames captured from IP cameras,
+    the image ID consists of a date stamp to the thousands of the second
+    optionally prepended with a specified Camera ID. For images read from a
+    directory, the image ID is the base file name. Cropped and normalized face
+    image files are identified by a Face ID. The face ID consists of the image
+    ID appended with the x,y coordinates of the position of the face in the
+    original image and the quality and consistency values for the detected
+    face. The output files are distributed to a set of directories specified
+    in the configuration.</para>
+  </section>
+
+  <section>
+    <title>INDIbase</title>
+
+    <para>The SDK console has three command modes to allow applications to
+    interact with the active INDIbase enrollment.</para>
+
+    <section>
+      <title>Enroll</title>
+
+      <para>In Enroll mode, an application can use the Enroll command
+      to:</para>
+
+      <orderedlist>
+        <listitem>
+          <para>Enroll new unidentified (not associated with a person) faces
+          to the INDIbase.</para>
+        </listitem>
+
+        <listitem>
+          <para>Create a new person and enroll faces for that person.</para>
+        </listitem>
+
+        <listitem>
+          <para>Add more faces to an existing person's enrollment.</para>
+        </listitem>
+      </orderedlist>
+
+      <para>In addition the Delete command can:</para>
+
+      <orderedlist>
+        <listitem>
+          <para>Delete an unidentified face from enrollment.</para>
+        </listitem>
+
+        <listitem>
+          <para>Delete a specific face from a specified person's
+          enrollment.</para>
+        </listitem>
+      </orderedlist>
+
+      <para>And, the Remove command will remove a specified person and all
+      enrolled faces for that person from the INDIbase.</para>
+    </section>
+
+    <section>
+      <title>Retrieve</title>
+
+      <para>In Retrieve mode and application can retrieve single enrollment
+      images (from a specified person or unidentified) or all faces enrolled
+      for a person.</para>
+    </section>
+
+    <section>
+      <title>Search</title>
+
+      <para>In Search mode, and application can submit faces to be searched
+      against the current INDIbase enrollment.</para>
+
+      <orderedlist>
+        <listitem>
+          <para>With the Verify command, the submitted faces are compared to a
+          specified person and a single confidence level is returned.</para>
+        </listitem>
+
+        <listitem>
+          <para>With the VerifyList command (to be implemented soon),
+          submitted faces are compared to a specified list of a few persons.
+          The results are the list of persons sorted by their
+          confidence.</para>
+        </listitem>
+
+        <listitem>
+          <para>With the Search command the submitted faces are compared to
+          the entire INDIbase enrollment. The results are a list of the best
+          matching faces sorted by confidence. In Person Search Mode, results
+          for the same enrolled person are grouped together.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section>
+      <title>Person Mode</title>
+
+      <para>When templates are known to be of the same person, they can be
+      enrolled in the INDIbase in "person mode." Later when searching an
+      INDIbase, "person mode" can be used to group the best results for an
+      enrolled person together to improve confidence in the results of a
+      search.</para>
+    </section>
+  </section>
+</chapter>

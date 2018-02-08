@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+    <title>Introduction</title>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata align="center" fileref="../common/art/INDIfaceH.png"
+                   scalefit="1" width="6in"></imagedata>
+      </imageobject>
+    </mediaobject>
+
+    <section>
+      <title>Overview</title>
+
+      <para><trademark>Eclipse Identity Recognition Corporation</trademark>
+      provides <emphasis>Personal Identity Recognition</emphasis> via its
+      face-based analytics known as INDIface. It is used to detect faces and
+      facial features and then generate face templates for searching and
+      matching. In addition, the INDIface analytics can also determine skin
+      tone, upper and lower clothes color, and an estimated height of a
+      person. The INDIbase system provides for the enrollment, storage,
+      management, retrieval, and matching of INDIface templates. INDIbase also
+      manages facial and other images as well as personal identification and
+      characteristic data.</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="art/SDK1-Blocks.svg" scalefit="1" width="6in"></imagedata>
+        </imageobject>
+      </mediaobject>
+
+      <para>In addition to providing the base for EclipseIR's applications,
+      the INDIface Software Development Kit (SDK) allows OEM developers to
+      create custom applications using EclipseIR's technology. The INDIface
+      SDK is currently for Windows-based stand-alone systems up to 50,000
+      enrollments. In the short term, the INDIface SDK will be made available
+      on most Linux- or BSD-based platforms in addition to Microsoft Windows.
+      At the same time, configuration will be taken from INI files rather than
+      the Windows registry. EclipseIR also plans to embed portions of its
+      technologies in “Smart Cameras” pushing more capability to the edge of
+      the network. EclipseIR will continue to develop more face-based
+      analytics (such as demographic estimates) and other technologies for
+      personal identity recognition, for example, gait recognition. As well,
+      EclipseIR will pursue complementary technologies, such as the vehicular
+      identity recognition. These expanded capabilities will be included in
+      the SDK and/or API is appropriate to allow third-party developers to
+      include them in their custom applications. At the moment the binary
+      implementation of the SDK is a Windows console application
+      (IfSearch.exe) and a few DLLs.</para>
+
+      <section>
+        <title>C<superscript>3</superscript></title>
+
+        <subtitle>Configuration, Control, Command</subtitle>
+
+        <para>The behavior of the INDIface SDK is currently controlled via the
+        Windows registry. In the future we will add the ability to use INI
+        and/or XML configuration files. The default is
+        <filename>HKCU/Software/EclipseIR/IfSearch</filename>. Most options
+        can also be specified on the command line.</para>
+
+        <para>Most of the configuration values are "volatile," that is they
+        can be changed in the registry at any time and the executing IfSearch
+        will automatically pick up the changes. Things that are not volatile
+        will be documented, but it is mainly in the selection of detectors and
+        location of initialization files.</para>
+
+        <para><informalfigure>
+            <para><mediaobject>
+                <imageobject>
+                  <imagedata fileref="art/SDK1-Flow.svg" scalefit="1"
+                             width="6in"></imagedata>
+                </imageobject>
+              </mediaobject></para>
+          </informalfigure></para>
+      </section>
+
+      <section xml:id="secImageInput">
+        <title>Image Input</title>
+
+        <para>The SDK will take its input images from an IP camera or a "hot
+        directory."</para>
+
+        <section>
+          <title>Live IP Input</title>
+
+          <para>Specify the input URL with "http" as the scheme, user name and
+          password if needed, host address, and a path and file name that will
+          result in a single frame to be returned to IfSearch. For example
+          <userinput>/Input/URL=http://demo:demo@192.168.1.90/jpg/image.jpg</userinput>.
+          Most of the work so far has been with Axis 210 and 240 and a trial
+          with Arecont, but any ONVIF compliant camera should work.</para>
+        </section>
+
+        <section>
+          <title>Hot Directory Input</title>
+
+          <para>Specify the input URL with "dir" as the scheme; user name,
+          password, and host are ignored; the relative path starts after the
+          slash following the host. To be an official URL, drive separating
+          colons should be replaced with vertical stiles and Windows-style
+          backslashes should be replaced with forward slashes; but we'll work
+          either way. Examples:</para>
+
+          <itemizedlist>
+            <listitem>
+              <para><userinput>/Input/URL=dir:///.</userinput> reads from the
+              current directory</para>
+            </listitem>
+
+            <listitem>
+              <para><userinput>/Input/URL=dir:////InputImages</userinput>
+              reads from <filename>\InputImages</filename> on the current
+              drive</para>
+            </listitem>
+
+            <listitem>
+              <para><userinput>/Input/URL=dir:///T|/Input/Images/Today</userinput>
+              reads from <filename>T:\Input\Images\Today</filename></para>
+            </listitem>
+
+            <listitem>
+              <para><userinput>/Input/URL=dir:///T:\Input\Images\Today</userinput>
+              ditto.</para>
+            </listitem>
+          </itemizedlist>
+
+          <para>Hot directories have several advantages:</para>
+
+          <itemizedlist>
+            <listitem>
+              <para>When all images have been processed, you can start
+              processing again-mostly useful for testing or
+              demonstrating.</para>
+            </listitem>
+
+            <listitem>
+              <para>Images can be deleted from the directory after they have
+              been processed.</para>
+            </listitem>
+
+            <listitem>
+              <para>Image files can be moved to a separate directory after
+              they have been processed.</para>
+            </listitem>
+
+            <listitem>
+              <para>Processing can be started on an empty directory and image
+              files are processed as they are dropped in to the "hot"
+              directory.</para>
+            </listitem>
+          </itemizedlist>
+        </section>
+      </section>
+    </section>
+
+    <section>
+      <title>Installation</title>
+
+      <para>The SDK distribution is in a ZIP file with the default directory
+      structure. Unzip it to the location of you liking.</para>
+
+      <section>
+        <title>Directory Structure</title>
+
+        <para>This is the default directory structure. If necessary some of
+        the directories can be eliminated or moved to other locations with the
+        new locations specified in the registry.</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>./INDIface/bin-w32 contains the 32-bit Windows IfSearch
+            executable and its libraries along with necessary 3rd party
+            libraries.</para>
+          </listitem>
+
+          <listitem>
+            <para>./INDIface/data/Face1 contains the INDIface template
+            generation data files.</para>
+          </listitem>
+
+          <listitem>
+            <para>./INDIface/detectors contains Detectors.XML and the actual
+            detector XML data.</para>
+          </listitem>
+
+          <listitem>
+            <para>./INDIface/bin-w32/imageformats contains image file format
+            translators that will be used by IfSearch at start up.</para>
+          </listitem>
+
+          <listitem>
+            <para>./INDIface/bin-w32/imageformats/extras contains other image
+            file format translators.</para>
+          </listitem>
+
+          <listitem>
+            <para>/INIDface/bin-w32/sqldrivers will contain SQL database
+            interface translators in the future.</para>
+          </listitem>
+
+          <listitem>
+            <para>./INDIface/FaceBase will contain person records and enrolled
+            faces (normalized images and templates).</para>
+          </listitem>
+
+          <listitem>
+            <para>./Sample/Input contains optional sample input data.</para>
+          </listitem>
+
+          <listitem>
+            <para>./Sample/Output contains optional sample output data.</para>
+          </listitem>
+
+          <listitem>
+            <para>./SampleInput/SampleFaceBase contains an optional sample
+            FaceBase.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>You may want to add W:\hatever\INDIface\bin to the system PATH
+        so you can start IfSearch from any current directory.</para>
+      </section>
+    </section>
+  </chapter>

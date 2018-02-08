@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
+ <office:meta><meta:creation-date>2013-02-26T17:59:07.41</meta:creation-date><meta:document-statistic meta:table-count="0" meta:image-count="0" meta:object-count="0" meta:page-count="3" meta:paragraph-count="39" meta:word-count="1446" meta:character-count="8478" meta:non-whitespace-character-count="7070"/><dc:date>2013-02-26T18:37:08.70</dc:date><meta:editing-duration>PT2M34S</meta:editing-duration><meta:editing-cycles>1</meta:editing-cycles><meta:generator>LibreOffice/3.6$Windows_x86 LibreOffice_project/932b512-69e3009-7a10e5c-fc86223-a55908</meta:generator></office:meta>
+ <office:settings>
+  <config:config-item-set config:name="ooo:view-settings">
+   <config:config-item config:name="ViewAreaTop" config:type="int">49927</config:config-item>
+   <config:config-item config:name="ViewAreaLeft" config:type="int">0</config:config-item>
+   <config:config-item config:name="ViewAreaWidth" config:type="int">22592</config:config-item>
+   <config:config-item config:name="ViewAreaHeight" config:type="int">14051</config:config-item>
+   <config:config-item config:name="ShowRedlineChanges" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="InBrowseMode" config:type="boolean">false</config:config-item>
+   <config:config-item-map-indexed config:name="Views">
+    <config:config-item-map-entry>
+     <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="int">8661</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="int">61330</config:config-item>
+     <config:config-item config:name="VisibleLeft" config:type="int">0</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="int">49927</config:config-item>
+     <config:config-item config:name="VisibleRight" config:type="int">22590</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="int">63976</config:config-item>
+     <config:config-item config:name="ZoomType" config:type="short">3</config:config-item>
+     <config:config-item config:name="ViewLayoutColumns" config:type="short">0</config:config-item>
+     <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="ZoomFactor" config:type="short">145</config:config-item>
+     <config:config-item config:name="IsSelectedFrame" config:type="boolean">false</config:config-item>
+    </config:config-item-map-entry>
+   </config:config-item-map-indexed>
+  </config:config-item-set>
+  <config:config-item-set config:name="ooo:configuration-settings">
+   <config:config-item config:name="ChartAutoUpdate" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="IsLabelDocument" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="MathBaselineAlignment" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="Rsid" config:type="int">1381409</config:config-item>
+   <config:config-item config:name="OutlineLevelYieldsNumbering" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintLeftPages" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="DoNotJustifyLinesWithManualBreak" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="AlignTabStopPosition" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrintTextPlaceholder" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="UseOldNumbering" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="CurrentDatabaseCommand" config:type="string"/>
+   <config:config-item config:name="ProtectForm" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintBlackFonts" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintProspectRTL" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="SmallCapsPercentage66" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintControls" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="CharacterCompressionType" config:type="short">0</config:config-item>
+   <config:config-item config:name="PrintHiddenText" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="UseFormerTextWrapping" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="IsKernAsianPunctuation" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintProspect" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintEmptyPages" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="UnbreakableNumberings" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="UseFormerObjectPositioning" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="ConsiderTextWrapOnObjPos" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="TableRowKeep" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintReversed" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="TabsRelativeToIndent" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrintRightPages" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrintPaperFromSetup" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="AddFrameOffsets" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="AddParaSpacingToTableCells" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="UpdateFromTemplate" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="AddExternalLeading" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrintSingleJobs" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrinterIndependentLayout" config:type="string">high-resolution</config:config-item>
+   <config:config-item config:name="RsidRoot" config:type="int">1163394</config:config-item>
+   <config:config-item config:name="LinkUpdateMode" config:type="short">1</config:config-item>
+   <config:config-item config:name="PrintAnnotationMode" config:type="short">0</config:config-item>
+   <config:config-item config:name="UseOldPrinterMetrics" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="RedlineProtectionKey" config:type="base64Binary"/>
+   <config:config-item config:name="PrinterSetup" config:type="base64Binary"/>
+   <config:config-item config:name="IgnoreFirstLineIndentInNumbering" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="CollapseEmptyCellPara" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrinterName" config:type="string"/>
+   <config:config-item config:name="InvertBorderSpacing" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintPageBackground" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="DoNotCaptureDrawObjsOnPage" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="TabOverflow" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="ApplyUserData" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="TabAtLeftIndentForParagraphsInList" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="UnxForceZeroExtLeading" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="SaveVersionOnClose" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintFaxName" config:type="string"/>
+   <config:config-item config:name="AddParaTableSpacing" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrintDrawings" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="LoadReadonly" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintGraphics" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="FieldAutoUpdate" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="AllowPrintJobCancel" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="UseFormerLineSpacing" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="SaveGlobalDocumentLinks" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="CurrentDatabaseDataSource" config:type="string"/>
+   <config:config-item config:name="IgnoreTabsAndBlanksForLineCalculation" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="CurrentDatabaseCommandType" config:type="int">0</config:config-item>
+   <config:config-item config:name="DoNotResetParaAttrsForNumFont" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="ClipAsCharacterAnchoredWriterFlyFrames" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintTables" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="AddParaTableSpacingAtStart" config:type="boolean">true</config:config-item>
+  </config:config-item-set>
+ </office:settings>
+ <office:scripts>
+  <office:script script:language="ooo:Basic">
+   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <ooo:library-embedded ooo:name="Standard"/>
+   </ooo:libraries>
+  </office:script>
+ </office:scripts>
+ <office:font-face-decls>
+  <style:font-face style:name="Mangal1" svg:font-family="Mangal"/>
+  <style:font-face style:name="Times New Roman" svg:font-family="&apos;Times New Roman&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
+  <style:font-face style:name="Arial" svg:font-family="Arial" style:font-family-generic="swiss" style:font-pitch="variable"/>
+  <style:font-face style:name="Mangal" svg:font-family="Mangal" style:font-family-generic="system" style:font-pitch="variable"/>
+  <style:font-face style:name="Microsoft YaHei" svg:font-family="&apos;Microsoft YaHei&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
+  <style:font-face style:name="SimSun" svg:font-family="SimSun" style:font-family-generic="system" style:font-pitch="variable"/>
+ </office:font-face-decls>
+ <office:styles>
+  <style:default-style style:family="graphic">
+   <style:graphic-properties svg:stroke-color="#808080" draw:fill-color="#cfe7f5" fo:wrap-option="no-wrap" draw:shadow-offset-x="0.1181in" draw:shadow-offset-y="0.1181in" draw:start-line-spacing-horizontal="0.1114in" draw:start-line-spacing-vertical="0.1114in" draw:end-line-spacing-horizontal="0.1114in" draw:end-line-spacing-vertical="0.1114in" style:flow-with-text="false"/>
+   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:line-break="strict" style:writing-mode="lr-tb" style:font-independent-line-spacing="false">
+    <style:tab-stops/>
+   </style:paragraph-properties>
+   <style:text-properties style:use-window-font-color="true" fo:font-size="12pt" fo:language="en" fo:country="US" style:letter-kerning="true" style:font-size-asian="10.5pt" style:language-asian="zh" style:country-asian="CN" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN"/>
+  </style:default-style>
+  <style:default-style style:family="paragraph">
+   <style:paragraph-properties fo:hyphenation-ladder-count="no-limit" style:text-autospace="ideograph-alpha" style:punctuation-wrap="hanging" style:line-break="strict" style:tab-stop-distance="0.4925in" style:writing-mode="page"/>
+   <style:text-properties style:use-window-font-color="true" style:font-name="Times New Roman" fo:font-size="12pt" fo:language="en" fo:country="US" style:letter-kerning="true" style:font-name-asian="SimSun" style:font-size-asian="10.5pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Mangal" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN" fo:hyphenate="false" fo:hyphenation-remain-char-count="2" fo:hyphenation-push-char-count="2"/>
+  </style:default-style>
+  <style:default-style style:family="table">
+   <style:table-properties table:border-model="collapsing"/>
+  </style:default-style>
+  <style:default-style style:family="table-row">
+   <style:table-row-properties fo:keep-together="auto"/>
+  </style:default-style>
+  <style:style style:name="Standard" style:family="paragraph" style:class="text"/>
+  <style:style style:name="Heading" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Text_20_body" style:class="text">
+   <style:paragraph-properties fo:margin-top="0.1665in" fo:margin-bottom="0.0835in" style:contextual-spacing="false" fo:keep-with-next="always"/>
+   <style:text-properties style:font-name="Arial" fo:font-size="14pt" style:font-name-asian="Microsoft YaHei" style:font-size-asian="14pt" style:font-name-complex="Mangal" style:font-size-complex="14pt"/>
+  </style:style>
+  <style:style style:name="Text_20_body" style:display-name="Text body" style:family="paragraph" style:parent-style-name="Standard" style:class="text">
+   <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0.0835in" style:contextual-spacing="false"/>
+  </style:style>
+  <style:style style:name="List" style:family="paragraph" style:parent-style-name="Text_20_body" style:class="list">
+   <style:text-properties style:font-size-asian="12pt" style:font-name-complex="Mangal1"/>
+  </style:style>
+  <style:style style:name="Caption" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
+   <style:paragraph-properties fo:margin-top="0.0835in" fo:margin-bottom="0.0835in" style:contextual-spacing="false" text:number-lines="false" text:line-number="0"/>
+   <style:text-properties fo:font-size="12pt" fo:font-style="italic" style:font-size-asian="12pt" style:font-style-asian="italic" style:font-name-complex="Mangal1" style:font-size-complex="12pt" style:font-style-complex="italic"/>
+  </style:style>
+  <style:style style:name="Index" style:family="paragraph" style:parent-style-name="Standard" style:class="index">
+   <style:paragraph-properties text:number-lines="false" text:line-number="0"/>
+   <style:text-properties style:font-size-asian="12pt" style:font-name-complex="Mangal1"/>
+  </style:style>
+  <text:outline-style style:name="Outline">
+   <text:outline-level-style text:level="1" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.3in" fo:text-indent="-0.3in" fo:margin-left="0.3in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="2" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.4in" fo:text-indent="-0.4in" fo:margin-left="0.4in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="3" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.5in" fo:text-indent="-0.5in" fo:margin-left="0.5in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="4" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.6in" fo:text-indent="-0.6in" fo:margin-left="0.6in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="5" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.7in" fo:text-indent="-0.7in" fo:margin-left="0.7in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="6" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.8in" fo:text-indent="-0.8in" fo:margin-left="0.8in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="7" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.9in" fo:text-indent="-0.9in" fo:margin-left="0.9in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="8" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1in" fo:text-indent="-1in" fo:margin-left="1in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="9" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.1in" fo:text-indent="-1.1in" fo:margin-left="1.1in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+   <text:outline-level-style text:level="10" style:num-format="">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.2in" fo:text-indent="-1.2in" fo:margin-left="1.2in"/>
+    </style:list-level-properties>
+   </text:outline-level-style>
+  </text:outline-style>
+  <text:notes-configuration text:note-class="footnote" style:num-format="1" text:start-value="0" text:footnotes-position="page" text:start-numbering-at="document"/>
+  <text:notes-configuration text:note-class="endnote" style:num-format="i" text:start-value="0"/>
+  <text:linenumbering-configuration text:number-lines="false" text:offset="0.1965in" style:num-format="1" text:number-position="left" text:increment="5"/>
+ </office:styles>
+ <office:automatic-styles>
+  <style:style style:name="P1" style:family="paragraph" style:parent-style-name="Standard">
+   <style:text-properties officeooo:paragraph-rsid="0011c082"/>
+  </style:style>
+  <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Standard">
+   <style:text-properties officeooo:paragraph-rsid="0013703e"/>
+  </style:style>
+  <style:style style:name="P3" style:family="paragraph" style:parent-style-name="Standard">
+   <style:text-properties officeooo:paragraph-rsid="00151421"/>
+  </style:style>
+  <style:style style:name="T1" style:family="text">
+   <style:text-properties officeooo:rsid="0011c082"/>
+  </style:style>
+  <style:style style:name="T2" style:family="text">
+   <style:text-properties officeooo:rsid="0013703e"/>
+  </style:style>
+  <style:style style:name="T3" style:family="text">
+   <style:text-properties officeooo:rsid="00151421"/>
+  </style:style>
+  <style:page-layout style:name="pm1">
+   <style:page-layout-properties fo:page-width="8.5in" fo:page-height="11in" style:num-format="1" style:print-orientation="portrait" fo:margin="0.7874in" fo:margin-top="0.7874in" fo:margin-bottom="0.7874in" fo:margin-left="0.7874in" fo:margin-right="0.7874in" style:writing-mode="lr-tb" style:footnote-max-height="0in">
+    <style:footnote-sep style:width="0.0071in" style:distance-before-sep="0.0398in" style:distance-after-sep="0.0398in" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
+   </style:page-layout-properties>
+   <style:header-style/>
+   <style:footer-style/>
+  </style:page-layout>
+ </office:automatic-styles>
+ <office:master-styles>
+  <style:master-page style:name="Standard" style:page-layout-name="pm1"/>
+ </office:master-styles>
+ <office:body>
+  <office:text text:use-soft-page-breaks="true">
+   <text:sequence-decls>
+    <text:sequence-decl text:display-outline-level="0" text:name="Illustration"/>
+    <text:sequence-decl text:display-outline-level="0" text:name="Table"/>
+    <text:sequence-decl text:display-outline-level="0" text:name="Text"/>
+    <text:sequence-decl text:display-outline-level="0" text:name="Drawing"/>
+   </text:sequence-decls>
+   <text:p text:style-name="P1"><text:span text:style-name="T1">sorting intellectual property</text:span></text:p>
+   <text:p text:style-name="P1"><text:span text:style-name="T1">introduction</text:span></text:p>
+   <text:p text:style-name="P1"><text:span text:style-name="T1">in the phase uses MIT&apos;s Eigen face as its core element for creating templates of a face image.</text:span></text:p>
+   <text:p text:style-name="P1"><text:span text:style-name="T1">We have added significant intellectual property around that seed to make in the face a superior implementation.</text:span></text:p>
+   <text:p text:style-name="P1"><text:span text:style-name="T1">This document will give an overview of Eigen face itself and then detail our intellectual property and the way that it is applied to in the face version 1.</text:span></text:p>
+   <text:p text:style-name="P1"><text:span text:style-name="T1">Eigen face</text:span></text:p>
+   <text:p text:style-name="P1"><text:span text:style-name="T1">Eigen face was developed at the Massachusetts Institute of Technology media Lab in the late 80s and early 90s by professors one and Turk. Footnote: their two patents.</text:span></text:p>
+   <text:p text:style-name="P1"><text:span text:style-name="T1">It was originally used by the AC Nielsen Co. to automatically determine which of a handful of family members was watching a T. be equipped with Nielsen&apos;s content monitoring box. I can face has been used by the John X. Lal-the size which eventually both came under the same roof in L1 identity solutions and drop the use of Eigen face L-1 ID has now been split up and the non-Eigen face passport mode facial recognition is in more photographic. More photographic has been recently offering the surveillance mode facial recognition which is not likely based on Eigen face based upon timing and performance claims by saffron area I can face was initially also used by cognitive act out of Germany.</text:span></text:p>
+   <text:p text:style-name="P1"><text:span text:style-name="T1">All of the in the face code is owned by and was offered within intellectual-property rights that have been transferred to the client&apos;s identity recognition corporations. The code was based upon Java code and limitation released to the public domain by just in IST. The Eigen face layers used in indie face version 1 were released into the public domain by blank University that support its JAI ST.</text:span></text:p>
+   <text:p text:style-name="P1"><text:span text:style-name="T1">In the future eclipse IR will be developing its own Eigen face layers from its million face repository.</text:span></text:p>
+   <text:p text:style-name="P1"><text:span text:style-name="T1">Eigen face in use</text:span></text:p>
+   <text:p text:style-name="P1"><text:span text:style-name="T1">and Eigen face data set contains a mean or average face, several Eigen face day in layers, a bit mask and an optional layer weight factor.</text:span></text:p>
+   <text:p text:style-name="P1"><text:span text:style-name="T1">picture of average face picture of layers</text:span></text:p>
+   <text:p text:style-name="P1"><text:span text:style-name="T1">when a person&apos;s face has been to texted we&apos;ve been detect the left eye and right eye</text:span></text:p>
+   <text:p text:style-name="P1"><text:span text:style-name="T1">footnote left and right in this document refer to the camera&apos;s perspective not the subject&apos;s perspective</text:span></text:p>
+   <text:p text:style-name="P1"><text:span text:style-name="T1">the center area of the eye socket is then normalized to to match the center of the eyes in the average face. The subject face is then subtracted from the mean face at the analog grayscale level. From there and eigenvector is calculated whereby a certain positive and negative coefficient is assigned to each layer in the Aiken face Becker. The subject face scratch that an approximation of the subject face can then be reconstructed by applying each coefficient in the eigenvector to that layer data and adding the result to the average face. </text:span><text:span text:style-name="T2">The reconstructed face matching the reconstructed face is the key element to the performance of the Aiken face algorithm.</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">Image of the face and eyes and a marked frame show the normalized image and may be a difference image from the mean image a vector and the reconstructed image</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">truncate the vector files to 256 for purposes of not disclosing how many vectors were actually using</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">this vector and other factors for the same subject face are then combined into a template that represents this image of the subject face. This template can be enrolled in a database to search for this subject in the future or can be used to search the database of already enrolled images. This vector is very small, less than 2 kB, which can be used to represent the thousands of pixels in the subject&apos;s face image. Searching those vectors is very fast even on an inexpensive computer we can at least process 50,000 faces scratch faces vectors in a fifth or quarter of a second.</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">Eclipse IR does not claim any intellectual property around Huygens face itself except that our custom Aiken face layers will become virtual intellectual property.</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">Confidence and tears</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">when comparing two factors typically be colluding in distance between vectors is <text:line-break/>CALCULATED&gt;<text:line-break/></text:span><text:soft-page-break/><text:span text:style-name="T2">This distance can then be used to sort the enrolled vectors versus the subject vector were the least distance represents the closest match to the subject image. The distance concept is very difficult for end-users laypersons to understand. So, eclipse IR developed a range of confidences based upon the distance where a higher confidence up to 99.9% is better than 95% and much better than 50%. As with all similar numbers and eclipse IR the confidence values range from 1 to 999. We&apos;ll put a formula here</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">recently eclipse IR also added the concept of research results here. The initial implementation has tears calculated by fixed thresholds of confidence set by the user and we currently support five tiers. Best one person up above the strong threshold. Strong a small number of persons above the strong threshold. Possible: were a large number of persons are above the strong threshold plus results between the possible threshold and the strong threshold. Week: results that generated above the specified minimum confidence but do not reach the possible threshold. And finally no result: scratch result match: results that did not meet the minimum confidence parameter.</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">The default values for casual match formal search verify and authenticate are listed in a table. See below for description of these modes.</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">Search modes</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">currently in the face supports for modes of face sorting</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">casual match, formal search, verify, authenticate</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">in the future we may add verify list authenticate list and familial similarity.</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">Casual match can be enabled on every face found in every frame against the enrolled database of up to 50,000 people. This is not expected to provide perfect results but can alert an operator to look more carefully at what the cameras watching.</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">Search is where an operator collects 3 to 5 in images of a person of interest and performs a search against the entire enrolled database.</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">Verifying is where the subject identity is thought to be known through a token of some kind such as an ID card drivers license etc. And that token is known to the enrollment database. The opera greater collects 3 to 5 images of that life person and initiates a verification within the face and a match confidence and tear is returned from a very fast verification of those vectors.</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">Authentication is similar to verification except that the subjects dear ID is provided to in the face and then has images are captured of the subject and verified until the person has been positively identified negatively identified or a verification is not possible when exceeding the maximum number of images for trying. Typical defaults for the authentication process is a minimum of two images a maximum of 10 images a failing confidence of less than 60% and iPods positive confidence selected by the user in the 85 to 95% range. They can specify this confidence based upon the value of what they&apos;re protecting</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">person mode</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">the principle piece of intellectual property and eclipse IR&apos;s in the face is the concept of person mode. Other Eigen face implementations may know that multiple enrollments are of the same person but they do not take advantage of that information to improve the search results by face similarity. This allows in the face to be head and shoulders above any competitors in this arena.</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">Note: put a sentence back in the original Eigen face paragraph that says we selected Eigen face because it is a very fast process for both vector generation and searching templates are generated in a handful of milliseconds and searched in less than a fifth of a second</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">enrollment</text:span></text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">when a person and his subject faces are enrolled to the indie base of person records face templates and normalize space images. They are specified by an ID which is unique string for that person such as a drivers license, and the enrolling application can also supply a description for that person that is meaningful to the enrolling application. Andy face supplies a unique numeric face key and person key for each entry. All subject faces enrolled for that person are associated with the person key which allows verification on and authentication as well as improve the results of casual match and especially formal search.</text:span></text:p>
+   <text:p text:style-name="P2"><text:soft-page-break/><text:span text:style-name="T2">Combining search results</text:span></text:p>
+   <text:p text:style-name="P3"><text:span text:style-name="T3">informal search the ability to combine search faces and combine those results against the enrolled faces of the same person tremendously improves the confidence in search results. But, the challenge is to not allow a person with a huge number of enrolled faces face templates to overwhelm better results of a person with only few enrolled faces.</text:span></text:p>
+  </office:text>
+ </office:body>
+</office:document>

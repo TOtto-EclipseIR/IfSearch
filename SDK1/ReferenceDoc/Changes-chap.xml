@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Changes</title>
+
+  <para>This chapter will show plans for future changes to the SDK, the
+  history of changes to the SDK, and a change log for this document
+  itself.</para>
+
+  <section>
+    <title>SDK Plans</title>
+
+    <para>Anticipated changes to the SDK will be listed here in approximate
+    soonest-first order.</para>
+
+    <section>
+      <title>Short Term</title>
+
+      <subtitle>Scheduled second quarter 2011</subtitle>
+
+      <itemizedlist>
+        <listitem>
+          <para>Support for AVS Video Converter's JPE image export
+          output</para>
+        </listitem>
+
+        <listitem>
+          <para>Handle empty FaceBase/BaseDir</para>
+        </listitem>
+
+        <listitem>
+          <para>Combine Verify results up to MaxPersonFaces</para>
+        </listitem>
+
+        <listitem>
+          <para>Anonymous enrollment</para>
+        </listitem>
+
+        <listitem>
+          <para>Implement PreProcess/MaxPixelRows and MaxPixelCols</para>
+        </listitem>
+
+        <listitem>
+          <para>Implement Input/Crop</para>
+        </listitem>
+
+        <listitem>
+          <para>Specify eye locations on Enroll</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title>Medium Term</title>
+
+      <subtitle>Scheduled third quarter 2011</subtitle>
+
+      <para>These capabilities may be implemented in SDK1 or wait for second
+      generation.</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Enroll batch capability for person or non-person
+          enrollment</para>
+        </listitem>
+
+        <listitem>
+          <para>AutoEnroll mode?</para>
+        </listitem>
+
+        <listitem>
+          <para>Volatile LogFile and LogDetail</para>
+        </listitem>
+
+        <listitem>
+          <para>Retrieve/Command=Enumerate once someone defines what they
+          need.</para>
+        </listitem>
+
+        <listitem>
+          <para>Expose color correction to SDK</para>
+        </listitem>
+
+        <listitem>
+          <para>Implement ImageIdFormat, FaceIdFormat and PersonIdFormat as
+          controls</para>
+        </listitem>
+
+        <listitem>
+          <para>Implement binary facial recognition data files and/or embed
+          data in DLL plugins</para>
+        </listitem>
+
+        <listitem>
+          <para>Binary INDIbase templates</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title>Long Term</title>
+
+      <para>If this becomes necessary in SDK1 it will be implemented.
+      Otherwise we will use a SQL-based INDIbase in the second
+      generation.</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Volatile FaceBase</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+  </section>
+
+  <section>
+    <title>SDK Change History</title>
+
+    <para>This section will document changes to the SDK since January 2010 (
+    v1.65) release in most recent first order.</para>
+
+    <section>
+      <title>Version 1.74</title>
+
+      <para>v1.74E with #39 Enroll/Command=RemoveAll &amp;
+      Enroll/PersonId=Destroy tries to delete all files from FaceBase/BaseDir;
+      #47 Retrieve/Command=Retrieve (for a person) set Retrieve/Description if
+      one has been enrolled; #50 Retrieve/Command=RetrieveAll fills
+      Retrieve/OutputDir with a subdirectory for each enrolled person and
+      their faces.</para>
+    </section>
+
+    <section>
+      <title>Version 1.71</title>
+
+      <subtitle>Scheduled for release at end of July</subtitle>
+
+      <itemizedlist>
+        <listitem>
+          <para>Added Height/HeightUnits parameter and improved height
+          confidence calculation</para>
+        </listitem>
+
+        <listitem>
+          <para>Added Input/ImageId parameter to allow shared input directory
+          with Avigilon clients to mimic behavior of a live camera
+          connection</para>
+        </listitem>
+
+        <listitem>
+          <para>Improved productivity with multimegapixel greyscale input
+          images.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title>Version 1.70</title>
+
+      <subtitle>Released May 28, 2011</subtitle>
+
+      <itemizedlist>
+        <listitem>
+          <para>Changed wording on Enroll=Delete error messages</para>
+        </listitem>
+
+        <listitem>
+          <para>Object detection exceptions are fatal.</para>
+        </listitem>
+
+        <listitem>
+          <para>Cosmetic changes to detect and composite images</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title>Version 1.69</title>
+
+      <subtitle>Released April 25, 2011</subtitle>
+
+      <itemizedlist>
+        <listitem>
+          <para>Added Interface controls for object detection</para>
+        </listitem>
+
+        <listitem>
+          <para>Completely remove ResetAfter; we'll leave RestartSecs to cover
+          emergencies</para>
+        </listitem>
+
+        <listitem>
+          <para>Improved HTTP communication</para>
+        </listitem>
+
+        <listitem>
+          <para>NoMatchDir faces are also written to FaceCacheDir</para>
+        </listitem>
+
+        <listitem>
+          <para>No longer reports file written after file write error</para>
+        </listitem>
+
+        <listitem>
+          <para>Fixed Input/Format to Output/Format on NoFaceDir files.</para>
+        </listitem>
+
+        <listitem>
+          <para>Added Status and PersonReport commands to Retrieve Mode</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title>Version 1.68</title>
+
+      <subtitle>Released March 26, 2011</subtitle>
+
+      <itemizedlist>
+        <listitem>
+          <para>Added Output/NoClothes for non-matching clothes</para>
+        </listitem>
+
+        <listitem>
+          <para>Added Input/Format for IP camera URLs suffix that don't match
+          the image data returned.</para>
+        </listitem>
+
+        <listitem>
+          <para>Improved Clothes Matching discrimination</para>
+        </listitem>
+
+        <listitem>
+          <para>Added Mark/AppendPersonId</para>
+        </listitem>
+
+        <listitem>
+          <para>Added Retrieve/ActiveOnly</para>
+        </listitem>
+
+        <listitem>
+          <para>Changed nomenclature of Search/OuputDir file/directory
+          names.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title>Version 1.67</title>
+
+      <subtitle>Released February 20, 2011</subtitle>
+
+      <itemizedlist>
+        <listitem>
+          <para>Builds now for 32-bit Windows and 64-bit Linux
+          (Ubuntu).</para>
+        </listitem>
+
+        <listitem>
+          <para>Upgraded to v2.2.0 Intel object detection library.</para>
+        </listitem>
+
+        <listitem>
+          <para>Separated use of MaxDistance from MinConfidence. MinDistance,
+          MaxDistance, and DuplicateThreshold are used to qualify vectors
+          initially and MinConfidence is used to limit final results.</para>
+        </listitem>
+
+        <listitem>
+          <para>Enroll/OutputDir did nothing so it was removed.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title>Version 1.66</title>
+
+      <subtitle>Released February 5, 2011</subtitle>
+
+      <itemizedlist>
+        <listitem>
+          <para>Restructured for build without DDT and IJM libraries</para>
+        </listitem>
+
+        <listitem>
+          <para>Removed duplicate results of same unidentified face in
+          non-person search</para>
+        </listitem>
+
+        <listitem>
+          <para>Restructured initialization for running in Linux</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+  </section>
+
+  <section>
+    <title>SDK Document Change Log</title>
+
+    <para>This document was first released with SDK version 1.60 and the first
+    "official" release of this document with v1.68. Changes since v1.68 will
+    be listed below latest first.</para>
+
+    <section>
+      <title>Version 1.71</title>
+
+      <itemizedlist>
+        <listitem>
+          <para>Updated diagrams in <link linkend="secTechNote2">Tech Note
+          2</link>.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title>Version 1.70</title>
+
+      <itemizedlist>
+        <listitem>
+          <para>Added missing and future controls to Detect section:
+          (ForceFind, GroupMethod, GroupThreshold, NeighborThreshold, and
+          OverlapThreshold)</para>
+        </listitem>
+
+        <listitem>
+          <para>Moved "Getting Started" to a chapter on its own.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title>Version 1.69</title>
+
+      <itemizedlist>
+        <listitem>
+          <para>Restored short term changes.</para>
+        </listitem>
+
+        <listitem>
+          <para>Added note to Input/Format.</para>
+        </listitem>
+
+        <listitem>
+          <para>Added legal notices and moved Notes to an Appendix.</para>
+        </listitem>
+
+        <listitem>
+          <para>Added Tech Note: How a Frame Becomes a Match</para>
+        </listitem>
+
+        <listitem>
+          <para>Added two new commands to Retrieve Mode</para>
+        </listitem>
+
+        <listitem>
+          <para>Added clothes color confidence figures</para>
+        </listitem>
+
+        <listitem>
+          <para>Added multiple output directory <link
+          linkend="noteMultipleOutputDirs">note</link></para>
+        </listitem>
+
+        <listitem>
+          <para>Added AVS4YOU to recommended tools</para>
+        </listitem>
+      </itemizedlist>
+
+      <para></para>
+    </section>
+  </section>
+</chapter>

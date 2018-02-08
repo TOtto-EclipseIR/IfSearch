@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Dr. Dobb's | The Corruption of Agile | March 18, 2014</title>
+<title>Dr. Dobb's | Good stuff for serious developers: Programming Tools, Code, C++, Java, HTML5, Cloud, Mobile, Testing</title><style>
+.illowide {
+    border: 1px solid #5BABF9;
+    max-width: 635px;
+}
+</style></head>
+
+<body bgcolor="#ffffff">
+<!-- SiteCatalyst code version: H.16.
+Copyright 1997-2008 Omniture, Inc. More info available at
+http://www.omniture.com -->
+<script type="text/javascript" src="Dr.%20Dobb%27s%20_%20The%20Corruption%20of%20Agile%20_%20March%2018,%202014_files/h_s_code_remote.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+	var referer = '';
+	var eVar23 = '';
+	var slr="";	
+	var host="";	
+	var userAgent = '';
+	
+	$.ajax({
+	   type: "GET",
+	   url: host+"/omniture",
+	   data: "referer="+slr+encodeURIComponent(document.referrer),
+	   success: function(data){		   
+		   if (data != null)
+			{
+				referer = data.referer;
+				eVar23 = data.eVar23;	
+				userAgent = data.userAgent;					
+			}
+	   },
+	   dataType: "json",
+	   async: false,
+	   cache: false
+	 }	
+	 );
+	
+	 
+</script>
+
+<script language="JavaScript" type="text/javascript">
+<!--	
+s.pageURL="http://www.drdobbs.com/article/print?articleId=240166698&siteSectionName=architecture-and-design";
+s.pageName="";
+s.referrer=referer;
+s.server="";
+s.channel="drdobbs.com/article";
+s.pageType="";
+s.prop1="";
+s.prop2="240166698";
+s.prop3="Dr. Dobb's Journal | 240166698 | The Corruption of Agile";
+s.prop4="The Corruption of Agile";
+s.prop5="article";
+s.prop6="";
+s.prop7="Andrew Binstock";
+s.prop8=userAgent;
+s.prop9="";
+s.prop10="complete";
+s.prop11="Feature";
+s.prop12="";
+s.prop14="";
+s.prop15="";
+s.prop16="";
+s.prop19="True";
+s.prop20="20140318";
+s.prop21="";
+
+/* Conversion Variables */
+s.campaign="";
+s.state="";
+s.zip="";
+s.events="";
+s.products="";
+s.purchaseID="";
+s.eVar1="";
+s.eVar2="";
+s.eVar3="";
+s.eVar4="";
+s.eVar5="";
+s.eVar6="";
+s.eVar8="";
+s.eVar21="";
+s.eVar22="";
+s.eVar23=eVar23;
+s.eVar31="";
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//-->	
+</script>
+
+<noscript><a href="http://www.omniture.com" title="Web Analytics"><img
+src="http://cmpglobalvista.112.2O7.net/b/ss/cmpglobalvista/1/H.16--NS/0"
+height="1" width="1" border="0" alt="" /></a></noscript><!--/DO NOT REMOVE/-->
+
+<script language="JavaScript" type="text/javascript">
+	function trackComment(){
+        var s=s_gi('cmpglobalvista'); 
+        s.evar24=s.prop7 +" | "+ s.prop4;  
+	    s.events='event8';
+	    s.tl(this,'o','Article Comment Posted'); 
+   }
+</script>
+
+<!-- End SiteCatalyst code version: H.16  --><div id="leaderboard1">
+		<div id="div-gpt-ad-942957474691236830-3">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-3');
+	 </script>
+	</div>
+</div>
+<br>
+<table class="elfixo" cellpadding="0" cellspacing="0" border="0" width="900">
+		<tbody><tr>
+		<td align="center" bgcolor=""><a href="http://www.drdobbs.com/"><img alt="" src="Dr.%20Dobb%27s%20_%20The%20Corruption%20of%20Agile%20_%20March%2018,%202014_files/header_top_bw.jpg" border="0"></a></td>
+		<td align="right" bgcolor="" valign="top"></td>
+	</tr>
+</tbody></table>
+<br>
+<font size="5">The Corruption of Agile</font>
+<p><font size="4">What was intended as a set of personal practices has 
+become a doctrine. And despite the mainstream adoption of Agile, the 
+loss of its original intent has undermined its effectiveness. </font><br>
+</p><p><font face="geneva,arial,helvetica" size="2"><br>March 18, 2014<br>
+URL:<a href="http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/240166698">http://www.drdobbs.com/architecture-and-design/the-corruption-of-agile/240166698 </a><br>
+<br>
+</font>
+
+
+
+</p><p>Many people over the years have discussed their distress with the
+ religious tone that cloaks the implementation of Agile practices. 
+Particularly from the testing side of the world, there is a lot of 
+"should," "should not," and "can do better next time" dialogue that 
+sounds more like a man trying to fix ethical lapses than a developer 
+writing code. When I speak with adherents of test-driven development 
+(TDD) in particular, there is a seeming non-comprehension that truly 
+excellent, reliable code was ever developed prior to the advent of this 
+one practice. I sense their view that the long history of code that put 
+man on the moon, ran phone switches, airline reservation systems, and 
+electric grids was all the result of luck or unique talents, rather than
+ the a function of careful discipline and development rigor.</p>
+<p>The disconnect between today's Agile view and earlier reality is 
+equally evident in the wanton bashing of the waterfall model. To get any
+ programmer today to adopt your recommendation, simply state that not 
+doing so is just a new way of doing waterfall. Watch his toes curl 
+despite  never having used waterfall, nor seemingly having any awareness
+ that it served the industry really well for decades. What, was everyone
+ in that bygone era a fool? </p>
+<p>Alan Kay was entirely right when he said that <a href="http://www.drdobbs.com/architecture-and-design/interview-with-alan-kay/240003442">programming today has become a pop culture</a>:
+ "Pop culture is all about identity and feeling like you're 
+participating. It has nothing to do with cooperation, the past or the 
+future — it's living in the present. I think the same is true of most 
+people who write code for money. They have no idea where [their culture 
+came from] — and the Internet was done so well that most people think of
+ it as a natural resource like the Pacific Ocean, rather than something 
+that was man-made. When was the last time a technology with a scale like
+ that was so error-free?"</p>
+<p>It will pain some readers to know that the vast, error-free Internet predates Agile and even predates TDD. Crazy, right? </p>
+<p>What I'm saying here is certainly not new. The fascination with 
+today's way of doing things and the view that it is the one true path to
+ good code is a seemingly permanent part of the programming culture. But
+ it has been greatly abetted by the legions of Agile consultants. By 
+stressing the practices, they have corrupted what Agile was about. It's 
+important to remember that the Agile manifesto stated values, not 
+practices. Immediately, though, values were translated into programming 
+practices by consultants and, quickly, the former was lost. One of the 
+original formulators of the manifesto, Dave Thomas, whom I interviewed 
+this week, states his realization that a month after the manifesto was 
+written it was <a href="http://www.drdobbs.com/architecture-and-design/dave-thomas-interview-the-corruption-of/240166688?pgno=2">already being corrupted</a>:
+ "…it got immediately productized in many different ways. The whole 
+point, to my mind, of the Agile Manifesto is that it's a set of personal
+ practices that may scale to team level. You do not need a consultant to
+ show you how to do that. It may help to have someone facilitate, but 
+you do not need a consultant. And yet immediately what happened was that
+ everyone and their dog hung out an Agile shingle and the whole thing 
+turned into a branding exercise."</p>
+<p>What's interesting in Thomas's account is the view that Agile was a <em>personal</em> practice. Implicit is a personal way of orienting oneself towards a development process that accepts, even welcomes, change. </p>
+<p>By pure coincidence, Allen Holub has been driving this point home in several blog posts, the <a href="http://www.drdobbs.com/architecture-and-design/the-agile-holocracy/240166629">most recent of which</a>
+ is a brilliant little piece that reminds us that Agile is a culture, 
+not a set of practices. As he has previously explained, just because an 
+organization is using scrum, doesn't mean it's Agile. He could have said
+ the same thing about TDD, continuous integration, pair programming, or 
+the like. </p>
+<p>Whether a site is Agile or not depends on its culture. Does the 
+culture support the personal values of the manifesto? If so, it's Agile,
+ if not, then it's doing something else. So, indeed you could have a 
+fully Agile site without TDD, continuous integration, or scrum. 
+Likewise, you can have a site that uses all three practices, but cannot 
+adapt to changes and is wholly inflexible in its work — so, not at all 
+Agile. Yeah, I know, crazy, right?</p>
+	<p>— Andrew Binstock<br>
+Editor in Chief<br>
+<a href="mailto:alb@drdobbs.com">alb@drdobbs.com</a><br>Twitter: <a href="https://twitter.com/#%21/platypusguy">platypusguy</a></p>        <p>
+	</p><div id="div-gpt-ad-942957474691236830-8">
+	 <script type="text/javascript">
+	  googletag.display('div-gpt-ad-942957474691236830-8');
+	 </script>
+	</div>
+<p><font face="geneva,ms sans serif,helvetica" size="1"><a target="_blank" href="http://legal.us.ubm.com/terms-of-service/?itc=footer">Terms of Service</a> | <a target="_blank" href="http://legal.us.ubm.com/privacy-notice/?itc=footer">Privacy Statement</a> | <a target="_blank" href="http://legal.us.ubm.com/copyright-notice/?itc=footer">Copyright © 2012 UBM Tech, All rights reserved.</a></font>
+<!--178-->
+
+
+
+
+
+
+
+
+
+</p></body></html>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1260"
+   height="765"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="FlatStack.svg"
+   inkscape:export-filename="/data/Nipomo/proj/EclipseIR/art/logos/FlatStack300.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="614.94342"
+     inkscape:cy="360.80113"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     gridtolerance="10"
+     inkscape:window-width="1280"
+     inkscape:window-height="949"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2816"
+       empspacing="4"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       spacingx="10px"
+       spacingy="10px" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-287.36218)">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect2838"
+       width="1200"
+       height="600"
+       x="40"
+       y="372.36218" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2826"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;-inkscape-font-specification:Sans"><flowRegion
+         id="flowRegion2828"><rect
+           id="rect2830"
+           width="308.09653"
+           height="62.629459"
+           x="682.8631"
+           y="229.61916" /></flowRegion><flowPara
+         id="flowPara2832" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:48px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:OCRA;-inkscape-font-specification:OCRA"
+       x="769.73627"
+       y="211.43642"
+       id="text2860"
+       transform="translate(0,287.36218)"><tspan
+         sodipodi:role="line"
+         id="tspan2862"
+         x="769.73627"
+         y="211.43642" /></text>
+    <g
+       id="g2841"
+       inkscape:export-filename="/data/Nipomo/proj/EclipseIR/art/logos/FlatStack.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300">
+      <path
+         transform="translate(0,287.36218)"
+         d="M 680,385 C 680,550.68542 545.68542,685 380,685 214.31458,685 80,550.68542 80,385 80,219.31458 214.31458,85 380,85 545.68542,85 680,219.31458 680,385 z"
+         sodipodi:ry="300"
+         sodipodi:rx="300"
+         sodipodi:cy="385"
+         sodipodi:cx="380"
+         id="path2818"
+         style="fill:#f0f0f0;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:0"
+         sodipodi:type="arc" />
+      <g
+         inkscape:export-ydpi="22.110001"
+         inkscape:export-xdpi="22.110001"
+         inkscape:export-filename="/data/Nipomo/proj/EclipseIR/art/logos/FlatLens.ico.png"
+         transform="translate(-40,-1.4285714)"
+         id="g3644">
+        <path
+           sodipodi:type="arc"
+           style="fill:#101010;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           id="path2820"
+           sodipodi:cx="380"
+           sodipodi:cy="385"
+           sodipodi:rx="260"
+           sodipodi:ry="260"
+           d="M 640,385 C 640,528.59403 523.59403,645 380,645 236.40597,645 120,528.59403 120,385 120,241.40597 236.40597,125 380,125 c 143.59403,0 260,116.40597 260,260 z"
+           transform="translate(0,287.36218)" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#606060;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           id="path2822"
+           sodipodi:cx="380"
+           sodipodi:cy="385"
+           sodipodi:rx="180"
+           sodipodi:ry="180"
+           d="m 560,385 c 0,99.41125 -80.58875,180 -180,180 -99.41125,0 -180,-80.58875 -180,-180 0,-99.41125 80.58875,-180 180,-180 99.41125,0 180,80.58875 180,180 z"
+           transform="translate(0,287.36218)" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#404040;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           id="path2824"
+           sodipodi:cx="380"
+           sodipodi:cy="385"
+           sodipodi:rx="140"
+           sodipodi:ry="140"
+           d="m 520,385 c 0,77.31986 -62.68014,140 -140,140 -77.31986,0 -140,-62.68014 -140,-140 0,-77.31986 62.68014,-140 140,-140 77.31986,0 140,62.68014 140,140 z"
+           transform="translate(0,287.36218)" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#e4e4e4;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           id="path2826"
+           sodipodi:cx="380"
+           sodipodi:cy="385"
+           sodipodi:rx="100"
+           sodipodi:ry="100"
+           d="m 480,385 c 0,55.22847 -44.77153,100 -100,100 -55.22847,0 -100,-44.77153 -100,-100 0,-55.22847 44.77153,-100 100,-100 55.22847,0 100,44.77153 100,100 z"
+           transform="translate(0,287.36218)" />
+        <path
+           sodipodi:type="arc"
+           style="fill:none;stroke:#ff0101;stroke-width:20;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="path3600"
+           sodipodi:cx="380"
+           sodipodi:cy="385"
+           sodipodi:rx="220"
+           sodipodi:ry="220"
+           d="m 535.56349,540.56349 c -85.91534,85.91535 -225.21164,85.91535 -311.12698,0 -85.91535,-85.91534 -85.91535,-225.21164 0,-311.12698 85.91534,-85.91534 225.21163,-85.91535 311.12698,-1e-5"
+           transform="translate(0,287.36218)"
+           sodipodi:start="0.78539816"
+           sodipodi:end="5.4977871"
+           sodipodi:open="true" />
+        <path
+           style="fill:none;stroke:#ff0101;stroke-width:20;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="m 170,672.36218 310,0"
+           id="path3604" />
+      </g>
+      <g
+         transform="translate(-40,-120)"
+         id="g3652">
+        <text
+           xml:space="preserve"
+           style="font-size:72px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:OCRA;-inkscape-font-specification:OCRA"
+           x="680"
+           y="772.36218"
+           id="text2852"><tspan
+             sodipodi:role="line"
+             id="tspan2854"
+             x="680"
+             y="772.36218">IDENTITY</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:72px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:OCRA;-inkscape-font-specification:OCRA"
+           x="680"
+           y="852.36218"
+           id="text2856"><tspan
+             sodipodi:role="line"
+             id="tspan2858"
+             x="680"
+             y="852.36218">RECOGNITION</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:136.31231689px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:OCRA;-inkscape-font-specification:OCRA"
+           x="802.90521"
+           y="550.78571"
+           id="text2868"
+           transform="scale(0.84437908,1.1843022)"><tspan
+             sodipodi:role="line"
+             id="tspan2870"
+             x="802.90521"
+             y="550.78571">ECLIPSE</tspan></text>
+      </g>
+      <text
+         transform="scale(0.96771986,1.0333569)"
+         id="text2834"
+         y="888.4408"
+         x="661.34845"
+         style="font-size:46.45055389px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:OCRA;-inkscape-font-specification:OCRA"
+         xml:space="preserve"><tspan
+           y="888.4408"
+           x="661.34845"
+           id="tspan2836"
+           sodipodi:role="line">www.EclipseIR.com</tspan></text>
+      <text
+         transform="translate(0,287.36218)"
+         id="text2837"
+         y="643.57141"
+         x="80"
+         style="font-size:32px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+         xml:space="preserve"><tspan
+           y="643.57141"
+           x="80"
+           id="tspan2839"
+           sodipodi:role="line">TM</tspan></text>
+    </g>
+  </g>
+</svg>

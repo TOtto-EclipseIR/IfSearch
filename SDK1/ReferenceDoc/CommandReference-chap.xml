@@ -1,0 +1,797 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+    <title>Command Mode Reference</title>
+
+    <para>IfSearch can be commanded to perform other actions in Search,
+    Enroll, and Retrieve modes.</para>
+
+    <para><variablelist>
+        <varlistentry>
+          <term>Search Mode</term>
+
+          <listitem>
+            <para>Search, VerifyList (future), Verify</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Enroll Mode</term>
+
+          <listitem>
+            <para>Enroll, Delete, Remove, RemoveAll, Rename</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Retrieve</term>
+
+          <listitem>
+            <para>Retrieve, Status, PersonReport, Enumerate (future)</para>
+          </listitem>
+        </varlistentry>
+      </variablelist></para>
+
+    <section>
+      <title>General Command Process</title>
+
+      <para>As you can see in the <link
+      linkend="chapGettingStarted-Enrolling">Enrolling</link> subsection of
+      <link linkend="chapGettingStarted">Getting Started</link> above, using
+      INDIface command modes follows a predictable sequence.</para>
+
+      <orderedlist>
+        <listitem>
+          <para>First you set any parameters that might be needed for the
+          command you plan to use.</para>
+        </listitem>
+
+        <listitem>
+          <para>Second you set the name of the command in the
+          <varname>Command</varname> variable. When the command is recognized,
+          the <varname>Results</varname> and <varname>Reason</varname>
+          variables are cleared and the command begins to execute. You can
+          monitor the progress of the command via the Status variable.</para>
+        </listitem>
+
+        <listitem>
+          <para>Finally, when execution of the command is complete, the
+          <varname>Status</varname> variable is set to "Done" or "Error" (or
+          "NotFound" for Retrieve Mode) and the <varname>Command</varname>
+          variable is cleared. You can inspect the <varname>Reason</varname>
+          variable for the cause of an Error status or the
+          <varname>Results</varname> variable for a Done status. Note that
+          "Done" is not written to the Status variable until all files have
+          been written to an <varname>OutputDir</varname>.</para>
+        </listitem>
+      </orderedlist>
+
+      <para><note>
+          <para>While it is not required, if possible it is suggested to pause
+          (<varname>Input/Pause=true</varname>) mainline processing during
+          while Command Mode commands are executing achieve more predictable
+          timings of command execution. Command Mode processes are at a
+          slightly lower priority than mainline processes.</para>
+        </note><warning>
+          <para>The registry must be volatile for Command Mode to work. Set
+          <varname>Options/UpdateMsec</varname> to reflect how responsive you
+          want the mainline SDK process to be to command triggers.</para>
+        </warning></para>
+
+      <section xml:id="secCommonCommandVariables">
+        <title>Common Variables</title>
+
+        <para>These variables are common to all three modes.</para>
+
+        <section>
+          <title>Command</title>
+
+          <para>The OEM application sets <varname>Command</varname> to one of
+          the specified commands to trigger its execution. The SDK clears it
+          after the command has finished. Invalid commands are ignored.</para>
+
+          <warning>
+            <para>Any necessary command parameters should be changed before
+            setting <varname>Command</varname>.</para>
+          </warning>
+        </section>
+
+        <section>
+          <title>Status</title>
+
+          <para>The SDK updates this variable as execution proceeds. The final
+          status will always be "Done" "Error" or "NotFound"</para>
+        </section>
+
+        <section>
+          <title>Results</title>
+
+          <para>When <varname>Status=Done</varname>, this variable contains
+          the result of command execution.</para>
+        </section>
+
+        <section>
+          <title>Reason</title>
+
+          <para>When <varname>Status=Error</varname>, this variable contains
+          an explanation of the error condition.</para>
+        </section>
+      </section>
+    </section>
+
+    <section>
+      <title>Search Mode</title>
+
+      <para>Search Mode is used to search the INDIbase enrolled faces against
+      one or more gathered faces. The faces for searching are faces that had
+      been detected and templates generated (basically the output of the
+      <varname>FaceDir</varname>, <varname>FaceCacheDir</varname>,
+      <varname>NoMatchDir</varname>, or <varname>MarkedFaceDir</varname> with
+      <varname>Output/WriteFaceInfo=true</varname>). They can be searched
+      against a single person (Verify command), all of the active faces
+      enrolled in the INDIbase (Search command), or, in the future, a short
+      list of persons of interest (VerifyList command).</para>
+
+      <note>
+        <para>See the <link linkend="chapGettingStarted-Search">Formal
+        Search</link> subsection of <link linkend="chapGettingStarted">Getting
+        Started</link> above for an example.</para>
+      </note>
+
+      <para>Results: The Results variable will be set in the following format
+      with <varname>Output/Delimiter</varname> between each line:</para>
+
+      <programlisting>D20090119-T200050562-X0169Y0244C583E087.PNG search image Active
+D20090119-T200109578-X0234Y0192C573E044.PNG search image Active
+D20090119-T200114562-X0269Y0189C623E034.PNG search image Active
+D20090119-T200115609-X0386Y0184C680E046.PNG search image Active
+D20090119-T200441593-X0284Y0258C506E126.PNG search image Active
+10 results
+ 1. 793   316057 Hume,Brit
+ 2. 793   970578 Biden,Joe
+ 3. 789    98797 Obama,Barak
+ 4. 773   707299 Baer,Brett
+ 5. 728   126628 Williams,Juan
+ 6. 710    59290 Obama,Michelle
+ 7. 682   305166 Smith,Sheppard
+ 8. 642   657519 Reid,Harry
+ 9. 593   837859 Guilianni,Rudy
+10. 548   170123 GeicoGuy</programlisting>
+
+      <para>First, each face image files will be listed with "Active" listed
+      if it contains a valid embedded template. Second, a line will show the
+      number of results to follow. Third, the rank, match confidence level (on
+      a scale of 1 to 999), <varname>PersonKey</varname>, and
+      <varname>PersonId</varname> of the best matches will be listed. In
+      non-PersonMode searches, the results line contains face, not person,
+      identifiers. For the Verify command, the files are listed followed by
+      "Confidence=876".</para>
+
+      <para>If <varname>Search/OutputDir</varname> is specified, the enrolled
+      faces for the best matches are written. In non-PersonMode, one face
+      image file is written for each of the best matching faces. The file name
+      is formatted as R01M987-FK654321 to indicate match rank #1, match
+      confidence 987 (scale of 1 to 999), and FaceKey 654321. In PersonMode, a
+      directory named R01M987-{PersonId} is created for each person in order
+      and the face images that contributed to the match are written to those
+      directories with the same file name format as non-PersonMode.</para>
+
+      <note>
+        <para>This file/directory name nomenclature was changed in
+        v1.68F.</para>
+      </note>
+
+      <section>
+        <title>Commands</title>
+
+        <para>Currently the Search and Verify commands are recognized.</para>
+
+        <section>
+          <title>Search</title>
+
+          <subtitle>Searching the entire INDIbase</subtitle>
+
+          <para>This command sorts the best matches of the templates in the
+          Search/InputDir versus all of the faces enrolled in the INDIbase. In
+          PersonMode, the MaxPersonFaces highest ranking results from the same
+          person are combined to increase that person's confidence rating. The
+          results can be limited by the <varname>MaxResults</varname> and
+          <varname>MinConfidence</varname> parameters.</para>
+        </section>
+
+        <section>
+          <title>Verify</title>
+
+          <subtitle>Verifying the identity of a single person</subtitle>
+
+          <para>This command compares the templates embedded in the face image
+          files in Search/InputDir versus the faces enrolled for the specified
+          <varname>PersonKey</varname> or <varname>PersonId</varname>. The
+          <varname>MaxPersonFaces</varname> highest ranking results are
+          combined and the confidence level is returned. No files are written
+          for the Verify command.</para>
+        </section>
+
+        <section>
+          <title>VerifyList (future)</title>
+
+          <subtitle>Searching for a few persons of interest</subtitle>
+
+          <para></para>
+        </section>
+      </section>
+
+      <section>
+        <title>Parameters</title>
+
+        <para>In addition to the <link
+        linkend="secCommonCommandVariables">common variables</link> above, the
+        following combinations of parameters can be used to identify the
+        person and faces to be enrolled. Search Mode also has parallel
+        parameters from the <link linkend="secMatchControls">Match
+        section</link> above: <varname>MaxFaces</varname>,
+        <varname>MaxPersonFaces</varname>, <varname>MaxResults</varname>,
+        <varname>PersonMethod</varname>, <varname>PersonMode</varname>.</para>
+
+        <section>
+          <title>InputDir</title>
+
+          <para>Specifies where face template image files will be read for
+          searching. See <link
+          linkend="secSpecifyingOutputDirectories">Specifying
+          Directories</link> above for additional information.</para>
+        </section>
+
+        <section>
+          <title>OutputDir</title>
+
+          <para>Specifies where search results face image files will be
+          written. See <link
+          linkend="secSpecifyingOutputDirectories">Specifying
+          Directories</link> above for additional information. If blank, the
+          <varname>Results</varname> variable will be populated, but no image
+          files are written.</para>
+        </section>
+      </section>
+    </section>
+
+    <section>
+      <title>Enroll Mode</title>
+
+      <para>Enroll Mode allows you to add face templates to the INDIbase and
+      to manage persons and faces in the INDIbase.</para>
+
+      <section>
+        <title>Commands</title>
+
+        <para>You can use the Enroll, Delete, Remove, RemoveAll, and Rename
+        commands in Enroll Mode.</para>
+
+        <section>
+          <title>Enroll</title>
+
+          <subtitle>Add faces to the INDIbase</subtitle>
+
+          <para>This command allows you to add faces that had been detected
+          and templates generated (basically the output of the
+          <varname>FaceDir</varname>, <varname>FaceCacheDir</varname>,
+          <varname>NoMatchDir</varname>, or <varname>MarkedFaceDir</varname>
+          with <varname>Output/WriteFaceInfo=true</varname>) to the INDIbase
+          face template repository attached to the SDK instance. The complete
+          base name of each file becomes the FaceId of the template.</para>
+
+          <note>
+            <para>See in the <link
+            linkend="chapGettingStarted-Enrolling">Enrolling</link> subsection
+            of <link linkend="chapGettingStarted">Getting Started</link> above
+            for an example.</para>
+          </note>
+
+          <para>Results: The Results variable will start with either
+          "<computeroutput>Unidentified Enrollment</computeroutput>" for
+          non-person mode or "<computeroutput>PersonId=N7969000@CA5
+          PersonKey=123456</computeroutput>" for person mode. It will be
+          followed by either "<computeroutput>{FaceId} already
+          enrolled</computeroutput>." or "<computeroutput>{FaceId} enrolled as
+          {PersonKey}:{FaceKey} Active</computeroutput>" for each image in the
+          specified <varname>InputDir</varname>.</para>
+
+          <section>
+            <title>Non-Person Mode</title>
+
+            <para>If the <varname>PersonMode</varname> is false, then face
+            templates are added to the INDIbase without identifying them as a
+            particular person. The <varname>PersonKey</varname> and
+            <varname>PersonId</varname> parameters are ignored.</para>
+          </section>
+
+          <section>
+            <title>Person Mode</title>
+
+            <para>You can add face templates to an existing person in the
+            INDIbase by specifying either their numeric
+            <varname>PersonKey</varname> (assigned by INDIbase when the person
+            record was created) or their <varname>PersonId</varname>. If the
+            specified <varname>PersonId</varname> is not already in the
+            INDIbase, then a new person record is created.</para>
+          </section>
+
+          <section>
+            <title>Anonymous Enrollment (future)</title>
+
+            <para>With Anonymous Enrollment, the INDIbase will assign a
+            PersonKey to new sets of faces that belong to an unknown person.
+            They PersonId can be assigned later via the Rename command.</para>
+          </section>
+        </section>
+
+        <section>
+          <title>Delete</title>
+
+          <subtitle>Delete one face from the INDIbase</subtitle>
+
+          <para>This command allows you to delete a single face template from
+          being included in searches. The face is still enrolled can be
+          retrieved for future reinstatement (method TBD). Specify either the
+          numeric <varname>FaceKey</varname> assigned to the face when it was
+          enrolled or the <varname>FaceId</varname> (typically the complete
+          base file name of the image template file at the time of
+          enrollment). For <varname>FaceId</varname> lookups, a
+          <varname>PersonKey</varname> must be specified also. If the face was
+          enrolled in non-person mode, then specify
+          <varname>PersonKey=0</varname>. For person mode enrollments either
+          specify an existing <varname>PersonKey</varname> or
+          <varname>PersonId</varname>.</para>
+        </section>
+
+        <section>
+          <title>Remove</title>
+
+          <subtitle>Remove all of a Person's faces from the
+          INDIbase</subtitle>
+
+          <para>Specify an existing PersonKey or PersonId.</para>
+        </section>
+
+        <section>
+          <title>RemoveAll</title>
+
+          <subtitle>Remove all faces from the INDIbase to start over
+          fresh</subtitle>
+
+          <para>Set PersonId=Confirm to confirm that you want to remove all
+          faces from the INDIbase.</para>
+        </section>
+
+        <section>
+          <title>Rename</title>
+
+          <subtitle>Assign a new PersonId to an existing person</subtitle>
+
+          <para>Specify an existing PersonKey or PersonId to be renamed and a
+          NewPersonId with the new name.</para>
+        </section>
+      </section>
+
+      <section>
+        <title>Parameters</title>
+
+        <para>In addition to the <link
+        linkend="secCommonCommandVariables">common variables</link> above, the
+        following combinations of parameters can be used to identify the
+        person and faces to be enrolled.</para>
+
+        <section>
+          <title>PersonKey</title>
+
+          <para>A unique number identifying an existing person in the
+          INDIbase. INDIbase assigns this number to new person records. An
+          unidentified (non-person mode) enrollment has
+          <varname>PersonKey=0</varname>.</para>
+        </section>
+
+        <section>
+          <title>PersonId</title>
+
+          <para>A unique string supplied by the OEM application as its
+          identifier for a person.</para>
+        </section>
+
+        <section>
+          <title>FaceKey</title>
+
+          <para>A unique number identifying an existing face enrolled in the
+          INDIbase. INDIbase assigns this number at enrollment.</para>
+        </section>
+
+        <section>
+          <title>FaceId</title>
+
+          <para>A string that identifies an face enrolled in the INDIbase. The
+          strings must be unique within the person record. The unidentified
+          enrollments must also have unique <varname>FaceId</varname>s.</para>
+        </section>
+
+        <section>
+          <title>InputDir</title>
+
+          <para>Specifies where face template image files will be read for
+          enrollment. See <link
+          linkend="secSpecifyingOutputDirectories">Specifying
+          Directories</link> above for additional information.</para>
+        </section>
+
+        <section>
+          <title>SetDescription</title>
+
+          <para>If non-empty during an Enroll command, the person's
+          description in the INDIbase is set to this string.</para>
+        </section>
+
+        <section>
+          <title>Description</title>
+
+          <para>Returns either a newly set or existing description for the
+          person from the INDIbase, if any.</para>
+        </section>
+
+        <section>
+          <title>NewPersonId</title>
+
+          <para>A string identifying the person to replace their existing
+          <varname>PersonId</varname>. The <varname>NewPersonId</varname> can
+          not already exist in the INDIbase.</para>
+        </section>
+      </section>
+    </section>
+
+    <section>
+      <title>Retrieve Mode</title>
+
+      <para>Retrieve Mode can be used to retrieve a single face enrollment or
+      all the faces enrolled for a person from the INDIbase.</para>
+
+      <section>
+        <title>Commands</title>
+
+        <para></para>
+
+        <section>
+          <title>Retrieve</title>
+
+          <para>The Retrieve command will retrieve all of the faces enrolled
+          for a person or will retrieve a single face. For a single face, you
+          can specify <varname>FaceKey</varname> or person record
+          identification (<varname>PersonKey</varname> or
+          <varname>PersonId</varname>) and <varname>FaceId</varname>. To
+          retrieve all enrolled faces for a person, specify either a
+          <varname>PersonKey</varname> or <varname>PersonId</varname> with
+          <varname>FaceKey</varname> blank, non existent, or zero.</para>
+
+          <para>Results: For person retrieval, the Results variable will start
+          with "<computeroutput>Person
+          {PersonKey}={PersonId}</computeroutput>". For each face enrolled a
+          "<computeroutput>Face: {FaceKey}={FaceId}
+          {{status}}</computeroutput>" entry is appended to the results.
+          Values for status are "Inconsistent" (not suitable for matching),
+          "Active" (used for matching), "Deleted" (has been deleted), or
+          "Error" (likely the face's XML file has been damaged).</para>
+        </section>
+
+        <section>
+          <title>Status</title>
+
+          <para>The Status command will return information about the
+          enrollment to the INDIbase.</para>
+
+          <para>Results: Four comma delimited numbers.</para>
+
+          <orderedlist>
+            <listitem>
+              <para>Number of identified people enrolled</para>
+            </listitem>
+
+            <listitem>
+              <para>Number of unidentified faces enrolled</para>
+            </listitem>
+
+            <listitem>
+              <para>Total number of faces enrolled</para>
+            </listitem>
+
+            <listitem>
+              <para>Total number of faces enrolled that are included in
+              searches</para>
+            </listitem>
+          </orderedlist>
+
+          <para>Added: v1.69H</para>
+        </section>
+
+        <section>
+          <title>PersonReport</title>
+
+          <para>The PersonReport command will write a comma delimited file
+          with one line for each person enrolled in the INDIface. The name of
+          the report file must be specified in <varname>ReportFile</varname>
+          variable before setting <varname>Command=PersonReport</varname> Each
+          line will contain four values.</para>
+
+          <orderedlist>
+            <listitem>
+              <para>PersonKey (numeric identifier issued by INDIface when a
+              new person was enrolled)</para>
+            </listitem>
+
+            <listitem>
+              <para>PersonId surrounded by double quotes (string specified
+              when a new person was enrolled)</para>
+            </listitem>
+
+            <listitem>
+              <para>Number of faces enrolled for that person</para>
+            </listitem>
+
+            <listitem>
+              <para>One if the person is active for searching or zero
+              otherwise</para>
+            </listitem>
+          </orderedlist>
+
+          <para>Results: "# bytes written to {ReportFile} for #
+          persons".</para>
+
+          <note>
+            <para>XML format reports are anticipated in the future.</para>
+          </note>
+        </section>
+
+        <section>
+          <title>Enumerate (future)</title>
+
+          <para>We will have the ability to enumerate the unidentified
+          (non-person mode) enrollments and the list of person records once
+          someone identifies a preferred interface.</para>
+        </section>
+      </section>
+
+      <section>
+        <title>Parameters</title>
+
+        <para>In addition to the <link
+        linkend="secCommonCommandVariables">common variables</link> above, the
+        following combinations of parameters can be used for Retrieve
+        Mode.</para>
+
+        <section>
+          <title>OutputDir</title>
+
+          <para>Specifies where face template image files will be written. See
+          <link linkend="secSpecifyingOutputDirectories">Specifying
+          Directories</link> above for additional information. If blank, the
+          keys and ids are enumerated in the Results variable, but no image
+          files are written.</para>
+        </section>
+
+        <section>
+          <title>ActiveOnly</title>
+
+          <para>If true, only faces that are currently used for matching are
+          retrieved. Otherwise all enrolled faces, active or not, are
+          retrieved.</para>
+
+          <para>Default: true</para>
+
+          <para>Added: v1.68D</para>
+        </section>
+
+        <section>
+          <title>ReportFile</title>
+
+          <para>Name of file where PersonReport is to be written.</para>
+
+          <para>Default: none (error if missing)</para>
+
+          <para>Added: v1.69H</para>
+        </section>
+      </section>
+    </section>
+
+    <section>
+      <title>Error Reasons</title>
+
+      <para>The following messages could be returned in the
+      <varname>Reason</varname> variable for Command Mode commands.</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>No FaceBase</term>
+
+          <listitem>
+            <para>No INDIbase face template repository was opened</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Enroll/InputDir is blank</term>
+
+          <listitem>
+            <para>No input directory was specified from which to retrieve face
+            template files.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>PersonKey 123456 does not exist</term>
+
+          <listitem>
+            <para>The specified person key is not enrolled in the
+            INDIbase.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>PersonId ... does not exist</term>
+
+          <listitem>
+            <para>The specified person id is not enrolled in the
+            INDIbase.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>PersonId must be specified for new person</term>
+
+          <listitem>
+            <para>Currently each person must have a PersonId. This restriction
+            will go away with Anonymous Enrollment.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Cannot create new person</term>
+
+          <listitem>
+            <para>Internal error</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Can't cd to {InputDir}</term>
+
+          <listitem>
+            <para>The specified InputDir likely doesn't exist.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>{InputDir} is empty</term>
+
+          <listitem>
+            <para>The specified InputDir does not contain any supported image
+            files.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Null image in {filename}</term>
+
+          <listitem>
+            <para>The image file is likely corrupt.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>INDI EigenFace Null Status</term>
+
+          <listitem>
+            <para>No template data in the image file. Images for enrollment
+            must come from the output of FaceDir, FaceCacheDir, or
+            MarkedFaceDir with both Detect/Enable=true and
+            Generate/Enable=true.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Error parsing XML ...</term>
+
+          <listitem>
+            <para>The template data embedded in the image file was somehow
+            damaged or is incompatible with the SDK.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Missing INDI-EigenFace-Template</term>
+
+          <listitem>
+            <para>The template data embedded in the image file was somehow
+            damaged or is incompatible with the SDK.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>FaceKey 654321 does not exist</term>
+
+          <listitem>
+            <para>The specified face id is not enrolled in the
+            INDIbase.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>FaceId ... does not exist for {PersonId}</term>
+
+          <listitem>
+            <para>The specified face id is not enrolled in the INDIbase for
+            the specified person.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>FaceId ... does not exist unidentified</term>
+
+          <listitem>
+            <para>The specified face id is not enrolled in the INDIbase
+            without person identification.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>FaceId or FaceKey must be specified</term>
+
+          <listitem>
+            <para>For the Delete command.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Must specify person key or id to ...</term>
+
+          <listitem>
+            <para>No person key or id was specified.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>No Consistent Faces to search</term>
+
+          <listitem>
+            <para>None of the image files in Search/InputDir contained
+            embedded templates.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>No ReportFile name specified</term>
+
+          <listitem>
+            <para>ReportFile name must be specified before setting
+            Retrieve/Command=PersonReport</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>XML format not yet supported</term>
+
+          <listitem>
+            <para>Support for XML reports has not yet been completed.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Error opening {ReportFile} for truncated write: {Error}</term>
+
+          <listitem>
+            <para>File system error</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+  </chapter>
+

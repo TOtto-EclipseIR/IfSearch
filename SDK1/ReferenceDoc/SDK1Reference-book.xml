@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<book version="5.0" xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:m="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info>
+    <title>INDIface SDK1 Reference</title>
+
+    <subtitle>EclipseIR Personal Identity Recognition</subtitle>
+
+    <author>
+      <personname><firstname>Tony</firstname><surname>Otto</surname></personname>
+
+      <affiliation>
+        <jobtitle>CTO</jobtitle>
+
+        <org>
+          <orgname>Eclipse Identity Recognition Corporation</orgname>
+        </org>
+      </affiliation>
+    </author>
+
+    <pubdate>July 27, 2011</pubdate>
+
+    <releaseinfo>Updated to v1.71</releaseinfo>
+
+    <copyright>
+      <year>2010-2011</year>
+
+      <holder>Eclipse Identity Recognition Corporation. All rights reserved
+      worldwide.</holder>
+    </copyright>
+
+    <legalnotice>
+      <para>This document is only to be distributed under and in conformance
+      with a Software Developers Agreement from Eclipse Identity Recognition
+      Corporation. The agreement contains license terms to use this SDK and
+      distribute binaries to your customers. By downloading, copying,
+      installing or using the software you agree to this license. If you do
+      not agree to this license, do not download, install, copy or use the
+      software.</para>
+    </legalnotice>
+
+    <legalnotice>
+      <para>ECLIPSEIR MAKES NO WARRANTY TO THE DEVELOPER AND ECLIPSEIR MAKES
+      NO WARRANTY WITH RESPECT TO ANY THIRD-PARTY SOFTWARE, FIRMWARE,
+      LIBRARIES, OR DATA THAT MAY BE INCORPORATED IN OR BUNDLED WITH THE SDK.
+      ACCORDINGLY, ECLIPSEIR SHALL NOT BE RESPONSIBLE FOR, ANY FAILURE CAUSED
+      DIRECTLY OR INDIRECTLY BY THIRD-PARTY SOFTWARE, FIRMWARE, LIBRARIES, OR
+      DATA. ECLIPSEIR DOES NOT WARRANT THAT THE SDK WILL MEET DEVELOPER'S
+      EXPECTATIONS OR REQUIREMENTS OR THAT USE OF THE SDK WILL BE
+      UNINTERRUPTED OR ERROR-FREE.</para>
+    </legalnotice>
+
+    <legalnotice>
+      <para><mediaobject>
+          <imageobject>
+            <imagedata fileref="../common/art/GradStack.png" scalefit="1"
+                       width="2in"></imagedata>
+          </imageobject>
+        </mediaobject></para>
+    </legalnotice>
+  </info>
+
+  <xi:include href="Overview-chap.xml" xpointer="element(/1)" />
+  <xi:include href="BasicSteps-chap.xml" xpointer="element(/1)" />
+  <xi:include href="GettingStarted-chap.xml" xpointer="element(/1)" />
+  <xi:include href="ControlReference-chap.xml" xpointer="element(/1)" />
+  <xi:include href="CommandReference-chap.xml" xpointer="element(/1)" />
+  <xi:include href="Changes-chap.xml" xpointer="element(/1)" />
+  <xi:include href="Notices-apx.xml" xpointer="element(/1)" />
+  <xi:include href="TechNotes-apx.xml" xpointer="element(/1)" />
+
+</book>

@@ -1,0 +1,2 @@
+function GetElqContentPersonalizationValue(strDataField){ var strTemp = '';        if(strDataField == 'V_ElqCompanyName' || strDataField == 'ElqCompanyName'){strTemp = 'AT\x26T Internet Services';}
+	return strTemp; } if (this.SetElqContent){ SetElqContent(); }
