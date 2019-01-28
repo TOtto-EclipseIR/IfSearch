@@ -1,0 +1,32 @@
+The Consistency value for EigenFaceGenerator is calculated below.
+1. I don't know whether or how we used minConsistencyOverride; that may be a secret sauce way of keeping clients from shooting themselves in the foot. Ignore for now, but it may come in handy in a few weeks.
+2. Basically the value is calculated from in the header file and if it does not meet the MinConsistency requirements, we don't include that vector in the template. Elsewhere you will find that an empty template (no vectors) is dropped, I think.
+
+EFG2,60:
+	if (differences.contains(EigenFaceVectorKey()))
+	{
+		EigenFaceMaskedArray diff = differences.value(EigenFaceVectorKey());
+		EigenFaceVector vec = diff.generateVector(parms->numLayersInVector());
+		fSet.set(Feature::TemplateMethod, methodString());
+		fSet.set(Feature::Consistency, vec.consistency());
+		Consistency = vec.consistency();
+		if (vec.consistency() > (minConsistencyOverride
+								 ? minConsistencyOverride
+								 : minConsistency()))
+		{
+			tpl.insert(vec.residual(), vec);
+		}
+	}
+EFVh,103:
+    int consistency(void) const
+    { return qIsNull(Residual) ? 0 : (int)(1000.0 / (1.0 + 8.0 * Residual)); }
+
+[Steve: This is another case where a perfect match doesn't compute. If this ever becomes a real world problem, we can have a science project.]
+
+------------
+The adjustEyes() function is an important piece of the secret sauce that we will implement later; possibly better with some of the secret grey matter that hasn't mixed yet. Ignore this entire function for now.	
+	
+EFG2,230:
+	Return EigenFaceGenerator::adjustEyes(void)
+EFG2,269:	        
+	Consistency = bestMeanDifference.consistency();
