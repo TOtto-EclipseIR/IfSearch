@@ -7,7 +7,7 @@
 
 #include "iImageCache.h"
 
-#include <QApplication>
+#include <QCoreApplication>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
@@ -87,7 +87,7 @@ void ImageCacheEntry::copyCtor(const ImageCacheEntry & that)
     fileFormat = that.fileFormat;
     fileName = that.fileName;
     orig = that.orig;
-    curBytes = that.baFileData.size() + that.orig.numBytes();
+    curBytes = that.baFileData.size() + that.orig.sizeInBytes();
     timeStamp = that.timeStamp;
     score = that.score;
     info = that.info;

@@ -24,7 +24,6 @@ class EigenFaceSearchTier;
     TND(int, MaxPersonFaces, 5)   \
     TND(qreal, MaxResults, 99.0)   \
     TND(qreal, MaxFaces, 99.0)   \
-/*    TND(int, DuplicateThreshold, 6) */  \
     TND(qreal, MaxDistance, 1000)   \
     TND(qreal, MinDistance, 0.0000001)   \
     TND(int, StrongConfidence, 850)   \
@@ -36,7 +35,7 @@ class EigenFaceSearchTier;
 class INDIEF_EXPORT EigenFaceSearchSettings : public QObject
 {
     Q_OBJECT
-    DECLARE_QPROPERTIES(EFSEARCHSETTINGS_QPROPERTIES)
+    DECLARE_QPROPERTIES(EFSEARCHSETTINGS_QPROPERTIES);
 
     enum Mode
     {
@@ -53,8 +52,6 @@ public:
 
     int maxFaces(const int totalFaces) const;
     int maxResults(int totalResults) const;
-//    qreal fDuplicate(void) const;
-  //  bool checkDuplicates(void) const;
     qreal fMinDistance(void) const;
     qreal fMaxDistance(void) const;
     int personMethod(const Mode mode,

@@ -45,7 +45,7 @@ INCLUDEPATH += .
 #LIBS *= -leirBase -leirTypes -leirCore -leirExe
 #LIBS *= -leirFrameSource -leirImage -leirFile -leirNetwork
 
-include(../../common/OpenCV22.pri)
+include(../../common/OpenCV4.pri)
 QT += network \
     xml
 TARGET = IfSearch

@@ -18,7 +18,8 @@ const Return Return::True(Return::TrueCode);
 const Return Return::False(Return::FalseCode);
 
 Return::Return(int Code, const QVariant &  V1, const QVariant &  V2, const QVariant &  V3, const QVariant &  V4)
-	: code(Code), severity(Null)
+    : severity(Null)
+    , code(Code)
 {
 	if (0 == code)
 		return;

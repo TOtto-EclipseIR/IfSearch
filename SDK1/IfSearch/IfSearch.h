@@ -5,7 +5,7 @@
 //#define ENABLE_AVGFACE
 #endif
 
-#include <QApplication>
+#include <QCoreApplication>
 #include <QStringList>
 
 #include <Detector.h>
@@ -60,7 +60,7 @@ class WatchDog;
 
 #include "Detector.h"
 
-class IfSearch : public QApplication
+class IfSearch : public QCoreApplication
 {
     Q_OBJECT
 

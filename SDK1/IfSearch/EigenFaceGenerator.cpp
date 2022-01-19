@@ -11,8 +11,13 @@
 
 EigenFaceGenerator::EigenFaceGenerator(QObject * parent, EigenFaceData * data, 
                                        EigenFaceParameters * parms, int instance)
-                                           : QObject(parent), data(data), parms(parms), instanceId(instance)
-                                           , ffd(0), leyed(0), reyed(0)
+    : QObject(parent)
+    , parms(parms)
+    , data(data)
+    , ffd(0)
+    , leyed(0)
+    , reyed(0)
+    , instanceId(instance)
 {
     Return::add(EigenFace::ReturnStatusNull, "INDI EigenFace Null Status", Warning);
     Return::add(EigenFace::ReturnNoData, "INDI EigenFace No Data", Error);

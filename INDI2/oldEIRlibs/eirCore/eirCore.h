@@ -8,7 +8,7 @@
 #include <QtDebug>
 #include <QtCore/QDir>
 
-#define INT64_MIN  (-9223372036854775807LL - 1)
+//#define INT64_MIN  (-9223372036854775807LL - 1)
 
 /*! @class eirCore
   * @brief The eirCore library completes the core-level support for the EclipseIR libraries.

@@ -23,17 +23,13 @@
 class QSettings;
 class QDomDocument;
 
-#ifdef USE_OCV2
-#include <cv.h>
-#else
-//#include <objdetect/include/opencv2/objdetect/objdetect.hpp>
-#include <opencv2/objdetect/objdetect.hpp>
-#endif
 #include "VersionInfo.h"
 
 class ImageCache;
 #include <QQRect.h>
 #include <Return.h>
+
+#include <opencv4/opencv2/opencv.hpp>
 
 class INDIFFD_EXPORT DetectorResult
 {
@@ -103,13 +99,13 @@ class INDIFFD_EXPORT HaarDetector : public QObject
     Q_PROPERTY(bool MarkAll READ markAll WRITE setMarkAll)
 
 public: // Property accessors
-    bool markAll(void) { return MarkAll; }
+    bool markAll(void) const { return MarkAll; }
     void setMarkAll(bool v) { MarkAll = v; }
-    QString markExtraColor(void) { return MarkExtraColor; }
+    QString markExtraColor(void) const { return MarkExtraColor; }
     void setMarkExtraColor(QString v) { MarkExtraColor = v; }
-    QString markScaleColor(void) { return MarkScaleColor; }
+    QString markScaleColor(void) const { return MarkScaleColor; }
     void setMarkScaleColor(QString v) { MarkScaleColor = v; }
-    QString markColors(void) { return MarkColors; }
+    QString markColors(void) const { return MarkColors; }
     void setMarkColors(QString v) { MarkColors = v; }
     QString MarkExtraColor;
     QString MarkScaleColor;
@@ -122,13 +118,13 @@ public: // Property accessors
     QString detectorDescription(void) { return DetectorDescription; }
     QSize detectorSize(void) { return DetectorSize; }
     int maxResults(void) { return MaxResults; }
-    int minQuality(void) { return MinQuality; }
+    int minQuality(void) const { return MinQuality; }
     bool forceFind(void) { return ForceFind; }
-    qreal maxDensity(void) { return MaxDensity; }
-    int maxDetectors(void) { return MaxDetectors; }
-    qreal factor(void) { return Factor; }
+    qreal maxDensity(void) const { return MaxDensity; }
+    int maxDetectors(void) const { return MaxDetectors; }
+    qreal factor(void) const { return Factor; }
     int adjust(void) { return Adjust; }
-    qreal scale(void) { return Scale; }
+    qreal scale(void) const { return Scale; }
     int flags(void) { return Flags; }
     int maxAcross(void) { return MaxAcross; }
     int minAcross(void) { return MinAcross; }
@@ -191,7 +187,7 @@ public:
     enum
     {
         GroupByCenters = 1, GroupByOverlap, GroupByNeighbors,
-        GroupInternal, GroupInternalAllObjects
+        GroupInternal /*4*/, GroupInternalAllObjects
     };
     int DefaultGroupMethod;
     void setDefaultGroupMethod(int v) { DefaultGroupMethod = v; }
@@ -236,7 +232,7 @@ public:
     QList<QRect> getAllObjects(void) const { return allObjects; }
     QList<QSize> detectorSizes(void) const;
     bool hasDetector(void);
-    QString methodString(void);
+    QString methodString(void) const;
     QSize sizeFromXml(const QString & fileName);
     QSize minObjectSize(void) const;
     QSize maxObjectSize(void) const;
@@ -256,9 +252,11 @@ private:
     bool processC(bool returnAll=false);
     bool processCascadeClassifier(bool returnAll=false);
     bool loadXmlCascade(const QString & xmlFilename);
+#ifndef USE_OCV4
     void groupByCenters(bool returnAll=false);
     void groupByOverlap(bool returnAll=false);
     void groupByNeighbors(bool returnAll=false);
+#endif
     void groupInternal(bool returnAll=false);
     void handleResults(bool returnAll=false);
     virtual QQRect doAdjust(QQRect r) = 0;
@@ -281,11 +279,9 @@ private:
     QString DetectorDescription;
     QSize DetectorSize;
     QString DetectorFileName;
-#ifndef USE_OCV2
     cv::CascadeClassifier cvCascade_;
     cv::Mat cvMat_Grey;
-#endif
-    IplImage * ipl_Grey;
+//    IplImage * ipl_Grey;
     QImage imgOrig;
     int origScale;
     QSize scaled_size;

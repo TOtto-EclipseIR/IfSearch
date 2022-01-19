@@ -59,9 +59,13 @@ HaarDetector::HaarDetector(const QString & classname,
                            const qreal classfactor,
                            const Interface interface,
                            QObject * parent)
-    : ClassName(classname), ClassFactor(classfactor),
-      QObject(parent), cache(0), settings(0), interface_(interface),
-      ipl_Grey(0)
+    : ClassName(classname)
+    , ClassFactor(classfactor)
+    , QObject(parent)
+    , cache(0)
+    , settings(0)
+    , interface_(interface)
+//  , ipl_Grey(0)
     , pCascade(0)
 {
     interface_ = interface_ ? interface_ : HaarDetector::CascadeClassifier;
@@ -85,14 +89,14 @@ HaarDetector::HaarDetector(const QString & classname,
     MaxDensity = 2.0;
     MaxDetectors = 16;
     Scale = 0.0;
-    Flags = CV_HAAR_DO_CANNY_PRUNING;
+    Flags = 0; // CV_HAAR_DO_CANNY_PRUNING;
     MaxAcross = 0;
     MinAcross = 0;
     MaxDimension = 0;
     MaxPixels = 0;
     MinPixels = 0;
     GroupMethod = 0;
-    DefaultGroupMethod = 0;
+    DefaultGroupMethod = 4; // WANTDO(zero)
     OverlapThreshold = 0;
     GroupThreshold = 0;
     //	AreaThreshold = 0;
@@ -102,9 +106,11 @@ HaarDetector::HaarDetector(const QString & classname,
 
 HaarDetector::~HaarDetector()
 {
-    if (ipl_Grey)
-        cvReleaseImage(&ipl_Grey);
-#ifndef USE_OCV2
+//    if (ipl_Grey)
+  //      cvReleaseImage(&ipl_Grey);
+#ifdef USE_OCV4
+        // MUSTDO release
+#else
     if (pCascade)
         cvReleaseHaarClassifierCascade(&pCascade);
 #endif
@@ -121,7 +127,7 @@ bool HaarDetector::hasDetector(void)
     default:
     case CascadeClassifier:     return ! cvCascade_.empty();
     }
-#endif
+#endif // else OCV2
 }
 
 
@@ -181,12 +187,14 @@ void HaarDetector::clear(void)
     results.clear();
 #ifndef USE_OCV2
     cvMat_Grey.release();
-#endif
+#endif // not OCV2
+#if 0
     if (ipl_Grey)
     {
         cvReleaseImage(&ipl_Grey);
         ipl_Grey = 0;
     }
+#endif
 } // clear()
 
 void HaarDetector::setImage(QImage img)
@@ -201,12 +209,19 @@ void HaarDetector::setImage(QImage img)
         unsigned w = imgOrig.width() & 0xFFFC, h = imgOrig.height() & 0xFFFC;
         if (w <= 0 && h <= 0)
         {
+#if 0
             if (ipl_Grey)
                 cvReleaseImage(&ipl_Grey);
             ipl_Grey = 0;
+#endif
+#ifdef USE_OCV4
+        // MUSTDO(it);
+#else
+
 #ifndef USE_OCV2
             cvMat_Grey.release();
-#endif
+#endif // not OCV2
+#endif // is OCV4
             emit error("Null image for detector");
             return;
         }
@@ -216,17 +231,24 @@ void HaarDetector::setImage(QImage img)
         {
         case C:
 #endif
+#if 1
+            // MUSTDO grey image
+#else
             if (ipl_Grey)
                 cvReleaseImage(&ipl_Grey);
             ipl_Grey = cvCreateImage(cvSize((w / origScale) & 0xFFFC,
                                             (h / origScale) & 0xFFFC), IPL_DEPTH_8U, 1);
             NULLPTR(ipl_Grey);
             DETAIL("Created IPL Image");
+#endif
             if (QImage::Format_Indexed8 == imgOrig.format())
             {
                 for (unsigned r = 0; r < h; r += origScale)
                 {
                     quint8 * inGrey = (quint8 *)imgOrig.scanLine(r);
+#ifdef USE_OCV4
+                    // MUSTDO grey
+#else
                     unsigned char * outGrey = (unsigned char *)ipl_Grey->imageData
                             + r * ipl_Grey->widthStep;
                     if (1 == origScale)
@@ -241,6 +263,7 @@ void HaarDetector::setImage(QImage img)
                         for (unsigned c = 0; c < w; c += origScale)
                             *outGrey++ = *(inGrey + c);
                     }
+#endif
                 } // for(r)
                 DETAIL("Copied Grey Image Data");
                 Info::flush();
@@ -248,6 +271,10 @@ void HaarDetector::setImage(QImage img)
             else
             {
                 for (unsigned r = 0; r < h; r += origScale)
+     #if 1
+
+                    // MUSTDO(grey)
+#else
                 {
                     QRgb * inRgb = (QRgb *)imgOrig.scanLine(r);
                     unsigned char * outGrey = (unsigned char *)ipl_Grey->imageData
@@ -255,6 +282,7 @@ void HaarDetector::setImage(QImage img)
                     for (unsigned c = 0; c < w; c += origScale)
                         *outGrey++ = qGray(*(inRgb + c));
                 } // for(r)
+#endif
                 DETAIL("Converted to Grey Image Data");
                 Info::flush();
             }
@@ -270,27 +298,31 @@ void HaarDetector::setImage(QImage img)
 
             if (QImage::Format_ARGB32_Premultiplied != imgOrig.format())
                 imgOrig = imgOrig.convertToFormat(QImage::Format_ARGB32_Premultiplied);
-            for (unsigned r = 0; r < cvMat_Grey.rows * origScale; r += origScale)
+            for (signed r = 0; r < cvMat_Grey.rows * origScale; r += origScale)
             {
                 QRgb * inRgb = (QRgb *)imgOrig.scanLine(r);
                 unsigned char * outGrey = cvMat_Grey.ptr<unsigned char>(r / origScale);
-                for (unsigned c = 0; c < cvMat_Grey.cols * origScale; c += origScale)
+                for (signed c = 0; c < cvMat_Grey.cols * origScale; c += origScale)
                     *outGrey++ = qGray(*(inRgb + c));
             } // for(r)
             break;
             DETAIL("cvMat %1x%2 filled with greyscale data",
                    cvMat_Grey.rows, cvMat_Grey.cols);
         }
-#endif
+#endif // not USE_OCV2
 } // setImage(QImage)
 
 QImage HaarDetector::image(void) const
 {
+    QImage result;
 #ifndef USE_OCV2
     switch (interface_)
     {
     case C:
 #endif
+#ifdef USE_OCV4
+        // MUSTDO(it);
+#else
         if (ipl_Grey && 1 == ipl_Grey->nChannels)
         {
             QImage result(QSize(ipl_Grey->width, ipl_Grey->height), QImage::Format_Indexed8);
@@ -308,6 +340,7 @@ QImage HaarDetector::image(void) const
         }
         else
             return imgOrig;
+#endif
 #ifndef USE_OCV2
         break;
 
@@ -319,12 +352,17 @@ QImage HaarDetector::image(void) const
         {
             QImage result(QSize(cvMat_Grey.cols, cvMat_Grey.rows), QImage::Format_Indexed8);
             result.setColorTable(GreyImage::greyColorTable());
-            if (cvMat_Grey.step == cvMat_Grey.cols)
+            if (signed(cvMat_Grey.step) == cvMat_Grey.cols)
                 memcpy(result.bits(), cvMat_Grey.ptr<unsigned char>(0), result.width() * result.height());
             else
                 for (int r = 0; r < cvMat_Grey.cols; ++r)
                 {
+#if USE_OCV4
+                    // MUSTDO(ipl_Grey)
+                    unsigned char * pInput = 0;
+#else
                     unsigned char * pInput = cvMat_Grey.ptr<unsigned char>(r) + (r * ipl_Grey->widthStep);
+#endif
                     unsigned char * pOutput = result.scanLine(r);
                     memcpy(pOutput, pInput, result.width());
                 }
@@ -332,7 +370,8 @@ QImage HaarDetector::image(void) const
         }
         break;
     } // switch
-#endif
+    return result;
+#endif // not USE_OCV2
 }
 
 
@@ -388,14 +427,19 @@ void HaarDetector::selectXml(const QString & fName)
 
 bool HaarDetector::loadXmlCascade(const QString & xmlFilename)
 {
+    Q_UNUSED(xmlFilename); // NEEDDO?
 #ifndef USE_OCV2
     switch (interface_)
     {
     case C:
 #endif
+#ifdef USE_OCV4
+        // MUSTDO(it);
+#else
         if (pCascade)
             cvReleaseHaarClassifierCascade(&pCascade);
         pCascade = (CvHaarClassifierCascade *)cvLoad(qPrintable(DetectorFileName), 0, 0, 0);
+#endif
 #ifndef USE_OCV2
         break;
 
@@ -447,18 +491,9 @@ bool HaarDetector::process(bool returnAll)
 {
     DETAIL("Detecting Objects");
     Info::flush();
-#ifdef USE_OCV2
-    return processC();
-#else
-    switch (interface_)
-    {
-    case C:                     return processC(returnAll);
-    default:
-    case CascadeClassifier:     return processCascadeClassifier(returnAll);
-    }
-#endif
+    return processCascadeClassifier(returnAll);
 }
-
+#ifndef USE_OCV4
 bool HaarDetector::processC(bool returnAll)
 {
         CvMemStorage * cvStorage =  0;
@@ -467,13 +502,13 @@ bool HaarDetector::processC(bool returnAll)
         allResults.clear();
         results.clear();
         msecProcess = 0;
-
+#ifndef USE_OCV4
         if ( ! ipl_Grey || (ipl_Grey->width * ipl_Grey->height) <= 0)
         {
             emit error(tr("No Grey IPL Image"));
             return false;
         }
-
+#endif
         cvStorage = cvCreateMemStorage(0);
         if ( ! cvStorage)
         {
@@ -493,6 +528,10 @@ bool HaarDetector::processC(bool returnAll)
         // Detected Faces
         DETAIL("Start C Interface");
         QSize sz = minObjectSize();
+#ifdef USE_OCV4
+        // MUSTDO ipl
+        CvSeq * detected = 0;
+#else
         CvSeq * detected = cvHaarDetectObjects(ipl_Grey,
                                                haar,
                                                cvStorage,
@@ -502,7 +541,7 @@ bool HaarDetector::processC(bool returnAll)
                                                //cvSize(SIZE_MULT * sz.width()  / SIZE_DIV,
                                                //     SIZE_MULT * sz.height() / SIZE_DIV));
                                                cvSize(sz.width(),  sz.height()));
-
+#endif
         cvReleaseMemStorage(&cvStorage);
         cvStorage = 0;
         if ( ! detected)
@@ -547,6 +586,10 @@ bool HaarDetector::processC(bool returnAll)
                 emit error(tr("Can't create CV Storage for AllObjects"));
                 return false;
             }
+#ifdef USE_OCV4
+        // MUSTDO ipl
+        CvSeq * detected = 0;
+#else
             CvSeq * detected = cvHaarDetectObjects(ipl_Grey,
                                                    haar,
                                                    cvStorage,
@@ -558,7 +601,7 @@ bool HaarDetector::processC(bool returnAll)
             //     SIZE_MULT * sz.height() / SIZE_DIV));
             cvReleaseMemStorage(&cvStorage);
             cvStorage = 0;
-
+#endif
             for (int i = 0; i < detected->total; i++)
             {
                 CvRect * cvr = (CvRect *)cvGetSeqElem(detected, i);
@@ -571,10 +614,11 @@ bool HaarDetector::processC(bool returnAll)
 
     return true;
 }
-
+#endif
 #ifndef USE_OCV2
 bool HaarDetector::processCascadeClassifier(bool returnAll)
 {
+    Q_UNUSED(returnAll); // NEEDDO(use)?
         QElapsedTimer * timer = new QElapsedTimer; NULLPTR(timer);
 
         allObjects.clear();
@@ -609,10 +653,10 @@ bool HaarDetector::processCascadeClassifier(bool returnAll)
                                     //         SIZE_MULT * sz.height()  / SIZE_DIV),
                                     cvSize(sz.width(),  sz.height()),
                                     cvSize(max.width(), max.height()));
-        DETAIL("%1 raw objects detected", cvRects.size());
+        DETAIL("%1 raw objects detected", unsigned(cvRects.size()));
 
         QRect imageRect = imgOrig.rect();
-        for (int i = 0; i < cvRects.size(); i++)
+        for (unsigned i = 0; i < cvRects.size(); i++)
         {
             cv::Rect cvr = cvRects[i];
             QRect r(QPoint(origScale * cvr.x, origScale * cvr.y),
@@ -650,7 +694,7 @@ bool HaarDetector::processCascadeClassifier(bool returnAll)
                                         //cvSize(SIZE_MULT * sz.width()   / SIZE_DIV,
                                         //     SIZE_MULT * sz.height()  / SIZE_DIV),
                                         cvSize(max.width(), max.height()));
-            for (int i = 0; i < cvRects.size(); i++)
+            for (unsigned i = 0; i < cvRects.size(); i++)
             {
                 cv::Rect cvr = cvRects[i];
                 QRect r(QPoint(origScale * cvr.x, origScale * cvr.y),
@@ -662,7 +706,7 @@ bool HaarDetector::processCascadeClassifier(bool returnAll)
 
     return true;
 } // process()
-#endif
+#endif // not USE_OCV2
 
 QSize HaarDetector::sizeFromXml(const QString & fileName)
 {
@@ -751,7 +795,7 @@ QList<QSize> HaarDetector::detectorSizes(void) const
     return rtn;
 }
 
-QString HaarDetector::methodString(void)
+QString HaarDetector::methodString(void) const
 {
     QString rtn = tr(";ScaleFactor=%1").arg(scaleFactor(), 5, 'f', 3);
 
@@ -880,8 +924,12 @@ QList<QColor> HaarDetector::markColorList(void) const
 {
     QList<QColor> resultList;
     if (MarkColors.isEmpty())
+#ifdef USE_OCV4
+        resultList << QColor(0xFF00F0) << QColor(0xF000FF);
+#else
         resultList << QColor(QRgb(240,0,255))
                    << QColor(QRgb(255,0,240));
+#endif
     else
         foreach (QString s, markColors().simplified().split(' '))
             resultList << QColor(s);

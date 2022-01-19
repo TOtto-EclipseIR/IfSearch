@@ -3,13 +3,12 @@
 
 #include <InfoMacros.h>
 
-#include <QApplication>
+#include <QCoreApplication>
 #include <QByteArray>
 #include <QDir>
 #include <QDomDocument>
 #include <QDomElement>
 #include <QFile>
-#include <QProgressBar>
 #include <QString>
 
 //#define WRITE_XML
@@ -25,7 +24,8 @@ const QString EigenFaceData::outputMaskTagName("INDI-EigenFaceGenerator-OutputMa
 const QString EigenFaceData::eigenFaceLayerTagName("INDI-EigenFaceGenerator-EigenFaceLayer");
 
 EigenFaceData::EigenFaceData(const QString & eigenClass)
-    : Weights(this), EigenClass(eigenClass)
+    : EigenClass(eigenClass)
+    , Weights(this)
 {
     clear();
     Return::add(EigenFace::ReturnStatusNull, "INDI EigenFace Null Status", Warning);

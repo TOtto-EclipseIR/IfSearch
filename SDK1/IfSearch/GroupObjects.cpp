@@ -43,19 +43,25 @@ bool HaarDetector::isStrange(QQRect rect)
 void HaarDetector::groupObjects(bool returnAll)
 {
     rawObjects = allObjects.size();
-    strangeObjects
-            = 0;
+    strangeObjects = 0;
     switch (GroupMethod ? GroupMethod : DefaultGroupMethod)
     {
-    case GroupByCenters:		groupByCenters(returnAll);		break;
-    case GroupByNeighbors:		groupByNeighbors(returnAll);		break;
     case GroupInternal:
     case GroupInternalAllObjects:	groupInternal(returnAll);		break;
+#ifndef USE_OCV4
+    case GroupByCenters:		groupByCenters(returnAll);		break;
+    case GroupByNeighbors:		groupByNeighbors(returnAll);		break;
     default:
     case GroupByOverlap:		groupByOverlap(returnAll);		break;
+#endif
     }
 }
 
+void HaarDetector::groupInternal(bool returnAll)
+{
+    handleResults(returnAll);
+}
+#ifndef USE_OCV4
 void HaarDetector::groupByOverlap(bool returnAll)
 {
     DETAIL("GroupOverlap pass 1");
@@ -165,10 +171,6 @@ void HaarDetector::groupByNeighbors(bool returnAll)
     DETAIL("GroupNeighbors done");
 }
 
-void HaarDetector::groupInternal(bool returnAll)
-{
-    handleResults(returnAll);
-}
 
 void HaarDetector::groupByCenters(bool returnAll)
 {
@@ -299,6 +301,7 @@ void HaarDetector::groupByCenters(bool returnAll)
 
     handleResults(returnAll);
 } // groupByCenters()
+#endif
 
 void HaarDetector::handleResults(bool returnAll)
 {

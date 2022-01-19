@@ -8,7 +8,7 @@
 #include <Info.h>
 #include <Settings.h>
 
-#include <QApplication> 
+#include <QCoreApplication>
 
 
 
@@ -16,7 +16,6 @@ InfoOutputSetting::InfoOutputSetting(const QString & key)
 	: settingKey_(key) 
 {
 	icons_.resize(IconFatal+1);
-	originalIcon_ = qApp->windowIcon();
 }
 		
 QString InfoOutputSetting::pump(QString oldMessage)
@@ -32,7 +31,6 @@ QString InfoOutputSetting::pump(QString oldMessage)
 			QIcon icon = icons_.at(IconNormal);
 			if (icon.isNull())
 				icon = originalIcon_;
-			qApp->setWindowIcon(icon);
 		}
 	}
 
@@ -54,7 +52,6 @@ QString InfoOutputSetting::pump(QString oldMessage)
 										 .arg(current_.stringOnly());
 		if (icon.isNull())
 			icon = originalIcon_;
-		qApp->setWindowIcon(icon);
 	}
 
 	return oldMessage;

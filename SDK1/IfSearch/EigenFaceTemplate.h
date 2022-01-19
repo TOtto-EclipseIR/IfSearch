@@ -74,7 +74,7 @@ public:
     { return distance_efVector_mmap.size(); }
     QMultiMap<qreal, EigenFaceVector> vectorMap(void) const
     { return distance_efVector_mmap; }
-    EigenFaceVector firstVector(const int x) const
+    EigenFaceVector firstVector() const
     { return distance_efVector_mmap.isEmpty()
                 ? EigenFaceVector()
                 : distance_efVector_mmap.value(distance_efVector_mmap.keys().first()); }
