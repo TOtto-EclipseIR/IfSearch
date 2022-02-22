@@ -5,15 +5,16 @@
 *
 */
 
-
 #include <QBuffer>
 #include <QByteArray>
 #include <QFileInfo>
 #include <QHostInfo>
 #include <QList>
-#include <QHttp>
 #include <QImageReader>
 #include <QTimer>
+#if defined(BUILD_NETCAM)
+#include <QHttp>
+#endif
 
 #include <ImageSource.h>
 #include <ImageCache.h>
@@ -24,7 +25,13 @@
 
 ImageSource::ImageSource(QObject * parent)
     : QObject(parent), cache(0)
-    , http(0), array(0), buffer(0), timer(0), status(0)
+    #ifdef BUILD_NETCAM
+    , mpHttp(0)
+    #endif
+    , array(0)
+    , buffer(0)
+    , timer(0)
+    , status(0)
 {
     SampleMsec = 0;
     MaxCache = 0;
@@ -43,14 +50,15 @@ void ImageSource::reset(void)
     FUNCTION();
     stop();
 
-    if (http)
+#ifdef BUILD_NETCAM
+    if (mpHttp)
     {
-        disconnect(http, SIGNAL(done(bool)), this, SLOT(httpDone(bool)));
-        http->abort();
-        delete http;
-        http = 0;
+        disconnect(mpHttp, SIGNAL(done(bool)), this, SLOT(httpDone(bool)));
+        mpHttp->abort();
+        delete mpHttp;
+        mpHttp = 0;
     }
-
+#endif
     if (array)		{	delete array;		array = 0; }
     if (buffer)		{	delete buffer;		buffer = 0; }
 
@@ -64,17 +72,19 @@ QString ImageSource::selectNetcam(QString Url, const QString & Format)
     reset();
     url.setUrl(Url);
 
-    http = new QHttp(this);
-    http->setHost(url.host(), (url.port() > 0) ? url.port() : 80);
-    http->setUser(url.userName(), url.password());
+#ifdef BUILD_NETCAM
+    mpHttp = new QHttp(this);
+    mpHttp->setHost(url.host(), (url.port() > 0) ? url.port() : 80);
+    mpHttp->setUser(url.userName(), url.password());
     array = new QByteArray;
     buffer = new QBuffer(array, this);
     buffer->open(QIODevice::WriteOnly);
     imageFormat = Format;
     DETAIL("HTTP Connecting to %1", url.toString());
-    connect(http, SIGNAL(done(bool)), this, SLOT(httpDone(bool)));
-    connect(http, SIGNAL(stateChanged(int)), this, SLOT(stateChanged(int)));
+    connect(mpHttp, SIGNAL(done(bool)), this, SLOT(httpDone(bool)));
+    connect(mpHttp, SIGNAL(stateChanged(int)), this, SLOT(stateChanged(int)));
     lastgrab_ems = -1;
+#endif
     return QString();
 } // selectNetcam()
 
@@ -119,11 +129,21 @@ void ImageSource::sample(void)
         emit grab();
     else
         DETAIL("HTTP can't grab: " + why);
-} // sample()
+}
+
+void ImageSource::httpDone(bool Error)
+{
+    if (Error)
+        WARNING("ImageSource httpDone Error");
+} // httpDone()
 
 void ImageSource::stateChanged(int state)
 {
-    DETAIL("HTTP #%1 State %2", http->currentId(), http->state());
+#ifndef BUILD_NETCAM
+    Q_UNUSED(state);
+#else
+    DETAIL("HTTP #%1 State %2", mpHttp->currentId(), mpHttp->state());
+#endif
 }
 
 QString ImageSource::canGrab(void)
@@ -134,6 +154,7 @@ QString ImageSource::canGrab(void)
         result = "Paused";
     else if (cache && cache->grabSize() >= (MaxCache ? MaxCache : 5))
         result = tr("Cache has %1").arg(cache->grabSize());
+#ifdef BUILD_NETCAM
     else if (http && QHttp::Unconnected != http->state() /*hasPendingRequests()*/)
     {
         DETAIL("HTTP %3 busy, state=%1, error=%2", http->state(),
@@ -147,13 +168,14 @@ QString ImageSource::canGrab(void)
         if (msSince < (msSample * 7 / 8))
             result = "Too Soon";
     }
-
+#endif
     FNRETURN(result);
     return result;
 } // canGrab()
 
 void ImageSource::grab(void)
 {
+#ifdef BUILD_NETCAM
     FUNCTION();
     if (http)
     {
@@ -183,8 +205,10 @@ void ImageSource::grab(void)
         int n = http->get(request, buffer);
         DETAIL("HTTP GET #%2 %1", request, n);
     }
+#endif
 } // grab()
 
+#ifdef BUILD_NETCAM
 void ImageSource::httpDone(bool Error)
 {
     FUNCTION();
@@ -238,7 +262,7 @@ void ImageSource::httpDone(bool Error)
         }
     }
 } // httpDone()
-
+#endif
 
 void ImageSource::setSampleMsec(int v)
 {

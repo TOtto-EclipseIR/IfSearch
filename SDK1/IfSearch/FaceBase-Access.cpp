@@ -84,7 +84,7 @@ int FaceBase::newPersonKey(const QString & id)
 {
     int rtn;
     int mod = (int)pow((qreal)10.0, personKeyDigits);
-    do rtn = ((qrand() << 13) ^ qrand()) % mod;
+    do rtn = ((rand() << 13) ^ rand()) % mod;
     while (people.contains(rtn) || 0 == rtn);
 
     people.insertUnique(rtn, id);
@@ -96,7 +96,7 @@ int FaceBase::newFaceKey(const QString & id, const int personKey)
 {
     int rtn;
     int mod = (int)pow((qreal)10.0, faceKeyDigits);
-    do rtn = ((qrand() << 13) ^ qrand()) % mod;
+    do rtn = ((rand() << 13) ^ rand()) % mod;
     while (faceKeys.contains(rtn) || 0 == rtn);
 
     peopleFaces[personKey].insertUnique(rtn, id);

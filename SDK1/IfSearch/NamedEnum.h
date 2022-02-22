@@ -13,11 +13,7 @@
 #include <QtDebug>
 
 #include <DDTcore.h>
-#ifdef DDTCORE_LIB
-template <class NAMED> class Q_DECL_EXPORT NamedEnum
-        #else
 template <class NAMED> class NamedEnum
-        #endif
 {
 public:
     NamedEnum(void) : valid(false), iValue(0) {}

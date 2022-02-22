@@ -14,7 +14,7 @@
 #include <InfoSeverity.h>
 #include <NamedArray.h>
 
-class DDTCORE_EXPORT InfoOutputs : public NamedArray<InfoSeverity, QList<InfoOutputBase *> >
+class DDTCORE_EXPORT InfoOutputs : public NamedArray< InfoSeverity, QList<InfoOutputBase *> >
 {
 public:
     QList<InfoOutputBase *> outputs(InfoSeverity sev);

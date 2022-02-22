@@ -1,4 +1,4 @@
-#include <Detector.h>
+#include <HaarDetector.h>
 
 #include <QtGlobal>
 #include <QColor>
@@ -9,70 +9,25 @@
 #include <QSettings>
 #include <QElapsedTimer>
 
+#include <opencv2/core/core_c.h>
+
 #include <GreyImage.h>
 #include <InfoMacros.h>
 #include <ImageMarker.h>
-//#include <AnyColor.h>
 
-
-#ifndef USE_OCV2
-#include <opencv2/core/core_c.h>
-#endif
-
-
-
-/**** Statics ****/
-QDomDocument HaarDetector::docDetectors;
-QDir HaarDetector::dirDetectors;
-
-VersionInfo HaarDetector::cvVersion(void)
-{
-    VersionInfo ver(CV_MAJOR_VERSION,
-                    CV_MINOR_VERSION,
-                    CV_SUBMINOR_VERSION,
-                    0,
-                    CV_VERSION,
-                    "Copyright (c) 2000-2008, Intel Corporation. "
-                    "(c) 2008-2010, Willow Garage Inc.",
-                    "Intel",
-                    "Computer Vision Library");
-    return ver;
-}
-
-Return HaarDetector::initialize(QFile * xmlFile)
-{
-    QString errMsg;
-    int errLine, errCol;
-
-    if ( ! xmlFile->open(QIODevice::ReadOnly))
-        return Return::qfileError(*xmlFile);
-    if ( ! docDetectors.setContent(xmlFile, &errMsg, &errLine, &errCol))
-        return Return(Return::ReturnXmlParse, xmlFile->fileName(), errMsg, errLine, errCol);
-
-    QFileInfo fi(xmlFile->fileName());
-    dirDetectors = fi.dir();
-
-    return Return();
-}
 
 HaarDetector::HaarDetector(const QString & classname,
                            const qreal classfactor,
-                           const Interface interface,
                            QObject * parent)
-    : ClassName(classname)
+    : QObject(parent)
+    , pCascade(0)
+    , ClassName(classname)
     , ClassFactor(classfactor)
-    , QObject(parent)
     , cache(0)
     , settings(0)
-    , interface_(interface)
-//  , ipl_Grey(0)
-    , pCascade(0)
 {
-    interface_ = interface_ ? interface_ : HaarDetector::CascadeClassifier;
-
     if ( ! docDetectors.isNull())
         deDetectors = classDetectors(docDetectors);
-
     if (deDetectors.isNull())
     {
         settings = new QSettings("DDzTech", "INDI", this);
@@ -80,10 +35,8 @@ HaarDetector::HaarDetector(const QString & classname,
         settings->beginGroup(ClassName);
         settings->sync();
     }
-
     MaxResults = 0;
     MinQuality = 0;
-    ForceFind = false;
     Adjust = 0;
     Factor = 0.0;
     MaxDensity = 2.0;
@@ -99,35 +52,20 @@ HaarDetector::HaarDetector(const QString & classname,
     DefaultGroupMethod = 4; // WANTDO(zero)
     OverlapThreshold = 0;
     GroupThreshold = 0;
-    //	AreaThreshold = 0;
     NeighborThreshold = 0;
     MarkAll = false;
 } // c'tor
 
 HaarDetector::~HaarDetector()
 {
-//    if (ipl_Grey)
-  //      cvReleaseImage(&ipl_Grey);
 #ifdef USE_OCV4
         // MUSTDO release
-#else
-    if (pCascade)
-        cvReleaseHaarClassifierCascade(&pCascade);
 #endif
 } // d'tor
 
 bool HaarDetector::hasDetector(void)
 {
-#ifdef USE_OCV2
-    return 0 != cascade();
-#else
-    switch (interface_)
-    {
-    case C:                     return 0 != cascade();
-    default:
-    case CascadeClassifier:     return ! cvCascade_.empty();
-    }
-#endif // else OCV2
+    return ! cvCascade_.empty();
 }
 
 
@@ -185,193 +123,90 @@ void HaarDetector::clear(void)
     allObjects.clear();
     allResults.clear();
     results.clear();
-#ifndef USE_OCV2
     cvMat_Grey.release();
-#endif // not OCV2
-#if 0
-    if (ipl_Grey)
-    {
-        cvReleaseImage(&ipl_Grey);
-        ipl_Grey = 0;
-    }
-#endif
 } // clear()
 
 void HaarDetector::setImage(QImage img)
 {
         const int maxDim = maxDimension() ? maxDimension() : 1536;
         clear();
-        imgOrig = img;
+        if (QImage::Format_ARGB32_Premultiplied == imgOrig.format())
+            imgOrig = img;
+        else
+            imgOrig = imgOrig.convertToFormat(QImage::Format_ARGB32_Premultiplied);
         origScale = 1;
         if (img.width() > maxDim || img.height() > maxDim)
             origScale = 1 + qMax(img.width(), img.height()) / maxDim;
-        scaled_size = QSize(img.width() / origScale, img.height() / origScale);
-        unsigned w = imgOrig.width() & 0xFFFC, h = imgOrig.height() & 0xFFFC;
-        if (w <= 0 && h <= 0)
+        unsigned origWidth = imgOrig.width() & 0xFFFC, origHeight = imgOrig.height() & 0xFFFC;
+        scaled_size = QSize(origWidth / origScale, origHeight / origScale);
+        if (origWidth <= 0 && origHeight <= 0)
         {
-#if 0
-            if (ipl_Grey)
-                cvReleaseImage(&ipl_Grey);
-            ipl_Grey = 0;
-#endif
-#ifdef USE_OCV4
-        // MUSTDO(it);
-#else
-
-#ifndef USE_OCV2
             cvMat_Grey.release();
-#endif // not OCV2
-#endif // is OCV4
             emit error("Null image for detector");
-            return;
+            return;                                                     /* /====\ */
         }
+        cvMat_Grey.create((origHeight / origScale) & 0xFFFC,
+                          (origWidth / origScale) & 0xFFFC, CV_8U);
+        DETAIL("Created Greyscale/%1 cvMat", origScale);
+        Info::flush();
 
-#ifndef USE_OCV2
-        switch (interface_)
+        if (QImage::Format_Indexed8 == imgOrig.format())
         {
-        case C:
-#endif
-#if 1
-            // MUSTDO grey image
-#else
-            if (ipl_Grey)
-                cvReleaseImage(&ipl_Grey);
-            ipl_Grey = cvCreateImage(cvSize((w / origScale) & 0xFFFC,
-                                            (h / origScale) & 0xFFFC), IPL_DEPTH_8U, 1);
-            NULLPTR(ipl_Grey);
-            DETAIL("Created IPL Image");
-#endif
-            if (QImage::Format_Indexed8 == imgOrig.format())
+            for (unsigned origRow = 0, matRow = 0;
+                 origRow < origHeight;
+                 origRow += origScale, ++matRow)
             {
-                for (unsigned r = 0; r < h; r += origScale)
+                quint8 * inGrey = (quint8 *)imgOrig.scanLine(origRow);
+                unsigned char * outGrey = (unsigned char *)cvMat_Grey.ptr(origRow);
+                if (1 == origScale)
                 {
-                    quint8 * inGrey = (quint8 *)imgOrig.scanLine(r);
-#ifdef USE_OCV4
-                    // MUSTDO grey
-#else
-                    unsigned char * outGrey = (unsigned char *)ipl_Grey->imageData
-                            + r * ipl_Grey->widthStep;
-                    if (1 == origScale)
-                    {
-                        quint8 * inGrey = (quint8 *)imgOrig.scanLine(r);
-                        unsigned char * outGrey = (unsigned char *)ipl_Grey->imageData
-                                + r * ipl_Grey->widthStep / origScale;
-                        memcpy(outGrey, inGrey, w);
-                    }
-                    else
-                    {
-                        for (unsigned c = 0; c < w; c += origScale)
-                            *outGrey++ = *(inGrey + c);
-                    }
-#endif
-                } // for(r)
-                DETAIL("Copied Grey Image Data");
-                Info::flush();
-            }
-            else
-            {
-                for (unsigned r = 0; r < h; r += origScale)
-     #if 1
-
-                    // MUSTDO(grey)
-#else
+                    memcpy(outGrey, inGrey, origWidth);
+                }
+                else
                 {
-                    QRgb * inRgb = (QRgb *)imgOrig.scanLine(r);
-                    unsigned char * outGrey = (unsigned char *)ipl_Grey->imageData
-                            + r * ipl_Grey->widthStep / origScale;
-                    for (unsigned c = 0; c < w; c += origScale)
-                        *outGrey++ = qGray(*(inRgb + c));
-                } // for(r)
-#endif
-                DETAIL("Converted to Grey Image Data");
-                Info::flush();
-            }
-#ifndef USE_OCV2
-            break;
-
-        default:
-        case CascadeClassifier:
-            cvMat_Grey.create((h / origScale) & 0xFFFC,
-                              (w / origScale) & 0xFFFC, CV_8U);
-            DETAIL("Created Greyscale/%1 cvMat", origScale);
-            Info::flush();
-
-            if (QImage::Format_ARGB32_Premultiplied != imgOrig.format())
-                imgOrig = imgOrig.convertToFormat(QImage::Format_ARGB32_Premultiplied);
-            for (signed r = 0; r < cvMat_Grey.rows * origScale; r += origScale)
-            {
-                QRgb * inRgb = (QRgb *)imgOrig.scanLine(r);
-                unsigned char * outGrey = cvMat_Grey.ptr<unsigned char>(r / origScale);
-                for (signed c = 0; c < cvMat_Grey.cols * origScale; c += origScale)
-                    *outGrey++ = qGray(*(inRgb + c));
+                    for (unsigned origCol = 0; origCol < origWidth; origCol += origScale)
+                        *outGrey++ = *(inGrey + origCol);
+                }
             } // for(r)
-            break;
-            DETAIL("cvMat %1x%2 filled with greyscale data",
-                   cvMat_Grey.rows, cvMat_Grey.cols);
+            DETAIL("Copied Grey Image Data");
+            Info::flush();
         }
-#endif // not USE_OCV2
+        else // Format_Indexed8
+        {
+            for (unsigned origRow = 0; origRow < origHeight; origRow += origScale)
+            {
+                QRgb * inRgb = (QRgb *)imgOrig.scanLine(origRow);
+                unsigned char * outGrey = (unsigned char *)(cvMat_Grey.ptr());
+                for (unsigned origCol = 0; origCol < origWidth; origCol += origScale)
+                    *outGrey++ = qGray(*(inRgb + origCol));
+            } // for(origRow)
+            DETAIL("Converted to Grey Image Data");
+            Info::flush();
+        }
+        DETAIL("cvMat %1x%2 filled with greyscale data", cvMat_Grey.rows, cvMat_Grey.cols);
 } // setImage(QImage)
 
 QImage HaarDetector::image(void) const
 {
     QImage result;
-#ifndef USE_OCV2
-    switch (interface_)
+    if (0 == cvMat_Grey.total())
+        return result;                                                  /* /====\ */
+    result = QImage(QSize(cvMat_Grey.cols, cvMat_Grey.rows), QImage::Format_Indexed8);
+    result.setColorTable(GreyImage::greyColorTable());
+    if (signed(cvMat_Grey.step) == cvMat_Grey.cols)
     {
-    case C:
-#endif
-#ifdef USE_OCV4
-        // MUSTDO(it);
-#else
-        if (ipl_Grey && 1 == ipl_Grey->nChannels)
+        memcpy(result.bits(),
+               cvMat_Grey.ptr<unsigned char>(0),
+               result.width() * result.height());
+    }
+    else
+        for (int r = 0; r < cvMat_Grey.cols; ++r)
         {
-            QImage result(QSize(ipl_Grey->width, ipl_Grey->height), QImage::Format_Indexed8);
-            result.setColorTable(GreyImage::greyColorTable());
-            if (ipl_Grey->widthStep == ipl_Grey->width)
-                memcpy(result.bits(), ipl_Grey->imageData, result.width() * result.height());
-            else
-                for (int r = 0; r < ipl_Grey->height; ++r)
-                {
-                    unsigned char * pInput = ipl_Grey->imageData + (r * ipl_Grey->widthStep);
-                    unsigned char * pOutput = result.scanLine(r);
-                    memcpy(pOutput, pInput, result.width());
-                }
-            return result;
+            unsigned char * pInput = (unsigned char *)(cvMat_Grey.ptr(r));
+            unsigned char * pOutput = result.scanLine(r);
+            memcpy(pOutput, pInput, result.width());
         }
-        else
-            return imgOrig;
-#endif
-#ifndef USE_OCV2
-        break;
-
-    default:
-    case CascadeClassifier:
-        if (cvMat_Grey.empty())
-            return imgOrig;
-        else
-        {
-            QImage result(QSize(cvMat_Grey.cols, cvMat_Grey.rows), QImage::Format_Indexed8);
-            result.setColorTable(GreyImage::greyColorTable());
-            if (signed(cvMat_Grey.step) == cvMat_Grey.cols)
-                memcpy(result.bits(), cvMat_Grey.ptr<unsigned char>(0), result.width() * result.height());
-            else
-                for (int r = 0; r < cvMat_Grey.cols; ++r)
-                {
-#if USE_OCV4
-                    // MUSTDO(ipl_Grey)
-                    unsigned char * pInput = 0;
-#else
-                    unsigned char * pInput = cvMat_Grey.ptr<unsigned char>(r) + (r * ipl_Grey->widthStep);
-#endif
-                    unsigned char * pOutput = result.scanLine(r);
-                    memcpy(pOutput, pInput, result.width());
-                }
-            return result;
-        }
-        break;
-    } // switch
     return result;
-#endif // not USE_OCV2
 }
 
 
@@ -427,28 +262,8 @@ void HaarDetector::selectXml(const QString & fName)
 
 bool HaarDetector::loadXmlCascade(const QString & xmlFilename)
 {
-    Q_UNUSED(xmlFilename); // NEEDDO?
-#ifndef USE_OCV2
-    switch (interface_)
-    {
-    case C:
-#endif
-#ifdef USE_OCV4
-        // MUSTDO(it);
-#else
-        if (pCascade)
-            cvReleaseHaarClassifierCascade(&pCascade);
-        pCascade = (CvHaarClassifierCascade *)cvLoad(qPrintable(DetectorFileName), 0, 0, 0);
-#endif
-#ifndef USE_OCV2
-        break;
-
-    default:
-    case CascadeClassifier:
-        cvCascade_.load(DetectorFileName.toStdString());
-        break;
-    }
-#endif
+    DetectorFileName = xmlFilename;
+    cvCascade_.load(DetectorFileName.toStdString());
     if ( ! hasDetector())
     {
         ERRMSG("Unable to load cascade at %1", DetectorFileName);
@@ -456,11 +271,8 @@ bool HaarDetector::loadXmlCascade(const QString & xmlFilename)
         DetectorName.clear();
         DetectorDescription.clear();
         DetectorSize = QSize();
-        return false;
     }
-    else
-        return true;
-
+    return hasDetector();
 }
 
 qreal HaarDetector::scaleFactor(void) const
@@ -493,220 +305,93 @@ bool HaarDetector::process(bool returnAll)
     Info::flush();
     return processCascadeClassifier(returnAll);
 }
-#ifndef USE_OCV4
-bool HaarDetector::processC(bool returnAll)
-{
-        CvMemStorage * cvStorage =  0;
-        QElapsedTimer timer;
-        allObjects.clear();
-        allResults.clear();
-        results.clear();
-        msecProcess = 0;
-#ifndef USE_OCV4
-        if ( ! ipl_Grey || (ipl_Grey->width * ipl_Grey->height) <= 0)
-        {
-            emit error(tr("No Grey IPL Image"));
-            return false;
-        }
-#endif
-        cvStorage = cvCreateMemStorage(0);
-        if ( ! cvStorage)
-        {
-            emit error(tr("Can't create CV Storage"));
-            return false;
-        }
 
-        CvHaarClassifierCascade * haar = cascade();
-        if ( ! haar)
-        {
-            emit error(tr("No QFF classifier"));
-            return false;
-        }
-
-        timer.start();
-
-        // Detected Faces
-        DETAIL("Start C Interface");
-        QSize sz = minObjectSize();
-#ifdef USE_OCV4
-        // MUSTDO ipl
-        CvSeq * detected = 0;
-#else
-        CvSeq * detected = cvHaarDetectObjects(ipl_Grey,
-                                               haar,
-                                               cvStorage,
-                                               scaleFactor(),
-                                               GroupThreshold,
-                                               flags(),
-                                               //cvSize(SIZE_MULT * sz.width()  / SIZE_DIV,
-                                               //     SIZE_MULT * sz.height() / SIZE_DIV));
-                                               cvSize(sz.width(),  sz.height()));
-#endif
-        cvReleaseMemStorage(&cvStorage);
-        cvStorage = 0;
-        if ( ! detected)
-        {
-            emit error(tr("No Results from Object Detection"));
-            return false;
-        }
-        DETAIL("%1 raw detectors", detected->total);
-
-        QRect imageRect = imgOrig.rect();
-        for (int i = 0; i < detected->total; i++)
-        {
-            CvRect * cvr = (CvRect *)cvGetSeqElem(detected, i);
-            QRect r(QPoint(origScale * cvr->x, origScale * cvr->y),
-                    QSize(origScale * cvr->width, origScale * cvr->height));
-            if ( ! r.isValid()) // TODO: Why 0xBAADF00D?
-                continue;
-            if ( ! imageRect.contains(r))
-                continue;
-
-            if (GroupInternal == GroupMethod
-                    || GroupInternalAllObjects == GroupMethod)
-            {
-                DetectorResult ri(r);
-                allResults.insert(2.0 * groupFactor()
-                                  * (double)GroupThreshold, ri);
-            }
-            else
-            {
-                allObjects << r;
-            }
-        }
-        DETAIL("%1 results gathered", allObjects.size());
-        msecProcess = timer.elapsed();
-
-        if (GroupInternalAllObjects == GroupMethod)
-        {
-            DETAIL("Detecting raw objects again");
-            cvStorage = cvCreateMemStorage(0);
-            if ( ! cvStorage)
-            {
-                emit error(tr("Can't create CV Storage for AllObjects"));
-                return false;
-            }
-#ifdef USE_OCV4
-        // MUSTDO ipl
-        CvSeq * detected = 0;
-#else
-            CvSeq * detected = cvHaarDetectObjects(ipl_Grey,
-                                                   haar,
-                                                   cvStorage,
-                                                   scaleFactor(),
-                                                   GroupThreshold,
-                                                   flags(),
-                                                   cvSize(sz.width(),  sz.height()));
-            //cvSize(SIZE_MULT * sz.width()  / SIZE_DIV,
-            //     SIZE_MULT * sz.height() / SIZE_DIV));
-            cvReleaseMemStorage(&cvStorage);
-            cvStorage = 0;
-#endif
-            for (int i = 0; i < detected->total; i++)
-            {
-                CvRect * cvr = (CvRect *)cvGetSeqElem(detected, i);
-                QRect r(QPoint(origScale * cvr->x, origScale * cvr->y),
-                        QSize(origScale * cvr->width, origScale * cvr->height));
-                if (r.isValid()) // TODO: Why 0xBAADF00D?
-                    allObjects << r;
-            }
-        }
-
-    return true;
-}
-#endif
-#ifndef USE_OCV2
 bool HaarDetector::processCascadeClassifier(bool returnAll)
 {
     Q_UNUSED(returnAll); // NEEDDO(use)?
-        QElapsedTimer * timer = new QElapsedTimer; NULLPTR(timer);
+    QElapsedTimer * timer = new QElapsedTimer; NULLPTR(timer);
 
-        allObjects.clear();
-        allResults.clear();
-        results.clear();
-        msecProcess = 0;
+    allObjects.clear();
+    allResults.clear();
+    results.clear();
+    msecProcess = 0;
 
-        if ( ! hasDetector())
+    if ( ! hasDetector())
+    {
+        emit error(tr("No QFF classifier"));
+        return false;                                                   /* /====\ */
+    }
+    if (0 == cvMat_Grey.total())
+    {
+        emit error(tr("No QFF image"));
+        return false;                                                   /* /====\ */
+    }
+    timer->start();
+
+    // Detected Faces
+    DETAIL("Start ClassifierCascade interface");
+    Info::flush();
+    QSize sz = minObjectSize();
+    QSize max = maxObjectSize();
+    std::vector<cv::Rect> cvRects;
+    cvCascade_.detectMultiScale(cvMat_Grey,
+                                cvRects,
+                                scaleFactor(),
+                                GroupThreshold,
+                                flags(),
+                                cvSize(sz.width(),  sz.height()),
+                                cvSize(max.width(), max.height()));
+    DETAIL("%1 raw objects detected", unsigned(cvRects.size()));
+
+    QRect imageRect = imgOrig.rect();
+    for (unsigned i = 0; i < cvRects.size(); i++)
+    {
+        cv::Rect cvr = cvRects[i];
+        QRect r(QPoint(origScale * cvr.x, origScale * cvr.y),
+                QSize(origScale * cvr.width, origScale * cvr.height));
+        if ( ! r.isValid()) // TODO: Why 0xBAADF00D?
+            continue;
+        if ( ! imageRect.contains(r))
+            continue;
+
+        if (GroupInternal == GroupMethod
+                || GroupInternalAllObjects == GroupMethod)
         {
-            emit error(tr("No QFF classifier"));
-            return false;
+            DetectorResult ri(r);
+            allResults.insert(2.0 * groupFactor()
+                              * (double)GroupThreshold, ri);
         }
-        if (cvMat_Grey.empty())
+        else
         {
-            emit error(tr("No QFF image"));
-            return false;
+            allObjects << r;
         }
-        timer->start();
-
-        // Detected Faces
-        DETAIL("Start ClassifierCascade interface");
-        Info::flush();
-        QSize sz = minObjectSize();
-        QSize max = maxObjectSize();
-        std::vector<cv::Rect> cvRects;
+    }
+    DETAIL("%1 objects returned", allObjects.size());
+    msecProcess = timer->elapsed();
+    delete timer;
+    timer = 0;
+    if (GroupInternalAllObjects == GroupMethod)
+    {
+        DETAIL("Detecting additional raw detectors");
         cvCascade_.detectMultiScale(cvMat_Grey,
                                     cvRects,
                                     scaleFactor(),
-                                    GroupThreshold,
+                                    1,
                                     flags(),
-                                    //    cvSize(SIZE_MULT * sz.width()   / SIZE_DIV,
-                                    //         SIZE_MULT * sz.height()  / SIZE_DIV),
                                     cvSize(sz.width(),  sz.height()),
                                     cvSize(max.width(), max.height()));
-        DETAIL("%1 raw objects detected", unsigned(cvRects.size()));
-
-        QRect imageRect = imgOrig.rect();
         for (unsigned i = 0; i < cvRects.size(); i++)
         {
             cv::Rect cvr = cvRects[i];
             QRect r(QPoint(origScale * cvr.x, origScale * cvr.y),
                     QSize(origScale * cvr.width, origScale * cvr.height));
-            if ( ! r.isValid()) // TODO: Why 0xBAADF00D?
-                continue;
-            if ( ! imageRect.contains(r))
-                continue;
-
-            if (GroupInternal == GroupMethod
-                    || GroupInternalAllObjects == GroupMethod)
-            {
-                DetectorResult ri(r);
-                allResults.insert(2.0 * groupFactor()
-                                  * (double)GroupThreshold, ri);
-            }
-            else
-            {
+            if (r.isValid()) // TODO: Why 0xBAADF00D?
                 allObjects << r;
-            }
         }
-        DETAIL("%1 objects returned", allObjects.size());
-        msecProcess = timer->elapsed();
-        delete timer;
-        timer = 0;
-        if (GroupInternalAllObjects == GroupMethod)
-        {
-            DETAIL("Detecting additional raw detectors");
-            cvCascade_.detectMultiScale(cvMat_Grey,
-                                        cvRects,
-                                        scaleFactor(),
-                                        1,
-                                        flags(),
-                                        cvSize(sz.width(),  sz.height()),
-                                        //cvSize(SIZE_MULT * sz.width()   / SIZE_DIV,
-                                        //     SIZE_MULT * sz.height()  / SIZE_DIV),
-                                        cvSize(max.width(), max.height()));
-            for (unsigned i = 0; i < cvRects.size(); i++)
-            {
-                cv::Rect cvr = cvRects[i];
-                QRect r(QPoint(origScale * cvr.x, origScale * cvr.y),
-                        QSize(origScale * cvr.width, origScale * cvr.height));
-                if (r.isValid()) // TODO: Why 0xBAADF00D?
-                    allObjects << r;
-            }
-        }
+    }
 
     return true;
 } // process()
-#endif // not USE_OCV2
 
 QSize HaarDetector::sizeFromXml(const QString & fileName)
 {
@@ -825,8 +510,6 @@ QString HaarDetector::methodString(void) const
         rtn += tr(";OverlapThreshold=%1").arg(OverlapThreshold);
     if (NeighborThreshold)
         rtn += tr(";NeighborThreshold=%1").arg(NeighborThreshold);
-    //	if (AreaThreshold)
-    //		rtn += tr(";AreaThreshold=%1").arg(AreaThreshold);
     if (Adjust)
         rtn += tr(";Adjust=%1").arg(Adjust);
 
@@ -844,7 +527,7 @@ QString HaarDetector::performanceString(void) const
             .arg(ClassName);
 } // performanceString()
 
-QImage HaarDetector::detectImage(void) const
+QImage HaarDetector::detectImage(void)
 {
     QList<QRect> allDetectors = allObjects;
     QList<DetectorResult> allGrouped;
@@ -926,12 +609,72 @@ QList<QColor> HaarDetector::markColorList(void) const
     if (MarkColors.isEmpty())
 #ifdef USE_OCV4
         resultList << QColor(0xFF00F0) << QColor(0xF000FF);
-#else
-        resultList << QColor(QRgb(240,0,255))
-                   << QColor(QRgb(255,0,240));
 #endif
     else
         foreach (QString s, markColors().simplified().split(' '))
             resultList << QColor(s);
     return resultList;
 } // markColorList()
+
+void HaarDetector::handleResults(bool returnAll)
+{
+    // Deal with constraint properties
+    DETAIL("Handle Detector Results");
+    results.clear();
+    int k = 0;
+    QMultiMap<double, DetectorResult>::const_iterator citr1;
+    citr1 = allResults.end();
+    while (citr1 != allResults.begin())
+    {
+        --citr1;
+        int scaled = scaleScore(citr1.key());
+        DetectorResult ri = citr1.value();
+        if (MinQuality && scaled < MinQuality && ! returnAll)
+            break;
+        if (MaxResults && results.size() >= MaxResults && ! returnAll)
+            break;
+        if (ri.allRectangles().size() < 2)
+            continue;
+        if (Adjust)
+            ri.rect = doAdjust(ri.rect);
+        ri.k = ++k;
+        ri.sco = scaled;
+        results.insert(scaled, ri);
+    }
+    DETAIL("%1 results handled", results.size());
+} // handleResults()
+
+
+/**** Statics ****/
+QDomDocument HaarDetector::docDetectors;
+QDir HaarDetector::dirDetectors;
+
+VersionInfo HaarDetector::cvVersion(void)
+{
+    VersionInfo ver(CV_MAJOR_VERSION,
+                    CV_MINOR_VERSION,
+                    CV_SUBMINOR_VERSION,
+                    0,
+                    CV_VERSION,
+                    "Copyright (c) 2000-2008, Intel Corporation. "
+                    "(c) 2008-2010, Willow Garage Inc.",
+                    "Intel",
+                    "Computer Vision Library");
+    return ver;
+}
+
+Return HaarDetector::initialize(QFile * xmlFile)
+{
+    QString errMsg;
+    int errLine, errCol;
+
+    if ( ! xmlFile->open(QIODevice::ReadOnly))
+        return Return::qfileError(*xmlFile);
+    if ( ! docDetectors.setContent(xmlFile, &errMsg, &errLine, &errCol))
+        return Return(Return::ReturnXmlParse, xmlFile->fileName(), errMsg, errLine, errCol);
+
+    QFileInfo fi(xmlFile->fileName());
+    dirDetectors = fi.dir();
+
+    return Return();
+}

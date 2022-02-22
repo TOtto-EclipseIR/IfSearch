@@ -38,13 +38,14 @@ class DDTIMG_EXPORT FileWriter : public QObject
 public:
     enum Flag
     {
-        Cache		=  1,	// Manage cache size
-        FaceImage	=  2,	// Use FaceQuality/Format
-        XmlText		=  4,	// xml file extension
-        CaptureImage	=  8,	// Copy from cache BA data
-        Copy		= 16,	// Copy existing file
-        TempAndRename	= 32,
-        OtherImage      = 64,
+        $nullFlag           =  0,
+        Cache               =  1,	// Manage cache size
+        FaceImage           =  2,	// Use FaceQuality/Format
+        XmlText             =  4,	// xml file extension
+        CaptureImage        =  8,	// Copy from cache BA data
+        Copy                = 16,	// Copy existing file
+        TempAndRename       = 32,   // Create TempFile then Rename to Target
+        OtherImage          = 64,   // Unused TOTO: Remove
     };
     Q_DECLARE_FLAGS(Flags, Flag)
 

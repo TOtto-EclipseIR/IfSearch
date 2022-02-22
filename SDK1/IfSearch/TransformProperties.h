@@ -7,27 +7,38 @@ class QTransform;
 
 #include <QProperty.h>
 
-#define TRANSFORM_QPROPERTIES(TND) \
-        TND(qreal, Scale,   0.0) \
-        TND(qreal, Aspect,  0.0) \
-        TND(qreal, Rotate,  0.0) \
-        TND(QRectF, Crop,   QRectF()) \
-
 class TransformProperties : public QObject
 {
     Q_OBJECT
-    DECLARE_QPROPERTIES(TRANSFORM_QPROPERTIES);
 
 public:
     explicit TransformProperties(QObject *parent = 0);
+
+public:
     bool isNull(void) const;
     QTransform transform(void) const;
     int dimension(const QSizeF sz) const;
+    qreal getScale() const;
+    qreal getAspect() const;
+    qreal getRotate() const;
+    const QRectF &getCrop() const;
+
+public:
+    void setScale(qreal newScale);
+    void setAspect(qreal newAspect);
+    void setRotate(qreal newRotate);
+    void setCrop(const QRectF &newCrop);
 
 signals:
+    void ScaleChanged(const qreal newScale);
 
-public slots:
+private:
+    qreal mScale=0.0;
+    qreal mAspect=0.0;
+    qreal mRotate=0.0;
+    QRectF mCrop;
 
+    Q_PROPERTY(qreal getScale READ getScale WRITE setScale NOTIFY ScaleChanged)
 };
 
 #endif // TRANSFORMPROPERTIES_H

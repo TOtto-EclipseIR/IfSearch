@@ -6,7 +6,7 @@
 #include <Eyes.h>
 #include <Rectangle.h>
 
-
+#ifdef ENABLE_CLOTHES
 ClothesMatchProperties::ClothesMatchProperties(QObject *parent) :
     QObject(parent)
 {
@@ -81,3 +81,4 @@ CharacteristicColor ClothesMatchProperties::lowerCharacteristicColor(void) const
 {
     return CharacteristicColor(QColor(getLowerColor()));
 } // lowerCharacteristicColor()
+#endif

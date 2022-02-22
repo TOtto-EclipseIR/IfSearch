@@ -58,7 +58,7 @@ QImage EigenFace::normalize(const QImage & input,
     QImage outImage(outSize, newFormat);
     if (QImage::Format_Indexed8 == newFormat)
     {
-        outImage.setNumColors(256);
+        outImage.setColorCount(256);
         outImage.setColorTable(GreyImage::greyColorTable());
         outImage.fill(128);
     }
@@ -137,7 +137,7 @@ QImage EigenFace::normalize(const GreyImage & gi,
     QImage outImage(outSize, newFormat);
     if (QImage::Format_Indexed8 == newFormat)
     {
-        outImage.setNumColors(256);
+        outImage.setColorCount(256);
         outImage.setColorTable(GreyImage::greyColorTable());
         outImage.fill(128);
     }

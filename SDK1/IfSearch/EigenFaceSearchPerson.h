@@ -19,19 +19,10 @@
 #include "EigenFaceSearchResult.h"
 #include "EigenFaceSearchTier.h"
 
-#define SEARCHPERSON_PROPERTIES(TND) \
-    TND(int,    Rank,        0) \
-    TND(int,    PersonKey,   0) \
-    TND(qreal,  Distance,    999.9) \
-    TND(int,    Confidence,  0) \
-    TND(EigenFaceSearchTier, Tier, EigenFaceSearchTier::Unknown) \
-    TND(int,    BestFaceKey, 0) \
-    TND(qreal,  BestDistance, 999.9) \
 
 
 class INDIEF_EXPORT EigenFaceSearchPerson
 {
-    DECLARE_PROPERTIES(SEARCHPERSON_PROPERTIES);
 public:
     EigenFaceSearchPerson(void);
     EigenFaceSearchPerson(const int personKey,
@@ -54,6 +45,17 @@ public:
 
 private:
     QList<EigenFaceSearchResult> result_list;
+
+public:
+    int     Rank        = 0;
+    int     PersonKey    = 0;
+    qreal   Distance     = 999.9;
+    int     Confidence =  0;
+    EigenFaceSearchTier Tier = EigenFaceSearchTier::Unknown;
+    int     BestFaceKey  = 0;
+    qreal   BestDistance  = 999.9;
+
+
 };
 
 #endif // EIGENFACESEARCHPERSON_H

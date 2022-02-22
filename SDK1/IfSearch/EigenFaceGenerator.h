@@ -43,8 +43,6 @@ class INDIEF_EXPORT EigenFaceGenerator : public QObject
     Q_PROPERTY(int MinConsistency READ minConsistency WRITE setMinConsistency)
     Q_PROPERTY(QString LeftDetector READ leftDetector WRITE setLeftDetector)
     Q_PROPERTY(QString RightDetector READ rightDetector WRITE setRightDetector)
-    Q_PROPERTY(unsigned LeftInterface READ leftInterface WRITE setLeftInterface)
-    Q_PROPERTY(unsigned RightInterface READ rightInterface WRITE setRightInterface)
 
 private:
     qreal Factor;
@@ -53,8 +51,6 @@ private:
     int MinConsistency;
     QString LeftDetector;
     QString RightDetector;
-    unsigned LeftInterface;
-    unsigned RightInterface;
 
 public:
     qreal factor(void) const { return Factor; }
@@ -63,21 +59,17 @@ public:
     int minConsistency(void) const { return MinConsistency; }
     QString leftDetector(void) const { return LeftDetector; }
     QString rightDetector(void) const { return RightDetector; }
-    unsigned leftInterface(void) const { return LeftInterface; }
-    unsigned rightInterface(void) const { return RightInterface; }
     void setFactor(qreal v) { Factor = v; }
     void setEyeScale(int v) { EyeScale = v; }
     void setRoiScale(int v) { RoiScale = v; }
     void setMinConsistency(int v) { MinConsistency = v; }
     void setLeftDetector(QString v) { LeftDetector = v; }
     void setRightDetector(QString v) { RightDetector = v; }
-    void setLeftInterface(unsigned v) { LeftInterface = v; }
-    void setRightInterface(unsigned v) { RightInterface = v; }
 
 public:
     EigenFaceGenerator(QObject * parent=0, EigenFaceData * data=0,
                        EigenFaceParameters * parms=0, int instance=0);
-    ~EigenFaceGenerator();
+    ~EigenFaceGenerator() {;}
     FrontalFaceDetector * setFrontalFaceDetector(void) { return ffd; }
     EyeDetector * leftEyeDetector(void) { return leyed; }
     EyeDetector * rightEyeDetector(void) { return reyed; }

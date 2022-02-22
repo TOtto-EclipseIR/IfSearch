@@ -25,7 +25,6 @@ qreal interpolate(const qreal positionOfUnknown,
 HeightGrid::HeightGrid(QObject *parent) :
     QObject(parent)
 {
-    DEFINE_QPROPERTIES_CTORS(HEIGHTGRID_QPROPERTIES)
     setObjectName("HeightGrid");
     clear();
 }
@@ -34,10 +33,10 @@ QImage HeightGrid::initializeGrid(void)
 {
     int value;
     QString err;
-    int gr = getGridRows();
-    int gc = getGridCols();
-    int un = getHeightUnits();
-    QString fn = getGridFile();
+    int gr = GridRows;
+    int gc = GridCols;
+    int un = HeightUnits;
+    QString fn = GridFile;
     QFile file(fn);
 
     if (fn.isEmpty())
@@ -62,10 +61,10 @@ QImage HeightGrid::initializeGrid(void)
             }
     }
 
-    QImage calibrationImage(getGridImage());
+    QImage calibrationImage(GridImage);
     if (err.isEmpty() && ! calibrationImage.isNull())
     {
-        QString gridEyePos(getGridEyes());
+        QString gridEyePos(GridEyes);
         set(Eyes(gridEyePos), calibrationImage.size(), 999);
         calibrationImage = gridImage(calibrationImage);
     }
@@ -95,7 +94,7 @@ bool HeightGrid::useEyes(const Eyes eyes) const
     return true;
 #else
     int ed = eyes.distance();
-    int te = getTargetEyePixels();
+    int te = TargetEyePixels();
     int et = 150;
     return ed > te * float(100.0 / et) && ed < te * et / 100;
 #endif
@@ -107,7 +106,7 @@ void HeightGrid::set(const Eyes eyeLocation, const QSize imageSize, const int co
     EyeLocation = eyeLocation;
     ImageSize = imageSize;
     Consistency = consistency;
-    if (consistency < getMinConsistency())
+    if (consistency < MinConsistency)
         return;
     if ( ! useEyes(eyeLocation))
         return;
@@ -117,8 +116,8 @@ void HeightGrid::set(const Eyes eyeLocation, const QSize imageSize, const int co
         return;
     }
 
-    QSize cellPixel(imageSize.width() / getGridCols(),
-                    imageSize.height() / getGridRows());
+    QSize cellPixel(imageSize.width() / GridCols,
+                    imageSize.height() / GridRows);
     QPoint headTop = eyeLocation.topOfHead(scale());
     QPoint cellIndex(headTop.x() / cellPixel.width(),
                      headTop.y() / cellPixel.height());
@@ -167,8 +166,8 @@ qreal HeightGrid::distance(void) const
 {
     if (HeightEstimate_mm)
     {
-        qreal dH = HeightEstimate_mm - getTargetHeight() * getHeightUnits();
-        qreal dE = EyeLocation.distance() - getTargetEyePixels();
+        qreal dH = HeightEstimate_mm - TargetHeight * HeightUnits;
+        qreal dE = EyeLocation.distance() - TargetEyePixels;
         qreal d  = sqrt(dH * dH) / 25.0 + sqrt(dE * dE);
         return d;
     }
@@ -185,14 +184,14 @@ int HeightGrid::confidence(void) const
 bool HeightGrid::isMatch(void) const
 {
     int c = confidence();
-    return c > getMinConfidence();
+    return c > MinConfidence;
 } // isMatch()
 
 QImage HeightGrid::gridImage(QImage image) const
 {
-    int gr = getGridRows();
-    int gc = getGridCols();
-    int un = getHeightUnits();
+    int gr = GridRows;
+    int gc = GridCols;
+    int un = HeightUnits;
     int ep = EyeLocation.distance();
 
     ImageMarker marker(&image);

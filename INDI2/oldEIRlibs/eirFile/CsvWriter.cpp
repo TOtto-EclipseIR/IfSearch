@@ -46,7 +46,7 @@ void CsvWriter::header(void)
                 s.prepend(g->at(id).csvEntryHeading(row));
             _textStream << s;
         }
-        _textStream << endl;
+        _textStream << Qt::endl;
     }
 }
 
@@ -61,7 +61,7 @@ void CsvWriter::writeLine(void)
             s.prepend(g->at(id).csvEntryString());
         _textStream << s;
     }
-    _textStream << endl;
+    _textStream << Qt::endl;
 }
 
 void CsvWriter::flush(void)

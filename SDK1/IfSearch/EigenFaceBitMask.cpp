@@ -57,7 +57,7 @@ QImage EigenFaceBitMask::toImage(QImage::Format Format) const
 		return QImage();
 	
 	QImage image(maskSize, QImage::Format_Indexed8);
-	image.setNumColors(2);
+    image.setColorCount(2);
 	image.setColor(0, qRgb( 64,  64,  64));
 	image.setColor(1, qRgb(192, 192, 192));
 	image.fill(0);
@@ -110,7 +110,7 @@ Return EigenFaceBitMask::read(const QDomElement & de)
 	{
 		for (int col = 0; col < width; ++col)
 		{
-			if ("+" == txtString.at(row * (width + 1) + col))
+            if (QChar('+') == txtString.at(row * (width + 1) + col))
 				data.setBit(x), ++nBits;
 			++x;
 		}

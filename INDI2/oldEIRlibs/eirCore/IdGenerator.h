@@ -12,23 +12,6 @@
 #include "BasicId.h"
 
 #define IDGENERATOR_VARIABLESET(TIVD) \
-    TIVD(QRect,             DetectRect,     QRect,      QRect()) \
-    TIVD(QLineF,            EyeLine,        QLineF,     QLineF()) \
-    TIVD(int,               Quality,        int,        0) \
-    TIVD(int,               Consistency,    int,        0) \
-    TIVD(int,               Confidence,     int,        0) \
-    TIVD(int,               Rank,           int,        0) \
-    TIVD(QChar,             Tier,           QChar,      QChar('?')) \
-    TIVD(int,               FrameNumber,    int,        0) \
-    TIVD(int,               BestQuality,    int,        0) \
-    TIVD(int,               FaceNumber,     int,        0) \
-    TIVD(MillisecondDelta,  FrameMsd,        qint64,     0) \
-    TIVD(MillisecondTime,   ModifiedMst,    qint64,     0) \
-    TIVD(BasicId,           FrameId,        QString,    QString()) \
-    TIVD(QString,           FileName,       QString,    QString()) \
-    TIVD(int,               FaceKey,        int,        0) \
-    TIVD(int,               PersonKey,      int,        0) \
-    TIVD(QString,           PersonId,       QString,    QString()) \
 
 class EIRCORESHARED_EXPORT IdGenerator : public VariableSet
 {
@@ -56,6 +39,25 @@ private:
     QMap<QString, QString> sortable_format_map;
     static QChar trigger;
     static QChar pathSub;
+public:
+    QRect             DetectRect;
+    QLineF            EyeLine;
+    int               Quality        ;
+    int               Consistency    ;
+    int               Confidence     ;
+    int               Rank           ;
+    QChar             Tier           =      QChar('?');
+    int               FrameNumber    ;
+    int               BestQuality    ;
+    int               FaceNumber     ;
+    MillisecondDelta  FrameMsd       =     0;
+    MillisecondTime   ModifiedMst    =     0;
+    BasicId           FrameId        ;
+    QString           FileName       ;
+    int               FaceKey        =        0;
+    int               PersonKey      =        0;
+    QString           PersonId           ;
+
 };
 
 #endif // IdGenerator_H

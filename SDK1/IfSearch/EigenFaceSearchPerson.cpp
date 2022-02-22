@@ -4,7 +4,6 @@
 
 EigenFaceSearchPerson::EigenFaceSearchPerson(void)
 {
-    DEFINE_PROPERTIES_CTORS(SEARCHPERSON_PROPERTIES);
 }
 
 EigenFaceSearchPerson::
@@ -16,7 +15,6 @@ EigenFaceSearchPerson::
                           const qreal distance,
                           const int confidence)
 {
-    DEFINE_PROPERTIES_CTORS(SEARCHPERSON_PROPERTIES);
     EigenFaceSearchResult efsr(personKey,
                                faceKey,
                                searchKey,
@@ -25,9 +23,9 @@ EigenFaceSearchPerson::
                                distance,
                                confidence);
     result_list.append(efsr);
-    setPersonKey(personKey);
-    setDistance(distance);
-    setConfidence(confidence);
+    PersonKey = personKey;
+    Distance = distance;
+    Confidence = confidence;
 }
 
 void EigenFaceSearchPerson::append(const EigenFaceSearchPerson & other)
@@ -54,7 +52,7 @@ int EigenFaceSearchPerson::size(void) const
 bool EigenFaceSearchPerson::contains(const int faceKey) const
 {
     foreach(EigenFaceSearchResult efsr, result_list)
-        if (faceKey == efsr.getFaceKey())
+        if (faceKey == efsr.FaceKey)
             return true;
     return false;
 }
@@ -67,15 +65,15 @@ bool EigenFaceSearchPerson::isEmpty(void) const
 void EigenFaceSearchPerson::setFirstRank(const int rank)
 {
     if ( ! result_list.isEmpty())
-        result_list[0].setRank(rank);
-    setRank(rank);
+        result_list[0].Rank = rank;
+    Rank = (rank);
 }
 
 int EigenFaceSearchPerson::bestFaceKey(void) const
 {
     return (result_list.isEmpty())
             ? -1
-            : result_list[0].getFaceKey();
+            : result_list[0].FaceKey;
 }
 
 QList<EigenFaceSearchResult> EigenFaceSearchPerson::results(void) const

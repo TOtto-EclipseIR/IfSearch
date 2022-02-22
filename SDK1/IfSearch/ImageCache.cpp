@@ -247,7 +247,7 @@ QString ImageCache::add(const QString & imageId, const QImage & Image, const qre
     ImageCacheEntry * ice = allocICE(imageId);
     //	ImageCacheEntry * ice = new ImageCacheEntry(imageId, this);
     ice->orig = Image;
-    ice->curBytes = Image.numBytes();
+    ice->curBytes = Image.sizeInBytes();
     curBytes += ice->curBytes;
     ice->score = Score;
     use(ice->imageId);
@@ -547,8 +547,8 @@ QImage ImageCache::getImage(const QString &imageId, QSize szDesired)
         }
 
         ice->info = ImageInfo(ice->orig);
-        ice->curBytes += ice->orig.numBytes();
-        curBytes +=  ice->orig.numBytes();
+        ice->curBytes += ice->orig.sizeInBytes();
+        curBytes +=  ice->orig.sizeInBytes();
     }
 
     if (szDesired.isEmpty())
@@ -647,7 +647,7 @@ QString ImageCache::grab(QByteArray * ba,
     ice->baFileData = *ba;
     ice->fileFormat = format;
     ice->orig = img;
-    ice->curBytes = ice->baFileData.size() + ice->orig.numBytes();
+    ice->curBytes = ice->baFileData.size() + ice->orig.sizeInBytes();
     curBytes += ice->curBytes;
     grabPending.append(ice->imageId);
     use(ice->imageId);
@@ -660,7 +660,7 @@ QString ImageCache::grab(const QByteArray & ba,
                          const QString & imageId,
                          const qint64 epochMsec)
 {
-    QImage img = QImage::fromData(ba, format.toAscii());
+    QImage img = QImage::fromData(ba, format.toLocal8Bit());
     if (img.isNull())
         return QString();
 
@@ -670,7 +670,7 @@ QString ImageCache::grab(const QByteArray & ba,
     ice->baFileData = ba;
     ice->fileFormat = format;
     ice->orig = img;
-    ice->curBytes = ice->baFileData.size() + ice->orig.numBytes();
+    ice->curBytes = ice->baFileData.size() + ice->orig.sizeInBytes();
     curBytes += ice->curBytes;
     grabPending.append(ice->imageId);
     use(ice->imageId);
@@ -712,7 +712,7 @@ QString ImageCache::grab(QFile * file, QString imageId)
 
     if (err.isEmpty())
     {
-        ice->curBytes = ice->baFileData.size() + ice->orig.numBytes();
+        ice->curBytes = ice->baFileData.size() + ice->orig.sizeInBytes();
         curBytes += ice->curBytes;
         grabPending.append(ice->imageId);
     }
@@ -830,7 +830,7 @@ bool ImageCache::crop(const QString & imageId, const QPoint center, const QSize 
     QImage cropped = ice->orig.copy(rect);
     ice->orig = qIsNull(scale) ? cropped : cropped.scaled(size * scale, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
-    ice->curBytes = ice->orig.numBytes();
+    ice->curBytes = ice->orig.sizeInBytes();
     curBytes += ice->curBytes;
 
     return true;

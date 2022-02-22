@@ -1,6 +1,7 @@
 #include "ClothesMatcher.h"
 #include "ClothesMatchProperties.h"
 
+#ifdef ENABLE_CLOTHES
 ClothesMatcher::ClothesMatcher(ClothesMatchProperties * parent) :
     QObject(parent),
     props_(parent)
@@ -153,3 +154,4 @@ void ClothesMatcher::calculate(void)
             lowerConfidence_ = qBound(1, qRound(1000.0 / (3.0 * distance + 1.0)), 999);
     }
 }
+#endif

@@ -182,7 +182,7 @@ EigenFaceSearchResultList EigenFaceSearcher::
 {
     QMultiMap<qreal, EigenFaceSearchPerson> distanceMap;
     foreach(EigenFaceSearchPerson efsp, distanceList)
-        distanceMap.insert(efsp.getDistance(), efsp);
+        distanceMap.insert(efsp.Distance, efsp);
 
     EigenFaceSearchResultList rankedList;
     int rank = 0;
@@ -190,8 +190,8 @@ EigenFaceSearchResultList EigenFaceSearcher::
     {
         efsp.setFirstRank(++rank);
         rankedList << efsp;
-        DETAIL("PK=%1 rank=%2 distance=%3", efsp.getPersonKey(),
-               efsp.getRank(), efsp.getDistance());
+        DETAIL("PK=%1 rank=%2 distance=%3", efsp.PersonKey,
+               efsp.Rank, efsp.Distance);
         if (efsp.size() >= maxFaces)
             break;
     }
@@ -206,7 +206,7 @@ EigenFaceSearchResultList EigenFaceSearcher::
     QMultiHash<int, EigenFaceSearchPerson> personHash;
     foreach(EigenFaceSearchPerson efsp, rankedList)
     {
-        int personKey = efsp.getPersonKey();
+        int personKey = efsp.PersonKey;
         if (personKey && personHash.contains(personKey))
         {
             EigenFaceSearchPerson hashPerson = personHash.value(personKey);
@@ -221,7 +221,7 @@ EigenFaceSearchResultList EigenFaceSearcher::
     foreach(EigenFaceSearchPerson efsp, personHash.values())
     {
         DETAIL("adding PK=%1 distance=%2",
-               efsp.getPersonKey(), efsp.getDistance());
+               efsp.PersonKey, efsp.Distance);
         personList << efsp;
     }
 
@@ -240,11 +240,11 @@ EigenFaceSearchResultList EigenFaceSearcher::
 
     foreach (EigenFaceSearchPerson efsp, personList)
     {
-        int personKey = efsp.getPersonKey();
+        int personKey = efsp.PersonKey;
         if ( ! personKeysUsed.contains(personKey))
         {
             DETAIL("Adding PK=%1 rank=%2 dist=%3",
-                   personKey, efsp.getRank(), efsp.getDistance());
+                   personKey, efsp.Rank, efsp.Distance);
             combinedList.append(efsp);
             personKeysUsed.insert(personKey);
         }
@@ -270,16 +270,16 @@ EigenFaceSearchResultList EigenFaceSearcher::
         qreal personRank = 0.0;
         foreach(EigenFaceSearchResult efsr, personResults)
         {
-            int searchKey = efsr.getSearchKey();
+            int searchKey = efsr.SearchKey;
             if ( ! searchKeySet.contains(searchKey))
             {
                 searchKeySet.insert(searchKey);
-                distance *= qMin(1.0, efsr.getDistance()
+                distance *= qMin(1.0, efsr.Distance
                                           * (1.0 + (0.2 * personRank++)));
                 efsp.append(efsr);
                 DETAIL("Append FK=%1 SK=%4 distance=%2 net=%3",
-                       efsr.getFaceKey(), efsr.getDistance(),
-                       distance, efsr.getSearchKey());
+                       efsr.FaceKey, efsr.Distance,
+                       distance, efsr.SearchKey);
             }
             if (efsp.size() >= maxPersonFaces)
                 break;
@@ -287,9 +287,9 @@ EigenFaceSearchResultList EigenFaceSearcher::
         int confidence = EigenFaceSearchSettings::confidence(distance);
         if (confidence >= minConfidence)
         {
-            DETAIL("Insert PK=%1", efsp.getPersonKey());
-            efsp.setDistance(distance);
-            efsp.setConfidence(confidence);
+            DETAIL("Insert PK=%1", efsp.PersonKey);
+            efsp.Distance = (distance);
+            efsp.Confidence = (confidence);
             combinedList << efsp;
         }
     }
@@ -374,12 +374,12 @@ EigenFaceSearchResultList EigenFaceSearcher::
 
         QList<EigenFaceSearchResult> efsrs = efsp.results();
         EigenFaceSearchResult bestResult = efsrs.takeFirst();
-        qreal distance = bestResult.getDistance();
+        qreal distance = bestResult.Distance;
         DETAIL("PersonKey=%2, nResults=%1, first distance=%3",
-               nResults, efsp.getPersonKey(), distance);
+               nResults, efsp.PersonKey, distance);
 
         QSet<int> usedFaceKeys;
-        usedFaceKeys.insert(bestResult.getFaceKey());
+        usedFaceKeys.insert(bestResult.FaceKey);
         QList<EigenFaceSearchResult> usedResults;
         usedResults << bestResult;
         efsp.setResults(usedResults);
@@ -393,10 +393,10 @@ EigenFaceSearchResultList EigenFaceSearcher::
                        efsp.size(), nResults);
                 continue;
             }
-            int resultFaceKey = efsr.getFaceKey();
+            int resultFaceKey = efsr.FaceKey;
 
-            qreal resultRank = efsr.getRank();
-            qreal resultDistance = efsr.getDistance();
+            qreal resultRank = efsr.Rank;
+            qreal resultDistance = efsr.Distance;
             qreal c = 1.0;
             if (topRank < 0)
                 ; // leave at one
@@ -417,10 +417,10 @@ EigenFaceSearchResultList EigenFaceSearcher::
         DETAIL("confidence=%1 minConfidence=%2", confidence, minConfidence);
         if (confidence > minConfidence)
         {
-            efsp.setBestDistance(bestResult.getDistance());
-            efsp.setBestFaceKey(bestResult.getFaceKey());
-            efsp.setConfidence(confidence);
-            efsp.setDistance(distance);
+            efsp.BestDistance = (bestResult.Distance);
+            efsp.BestFaceKey = (bestResult.FaceKey);
+            efsp.Confidence = (confidence);
+            efsp.Distance = (distance);
             combinedList << efsp;
         }
     }
@@ -437,17 +437,17 @@ EigenFaceSearchResultList EigenFaceSearcher::
 
     QMultiMap<qreal, EigenFaceSearchPerson> distanceMap;
     foreach(EigenFaceSearchPerson efsp, combinedList)
-        distanceMap.insert(efsp.getDistance(), efsp);
+        distanceMap.insert(efsp.Distance, efsp);
 
     int rank = 0;
     EigenFaceSearchResultList sortedResults;
     foreach(EigenFaceSearchPerson efsp, distanceMap.values())
     {
-        efsp.setRank(++rank);
+        efsp.Rank = (++rank);
         sortedResults << efsp;
         DETAIL("Sort rank=%1 conf=%2 dist=%3 PK=%4",
-               rank, efsp.getConfidence(),
-               efsp.getDistance(), efsp.getPersonKey());
+               rank, efsp.Confidence,
+               efsp.Distance, efsp.PersonKey);
         if (maxResults && rank >= maxResults)
             break;
     }
@@ -465,32 +465,32 @@ EigenFaceSearchResultList EigenFaceSearcher::
 
     foreach(EigenFaceSearchPerson efsp, sortedList)
     {
-        int confidence = efsp.getConfidence();
+        int confidence = efsp.Confidence;
         EigenFaceSearchTier tier = settings->tierForConfidence(confidence);
-        if (1 == efsp.getRank() && EigenFaceSearchTier::Strong == tier)
+        if (1 == efsp.Rank && EigenFaceSearchTier::Strong == tier)
         {
             if (1 == sortedList.size())
                 tier = EigenFaceSearchTier::Best;
             else
             {
-                int secondConfidence = sortedList.at(1).getConfidence();
+                int secondConfidence = sortedList.at(1).Confidence;
                 EigenFaceSearchTier secondTier
                         = settings->tierForConfidence(secondConfidence);
                 if (secondTier < EigenFaceSearchTier::Strong)
                     tier = EigenFaceSearchTier::Best;
             }
         }
-        else if (strongPersonCount <= efsp.getRank()
+        else if (strongPersonCount <= efsp.Rank
                  && EigenFaceSearchTier::Strong == tier)
         {
             tieredList.setEachTier(EigenFaceSearchTier::Possible);
             DETAIL("Override each previous tier to Possible");
             tier = EigenFaceSearchTier::Possible;
         }
-        efsp.setTier(tier);
+        efsp.Tier = (tier);
         DETAIL("Sort tier=%1 conf=%2 dist=%3 PK=%4",
-               efsp.getTier().name(), efsp.getConfidence(),
-               efsp.getDistance(), efsp.getPersonKey());
+               efsp.Tier.name(), efsp.Confidence,
+               efsp.Distance, efsp.PersonKey);
         tieredList << efsp;
     }
 

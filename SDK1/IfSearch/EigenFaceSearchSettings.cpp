@@ -11,14 +11,93 @@
 #include "EigenFaceSearchTier.h"
 #include "InfoMacros.h"
 
-EigenFaceSearchSettings::EigenFaceSearchSettings(const Mode mode,
-                         QObject * parent=0)
+EigenFaceSearchSettings::EigenFaceSearchSettings(const Mode mode, QObject * parent)
     : QObject(parent)
 {
-    DEFINE_QPROPERTIES_CTORS(EFSEARCHSETTINGS_QPROPERTIES);
     setObjectName("EigenFaceMatcherSettings");
     setDefaults(mode);
 }
+
+void EigenFaceSearchSettings::setMaxResults(qreal newMaxResults)
+{
+    MaxResults = newMaxResults;
+}
+
+void EigenFaceSearchSettings::setMaxFaces(qreal newMaxFaces)
+{
+    MaxFaces = newMaxFaces;
+}
+
+qreal EigenFaceSearchSettings::getMaxDistance() const
+{
+    return MaxDistance;
+}
+
+void EigenFaceSearchSettings::setMaxDistance(qreal newMaxDistance)
+{
+    MaxDistance = newMaxDistance;
+}
+
+qreal EigenFaceSearchSettings::getMinDistance() const
+{
+    return MinDistance;
+}
+
+void EigenFaceSearchSettings::setMinDistance(qreal newMinDistance)
+{
+    MinDistance = newMinDistance;
+}
+
+int EigenFaceSearchSettings::getStrongConfidence() const
+{
+    return StrongConfidence;
+}
+
+void EigenFaceSearchSettings::setStrongConfidence(int newStrongConfidence)
+{
+    StrongConfidence = newStrongConfidence;
+}
+
+int EigenFaceSearchSettings::getStrongPersonCount() const
+{
+    return StrongPersonCount;
+}
+
+void EigenFaceSearchSettings::setStrongPersonCount(int newStrongPersonCount)
+{
+    StrongPersonCount = newStrongPersonCount;
+}
+
+int EigenFaceSearchSettings::getPossibleConfidence() const
+{
+    return PossibleConfidence;
+}
+
+void EigenFaceSearchSettings::setPossibleConfidence(int newPossibleConfidence)
+{
+    PossibleConfidence = newPossibleConfidence;
+}
+
+int EigenFaceSearchSettings::getMinConfidence() const
+{
+    return MinConfidence;
+}
+
+void EigenFaceSearchSettings::setMinConfidence(int newMinConfidence)
+{
+    MinConfidence = newMinConfidence;
+}
+
+int EigenFaceSearchSettings::getTierMethod() const
+{
+    return TierMethod;
+}
+
+void EigenFaceSearchSettings::setTierMethod(int newTierMethod)
+{
+    TierMethod = newTierMethod;
+}
+
 
 void EigenFaceSearchSettings::setDefaults(const Mode mode)
 {
@@ -142,13 +221,23 @@ EigenFaceSearchSettings::tiersForConfidence(
         const QList<int> & confidenceList,
         const bool needSort) const
 {
-    int n = confidenceList.size();
+    const int n = confidenceList.size();
     QVector<EigenFaceSearchTier> result(n);
 
     /* Sort Descending */
-    QList<int> sortedList(confidenceList);
+    QList<int> sortedList;
     if (needSort)
-        qSort(sortedList.begin(), sortedList.end(), qGreater<int>());
+    {
+        int ix = 0;
+        QMultiMap<int, int> sortMap;
+        for (int conf : confidenceList)
+            sortMap.insert(conf, ix++);
+        sortedList = sortMap.keys();
+    }
+    else
+    {
+        sortedList = confidenceList;
+    }
 
     /* Iterate checking confidences */
     EigenFaceSearchTier currentTier = EigenFaceSearchTier::Strong;
@@ -219,4 +308,35 @@ int EigenFaceSearchSettings::confidence(qreal distance)
 qreal EigenFaceSearchSettings::distance(int confidence)
 {
     return 1000.0 / qMax(0.1, (qreal)confidence) - 1.0;
+}
+
+bool EigenFaceSearchSettings::getPersonMode() const
+{
+    return PersonMode;
+}
+
+void EigenFaceSearchSettings::setPersonMode(bool newPersonMode)
+{
+    if (PersonMode == newPersonMode)
+        return;
+    PersonMode = newPersonMode;
+}
+
+void EigenFaceSearchSettings::setPersonMethod(int newPersonMethod)
+{
+    if (PersonMethod == newPersonMethod)
+        return;
+    PersonMethod = newPersonMethod;
+}
+
+int EigenFaceSearchSettings::getMaxPersonFaces() const
+{
+    return MaxPersonFaces;
+}
+
+void EigenFaceSearchSettings::setMaxPersonFaces(int newMaxPersonFaces)
+{
+    if (MaxPersonFaces == newMaxPersonFaces)
+        return;
+    MaxPersonFaces = newMaxPersonFaces;
 }

@@ -155,24 +155,24 @@ void IfSearch::searchOrVerify(void)
         foreach (EigenFaceSearchPerson res, resList)
         {
             ++rank;
-            QString personId = faceBase->personId(res.getPersonKey());
+            QString personId = faceBase->personId(res.PersonKey);
             searchResults += resultsDelimiter + tr("%1. %2 %5 %3 %4")
                              .arg(rank, 2)
-                             .arg(res.getConfidence(), 3)
-                             .arg(res.getPersonKey(), 8)
+                             .arg(res.Confidence, 3)
+                             .arg(res.PersonKey, 8)
                              .arg(personId)
-                             .arg(res.getTier().name(), 10);
+                             .arg(res.Tier.name(), 10);
             if (fwpSearch->isActive())
             {
                 QString dirName = tr("R%1M%2%4-%3/").arg(rank, 2, 10, QChar('0'))
-                                    .arg(res.getConfidence(), 3, 10, QChar('0'))
-                                    .arg(personId).arg(res.getTier().indicator());
+                                    .arg(res.Confidence, 3, 10, QChar('0'))
+                                    .arg(personId).arg(res.Tier.indicator());
                 foreach (EigenFaceSearchResult faceResult, res.results())
                 {
-                    QString enrolledFileName = faceBase->enrolledImageName(faceResult.getFaceKey());
-                    QString baseName = tr("R%1M%2-FK%3").arg(faceResult.getRank(), 2, 10, QChar('0'))
-                                        .arg(faceResult.getConfidence(), 3, 10, QChar('0'))
-                                        .arg(faceResult.getFaceKey(), 6, 10, QChar('0'));
+                    QString enrolledFileName = faceBase->enrolledImageName(faceResult.FaceKey);
+                    QString baseName = tr("R%1M%2-FK%3").arg(faceResult.Rank, 2, 10, QChar('0'))
+                                        .arg(faceResult.Confidence, 3, 10, QChar('0'))
+                                        .arg(faceResult.FaceKey, 6, 10, QChar('0'));
                     fwpSearch->write(QFile(enrolledFileName), dirName + baseName);
                 } // foreach(faceResult)
             }

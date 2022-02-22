@@ -1,18 +1,33 @@
 # -------------------------------------------------
 # Project created by QtCreator 2010-03-22T14:38:14
 # -------------------------------------------------
+
+QT *= widgets
+QT *= network
+QT *= xml
+
+TARGET = IfSearch
+CONFIG += console
+CONFIG -= app_bundle
+TEMPLATE = app
+
 QMAKE_CXXFLAGS += -fpermissive \
     -DQ_DECL_IMPORT= \
     -DQ_DECL_EXPORT=
 QMAKE_LFLAGS += --enable-stdcall-fixup -Wl,--enable-auto-import -Wl,--enable-runtime-pseudo-reloc
+DEFINES += IJM
+DEFINES *= ENABLE_WATCHDOG
+#DEFINES *= BUILD_NETCAM
+#DEFINES *= ENABLE_CLOTHES
+QMAKE_LFLAGS -= -Wl,--enable-auto-import
+QMAKE_LFLAGS -= -Wl,--enable-runtime-pseudo-reloc
+message("QMAKE_LFLAGS" = $$QMAKE_LFLAGS)
+
+include(../../common/OpenCV4.pri)
 
 INCLUDEPATH *= ../../INDI2/oldEIRlibs
 INCLUDEPATH *= ../../INDI2/INDIlibs
-
-#LIBS *= -lCrp32DLL -L"C:/CrypKey SDK/Build 7723/Lib/DLL"
-
-DEFINES += IJM
-DEFINES *= ENABLE_WATCHDOG
+INCLUDEPATH += .
 
 OUR_DEST1 = ../../common/<dir><ver>
 #!build_pass:message($$OUR_DEST1)
@@ -39,19 +54,7 @@ else {
 }
 !build_pass:message(DESTDIR = $$DESTDIR)
 
-INCLUDEPATH += .
 
-#LIBS *= -lFSBridge
-#LIBS *= -leirBase -leirTypes -leirCore -leirExe
-#LIBS *= -leirFrameSource -leirImage -leirFile -leirNetwork
-
-include(../../common/OpenCV4.pri)
-QT += network \
-    xml
-TARGET = IfSearch
-CONFIG += console
-CONFIG -= app_bundle
-TEMPLATE = app
 win32:RC_FILE = IfSearch.rc
 OTHER_FILES = ../../../IJM.pri \
     rebuild.bat \
@@ -71,6 +74,8 @@ OTHER_FILES = ../../../IJM.pri \
     ../../INDI2/common/HeightGridSample.jpg \
     ../../INDI2/common/HeightGrid.cdf
 SOURCES += main.cpp \
+    DetectorResult.cpp \
+    HaarDetector-group.cpp \
     InfoOutputSetting.cpp \
     Return.cpp \
     EigenFaceData.cpp \
@@ -80,7 +85,6 @@ SOURCES += main.cpp \
     InputHotdir.cpp \
     ImageCacheEntry.cpp \
     FileWriteProfile.cpp \
-    GroupObjects.cpp \
     FrontalFaceDetector.cpp \
     EyeDetector.cpp \
     EigenFaceVector.cpp \
@@ -184,8 +188,12 @@ SOURCES += main.cpp \
     IfSearchSimilarity.cpp \
     ../../INDI2/oldEIRlibs/eirExe/WatchDog.cpp
 HEADERS += IfSearch.h \
+    DetectorResult.h \
     EigenFaceSearchSettings.h \
     EigenFaceGenerator.h \
+    EyeDetector.h \
+    FrontalFaceDetector.h \
+    HaarDetector.h \
     INDIffd.h \
     Detector.h \
     InputHotdir.h \
@@ -288,51 +296,3 @@ HEADERS += IfSearch.h \
     EigenFaceSimilarityResultList.h \
     ../../INDI2/oldEIRlibs/eirBase/DataProperty.h \
     ../../INDI2/oldEIRlibs/eirExe/WatchDog.h
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

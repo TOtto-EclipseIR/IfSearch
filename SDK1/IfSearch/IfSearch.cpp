@@ -24,10 +24,8 @@
 #include <SkinMatchProperties.h>
 #include <SkinMatcher.h>
 
-#include "../FSBridge/FSDirectBridge.h"
-
 IfSearch::IfSearch(int argc, char *argv[])
-    : QApplication(argc, argv, false)
+    : QCoreApplication(argc, argv, false)
     , matchSettings(EigenFaceSearchSettings::CasualMatch, this)
     , searchSettings(EigenFaceSearchSettings::FormalSearch, this)
     , version(VER_MAJOR, VER_MINOR, VER_BRANCH,
@@ -48,8 +46,8 @@ IfSearch::IfSearch(int argc, char *argv[])
     eigenData = 0;
     eigenParms = 0;
     hotdir = 0;
-    enrollDir = 0;
-    searchDir = 0;
+//    enrollDir = 0;
+  //  searchDir = 0;
     authWatcher = 0;
     resolver = 0;
     heightGrid = 0;
@@ -91,11 +89,11 @@ IfSearch::IfSearch(int argc, char *argv[])
     optMarkEyes = new Setting(appSettings, tr("Output/MarkAllEyes", "config"), true, Settings::Volatile);
     optMarkAllEyeColor = new Setting(appSettings, tr("Output/MarkAllEyeColor", "config"), QColor(), Settings::Volatile);
     optMarkAllColor = new Setting(appSettings, tr("Output/MarkAllColor", "config"), QColor(), Settings::Volatile);
-    optMarkFaceColor= new Setting(appSettings, tr("Output/MarkFaceColor", "config"), Qt::yellow, Settings::Volatile);
+    optMarkFaceColor= new Setting(appSettings, tr("Output/MarkFaceColor", "config"), int(Qt::yellow), Settings::Volatile);
     optMarkEyeRoiColor= new Setting(appSettings, tr("Output/MarkEyeRoiColor", "config"), QColor(), Settings::Volatile);
-    optMarkBadFaceColor	= new Setting(appSettings, tr("Output/MarkBadFaceColor", "config"), Qt::green, Settings::Volatile);
-    optMarkNoEyesColor	= new Setting(appSettings, tr("Output/MarkNoEyesColor", "config"), Qt::blue, Settings::Volatile);
-    optMarkEyeColor	= new Setting(appSettings, tr("Output/MarkEyeColor", "config"), Qt::yellow, Settings::Volatile);
+    optMarkBadFaceColor	= new Setting(appSettings, tr("Output/MarkBadFaceColor", "config"), int(Qt::green), Settings::Volatile);
+    optMarkNoEyesColor	= new Setting(appSettings, tr("Output/MarkNoEyesColor", "config"), int(Qt::blue), Settings::Volatile);
+    optMarkEyeColor	= new Setting(appSettings, tr("Output/MarkEyeColor", "config"), int(Qt::yellow), Settings::Volatile);
     optMarkBackgroundColor	= new Setting(appSettings, tr("Output/MarkBackgroundColor", "config"), QColor(), Settings::Volatile);
     optMarkBackgroundTransparency = new Setting(appSettings, tr("Output/MarkBackgroundTransparency", "config"), 100, Settings::Volatile);
     optMarkOverCrop	= new Setting(appSettings, tr("Output/MarkOverCrop", "config"), 175, Settings::Volatile);
@@ -156,16 +154,16 @@ IfSearch::IfSearch(int argc, char *argv[])
     fwpXml          = writer->newProfile("Xml", FileWriter::XmlText);
     fwpImage        = writer->newProfile("Image");
     fwpRetrieve     = writer->newProfile("Retrieve", FileWriter::Copy, "Retrieve/OutputDir");
-    fwpRetrRecon    = writer->newProfile("Retrieve", 0, "Retrieve/ReconDir");
+    fwpRetrRecon    = writer->newProfile("Retrieve", FileWriter::$nullFlag, "Retrieve/ReconDir");
     fwpSearch       = writer->newProfile("Search", FileWriter::Copy, "Search/OutputDir");
-    fwpSimilarity   = writer->newProfile("Similarity", 0, "Search/SimilarityDir");
-    fwpDetect       = writer->newProfile("Detect", 0, "Detect/OutputDir");
-    fwpGenerate     = writer->newProfile("Generate", 0, "Generate/OutputDir");
-    fwpSkin         = writer->newProfile("Skin", 0, "Detect/SkinDir");
-    fwpCharcol      = writer->newProfile("Charcol", 0, "Detect/CharcolDir");
+    fwpSimilarity   = writer->newProfile("Similarity", FileWriter::$nullFlag, "Search/SimilarityDir");
+    fwpDetect       = writer->newProfile("Detect", FileWriter::$nullFlag, "Detect/OutputDir");
+    fwpGenerate     = writer->newProfile("Generate", FileWriter::$nullFlag, "Generate/OutputDir");
+    fwpSkin         = writer->newProfile("Skin", FileWriter::$nullFlag, "Detect/SkinDir");
+    fwpCharcol      = writer->newProfile("Charcol", FileWriter::$nullFlag, "Detect/CharcolDir");
     fwpResolveMarked= writer->newProfile("ResolveMarked", FileWriter::TempAndRename, "Resolve/MarkedDir");
-    fwpResolveFace  = writer->newProfile("ResolveFace", 0, "Resolve/FaceDir");
-    fwpNoFaceColor  = writer->newProfile("NoFaceColor", 0, "FaceColor/NoOutputDir");
+    fwpResolveFace  = writer->newProfile("ResolveFace", FileWriter::$nullFlag, "Resolve/FaceDir");
+    fwpNoFaceColor  = writer->newProfile("NoFaceColor", FileWriter::$nullFlag, "FaceColor/NoOutputDir");
 #ifdef ENABLE_AVGFACE
     fwpAvgFace      = writer->newProfile("AvgFace", FileWriter::FaceImage, "AvgFace/OutputDir");
     optAvgFaceEnable = new Setting(appSettings, tr("AvgFace/Enable", "config"), false);
@@ -174,9 +172,10 @@ IfSearch::IfSearch(int argc, char *argv[])
 
     skinDetector = new SkinDetector(SkinDetector::Simple);
     skinMatcher = new SkinMatcher;
+#ifdef ENABLE_CLOTHES
     clothesMatchProperties = new ClothesMatchProperties(this);
     clothesMatcher = new ClothesMatcher(clothesMatchProperties);
-
+#endif
 
     QTimer::singleShot(0, this, SLOT(init()));
 } // c'tor
@@ -246,9 +245,9 @@ Return IfSearch::writeMatches(const EigenFaceSearchResultList & resList)
     foreach (EigenFaceSearchPerson res, resList)
     {
         QString enrolledImageFileName = faceBase->enrolledImageName(res.bestFaceKey());
-        idGenerator.setRank(++rank);
-        idGenerator.setConfidence(res.getConfidence());
-        idGenerator.setTier(res.getTier().indicator());
+        idGenerator.Rank = (++rank);
+        idGenerator.Confidence = (res.Confidence);
+        idGenerator.Tier = (res.Tier.indicator());
         QString baseName = idGenerator.face("Match");
         RETURN(fwpMatch->write(QFile(enrolledImageFileName), baseName));
     } // foreach
@@ -288,14 +287,14 @@ Return IfSearch::writeOutputImage(QPair<QString,DetectorResult> face,
         {
             QImage thumbImage = enrolledNormImage.scaled(thumbSize, Qt::KeepAspectRatio);
             ImageMarker thumbMarker(&thumbImage);
-            QString id = faceBase->personId(res.getPersonKey());
+            QString id = faceBase->personId(res.PersonKey);
             if (id.isEmpty())
                 id = faceBase->faceId(res.bestFaceKey());
             thumbMarker.title(tr("M%1%3 %2")
-                              .arg(res.getConfidence())
+                              .arg(res.Confidence)
                               .arg(id)
-                              .arg(res.getTier().indicator()));
-            thumbMarker.score(res.getConfidence(), 4, res.getTier().color(),
+                              .arg(res.Tier.indicator()));
+            thumbMarker.score(res.Confidence, 4, res.Tier.color(),
                               Qt::white, Qt::black);
             thumbMarker.end();
             outputMarker.drawImage(QPoint(pos[i] % 4 * thumbSize.width(),

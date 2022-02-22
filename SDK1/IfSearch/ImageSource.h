@@ -62,7 +62,7 @@ public:
     QString start(void);
     QString stop(void);
     QString selectNetcam(QString Url, const QString & Format=QString());
-    bool isHttp(void) { return 0 != http; }
+    bool isHttp(void) { return 0 != mpHttp; }
     QString sourceName(void) const { return name; }
     static qint64 currentEpochMsec(void)
     { return QDateTime::currentMSecsSinceEpoch(); }
@@ -105,7 +105,7 @@ private:
     QString name;
     QTimer * timer;
 
-    QHttp * http;
+    QHttp * mpHttp=nullptr;
     QByteArray * array;
     QBuffer * buffer;
     QString imageFormat;

@@ -8,11 +8,14 @@
 #include <QCoreApplication>
 #include <QStringList>
 
-#include <Detector.h>
+#include <DetectorResult.h>
 #include <EigenFaceTemplate.h>
 #include <EigenFaceSimilarity.h>
 #include <EigenFaceStatus.h>
 #include <EigenFaceSearchSettings.h>
+#include <EyeDetector.h>
+#include <FrontalFaceDetector.h>
+#include <HaarDetector.h>
 #include <ImageCache.h>
 class QFileSystemWatcher;
 

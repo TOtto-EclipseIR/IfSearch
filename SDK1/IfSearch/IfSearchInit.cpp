@@ -4,6 +4,7 @@
 #include <QProcessEnvironment>
 #include <QTimer>
 
+#include <ClothesMatchProperties.h>
 #include <DDTcore.h>
 #include <Detector.h>
 #include <EigenFace.h>
@@ -29,7 +30,6 @@
 #include <HeightGrid.h>
 #include <SkinMatcher.h>
 #include <SkinMatchProperties.h>
-#include "../FSBridge/FSDirectBridge.h"
 #ifdef ENABLE_WATCHDOG
 #include <eirExe/WatchDog.h>
 #endif
@@ -91,8 +91,8 @@ void IfSearch::init(void)
     Info::add(infoSetting, InfoSeverity::Warning,
                                 InfoSeverity::Fatal);
     Info::start(QThread::NormalPriority);
-    PROGRESS("%3 %1 built %2", version.toString(),
-             version.dateTimeString(), version.getAppName());
+//    PROGRESS("%3 %1 built %2", version.toString(),
+  //           version.dateTimeString(), version.getAppName());
     INFO(version.getCopyright());
     INFO(appSettings->programName());
     DETAIL("Running ProcessId=%1", applicationPid());
@@ -124,7 +124,7 @@ void IfSearch::init(void)
         }
     }
 
-    PROGRESS("Running Qt Version %1 built %2", qVersion(), QLibraryInfo::buildDate());
+    PROGRESS("Running Qt Version %1", qVersion());
     detectorsXml     = appSettings->value("Detect/DetectorsXml", "../detectors/Detectors.xml").toString();
     eigenFaceDataDir = appSettings->value("Generate/DataDir", "../data/Face1").toString();
     faceBaseBaseDir  = appSettings->value("FaceBase/BaseDir", "../FaceBase").toString();
@@ -161,7 +161,7 @@ void IfSearch::start(void)
     QStringList qsl;
 
     /*--- Setup Clothes Matcher ---*/
-    appSettings->objectProperties(clothesMatchProperties, tr("Clothes", "config"), clothesMatchProperties->dynamicPropertyNames(), Settings::Volatile);
+//    appSettings->objectProperties(clothesMatchProperties, tr("Clothes", "config"), clothesMatchProperties->dynamicPropertyNames(), Settings::Volatile);
 
     /*--- Initialize Height Grid ---*/
     heightGrid = new HeightGrid(this);
@@ -178,7 +178,7 @@ void IfSearch::start(void)
         SkinMatchProperties * smp = new SkinMatchProperties(name, this);
         appSettings->objectProperties(smp, "FaceColor/" + name, DDTcore::propertyNames(smp), Settings::Volatile);
         FileWriteProfile * fwpOutput = writer->newProfile(name+"-Output", FileWriter::FaceImage, "FaceColor/"+name+"/OutputDir");
-        FileWriteProfile * fwpMarked = writer->newProfile(name+"-Marked", 0, "FaceColor/"+name+"/MarkedDir");
+        FileWriteProfile * fwpMarked = writer->newProfile(name+"-Marked", FileWriter::$nullFlag, "FaceColor/"+name+"/MarkedDir");
         // TODO: InputImageDir properties
         skinMatcher->add(name, smp);
         fwpsFaceColor.insert(name+"-Output", fwpOutput);
@@ -415,18 +415,19 @@ Return IfSearch::initEigenFace(void)
         return rtn;
 
     PROGRESS("Initializing INDIface Face Detector");
-    unsigned faceInterface = appSettings->value("Detect/Interface", 0).toUInt();
-    ffd = new FrontalFaceDetector(faceInterface, this); NULLPTR(ffd);
+//    unsigned faceInterface = appSettings->value("Detect/Interface", 0).toUInt();
+    ffd = new FrontalFaceDetector(this); NULLPTR(ffd);
     ffd->setObjectName("ffd");
     QString faceDetector = appSettings->value("Detect/FaceDetector",
                                               ffd->detectorsDefault())
                                                     .toString();
+#if 0
     VersionInfo cvVersion = ffd->cvVersion();
     PROGRESS("%1 %2 %3 built %4", cvVersion.getOrgName(),
              cvVersion.getAppName(), cvVersion.toString(),
              cvVersion.dateTimeString());
     INFO(cvVersion.getCopyright());
-
+#endif
     if (faceDetector.isEmpty())
     {
         WARNING("No face detector specified in Detect/FaceDetector");

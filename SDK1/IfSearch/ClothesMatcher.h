@@ -1,5 +1,4 @@
-#ifndef CLOTHESMATCHER_H
-#define CLOTHESMATCHER_H
+#pragma once
 
 #include <QObject>
 #include <QtGui/QImage>
@@ -8,6 +7,8 @@
 #include "CharacteristicColor.h"
 #include "ClothesMatchProperties.h"
 #include "AnyColor.h"
+
+#ifdef ENABLE_CLOTHES
 
 class  ClothesMatcher : public QObject
 {
@@ -64,4 +65,4 @@ private:
     CharacteristicColor lowerSecondary_;
 };
 
-#endif // CLOTHESMATCHER_H
+#endif

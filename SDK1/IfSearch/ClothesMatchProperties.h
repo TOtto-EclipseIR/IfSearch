@@ -1,7 +1,7 @@
-#ifndef CLOTHESMATCHPROPERTIES_H
-#define CLOTHESMATCHPROPERTIES_H
+#pragma once
 
 #include <QObject>
+#ifdef ENABLE_CLOTHES
 #include <QtGui/QColor>
 class QRect;
 
@@ -19,14 +19,17 @@ class CharacteristicColor;
         TND(int, UnderCrop, 0) \
         TND(int, UpperConfidence, 0) \
         TND(int, LowerConfidence, 0) \
-
+#endif
+#endif
 class ClothesMatchProperties : public QObject
 {
     Q_OBJECT
+#ifdef ENABLE_CLOTHES
     DECLARE_QPROPERTIES(CLOTHESMATCH_QPROPERTIES);
-
+#endif
 public:
-    explicit ClothesMatchProperties(QObject * parent=0);
+    explicit ClothesMatchProperties(QObject * parent=0) {;}
+#ifdef ENABLE_CLOTHES
     qreal shoulder(void) const;
     qreal waist(void) const;
     qreal width(void) const;
@@ -37,6 +40,7 @@ public:
     QRect lowerRect(const Eyes eyes) const;
     CharacteristicColor upperCharacteristicColor(void) const;
     CharacteristicColor lowerCharacteristicColor(void) const;
+#endif
 
 signals:
 
@@ -46,4 +50,5 @@ private:
 
 };
 
-#endif // CLOTHESMATCHPROPERTIES_H
+
+

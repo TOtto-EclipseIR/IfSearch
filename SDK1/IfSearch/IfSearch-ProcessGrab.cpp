@@ -83,11 +83,11 @@ void IfSearch::processGrab(void)
                                         "%i-%x%y%q%w%c%e%m").toString());
     DETAIL("FrameIdFormat=%1", idGenerator.frameFormat());
     DETAIL("FaceIdFormat=%1", idGenerator.faceFormat());
-    idGenerator.setFrameId(imageId);
-    idGenerator.setFrameMsd(streamBase_mst.delta(grabTime));
-    idGenerator.setModifiedMst(grabTime.toMSecsSinceEpoch());
-    idGenerator.setFrameNumber(1+FramesProcessed);
-    idGenerator.setFileName(imageCache.fileName(imageId));
+    idGenerator.FrameId = imageId;
+    idGenerator.FrameMsd = streamBase_mst.delta(grabTime);
+    idGenerator.ModifiedMst = grabTime.toMSecsSinceEpoch();
+    idGenerator.FrameNumber = 1+FramesProcessed;
+    idGenerator.FileName = imageCache.fileName(imageId);
 
     QImage imageRgb;
     imageCache.hold(imageId, ffd);
@@ -171,7 +171,7 @@ void IfSearch::processGrab(void)
     }
 
     if ( ! resultList.isEmpty())
-        idGenerator.setQuality(resultList.last().score());
+        idGenerator.Quality = resultList.last().score();
 
     if (fwpCharcol->isActive())
     {
@@ -189,7 +189,7 @@ void IfSearch::processGrab(void)
     }
 
     if ( ! resultList.isEmpty())
-        idGenerator.setBestQuality(resultList.first().score());
+        idGenerator.BestQuality = (resultList.first().score());
     if (fwpDetect->isActive() && detectEnabled)
         RETURN(fwpDetect->write(ffd->detectImage(), idGenerator.frame("Detect")))
 

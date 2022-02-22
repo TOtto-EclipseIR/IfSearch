@@ -1,16 +1,10 @@
-#include <Detector.h>
+#include <FrontalFaceDetector.h>
+
 #include <QQRect.h>
 
-
-
-FrontalFaceDetector::FrontalFaceDetector(const unsigned interface,
-                                         QObject * parent) :
-    HaarDetector("FaceFrontal",
-        1.0 / 3.0,
-        (interface < HaarDetector::nInterface) ? interface : 0,
-        parent)
+FrontalFaceDetector::FrontalFaceDetector(QObject * parent)
+    : HaarDetector("FaceFrontal", 1.0 / 3.0, parent)
 {
-    interface_ = interface_ ? interface_ : HaarDetector::CascadeClassifier;
 } // c'tor
 
 FrontalFaceDetector::~FrontalFaceDetector()

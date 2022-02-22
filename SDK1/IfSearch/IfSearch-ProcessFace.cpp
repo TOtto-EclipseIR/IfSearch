@@ -106,13 +106,13 @@ void IfSearch::processFace(void)
         return;
     }
 
-    idGenerator.setDetectRect(head);
-    idGenerator.setQuality(result.score());
-    idGenerator.setFaceNumber(1+FacesProcessed);
-    idGenerator.setEyeLine(QLineF());
-    idGenerator.setConsistency(0);
-    idGenerator.setRank(0);
-    idGenerator.setConfidence(0);
+    idGenerator.DetectRect = head;
+    idGenerator.Quality = result.score() ;
+    idGenerator.FaceNumber = 1+FacesProcessed;
+    idGenerator.EyeLine = QLineF() ;
+    idGenerator.Consistency = 0;
+    idGenerator.Rank = 0;
+    idGenerator.Confidence = 0;
     resolver->clearScores();
     resolver->setScore("Quality", result.score());
     int overCrop = optInputOverCrop->toInt();
@@ -144,8 +144,8 @@ void IfSearch::processFace(void)
             DETAIL("   Overall:   %1", eigenFace->msecGenerate());
         resolver->setScore("Consistency", eigenFace->consistency());
         eyeLine = eigenFace->adjustedEyes();
-        idGenerator.setConsistency(eigenFace->consistency());
-        idGenerator.setEyeLine(eyeLine);
+        idGenerator.Consistency = (eigenFace->consistency());
+        idGenerator.EyeLine = (eyeLine);
     }
     else
     {
@@ -405,6 +405,7 @@ void IfSearch::processFace(void)
             fwpBody->write(bodyImage, idGenerator.face("Body"));
         }
 
+#ifdef ENABLE_CLOTHES
         if (optClothesEnable->toBool())
         {
             clothesMatcher->setFace(grabImage, eyeLine.translated(crop.topLeft()));
@@ -440,7 +441,7 @@ void IfSearch::processFace(void)
             resolver->ignore("UpperClothes");
             resolver->ignore("LowerClothes");
         }
-
+#endif
         if (optHeightEnable->toBool())
         {
             NULLPTR(heightGrid);
@@ -485,7 +486,7 @@ void IfSearch::processFace(void)
                                            &matchSettings);
             ++numSearches;
             msecSearches += searchMst.delta();
-            idGenerator.setConfidence(eigenMatcher->bestConfidence());
+            idGenerator.Confidence = (eigenMatcher->bestConfidence());
             INFO("   Search: %1 msec against %2 faces, average %3",
                  (qint64)searchMst.delta(),
                  eigenMatcher->size(),
@@ -499,7 +500,7 @@ void IfSearch::processFace(void)
             }
             if (resList.isEmpty())
             {
-                bestResult.setTier(EigenFaceSearchTier::NoMatch);
+                bestResult.Tier = (EigenFaceSearchTier::NoMatch);
                 INFO("   No Results - Best Confidence = %1 (%2)",
                      eigenMatcher->bestConfidence(),
                      eigenMatcher->leastDistance());
@@ -510,7 +511,7 @@ void IfSearch::processFace(void)
             {
                 bestResult = resList.at(0);
                 INFO("   Best of %1 Results: %2 %3:%4", resList.size(),
-                     bestResult.getDistance(), bestResult.getPersonKey(),
+                     bestResult.Distance, bestResult.PersonKey,
                      bestResult.bestFaceKey());
                 if (fwpImage->isActive())
                     writeOutputImage(face, consistency, normImage, resList);
@@ -522,10 +523,10 @@ void IfSearch::processFace(void)
         } // MatchEnabled
         else
         {
-            bestResult.setTier(EigenFaceSearchTier::NoMatch);
-            idGenerator.setRank(0);
-            idGenerator.setConfidence(0);
-            idGenerator.setTier(EigenFaceSearchTier::NoMatch);
+            bestResult.Tier = EigenFaceSearchTier::NoMatch;
+            idGenerator.Rank = 0;
+            idGenerator.Confidence = 0;
+            idGenerator.Tier = QChar(EigenFaceSearchTier::NoMatch);
             QString faceId = idGenerator.face("Face");
             RETURN(fwpFace->write(normImage, faceId, docTemplate));
             RETURN(fwpFaceCache->write(normImage, faceId, docTemplate));
@@ -533,17 +534,17 @@ void IfSearch::processFace(void)
 
         if ( ! bestResult.isEmpty())
         {
-            idGenerator.setRank(1);
-            idGenerator.setConfidence(bestResult.getConfidence());
-            idGenerator.setTier(bestResult.getTier().indicator());
+            idGenerator.Rank = 1;
+            idGenerator.Confidence = bestResult.Confidence;
+            idGenerator.Tier = bestResult.Tier.indicator();
             QString matchId = idGenerator.face("Match");
             if (optAppendPersonId->toBool())
                 matchId += QString("=M%1%3-%2")
-                                .arg(bestResult.getConfidence(), 3)
-                                .arg(bestResult.getPersonKey()
-                                     ? faceBase->personId(bestResult.getPersonKey())
+                                .arg(bestResult.Confidence, 3)
+                                .arg(bestResult.PersonKey
+                                     ? faceBase->personId(bestResult.PersonKey)
                                      : faceBase->faceId(bestResult.bestFaceKey()))
-                                .arg(bestResult.getTier().indicator());
+                                .arg(bestResult.Tier.indicator());
             RETURN(fwpFace->write(normImage, matchId, docTemplate));
             RETURN(fwpFaceCache->write(normImage, matchId, docTemplate));
         }
@@ -551,7 +552,7 @@ void IfSearch::processFace(void)
         if ( ! markedImage.isNull())
         {
             ImageMarker marker(&markedImage);
-            QColor faceColor = bestResult.getTier().color();
+            QColor faceColor = bestResult.Tier.color();
             QColor eyeColor = optMarkEyeColor->value<QColor>();
             if (faceColor.isValid())
             {
@@ -579,6 +580,7 @@ void IfSearch::processFace(void)
                 marker.rect(bodyRect, bodyColor, 2);
                 isMarked = true;
             }
+#ifdef ENABLE_CLOTHES
             if (optMarkClothes->toBool())
             {
                 marker.drawImage(clothesMatcher->upperRect(), clothesMatcher->upperImage());
@@ -587,6 +589,7 @@ void IfSearch::processFace(void)
                 marker.title(clothesMatcher->lowerRect(), clothesMatcher->lowerColorNames());
                 isMarked = true;
             }
+#endif
             if (eyeColor.isValid())
             {
                 marker.eyes(eyeLine.translated(crop.topLeft()), eyeColor, 3);

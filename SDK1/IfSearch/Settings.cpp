@@ -12,7 +12,7 @@
 #include <QTimer>
 
 
-Settings::Settings(QObject * parent = 0)
+Settings::Settings(QObject * parent)
     : QSettings(parent)
     , tree(0)
     , scanner(0)
@@ -220,7 +220,7 @@ void Settings::objectProperty(QObject * Object, const QString & BaseKey, const Q
 void Settings::objectProperty(const QString & Key, QObject * Object, const QString & PropertyName, Flags F)
 {
     SettingProperty * child = new SettingProperty(this, Object, Key, PropertyName, F);
-    properties.insert(Key.toLower(), child);
+    mKeyPropertyMap.insert(Key.toLower(), child);
     QVariant def = Object->property(qPrintable(PropertyName));
     QVariant var = value(Key, def);
     child->value = var;
@@ -253,6 +253,26 @@ void Settings::destruct(Setting * child)
 
 void Settings::objectDestroyed(QObject * Object)
 {
+#ifdef USE_OCV4
+    QMultiMap<QString, SettingProperty *>::Iterator it = mKeyPropertyMap.begin();
+    while (it != mKeyPropertyMap.end())
+    {
+        SettingProperty * pChildProperty = it.value();
+        if (Object == pChildProperty->object)
+        {
+            const int tFlags = pChildProperty->flags;
+            if (WriteBack && ! (tFlags & ReadOnly) && (tFlags & Dirty))
+            {
+                const char * pszName = qPrintable(pChildProperty->propertyName);
+                const QVariant tVari = pChildProperty->object->property(pszName);
+                setValue(pChildProperty->key, tVari.toString());
+            }
+            delete pChildProperty;
+            mKeyPropertyMap.remove(it.key());
+            ++it;
+        }
+    }
+#else
     QMutableMapIterator<QString, SettingProperty *> it(properties);
     while (it.hasNext())
     {
@@ -271,6 +291,7 @@ void Settings::objectDestroyed(QObject * Object)
             it.remove();
         }
     }
+#endif
 } // objectDestroyed()
 
 void Settings::setTreeWidget(QTreeWidget * wgt)
@@ -289,7 +310,7 @@ void Settings::setTreeWidget(QTreeWidget * wgt)
 
     foreach(Setting * var, vars)
         addToTree(var);
-    foreach(SettingProperty * prop, properties)
+    foreach(SettingProperty * prop, mKeyPropertyMap)
         addToTree(prop);
 
     connect(tree, SIGNAL(itemChanged(QTreeWidgetItem*,int)),
@@ -318,7 +339,7 @@ void Settings::itemChanged(QTreeWidgetItem * item, int column)
         return;
     }
 
-    foreach(SettingProperty * prop, properties)
+    foreach(SettingProperty * prop, mKeyPropertyMap)
     {
         if (prop->item && prop->item->item == item)
         {
@@ -328,7 +349,7 @@ void Settings::itemChanged(QTreeWidgetItem * item, int column)
     }
     if ( ! key.isEmpty())
     {
-        foreach(SettingProperty * prop, properties)
+        foreach(SettingProperty * prop, mKeyPropertyMap)
             if (prop->key == key)
                 prop->setValue(item->data(1, 0));
     }
@@ -345,9 +366,9 @@ QVariant Settings::valueOf(const QString & key) const
         Setting * var = vars[mapKey];
         rtn = *(QVariant *)var;
     }
-    else if (properties.contains(mapKey))
+    else if (mKeyPropertyMap.contains(mapKey))
     {
-        SettingProperty * prop = properties.value(mapKey);
+        SettingProperty * prop = mKeyPropertyMap.value(mapKey);
         rtn = prop->value;
     }
     else if (opts.contains(mapKey))
@@ -371,7 +392,7 @@ QVariant Settings::value(const QString & key, const QVariant defaultValue) const
     return result;
 } // value() override
 
-void Settings::setValue(const QString & key, const QVariant newValue) const
+void Settings::setValue(const QString & key, const QVariant newValue)
 {
     if (vars.contains(key))
     {
@@ -379,9 +400,9 @@ void Settings::setValue(const QString & key, const QVariant newValue) const
         //var->setValue(newValue);
         *(QVariant *)var = newValue;
     }
-    else if (properties.contains(key))
+    else if (mKeyPropertyMap.contains(key))
     {
-        SettingProperty * prop = properties.value(key);
+        SettingProperty * prop = mKeyPropertyMap.value(key);
         //prop->setValue(newValue);
         *(QVariant *)prop = newValue;
     }
@@ -423,7 +444,7 @@ void Settings::startScanner(void)
 
 void Settings::changeProperty(QString key, QVariant var)
 {
-    QList<SettingProperty *> props = properties.values(key.toLower());
+    QList<SettingProperty *> props = mKeyPropertyMap.values(key.toLower());
     foreach (SettingProperty * prop, props)
         prop->setValue(var);
 } // changeProperty() SLOT
@@ -450,7 +471,7 @@ void Settings::setAdvancedMode(bool b)
         if (var->item && var->item->item)
             var->item->item->setHidden( ! AdvancedMode && (var->flags & Advanced));
     }
-    foreach(SettingProperty * prop, properties)
+    foreach(SettingProperty * prop, mKeyPropertyMap)
     {
         if (prop->item && prop->item->item)
             prop->item->item->setHidden( ! AdvancedMode && (prop->flags & Advanced));
@@ -474,15 +495,15 @@ void Settings::dump(InfoSeverity sev, const QString & prefix)
         else
             DUMPVAL(sev, QString("   [%1] {%2}").arg(flags).arg(var->key), value);
     }
-    foreach(SettingProperty * prop, properties)
+    foreach(SettingProperty * prop, mKeyPropertyMap)
     {
         if ( ! prop->key.startsWith(prefix, Qt::CaseInsensitive))
             continue;
         flags = flagsString(prop->flags);
         if (prop->object)
             objName = prop->objectName();
-        if (objName.isEmpty())
-            objName = QString::number((unsigned int)prop->object, 16);
+//        if (objName.isEmpty())
+  //          objName = QString::number((unsigned int)(prop->object), 16);
         if (prop->value.isNull())
             DUMPVAL(sev, QString("   [%1] {%2} for %3").arg(flags).arg(prop->key).arg(objName), "empty");
         else

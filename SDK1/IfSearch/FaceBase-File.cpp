@@ -1,6 +1,6 @@
 #include <FaceBase.h>
 
-#include <QApplication>
+#include <QCoreApplication>
 #include <QDomDocument>
 #include <QString>
 #include <QTime>

@@ -1,21 +1,5 @@
 #include "EigenFaceSearchResult.h"
 
-EigenFaceSearchResult::EigenFaceSearchResult()
-    : data(new EigenFaceSearchResultData)
-{
-}
-
-EigenFaceSearchResult::EigenFaceSearchResult(const EigenFaceSearchResult &rhs)
-    : data(rhs.data)
-{
-}
-
-EigenFaceSearchResult &EigenFaceSearchResult::operator=(const EigenFaceSearchResult &rhs)
-{
-    if (this != &rhs)
-        data.operator=(rhs.data);
-    return *this;
-}
 
 EigenFaceSearchResult::
     EigenFaceSearchResult(const int personKey,
@@ -25,17 +9,12 @@ EigenFaceSearchResult::
                           const int searchVector,
                           const qreal distance,
                           const int confidence)
-    : data(new EigenFaceSearchResultData)
 {
-    setPersonKey(personKey);
-    setFaceKey(faceKey);
-    setSearchKey(searchKey);
-    setEnrollVector(enrollVector);
-    setSearchVector(searchVector);
-    setDistance(distance);
-    setConfidence(confidence);
-}
-
-EigenFaceSearchResult::~EigenFaceSearchResult()
-{
+    PersonKey = personKey;
+    FaceKey = faceKey;
+    SearchKey = searchKey;
+    EnrollVector = enrollVector;
+    SearchVector = searchVector;
+    Distance = distance;
+    Confidence = confidence;
 }

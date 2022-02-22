@@ -136,7 +136,7 @@ VariableType * VariableType::behavior(const QMetaType::Type metaType)
 VariableType::VariableType(QMetaType::Type varType,
                            const QString & partNames) :
     var_type(varType),
-    partName_list(partNames.simplified().split(' ', QString::SkipEmptyParts))
+    partName_list(partNames.simplified().split(' ', Qt::SkipEmptyParts))
 {
     behavior_map.insert(varType, this);
 }

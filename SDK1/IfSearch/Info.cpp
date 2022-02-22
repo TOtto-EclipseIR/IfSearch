@@ -5,12 +5,10 @@
 *
 */
 
-#include <QApplication>
-#include <QTimer>
-
 #include <Info.h>
 
-
+#include <QCoreApplication>
+#include <QTimer>
 
 #include <Return.h>
 

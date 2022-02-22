@@ -236,6 +236,16 @@ QStringList EigenFaceTemplate::idList(void) const
 
 void EigenFaceTemplate::setVectorId(const QString & id)
 {
+#ifdef USE_OCV4
+    QMultiMap<qreal, EigenFaceVector>::iterator it = distance_efVector_mmap.begin();
+    while (it != distance_efVector_mmap.end())
+    {
+        EigenFaceVector efv = it.value();
+        efv.setId(id);
+        it.value() = efv;
+        ++it;
+    }
+#else
     QMutableMapIterator<qreal, EigenFaceVector> it(distance_efVector_mmap);
     while (it.hasNext())
     {
@@ -244,10 +254,22 @@ void EigenFaceTemplate::setVectorId(const QString & id)
         vec.setId(id);
         it.setValue(vec);
     }
+#endif
 }
 
 void EigenFaceTemplate::removeById(const QString & id)
 {
+#ifdef USE_OCV4
+    QMultiMap<qreal, EigenFaceVector>::iterator it = distance_efVector_mmap.begin();
+    while (it != distance_efVector_mmap.end())
+    {
+        EigenFaceVector efv = it.value();
+        if (id == it.value().id())
+            distance_efVector_mmap.remove(it.key());
+        ++it;
+    }
+    // TODO(Is there a better way where distances might be equal)
+#else
     QMutableMapIterator<qreal, EigenFaceVector> it(distance_efVector_mmap);
     while (it.hasNext())
     {
@@ -255,6 +277,7 @@ void EigenFaceTemplate::removeById(const QString & id)
         if (id == it.value().id())
             it.remove();
     }
+#endif
 }
 
 qreal EigenFaceTemplate::distance(const EigenFaceTemplate & other)

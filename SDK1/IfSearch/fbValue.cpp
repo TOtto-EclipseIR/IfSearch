@@ -26,7 +26,7 @@ int fbValue::insert(const QString & v, const QString & sv)
 	else
 	{
 		int rtn;
-		do rtn = ((qrand() << 13) ^ qrand()) % 1000000;
+        do rtn = ((rand() << 13) ^ rand()) % 1000000;
 		while (valueMap.contains(rtn) || 0 == rtn);
 		valueMap.insertUnique(rtn, vsv);
 		return rtn;

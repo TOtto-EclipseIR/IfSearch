@@ -45,9 +45,9 @@ void EigenFaceSearchResultList::setBests(void)
 {
     if (isEmpty())  return;
     EigenFaceSearchPerson efsp = first();
-    bestConfidence_i = efsp.getConfidence();
-    leastDistance_r = efsp.getDistance();
-    best_tier = efsp.getTier();
+    bestConfidence_i = efsp.Confidence;
+    leastDistance_r = efsp.Distance;
+    best_tier = efsp.Tier;
 }
 
 void EigenFaceSearchResultList::setEachTier(const EigenFaceSearchTier tier)
@@ -55,5 +55,5 @@ void EigenFaceSearchResultList::setEachTier(const EigenFaceSearchTier tier)
     if (isEmpty())  return;
     int n = size();
     for (int x = 0; x < n; ++x)
-        (*this)[x].setTier(tier);
+        (*this)[x].Tier = (tier);
 }

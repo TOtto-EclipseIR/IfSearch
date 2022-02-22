@@ -15,8 +15,8 @@ Variable::Variable(const VariableId & id,
                    const QMetaType::Type varType) :
     _id(id),
     _behavior(VariableType::behavior(varType)),
-    current_var(QVariant(varType)),
-    default_var(QVariant(varType))
+    current_var(QVariant(int(varType))),
+    default_var(QVariant(int(varType)))
 {
 }
 

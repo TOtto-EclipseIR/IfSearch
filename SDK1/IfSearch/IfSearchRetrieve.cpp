@@ -60,7 +60,7 @@ void IfSearch::doPersonReport(void)
     reportStream << "," << 0;
     reportStream << "," << 0;
     reportStream << "," << '"' << " " << '"';
-    reportStream << endl;
+    reportStream << Qt::endl;
     reportFile.close();
     retrieveResults = tr("%1 bytes written to %2 for %3 persons")
                       .arg(reportFile.size())

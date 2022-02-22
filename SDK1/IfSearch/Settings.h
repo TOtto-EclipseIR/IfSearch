@@ -148,7 +148,7 @@ public:
 
 public: // overrides
     QVariant value(const QString & key, const QVariant defaultValue=QVariant()) const;
-    void setValue(const QString & key, const QVariant newValue) const;
+    void setValue(const QString & key, const QVariant newValue);
 
 private:
     void construct(Setting * child);
@@ -187,7 +187,7 @@ signals:
 
 private:
     QMap<QString, Setting *> vars;
-    QMultiMap<QString, SettingProperty *> properties;
+    QMultiMap<QString, SettingProperty *> mKeyPropertyMap;
     QStringList treeKeys;
     QReadWriteLock * rwlVars;
     QReadWriteLock * rwlProps;

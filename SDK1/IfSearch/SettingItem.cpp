@@ -15,7 +15,7 @@ SettingItem::SettingItem(Settings * appSettings, QTreeWidget * Tree, Setting * V
 {
 	settings->treeKeys.append(variant->key);
 	QTreeWidgetItem * parent = makePath(variant->key);
-	QStringList names = variant->key.split("/", QString::SkipEmptyParts);
+    QStringList names = variant->key.split("/", Qt::SkipEmptyParts);
 	setupItem(parent, names.takeLast(), variant->flags, variant);
 	variant->item = this;
 } // c'tor(Var)
@@ -25,7 +25,7 @@ SettingItem::SettingItem(Settings * appSettings, QTreeWidget * Tree, SettingProp
 {
 	settings->treeKeys.append(Property->key);
 	QTreeWidgetItem * parent = makePath(Property->key);
-	QStringList names = Property->key.split("/", QString::SkipEmptyParts);
+    QStringList names = Property->key.split("/", Qt::SkipEmptyParts);
 	QVariant var = Property->object->property(qPrintable(Property->propertyName));
 	setupItem(parent, names.takeLast(), Property->flags, &var);
 	Property->item = this;
@@ -47,7 +47,7 @@ SettingItem::~SettingItem()
 
 QTreeWidgetItem * SettingItem::makePath(const QString & Key)
 {
-	QStringList names = Key.split("/", QString::SkipEmptyParts);
+    QStringList names = Key.split("/", Qt::SkipEmptyParts);
 	if (names.isEmpty())
 		return 0;
 

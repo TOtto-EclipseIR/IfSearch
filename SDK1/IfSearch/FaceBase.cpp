@@ -22,7 +22,7 @@ const int FaceBase::personKeyDigits = 6;
 FaceBase::FaceBase(QObject * parent, EigenFaceSearcher * efm)
     : QObject(parent), matcher(efm)
 {
-    qsrand(QTime::currentTime().msec());
+    srand(QTime::currentTime().msec());
 
     baseDir = QDir::root();
     dataDir = QDir::root();

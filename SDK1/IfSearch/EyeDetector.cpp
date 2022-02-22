@@ -1,18 +1,12 @@
-#include <Detector.h>
-#include <QQRect.h>
+#include <EyeDetector.h>
 
+#include <QQRect.h>
 #include <InfoMacros.h>
 
-
-
-EyeDetector::EyeDetector(const unsigned interface,
-                         QObject * parent) :
-    HaarDetector("Eye",
-        0.125,
-        (interface < HaarDetector::nInterface) ? interface : 0,
-        parent)
+EyeDetector::EyeDetector(QObject * parent)
+    : HaarDetector("Eye", 0.125, parent)
 {
-    interface_ = interface_ ? interface_ : HaarDetector::CascadeClassifier;
+    setObjectName("EyeDetector");
 } // c'tor
 
 EyeDetector::~EyeDetector()

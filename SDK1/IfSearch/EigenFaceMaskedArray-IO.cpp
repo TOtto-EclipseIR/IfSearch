@@ -46,7 +46,7 @@ Return EigenFaceMaskedArray::read(const QDomElement & de)
 				"Missing Count Attribute");
 
 	QString txtString = de.text().simplified();
-	QStringList txtFloats = txtString.split(" ", QString::SkipEmptyParts);
+    QStringList txtFloats = txtString.split(" ", Qt::SkipEmptyParts);
 	if (n > txtFloats.size())
 		return Return(Return::ReturnXmlParse, de.tagName(), "Missing Data");
 
@@ -96,21 +96,22 @@ Return EigenFaceMaskedArray::write(QByteArray * ba) const
 Return EigenFaceMaskedArray::write(QIODevice * io) const
 {
 	if ( ! isValid())
-		return Return(EigenFace::ReturnInvalidStructure, "MaskedArray");
+        return Return(EigenFace::ReturnInvalidStructure, "MaskedArray"); /* /====\ */
 
 	// write stream id
-	int i = StreamId;
-	io->write((char *)&i, sizeof(i));
+    const int id = StreamId;
+    io->write((char *)&id, sizeof(id));
 
 	// write basic data
 	io->write((char *)&Id, sizeof(Id));
 	io->write((char *)&VectorKey, sizeof(VectorKey));
 	io->write((char *)&Residual, sizeof(Residual));
+    io->write((char *)&id, sizeof(id));
 
-	i = data.size();
-	io->write((char *)&i, sizeof(i));
-	if (i * sizeof(qreal) != io->write((char *)data.data(), i * sizeof(qreal)))
-		return Return::errorString(io->errorString());
+    const qint64 nData = data.size();
+    const qint64 nBytes = nData * sizeof(qreal);
+    if (nBytes != io->write((char *)data.data(), nBytes))
+        return Return::errorString(io->errorString());                  /* /====\ */
 
 	return Return();
 } // write(io)

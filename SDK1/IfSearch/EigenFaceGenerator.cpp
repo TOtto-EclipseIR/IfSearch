@@ -1,13 +1,12 @@
 #include <EigenFaceGenerator.h>
+
 #include <EigenFace.h>
 #include <EigenFaceData.h>
 #include <EigenFaceParameters.h>
 #include <EigenFaceTemplate.h>
-
-#include <Detector.h>
+#include <EyeDetector.h>
+#include <FrontalFaceDetector.h>
 #include <ImageCache.h>
-
-
 
 EigenFaceGenerator::EigenFaceGenerator(QObject * parent, EigenFaceData * data, 
                                        EigenFaceParameters * parms, int instance)
@@ -39,36 +38,7 @@ EigenFaceGenerator::EigenFaceGenerator(QObject * parent, EigenFaceData * data,
     Factor = 1.0;
 
     // Setup Head Detector
-    ffd = new FrontalFaceDetector(0, this);
-    ffd->selectDetector(ffd->detectorsDefault());
-    ffd->setGroupMethod(HaarDetector::GroupByCenters);
-    ffd->setMinQuality(300);
-    ffd->setMaxResults(1);
-    ffd->setMinAcross(0);
-    ffd->setMaxAcross(3);
-    ffd->setFactor(5);
-    if (data)
-        ffd->setMinPixels(2 * data->eigenEyes().distance());
-
-    // Setup Eye Detectors
-    leyed = new EyeDetector(leftInterface(), this);
-    leyed->selectDetector(LeftDetector.isEmpty()
-                            ? leyed->detectorsDefault()
-                            : LeftDetector);
-    leyed->setMaxResults(1);
-    leyed->setGroupMethod(3);
-
-    reyed = new EyeDetector(rightInterface(), this);
-    reyed->selectDetector(RightDetector.isEmpty()
-                            ? reyed->detectorsDefault()
-                            : RightDetector);
-    reyed->selectDetector(reyed->detectorsDefault());
-    reyed->setMaxResults(1);
-    reyed->setGroupMethod(3);
-}
-
-EigenFaceGenerator::~EigenFaceGenerator()
-{
+    ffd = new FrontalFaceDetector(this);
 }
 
 bool EigenFaceGenerator::isValid(void) const 
@@ -85,15 +55,21 @@ void EigenFaceGenerator::clear(enum Clear what)
         originalImage = QImage();
         fSet.clear();
         eyeRoiMethod = NotSpecified;
+        Q_FALLTHROUGH();
+
     case ClearHead:
         head = QRect();
         HeadScale = 1.0;
         MsecGenerate = 0;
+        Q_FALLTHROUGH();
+
     case ClearEyes:
         ExpectedEyes = origEyes = Eyes();
         LeftEyeRoi = RightEyeRoi = QRect();
         LeftEyePerformance.clear();
         RightEyePerformance.clear();
+        Q_FALLTHROUGH();
+
     case ClearAdjusted:
         adjEyes = Eyes();
         Consistency = 0;
@@ -202,14 +178,14 @@ QImage EigenFaceGenerator::getNormalImage(void)
 QImage EigenFaceGenerator::getReconImage(EigenFaceTemplate * tpl, int vector, int layers)
 {
     EigenFaceMaskedArray recon(data);
+    QImage reconImage;
     foreach(EigenFaceVector vec, tpl->distance_efVector_mmap)
         if (vec.vectorKey() == vector && vec.isValid())
         {
-            QImage reconImage;
             recon.reconstruct(vec, layers);
             reconImage = recon.toImage(QImage::Format_Indexed8, false);
-            return reconImage;
         }
+    return reconImage;
 } // getReconImage()
 
 QImage EigenFaceGenerator::graphVector(EigenFaceTemplate * tpl, int vector, QSize size, qreal scale)

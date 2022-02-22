@@ -1,10 +1,11 @@
 #include <EigenFaceGenerator.h>
 
-#include <Detector.h>
 #include <EigenFace.h>
 #include <EigenFaceData.h>
 #include <EigenFaceParameters.h>
 #include <EigenFaceTemplate.h>
+#include <EyeDetector.h>
+#include <FrontalFaceDetector.h>
 
 #include <QByteArray>
 #include <QPointF>
@@ -19,64 +20,59 @@
 #include <InfoMacros.h>
 #include <QQRect.h>
 
-
-
-
-
-
 Return EigenFaceGenerator::generateTemplate(int minConsistencyOverride)
 {
     Return rtn;
-    QTime localTime;
+    QElapsedTimer localTime;
     localTime.start();
-        QTime scaleTime;
-        scaleTime.start();
-        HeadScale = qRound(5.0 * eigenEyes().distance()
-                           / (qreal)(head.isEmpty() ? originalImage.width() : head.width()));
-        if (HeadScale < 2.0)
-            HeadScale = 1.0;
-        else
-        {
-            if (HeadScale > 5.0)
-                HeadScale = 5.0;
-            originalImage = originalImage.scaled(originalImage.size() * HeadScale,
-                                                 Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-            head = QRect(head.topLeft() * HeadScale, head.bottomRight() * HeadScale);
-            origEyes = Eyes(origEyes.p1() * HeadScale, origEyes.p2() * HeadScale);
-        }
-        MsecScale = scaleTime.elapsed();
-        // adjust eye position for best residual
-        // side effect: gets difference array for mean face zero, raw input
-        rtn = adjustEyes();
-        if (rtn.isError())
-        {
-            MsecGenerate = localTime.elapsed();
-            return rtn;
-        }
+    QElapsedTimer scaleTime;
+    scaleTime.start();
+    HeadScale = qRound(5.0 * eigenEyes().distance()
+                       / (qreal)(head.isEmpty() ? originalImage.width() : head.width()));
+    if (HeadScale < 2.0)
+        HeadScale = 1.0;
+    else
+    {
+        if (HeadScale > 5.0)
+            HeadScale = 5.0;
+        originalImage = originalImage.scaled(originalImage.size() * HeadScale,
+                                             Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+        head = QRect(head.topLeft() * HeadScale, head.bottomRight() * HeadScale);
+        origEyes = Eyes(origEyes.p1() * HeadScale, origEyes.p2() * HeadScale);
+    }
+    MsecScale = scaleTime.elapsed();
+    // adjust eye position for best residual
+    // side effect: gets difference array for mean face zero, raw input
+    rtn = adjustEyes();
+    if (rtn.isError())
+    {
+        MsecGenerate = localTime.elapsed();
+        return rtn;
+    }
 
-        // calculate other difference arrays
+    // calculate other difference arrays
 
-        // foreach(differences), calculate eigen vector
-        if (differences.contains(EigenFaceVectorKey()))
+    // foreach(differences), calculate eigen vector
+    if (differences.contains(EigenFaceVectorKey()))
+    {
+        EigenFaceMaskedArray diff = differences.value(EigenFaceVectorKey());
+        EigenFaceVector vec = diff.generateVector(parms->numLayersInVector());
+        fSet.set(Feature::TemplateMethod, methodString());
+        fSet.set(Feature::Consistency, vec.consistency());
+        Consistency = vec.consistency();
+        if (vec.consistency() > (minConsistencyOverride
+                                 ? minConsistencyOverride
+                                 : minConsistency()))
         {
-            EigenFaceMaskedArray diff = differences.value(EigenFaceVectorKey());
-            EigenFaceVector vec = diff.generateVector(parms->numLayersInVector());
-            fSet.set(Feature::TemplateMethod, methodString());
-            fSet.set(Feature::Consistency, vec.consistency());
-            Consistency = vec.consistency();
-            if (vec.consistency() > (minConsistencyOverride
-                                     ? minConsistencyOverride
-                                     : minConsistency()))
-            {
-                tpl.insert(vec.residual(), vec);
-            }
+            tpl.insert(vec.residual(), vec);
         }
+    }
 
-        if (tpl.isEmpty())
-        {
-            MsecGenerate = localTime.elapsed();
-            return Return(EigenFace::ReturnLowConsistency);
-        }
+    if (tpl.isEmpty())
+    {
+        MsecGenerate = localTime.elapsed();
+        return Return(EigenFace::ReturnLowConsistency);
+    }
     MsecGenerate = localTime.elapsed();
     return Return();
 } // generateTemplate()
@@ -96,22 +92,22 @@ Return EigenFaceGenerator::findHead(void)
         return Return(EigenFace::ReturnNullImage, "Original Image");
 
 
-        // Detect Head
-        ffd->setImage(originalImage);
-        if ( ! ffd->process(&resultList))
-            return Return(EigenFace::ReturnDetectorError, "Face");
-        if (resultList.isEmpty())
-            head = originalImage.rect();
-        else
-        {
-            head = resultList.at(0).rectangle();
-            eyeRoiMethod = Neighbors;
-            fSet.set(Feature::HeadMethod, ffd->methodString());
-            fSet.set(Feature::HeadBox,
-                     QRect(head.topLeft() / HeadScale,
-                           head.bottomRight() / HeadScale));
-            fSet.set(Feature::Quality, resultList.at(0).score());
-        }
+    // Detect Head
+    ffd->setImage(originalImage);
+    if ( ! ffd->process(&resultList))
+        return Return(EigenFace::ReturnDetectorError, "Face");
+    if (resultList.isEmpty())
+        head = originalImage.rect();
+    else
+    {
+        head = resultList.at(0).rectangle();
+        eyeRoiMethod = Neighbors;
+        fSet.set(Feature::HeadMethod, ffd->methodString());
+        fSet.set(Feature::HeadBox,
+                 QRect(head.topLeft() / HeadScale,
+                       head.bottomRight() / HeadScale));
+        fSet.set(Feature::Quality, resultList.at(0).score());
+    }
     return Return();
 } // findHead()
 
@@ -138,77 +134,77 @@ Return EigenFaceGenerator::findEyes(void)
     if (rtn.isError())
         return rtn;
 
-        // Find Regions of Interest for both eyes
-        QPoint leftRoiCenter, rightRoiCenter;
-        QSize roiSize;
-        switch (eyeRoiMethod)
-        {
-        default:
-            leftRoiCenter  = head.center()
-                             + QPoint( - head.width() / 4, - head.height() / 4);
-            rightRoiCenter = head.center()
-                             + QPoint( + head.width() / 4, - head.height() / 4);
-            roiSize = QSize(head.width() / 2, head.height() / 2);
-            expectedEyeWidth = head.width() / 8;
-            eyeWidthFactor = 2.0;
-            break;
-        } // eyeRoiMethod
-        if (roiScale())
-            roiSize *= (qreal)roiScale() / 100.0;
-        if (eyeScale())
-            eyeWidthFactor *= (qreal)eyeScale() / 100.0;
-        if (roiSize.width() < qMin(leyed->detectorSize().width(),
-                                   reyed->detectorSize().width()))
-            return Return(EigenFace::ReturnNoEyes);
-        QQRect leftRoi(roiSize, leftRoiCenter);
-        QQRect rightRoi(roiSize, rightRoiCenter);
-        ExpectedEyes.set(leftRoiCenter, rightRoiCenter);
+    // Find Regions of Interest for both eyes
+    QPoint leftRoiCenter, rightRoiCenter;
+    QSize roiSize;
+    switch (eyeRoiMethod)
+    {
+    default:
+        leftRoiCenter  = head.center()
+                + QPoint( - head.width() / 4, - head.height() / 4);
+        rightRoiCenter = head.center()
+                + QPoint( + head.width() / 4, - head.height() / 4);
+        roiSize = QSize(head.width() / 2, head.height() / 2);
+        expectedEyeWidth = head.width() / 8;
+        eyeWidthFactor = 2.0;
+        break;
+    } // eyeRoiMethod
+    if (roiScale())
+        roiSize *= (qreal)roiScale() / 100.0;
+    if (eyeScale())
+        eyeWidthFactor *= (qreal)eyeScale() / 100.0;
+    if (roiSize.width() < qMin(leyed->detectorSize().width(),
+                               reyed->detectorSize().width()))
+        return Return(EigenFace::ReturnNoEyes);
+    QQRect leftRoi(roiSize, leftRoiCenter);
+    QQRect rightRoi(roiSize, rightRoiCenter);
+    ExpectedEyes.set(leftRoiCenter, rightRoiCenter);
 
-        // Setup Eye Detector
-        leyed->setMinPixels((qreal)expectedEyeWidth / eyeWidthFactor);
-        leyed->setMaxPixels((qreal)expectedEyeWidth * eyeWidthFactor);
-        reyed->setMinPixels((qreal)expectedEyeWidth / eyeWidthFactor);
-        reyed->setMaxPixels((qreal)expectedEyeWidth * eyeWidthFactor);
-        leyed->setFactor(factor());
-        reyed->setFactor(factor());
+    // Setup Eye Detector
+    leyed->setMinPixels((qreal)expectedEyeWidth / eyeWidthFactor);
+    leyed->setMaxPixels((qreal)expectedEyeWidth * eyeWidthFactor);
+    reyed->setMinPixels((qreal)expectedEyeWidth / eyeWidthFactor);
+    reyed->setMaxPixels((qreal)expectedEyeWidth * eyeWidthFactor);
+    leyed->setFactor(factor());
+    reyed->setFactor(factor());
 
-        // Detect Left Eye
-        leftRoi &= originalImage.rect();
-        leyed->setImage(originalImage.copy(leftRoi));
-        LeftEyeRoi = leftRoi;
-        if ( ! leyed->process(&resultList))
-            return Return(EigenFace::ReturnDetectorError, "Left Eye");
-        LeftEyePerformance = leyed->performanceString();
-        if (resultList.isEmpty())
-            return Return(EigenFace::ReturnNoEyes);
-        QRect leftRect = resultList.at(0).rectangle();
-        QPoint leftEye(leftRect.center());
-        leftEye += leftRoi.topLeft();
+    // Detect Left Eye
+    leftRoi &= originalImage.rect();
+    leyed->setImage(originalImage.copy(leftRoi));
+    LeftEyeRoi = leftRoi;
+    if ( ! leyed->process(&resultList))
+        return Return(EigenFace::ReturnDetectorError, "Left Eye");
+    LeftEyePerformance = leyed->performanceString();
+    if (resultList.isEmpty())
+        return Return(EigenFace::ReturnNoEyes);
+    QRect leftRect = resultList.at(0).rectangle();
+    QPoint leftEye(leftRect.center());
+    leftEye += leftRoi.topLeft();
 
-        // Detect Right Eye
-        if (rightRoi.left() < leftEye.x())
-            rightRoi.setLeft(leftEye.x());
-        rightRoi &= originalImage.rect();
-        RightEyeRoi = rightRoi;
-        reyed->setImage(originalImage.copy(rightRoi));
-        if ( ! reyed->process(&resultList))
-            return Return(EigenFace::ReturnDetectorError, "Right Eye");
-        RightEyePerformance = reyed->performanceString();
-        if (resultList.isEmpty())
-            return Return(EigenFace::ReturnNoEyes);
-        QRect rightRect = resultList.at(0).rectangle();
-        QPoint rightEye(rightRect.center());
-        rightEye += rightRoi.topLeft();
+    // Detect Right Eye
+    if (rightRoi.left() < leftEye.x())
+        rightRoi.setLeft(leftEye.x());
+    rightRoi &= originalImage.rect();
+    RightEyeRoi = rightRoi;
+    reyed->setImage(originalImage.copy(rightRoi));
+    if ( ! reyed->process(&resultList))
+        return Return(EigenFace::ReturnDetectorError, "Right Eye");
+    RightEyePerformance = reyed->performanceString();
+    if (resultList.isEmpty())
+        return Return(EigenFace::ReturnNoEyes);
+    QRect rightRect = resultList.at(0).rectangle();
+    QPoint rightEye(rightRect.center());
+    rightEye += rightRoi.topLeft();
 
-        if (EigenFace::pitch(leftEye, rightEye) > 0.5)
-            return Return(EigenFace::ReturnNoEyes);
+    if (EigenFace::pitch(leftEye, rightEye) > 0.5)
+        return Return(EigenFace::ReturnNoEyes);
 
-        origEyes = Eyes(leftEye, rightEye);
-        fSet.set(Feature::EyeMethod, leyed->methodString()
-                 + "|" + leyed->methodString());
-        fSet.set(Feature::LeftEye, leftEye / HeadScale);
-        fSet.set(Feature::RightEye, rightEye / HeadScale);
-        fSet.calculate();
+    origEyes = Eyes(leftEye, rightEye);
+    fSet.set(Feature::EyeMethod, leyed->methodString()
+             + "|" + leyed->methodString());
+    fSet.set(Feature::LeftEye, leftEye / HeadScale);
+    fSet.set(Feature::RightEye, rightEye / HeadScale);
+    fSet.calculate();
     return Return();
 } // findEyes()
 
@@ -262,7 +258,7 @@ Return EigenFaceGenerator::adjustEyes(void)
     if (true || eyeDistance <= 40 || 1 == parms->maxEyeAdjust())
     {
         // No Adjusting Eye Positions
-        QTime localTime;
+        QElapsedTimer localTime;
         localTime.start();
         rtn = bestMeanDifference.generate(originalImage, origEyes);
         MsecTemplate = localTime.elapsed();

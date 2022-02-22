@@ -1,4 +1,4 @@
-#include "baselog.h"
+#include "BaseLog.h"
 #include <QSharedData>
 
 #include <QtDebug>
@@ -182,7 +182,7 @@ void BaseLog::setFile(const QString & fileName)
     {
         blog_file->open(QIODevice::WriteOnly | QIODevice::Text);
         if (blog_file->isWritable())
-            qInstallMsgHandler(&myMsgHandler);
+            qInstallMessageHandler(&myMsgHandler);
         else
             resetFile();
     }
@@ -197,18 +197,22 @@ void BaseLog::resetFile(void)
         delete blog_file;
         blog_file = 0;
     }
-    qInstallMsgHandler(0);
+    qInstallMessageHandler(0);
 }
 
-void EIRBASESHARED_EXPORT myMsgHandler(QtMsgType t, const char * pc)
+void EIRBASESHARED_EXPORT myMsgHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     if (BaseLog::blogFile())
     {
-        BaseLog::blogFile()->write(pc);
+        const QString ctx = QString("---%1[%2]:%3 <%4>v5").arg(context.file).arg(context.line)
+                .arg(context.function).arg(context.category).arg(context.version);
+        BaseLog::blogFile()->write(qPrintable(ctx));
+        BaseLog::blogFile()->write("\n   ");
+        BaseLog::blogFile()->write(qPrintable(msg));
         BaseLog::blogFile()->write("\n");
         BaseLog::blogFile()->flush();
     }
-    if (QtFatalMsg == t)
+    if (QtFatalMsg == type)
         abort();
 }
 

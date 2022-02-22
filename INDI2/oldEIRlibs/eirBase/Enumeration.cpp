@@ -234,7 +234,7 @@ QList<Enumeration> Enumeration::parse(const QString & string)
     QList<Enumeration> result;
 
     foreach (QString s, string.simplified()
-                              .split(' ', QString::SkipEmptyParts))
+                              .split(' ', Qt::SkipEmptyParts))
     {
         bool negate = false;
         bool toggle = false;

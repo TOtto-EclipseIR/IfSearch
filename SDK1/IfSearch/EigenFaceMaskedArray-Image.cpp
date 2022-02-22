@@ -21,7 +21,7 @@ QImage EigenFaceMaskedArray::toImage(QImage::Format Format, bool fullMask) const
 
     QSize sz(efData->mask().size());
     QImage image(sz, QImage::Format_Indexed8);
-    image.setNumColors(256);
+    image.setColorCount(256);
     image.setColorTable(GreyImage::greyColorTable());
     image.fill(128);
 

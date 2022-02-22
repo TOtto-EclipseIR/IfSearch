@@ -81,7 +81,7 @@ Return EigenFaceVector::read(const QDomElement & de)
 	Residual = de.attribute("Residual").toDouble();
 
 	QString txtString = de.text();
-	QStringList coefs = txtString.simplified().split(" ", QString::SkipEmptyParts);
+    QStringList coefs = txtString.simplified().split(" ", Qt::SkipEmptyParts);
 	if (n != coefs.size())
 		return Return(EigenFace::ReturnInvalidStructure, "Bad Count");
 	coefficients.fill(0.0, n);

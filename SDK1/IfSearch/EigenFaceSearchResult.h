@@ -7,40 +7,10 @@
 # define INDIEF_EXPORT Q_DECL_IMPORT
 #endif
 
-
-#include <QSharedData>
-#include <QSharedDataPointer>
-
-#include <eirBase/DataProperty.h>
-
-#define SEARCHRESULT_DATAPROPS(TND) \
-    TND(int, Rank, 0) \
-    TND(int, PersonKey, 0) \
-    TND(int, FaceKey, 0) \
-    TND(int, SearchKey, 0) \
-    TND(int, SearchVector, 0) \
-    TND(int, EnrollVector, 0) \
-    TND(qreal, Distance, 999.9) \
-    TND(int, Confidence, 0) \
-
-
-class EigenFaceSearchResultData : public QSharedData
-{
-    DECLARE_CHILD_DATAPROPS(SEARCHRESULT_DATAPROPS)
-public:
-    EigenFaceSearchResultData(void)
-    {
-        DEFINE_DATAPROPS_CTORS(SEARCHRESULT_DATAPROPS)
-    }
-};
-
 class INDIEF_EXPORT EigenFaceSearchResult
 {
-    DECLARE_PARENT_DATAPROPS(SEARCHRESULT_DATAPROPS)
 public:
-    EigenFaceSearchResult(void);
-    EigenFaceSearchResult(const EigenFaceSearchResult &);
-    EigenFaceSearchResult &operator=(const EigenFaceSearchResult &);
+    EigenFaceSearchResult(void) {;}
     EigenFaceSearchResult(const int personKey,
                           const int faceKey,
                           const int searchKey,
@@ -48,10 +18,16 @@ public:
                           const int searchVector,
                           const qreal distance,
                           const int confidence);
-    ~EigenFaceSearchResult();
 
-private:
-    QSharedDataPointer<EigenFaceSearchResultData> data;
+public:
+    int Rank = 0;
+    int PersonKey = 0;
+    int FaceKey = 0;
+    int SearchKey = 0;
+    int SearchVector = 0;
+    int EnrollVector = 0;
+    qreal Distance = 999.9;
+    int Confidence = 0;
 };
 
 #endif // EIGENFACESEARCHRESULT_H

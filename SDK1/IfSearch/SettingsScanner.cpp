@@ -100,7 +100,7 @@ void Settings::scan(void)
 		}
 	} // foreach(var)
 
-	foreach(SettingProperty * prop, properties)
+	foreach(SettingProperty * prop, mKeyPropertyMap)
 	{
 		if ( ! (prop->flags & Settings::ReadOnly) && (prop->flags & Settings::Dirty))
 		{

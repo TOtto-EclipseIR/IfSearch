@@ -9,23 +9,9 @@
 #include <QProperty.h>
 #include <Matrix.h>
 
-#define HEIGHTGRID_QPROPERTIES(TND) \
-        TND(QString, GridFile, QString())   \
-        TND(QString, GridImage, QString())   \
-        TND(QString, GridEyes, QString())   \
-        TND(int, GridRows, 0) \
-        TND(int, GridCols, 0) \
-        TND(int, MinConsistency, 0) \
-        TND(int, HeightUnits, 25) \
-        TND(int, HeightScale, 0) \
-        TND(int, TargetEyePixels, 0) \
-        TND(int, TargetHeight, 0) \
-        TND(int, MinConfidence, 0) \
-
 class HeightGrid : public QObject
 {
     Q_OBJECT
-    DECLARE_QPROPERTIES(HEIGHTGRID_QPROPERTIES)
 
 public:
     explicit HeightGrid(QObject * parent=0);
@@ -40,7 +26,7 @@ public:
     QPoint headTop(void) const
     { return EyeLocation.topOfHead(scale()); }
     int heightEstimate(void) const
-    { return qRound((qreal)HeightEstimate_mm / (qreal)getHeightUnits()); }
+    { return qRound((qreal)HeightEstimate_mm / (qreal)HeightUnits); }
     int rawHeight(void) const
     { return HeightEstimate_mm; }
 
@@ -54,7 +40,7 @@ public slots:
 
 private:
     qreal scale(void) const
-    { return getHeightScale() ? ((qreal)getHeightScale() / 100.0) : 1.0; }
+    { return HeightScale ? ((qreal)HeightScale / 100.0) : 1.0; }
 
 private:
     Matrix<int> Grid;
@@ -62,6 +48,19 @@ private:
     QSize ImageSize;
     int Consistency;
     int HeightEstimate_mm;
+
+QString GridFile;
+QString GridImage;
+QString GridEyes;
+int GridRows = 0;
+int GridCols = 0;
+int MinConsistency = 0;
+int HeightUnits = 25;
+int HeightScale = 0;
+int TargetEyePixels = 0;
+int TargetHeight = 0;
+int MinConfidence = 0;
+
 };
 
 #endif // HEIGHTGRID_H

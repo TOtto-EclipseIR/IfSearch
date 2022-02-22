@@ -6,7 +6,6 @@
 TransformProperties::TransformProperties(QObject *parent) :
     QObject(parent)
 {
-    DEFINE_QPROPERTIES_CTORS(TRANSFORM_QPROPERTIES);
     setObjectName("TransformProperties");
 
 }
@@ -50,4 +49,46 @@ int TransformProperties::dimension(const QSizeF sz) const
 {
     return qRound(qMax(sz.width()  * getScale(),
                        sz.height() * getScale()));
+}
+
+qreal TransformProperties::getScale() const
+{
+    return mScale;
+}
+
+void TransformProperties::setScale(qreal newScale)
+{
+    if (qFuzzyCompare(mScale, newScale))
+        return;
+    mScale = newScale;
+}
+
+qreal TransformProperties::getAspect() const
+{
+    return mAspect;
+}
+
+void TransformProperties::setAspect(qreal newAspect)
+{
+    mAspect = newAspect;
+}
+
+qreal TransformProperties::getRotate() const
+{
+    return mRotate;
+}
+
+void TransformProperties::setRotate(qreal newRotate)
+{
+    mRotate = newRotate;
+}
+
+const QRectF &TransformProperties::getCrop() const
+{
+    return mCrop;
+}
+
+void TransformProperties::setCrop(const QRectF &newCrop)
+{
+    mCrop = newCrop;
 }

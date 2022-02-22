@@ -9,7 +9,6 @@ QChar IdGenerator::pathSub('/');
 IdGenerator::IdGenerator()
     : VariableSet("IdGenerator")
 {
-    DEFINE_VARIABLESET_CTORS(IDGENERATOR_VARIABLESET);
 }
 
 void IdGenerator::setFaceFormat(const QString & formatStrings)
@@ -146,21 +145,21 @@ qint64 IdGenerator::numericValue(const QChar c) const
 {
     switch (c.cell())
     {
-    case 'x':   return getDetectRect().center().x();
-    case 'y':   return getDetectRect().center().y();
-    case 'c':   return getConsistency();
-    case 'e':   return getEyeLine().length();
-    case 'w':   return getDetectRect().width();
-    case 'm':   return getConfidence();
-    case 'r':   return getRank();
-    case '#':   return getFrameNumber();
-    case 'n':   return getFaceNumber();
-    case 'l':   return getModifiedMst();
-    case 'z':   return getFrameMsd();
-    case 'q':   return getQuality();
-    case 'Q':   return getBestQuality();
-    case 'P':   return getPersonKey();
-    case 'F':   return getFaceKey();
+    case 'x':   return DetectRect.center().x();
+    case 'y':   return DetectRect.center().y();
+    case 'c':   return Consistency;
+    case 'e':   return EyeLine.length();
+    case 'w':   return DetectRect.width();
+    case 'm':   return Confidence;
+    case 'r':   return Rank;
+    case '#':   return FrameNumber;
+    case 'n':   return FaceNumber;
+    case 'l':   return ModifiedMst;
+    case 'z':   return FrameMsd;
+    case 'q':   return Quality;
+    case 'Q':   return BestQuality;
+    case 'P':   return PersonKey;
+    case 'F':   return FaceKey;
     default:    return -1;
     }
 }
@@ -171,14 +170,14 @@ QString IdGenerator::stringValue(const QChar c,
     switch (c.cell())
     {
     case '%':   return "%";
-    case 'i':   return getFrameId();
-    case 'd':   return getModifiedMst().toString("yyyyMMdd");
-    case 't':   return getModifiedMst().toString("hhmmsszzz");
+    case 'i':   return FrameId;
+    case 'd':   return ModifiedMst.toString("yyyyMMdd");
+    case 't':   return ModifiedMst.toString("hhmmsszzz");
     case 'o':   return outputClass;
-    case 'A':   return QFileInfo(getFileName()).absoluteDir().path().replace('/', pathSub);
-    case 'R':   return QFileInfo(getFileName()).dir().path().replace('/', pathSub);
-    case 'p':   return getPersonId();
-    case 'n':   return QFileInfo(getFileName()).completeBaseName();
+    case 'A':   return QFileInfo(FileName).absoluteDir().path().replace('/', pathSub);
+    case 'R':   return QFileInfo(FileName).dir().path().replace('/', pathSub);
+    case 'p':   return PersonId;
+    case 'n':   return QFileInfo(FileName).completeBaseName();
     default:    return QString();
     }
 }
