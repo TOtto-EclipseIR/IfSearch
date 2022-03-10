@@ -72,7 +72,7 @@ int ImageCache::writeNext(void)
 		if (fmt.isEmpty())
 			fmt = ice->fileFormat;
 		if (fmt.isEmpty())
-			fmt = "PNG";
+            fmt = "jpg";
 
 		bool ok = ! writeFile(imageId, profile->path(), fmt, profile->quality()).isEmpty();
 		rtn = ok ? 0 : -3;
@@ -109,7 +109,7 @@ QString ImageCache::writeFile(const QString & imageId,
 	if (fmt.isEmpty())
 		fmt = ice->fileFormat;
 	if (fmt.isEmpty())
-		fmt = "JPG";
+        fmt = "jpg";
 
 	if ( ! ice->info.isEmpty() || ! ice->faceTemplate.isNull())
 	{   

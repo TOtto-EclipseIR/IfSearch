@@ -91,8 +91,8 @@ void IfSearch::init(void)
     Info::add(infoSetting, InfoSeverity::Warning,
                                 InfoSeverity::Fatal);
     Info::start(QThread::NormalPriority);
-//    PROGRESS("%3 %1 built %2", version.toString(),
-  //           version.dateTimeString(), version.getAppName());
+    PROGRESS("%3 %1 built %2", version.toDWord(),
+             version.dateTimeString(), version.getAppName());
     INFO(version.getCopyright());
     INFO(appSettings->programName());
     DETAIL("Running ProcessId=%1", applicationPid());

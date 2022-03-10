@@ -19,8 +19,9 @@ class CharacteristicColor;
         TND(int, UnderCrop, 0) \
         TND(int, UpperConfidence, 0) \
         TND(int, LowerConfidence, 0) \
+
 #endif
-#endif
+
 class ClothesMatchProperties : public QObject
 {
     Q_OBJECT
@@ -28,8 +29,10 @@ class ClothesMatchProperties : public QObject
     DECLARE_QPROPERTIES(CLOTHESMATCH_QPROPERTIES);
 #endif
 public:
+#ifndef ENABLE_CLOTHES
     explicit ClothesMatchProperties(QObject * parent=0) {;}
-#ifdef ENABLE_CLOTHES
+#else
+    explicit ClothesMatchProperties(QObject * parent=0);
     qreal shoulder(void) const;
     qreal waist(void) const;
     qreal width(void) const;

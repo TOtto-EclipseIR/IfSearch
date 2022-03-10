@@ -59,7 +59,7 @@ public:
     FileWriter(Settings * settings, const QString & keyFormat=QString(), QObject * parent=0);
     ~FileWriter(void);
     void setCacheDirs(const QString & cacheDirs);
-    FileWriteProfile * newProfile(const QString & name, Flags f=0, QString key=QString());
+    FileWriteProfile * newProfile(const QString & name, Flags f=$nullFlag, QString key=QString());
     FileWriteProfile * newProfile(const QString & name, QString key);
     FileWriteProfile * profile(const QString & name);
     void setImageCache(ImageCache * cache);

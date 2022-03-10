@@ -4,13 +4,13 @@ CONFIG += debug_and_release
 
 #win32-g++: TODO
 linux-g++: INCLUDEPATH *= /usr/local/include/opencv4
-#LIBS *= -L/usr/local/lib
-#LIBS *= llibopencv_imageproc
-#LIBS *= -llibopencv_imageproc.so.4.5.5
-#LIBS *= -llibopencv_objectdet.so.4.5.5
-LIBS += /usr/local/lib/libopencv_core.so.4.5.5
-LIBS += /usr/local/lib/libopencv_imgproc.so.4.5.5
-LIBS += /usr/local/lib/libopencv_objdetect.so.4.5.5
+LIBS *= -L/usr/local/lib
+LIBS *= -lopencv_core
+LIBS *= -lopencv_imgproc
+LIBS *= -lopencv_objdetect
+#LIBS += /usr/local/lib/libopencv_core.so.4.5.5
+#LIBS += /usr/local/lib/libopencv_imgproc.so.4.5.5
+#LIBS += /usr/local/lib/libopencv_objdetect.so.4.5.5
 
 #CONFIG(debug, debug|release) {
 #    win32-g++:  INCLUDEPATH *= /lang/OpenCV-2.2.0/dbg-w32/include

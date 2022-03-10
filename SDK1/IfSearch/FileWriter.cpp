@@ -48,7 +48,7 @@ FileWriter::FileWriter(Settings * settings, const QString & keyFormat, QObject *
     _keyFormat = keyFormat.isEmpty() ? "Output/$Dir" : keyFormat;
     QString prefix = _keyFormat.left(1 + _keyFormat.lastIndexOf(QChar('/')));
     _optQuality = new Setting(settings, prefix + "Quality", -1, Settings::Volatile);
-    _optFormat = new Setting(settings, prefix + "Format", "JPG", Settings::Volatile);
+    _optFormat = new Setting(settings, prefix + "Format", "jpg", Settings::Volatile);
     _optFaceQuality = new Setting(settings, prefix + "FaceQuality", -1, Settings::Volatile);
     _optFaceFormat = new Setting(settings, prefix + "FaceFormat", "PNG", Settings::Volatile);
     _optBaseDir = new Setting(settings, prefix + "BaseDir", "../Output", Settings::Volatile);
