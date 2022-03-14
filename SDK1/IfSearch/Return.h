@@ -19,7 +19,7 @@
 
 #include <DDTcore.h>
 
-class DDTCORE_EXPORT Return
+class Return
 {
     friend class StatusHandler;
 

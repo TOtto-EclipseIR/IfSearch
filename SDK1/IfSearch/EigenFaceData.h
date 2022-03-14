@@ -26,7 +26,7 @@ class QProgressBar;
 #include <Return.h>
 
 // EigenFaceGenerator Data that is fixed for an installation, at least
-class INDIEF_EXPORT EigenFaceData  : public QObject
+class EigenFaceData  : public QObject
 {
     Q_OBJECT
 

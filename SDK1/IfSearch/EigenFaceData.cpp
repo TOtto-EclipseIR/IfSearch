@@ -9,6 +9,7 @@
 #include <QDomDocument>
 #include <QDomElement>
 #include <QFile>
+//#include <QProgressBar>
 #include <QString>
 
 //#define WRITE_XML
