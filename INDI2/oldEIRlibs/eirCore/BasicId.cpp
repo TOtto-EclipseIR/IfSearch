@@ -2,7 +2,7 @@
 
 #include "../eirBase/BaseIdBehavior.h"
 
-class EIRCORESHARED_EXPORT BasicIdBehavior : public BaseIdBehavior
+class BasicIdBehavior : public BaseIdBehavior
 {
 public:
     static BasicIdBehavior * instance(void)

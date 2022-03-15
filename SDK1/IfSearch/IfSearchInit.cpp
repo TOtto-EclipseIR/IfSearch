@@ -6,7 +6,6 @@
 
 #include <ClothesMatchProperties.h>
 #include <DDTcore.h>
-#include <Detector.h>
 #include <EigenFace.h>
 #include <EigenFaceData.h>
 #include <EigenFaceGenerator.h>

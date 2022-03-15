@@ -13,7 +13,7 @@
 
 #include <NamedEnum.h>
 
-class DDTCORE_EXPORT InfoSeverity : public NamedEnum<InfoSeverity>
+class InfoSeverity : public NamedEnum<InfoSeverity>
 {
     DECLARE_NAMEDENUM_CTORS(InfoSeverity)
     static const InfoSeverity Null;

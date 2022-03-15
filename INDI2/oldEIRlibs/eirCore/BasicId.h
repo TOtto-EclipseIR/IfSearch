@@ -4,7 +4,7 @@
 
 #include "../eirBase/AbstractIdString.h"
 
-class EIRCORESHARED_EXPORT BasicId : public AbstractIdString
+class BasicId : public AbstractIdString
 {
 public:
     BasicId(const QString & inString=QString());

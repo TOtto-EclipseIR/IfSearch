@@ -19,7 +19,7 @@
   * DataProperty, Property, and QProperty headers allow automation of getters, setters, and declaration
   *in QSharedData, regular classes, and QObject implementations.
   */
-class EIRBASESHARED_EXPORT eirBase : public Library
+class eirBase : public Library
 {
 public:
     eirBase(void);

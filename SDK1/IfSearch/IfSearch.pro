@@ -195,7 +195,6 @@ HEADERS += IfSearch.h \
     FrontalFaceDetector.h \
     HaarDetector.h \
     INDIffd.h \
-    Detector.h \
     InputHotdir.h \
     INDIef.h \
     FileWriteProfile.h \

@@ -10,7 +10,7 @@
 class QDomElement;
 class QVariant;
 
-class EIRCORESHARED_EXPORT VariableType
+class VariableType
 {
 protected:
     VariableType(QMetaType::Type varType,

@@ -49,7 +49,7 @@ DerivedIdBehavior::DerivedIdBehavior()
   *
   * @todo Plan for 16-bit unicode escaping
   */
-class EIRBASESHARED_EXPORT BaseIdBehavior
+class BaseIdBehavior
 {
 public:
     BaseIdBehavior(const QString & separator=QString(),

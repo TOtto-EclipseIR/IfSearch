@@ -4,7 +4,7 @@
 
 #include <QtCore/QString>
 
-class EIRTYPESSHARED_EXPORT MillisecondDelta
+class MillisecondDelta
 {
 public:
     MillisecondDelta(void);

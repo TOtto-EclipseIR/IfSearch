@@ -7,7 +7,7 @@
 
 #include "../eirTypes/MillisecondTime.h"
 
-class EIRFILESHARED_EXPORT QQDir : public QDir
+class QQDir : public QDir
 {
 public:
     QQDir(void);

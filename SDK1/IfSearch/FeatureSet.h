@@ -21,7 +21,7 @@ class QDomElement;
 #include <NamedEnum.h>
 #include <NamedArray.h>
 
-	class DDTCORE_EXPORT Feature : public NamedEnum<Feature>
+    class Feature : public NamedEnum<Feature>
 	{
 		DECLARE_NAMEDENUM_CTORS(Feature)
 		static const Feature ImageSource;

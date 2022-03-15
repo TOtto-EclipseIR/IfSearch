@@ -19,7 +19,7 @@
 #include <QSize>
 #include <QVector>
 
-	class DDTIMG_EXPORT GreyImage
+    class GreyImage
 	{
 	public:
 		GreyImage(void);

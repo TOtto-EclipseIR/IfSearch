@@ -29,9 +29,9 @@ class QFile;
 
 class BaseLogData;
 
-void EIRBASESHARED_EXPORT myMsgHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg);
+void myMsgHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg);
 
-class EIRBASESHARED_EXPORT BaseLog
+class BaseLog
 {
 public:
     BaseLog(void);

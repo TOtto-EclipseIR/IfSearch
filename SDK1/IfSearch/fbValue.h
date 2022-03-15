@@ -18,7 +18,7 @@
 #include <DualMap.h>
 #include <Return.h>
 
-class INDIFB_EXPORT fbValue
+class fbValue
 {
 protected:
     fbValue(void) : Key(0) {}

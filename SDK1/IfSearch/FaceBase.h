@@ -32,7 +32,7 @@ class fbPerson;
 class ObjectDetectorClass;
 class ObjectDetectorData;
 
-class INDIFB_EXPORT FaceBase : public QObject
+class FaceBase : public QObject
 {
 public:
     enum Returns

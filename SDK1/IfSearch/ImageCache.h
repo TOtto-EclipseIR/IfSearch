@@ -40,7 +40,7 @@ class ImageCacheWriter;
 class ImageCacheCleaner;
 class ImageInfo;
 
-class DDTIMG_EXPORT ImageCacheWriteProfile : public QObject
+class ImageCacheWriteProfile : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString Format READ format WRITE setFormat);
