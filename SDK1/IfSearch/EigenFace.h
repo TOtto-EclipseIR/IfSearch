@@ -5,11 +5,6 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef INDIEF_LIB
-# define INDIEF_EXPORT Q_DECL_EXPORT
-#else
-# define INDIEF_EXPORT Q_DECL_IMPORT
-#endif
 
 class QDir;
 //class QLine;
@@ -24,7 +19,7 @@ class GreyImage;
 class EigenFaceData;
 class EigenFaceParameters;
 
-class INDIEF_EXPORT EigenFace
+class EigenFace
 {
 public:
     enum Returns

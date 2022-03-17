@@ -6,11 +6,6 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef DDTCORE_LIB
-# define DDTCORE_EXPORT Q_DECL_EXPORT
-#else
-# define DDTCORE_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <QDomElement>
 #include <QVector>

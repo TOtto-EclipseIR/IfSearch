@@ -5,11 +5,6 @@
 */
 
 #include <qglobal.h>
-#ifdef DDTIMG_LIB
-# define DDTIMG_EXPORT Q_DECL_EXPORT
-#else
-# define DDTIMG_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <QDir>
 #include <QFileSystemWatcher>
@@ -25,7 +20,7 @@ class QTimer;
 class ImageCache;
 class StatusHandler;
 
-class DDTIMG_EXPORT ImageSource : public QObject
+class ImageSource : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int SampleMsec READ sampleMsec WRITE setSampleMsec)

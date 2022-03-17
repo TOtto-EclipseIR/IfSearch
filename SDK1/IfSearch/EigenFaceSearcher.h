@@ -1,11 +1,6 @@
 #ifndef EIGENFACESEARCHER_H
 #define EIGENFACESEARCHER_H
 #include <qglobal.h>
-#ifdef INDIEF_LIB
-# define INDIEF_EXPORT Q_DECL_EXPORT
-#else
-# define INDIEF_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <QtCore/QMultiHash>
 
@@ -18,7 +13,7 @@ class Return;
 class EigenFaceSearchResultList;
 class EigenFaceTemplate;
 
-class INDIEF_EXPORT EigenFaceSearcher
+class EigenFaceSearcher
 {
 public:
     EigenFaceSearcher(void);

@@ -7,10 +7,13 @@
 
 #include <Eyes.h>
 
+#include "Return.h"
+class QDir;
+class QDomElement;
 
 // Parameters that can be set by the application
 // for different purposes (enroll v. search)
-class INDIEF_EXPORT EigenFaceParameters
+class EigenFaceParameters
 {
 private:
     EigenFaceParameters(void);

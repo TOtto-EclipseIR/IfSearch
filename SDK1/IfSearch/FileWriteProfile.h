@@ -6,11 +6,6 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef DDTIMG_LIB
-# define DDTIMG_EXPORT Q_DECL_EXPORT
-#else
-# define DDTIMG_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <FileWriter.h>
 
@@ -24,7 +19,7 @@ class QImage;
 #include <DDTcore.h>
 class Setting;
 
-class DDTIMG_EXPORT FileWriteProfile : public QObject
+class FileWriteProfile : public QObject
 {
     Q_OBJECT
 

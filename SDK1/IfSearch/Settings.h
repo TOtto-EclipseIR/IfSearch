@@ -6,11 +6,6 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef DDTCFG_LIB
-# define DDTCFG_EXPORT Q_DECL_EXPORT
-#else
-# define DDTCFG_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <QFlags>
 #include <QList>

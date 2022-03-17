@@ -4,12 +4,6 @@
 */
 
 #pragma once
-#include <qglobal.h>
-#ifdef INDIFB_LIB
-# define INDIFB_EXPORT Q_DECL_EXPORT
-#else
-# define INDIFB_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <QDomElement>
 #include <QPair>
@@ -48,7 +42,7 @@ protected:
     static QChar SubDelimiter;
 }; // fbValue
 
-template <class T> class INDIFB_EXPORT fbValueSet : public QList<int>
+template <class T> class fbValueSet : public QList<int>
 {
 public:
     bool insert(const QString & v, const QString & sv=QString());
@@ -101,7 +95,7 @@ private:
 
 }; // fbValueSet
 
-class INDIFB_EXPORT fbCategory : public fbValue
+class fbCategory : public fbValue
 {
 public:
     fbCategory(void) : fbValue() {}

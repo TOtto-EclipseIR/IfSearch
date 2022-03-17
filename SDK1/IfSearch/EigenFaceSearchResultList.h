@@ -1,11 +1,6 @@
 #ifndef EIGENFACESEARCHRESULTLIST_H
 #define EIGENFACESEARCHRESULTLIST_H
 #include <qglobal.h>
-#ifdef INDIEF_LIB
-# define INDIEF_EXPORT Q_DECL_EXPORT
-#else
-# define INDIEF_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <QtCore/QList>
 

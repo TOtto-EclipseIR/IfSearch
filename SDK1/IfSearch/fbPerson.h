@@ -5,11 +5,6 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef INDIFB_LIB
-# define INDIFB_EXPORT Q_DECL_EXPORT
-#else
-# define INDIFB_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <fbValue.h>
 
@@ -19,7 +14,7 @@
 #include <DualMap.h>
 #include <Return.h>
 
-class INDIFB_EXPORT fbPerson
+class fbPerson
 {
 public:
     fbPerson(void) : Key(0), PrimaryFaceKey(0), Active(true) {}

@@ -7,12 +7,6 @@
 #pragma once
 
 #include <qglobal.h>
-#ifdef DDTIMG_LIB
-# define DDTIMG_EXPORT Q_DECL_EXPORT
-#else
-# define DDTIMG_EXPORT Q_DECL_IMPORT
-#endif
-
 
 #include <QDateTime>
 #include <QDir>
@@ -74,7 +68,7 @@ private:
     QString specifiedPath;
 }; // ImageCacheWriteProfile
 
-class DDTIMG_EXPORT ImageCache : public QObject
+class ImageCache : public QObject
 {
     Q_OBJECT
 

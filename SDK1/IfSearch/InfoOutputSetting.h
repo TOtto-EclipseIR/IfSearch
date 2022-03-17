@@ -5,11 +5,6 @@
 */
 #pragma once
 #include <qglobal.h>
-#ifdef DDTCORE_LIB
-# define DDTCORE_EXPORT Q_DECL_EXPORT
-#else
-# define DDTCORE_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <InfoItem.h>
 #include <InfoOutputBase.h>
@@ -19,7 +14,7 @@
 
 	class Setting;
 
-	class DDTCORE_EXPORT InfoOutputSetting : public InfoOutputBase
+    class InfoOutputSetting : public InfoOutputBase
 	{
 	public:
 //		enum IconState { IconNormal, IconNotify, IconWarning, IconError, IconFatal };

@@ -6,11 +6,6 @@
 #ifndef EIGENFACESEARCHPERSON_H
 #define EIGENFACESEARCHPERSON_H
 #include <qglobal.h>
-#ifdef INDIEF_LIB
-# define INDIEF_EXPORT Q_DECL_EXPORT
-#else
-# define INDIEF_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <QtCore/QList>
 
@@ -21,7 +16,7 @@
 
 
 
-class INDIEF_EXPORT EigenFaceSearchPerson
+class  EigenFaceSearchPerson
 {
 public:
     EigenFaceSearchPerson(void);

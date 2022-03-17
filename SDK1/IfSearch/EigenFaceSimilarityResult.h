@@ -1,11 +1,6 @@
 #ifndef EIGENFACESIMILARITYRESULT_H
 #define EIGENFACESIMILARITYRESULT_H
 #include <qglobal.h>
-#ifdef INDIEF_LIB
-# define INDIEF_EXPORT Q_DECL_EXPORT
-#else
-# define INDIEF_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <QtCore/QList>
 
@@ -19,7 +14,7 @@
     TND(int, Confidence, 0) \
     TND(EigenFaceSearchTier, Tier, EigenFaceSearchTier::Unknown) \
 
-class INDIEF_EXPORT EigenFaceSimilarityResult
+class EigenFaceSimilarityResult
 {
     DECLARE_PROPERTIES(EFSIMILARITYRESULT_PROPERTIES)
 public:

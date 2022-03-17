@@ -5,17 +5,12 @@
 */
 
 #include <qglobal.h>
-#ifdef DDTIMG_LIB
-# define DDTIMG_EXPORT Q_DECL_EXPORT
-#else
-# define DDTIMG_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <QPainter>
 
 #include <Eyes.h>
 
-class DDTIMG_EXPORT ImageMarker : public QPainter
+class ImageMarker : public QPainter
 {
 public:
     ImageMarker(QImage * device);

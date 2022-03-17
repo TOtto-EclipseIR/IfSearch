@@ -5,11 +5,6 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef INDIEF_LIB
-# define INDIEF_EXPORT Q_DECL_EXPORT
-#else
-# define INDIEF_EXPORT Q_DECL_IMPORT
-#endif
 
 class QDomElement;
 
@@ -27,7 +22,7 @@ enum EigenFaceVectorType
     LightCorrectedFlipAverage,
 }; // EigenFaceVectorType
 
-class INDIEF_EXPORT EigenFaceVectorKey
+class EigenFaceVectorKey
 {
 public:
     EigenFaceVectorKey(EigenFaceVectorType Type=Raw, int MeanKey=0)
@@ -46,7 +41,7 @@ private:
     int theMeanKey;
 }; // EigenFaceVectorId
 
-class INDIEF_EXPORT EigenFaceVector
+class EigenFaceVector
 {
 public:
     enum { StreamId=0x45465643 };

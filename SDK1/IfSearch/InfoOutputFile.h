@@ -5,11 +5,6 @@
 */
 #pragma once
 #include <qglobal.h>
-#ifdef DDTCORE_LIB
-# define DDTCORE_EXPORT Q_DECL_EXPORT
-#else
-# define DDTCORE_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <InfoOutputBase.h>
 
@@ -18,7 +13,7 @@
 #include <QFileInfo>
 #include <QTextStream>
 
-class DDTCORE_EXPORT InfoOutputFile : public InfoOutputBase
+class InfoOutputFile : public InfoOutputBase
 {
 public:
     InfoOutputFile(QString fileName);

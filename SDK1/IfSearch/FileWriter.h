@@ -6,11 +6,6 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef DDTIMG_LIB
-# define DDTIMG_EXPORT Q_DECL_EXPORT
-#else
-# define DDTIMG_EXPORT Q_DECL_IMPORT
-#endif
 
 class QDir;
 class QFile;

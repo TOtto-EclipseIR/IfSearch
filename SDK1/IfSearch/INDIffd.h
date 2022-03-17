@@ -3,13 +3,8 @@
 
 #include <qglobal.h>
 
-#ifdef INDIFFD_LIB
-# define INDIFFD_EXPORT Q_DECL_EXPORT
-#else
-# define INDIFFD_EXPORT Q_DECL_IMPORT
-#endif
 
-class INDIFFD_EXPORT INDIffd
+class INDIffd
 {
 public:
     INDIffd();

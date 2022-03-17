@@ -5,18 +5,13 @@
 */
 #pragma once
 #include <qglobal.h>
-#ifdef DDTCORE_LIB
-# define DDTCORE_EXPORT Q_DECL_EXPORT
-#else
-# define DDTCORE_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <InfoOutputBase.h>
 
 #include <QFile>
 #include <QTextStream>
 
-class DDTCORE_EXPORT InfoOutputQDebug : public InfoOutputBase
+class InfoOutputQDebug : public InfoOutputBase
 {
 public:
     InfoOutputQDebug(void) {}
