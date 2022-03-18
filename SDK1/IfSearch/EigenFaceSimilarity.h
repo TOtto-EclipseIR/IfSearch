@@ -13,7 +13,7 @@
 
 class EigenFaceSearchSettings;
 
-class INDIEF_EXPORT EigenFaceSimilarity
+class EigenFaceSimilarity
 {
 public:
     EigenFaceSimilarity(EigenFaceSearchSettings * settings);

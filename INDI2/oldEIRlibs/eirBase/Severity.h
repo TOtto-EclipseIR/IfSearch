@@ -41,7 +41,7 @@
     NV(Shutdown,  ) /*29*/       \
     NV(Maximum,   ) /*30*/       \
 
-class EIRBASESHARED_EXPORT Severity : public Enumeration
+class Severity : public Enumeration
 {
     DECLARE_ENUMERATION(Severity, SEVERITY_ENUM)
 public:

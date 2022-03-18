@@ -129,7 +129,7 @@ IfSearch::IfSearch(int argc, char *argv[])
     writer = new FileWriter(appSettings, QString(), this);
     writer->setImageCache(&imageCache);
     writer->setCacheDirs(appSettings->value("Output/CacheDirs","FaceCache").toString());
-    fwpCapture      = writer->newProfile("Capture", FileWriter::CaptureImage | FileWriter::TempAndRename);
+    fwpCapture      = writer->newProfile("Capture", FileWriter::Flags(FileWriter::CaptureImage | FileWriter::TempAndRename));
     fwpCapture2     = writer->newProfile("Capture2");
     fwpMarked       = writer->newProfile("Marked", FileWriter::TempAndRename);
     fwpNoMark       = writer->newProfile("NoMark");
@@ -143,7 +143,7 @@ IfSearch::IfSearch(int argc, char *argv[])
     fwpNoMatch      = writer->newProfile("NoMatch", FileWriter::FaceImage);
     fwpMatch        = writer->newProfile("Match", FileWriter::Copy);
     fwpFace         = writer->newProfile("Face", FileWriter::FaceImage);
-    fwpFaceCache    = writer->newProfile("FaceCache", FileWriter::FaceImage | FileWriter::Cache);
+    fwpFaceCache    = writer->newProfile("FaceCache", FileWriter::Flags(FileWriter::FaceImage | FileWriter::Cache));
     fwpBody         = writer->newProfile("Body");
     fwpClothes      = writer->newProfile("Clothes");
     fwpNoClothes    = writer->newProfile("NoClothes");

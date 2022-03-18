@@ -168,7 +168,7 @@ Derived::Derived(void)
   *             { setTotalBytes(QByteArray::size(); }
   *
   */
-class EIRCORESHARED_EXPORT VariableSet
+class VariableSet
 {
 public:
     VariableSet(const QString & name=QString("VariableSet"));

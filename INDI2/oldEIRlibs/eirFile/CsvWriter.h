@@ -11,7 +11,7 @@
 #include "../eirCore/VariableId.h"
 #include "../eirCore/VariableGroup.h"
 
-class EIRFILESHARED_EXPORT CsvWriter
+class CsvWriter
 {
 public:
     CsvWriter(QIODevice * ioDevice);

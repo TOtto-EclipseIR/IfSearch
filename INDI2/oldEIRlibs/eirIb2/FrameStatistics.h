@@ -22,7 +22,7 @@
     ITD(Match_msec, int, 0) \
     ITD(Match_count, int, 0) \
 
-class EIRIB2SHARED_EXPORT FrameStatistics : public VariableGroup
+class FrameStatistics : public VariableGroup
 {
 public:
     DECLARE_GROUPVARIABLES(FRAMESTATISTICS_GROUPVARIABLES);

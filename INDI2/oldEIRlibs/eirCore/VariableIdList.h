@@ -6,7 +6,7 @@
 #include "VariableId.h"
 
 
-class EIRCORESHARED_EXPORT VariableIdList : public QList<VariableId>
+class VariableIdList : public QList<VariableId>
 {
 public:
     VariableIdList(void);

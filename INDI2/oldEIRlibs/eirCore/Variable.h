@@ -12,7 +12,7 @@ class QDomElement;
 #include "VariableId.h"
 class VariableType;
 
-class EIRCORESHARED_EXPORT Variable
+class Variable
 {
 public:
     explicit Variable(void);

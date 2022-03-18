@@ -25,7 +25,7 @@ class StatusHandler;
 class ImageCache;
 class FileWriteProfile;
 
-class DDTIMG_EXPORT FileWriter : public QObject
+class FileWriter : public QObject
 {
     Q_OBJECT
 
@@ -42,7 +42,8 @@ public:
         TempAndRename       = 32,   // Create TempFile then Rename to Target
         OtherImage          = 64,   // Unused TOTO: Remove
     };
-    Q_DECLARE_FLAGS(Flags, Flag)
+    Q_FLAG(Flag);
+    Q_DECLARE_FLAGS(Flags, Flag);
 
     enum
     {
@@ -54,7 +55,7 @@ public:
     FileWriter(Settings * settings, const QString & keyFormat=QString(), QObject * parent=0);
     ~FileWriter(void);
     void setCacheDirs(const QString & cacheDirs);
-    FileWriteProfile * newProfile(const QString & name, Flags f=0, QString key=QString());
+    FileWriteProfile * newProfile(const QString & name, Flags f=$nullFlag, QString key=QString());
     FileWriteProfile * newProfile(const QString & name, QString key);
     FileWriteProfile * profile(const QString & name);
     void setImageCache(ImageCache * cache);
@@ -125,4 +126,3 @@ private:
 
 }; // class FileWriter
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(FileWriter::Flags);
