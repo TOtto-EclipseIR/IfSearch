@@ -26,7 +26,7 @@
 
 class InfoOutputBase;
 
-class DDTCORE_EXPORT Info
+class Info
 {
 public:
     ~Info();

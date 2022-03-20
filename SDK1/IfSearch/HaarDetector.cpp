@@ -20,11 +20,13 @@ HaarDetector::HaarDetector(const QString & classname,
                            const qreal classfactor,
                            QObject * parent)
     : QObject(parent)
-    , pCascade(0)
-    , ClassName(classname)
-    , ClassFactor(classfactor)
     , cache(0)
     , settings(0)
+//    , interface_(interface)
+//      ipl_Grey(0)
+    , ClassName(classname)
+    , ClassFactor(classfactor)
+    , pCascade(0)
 {
     if ( ! docDetectors.isNull())
         deDetectors = classDetectors(docDetectors);
@@ -58,9 +60,10 @@ HaarDetector::HaarDetector(const QString & classname,
 
 HaarDetector::~HaarDetector()
 {
-#ifdef USE_OCV4
-        // MUSTDO release
-#endif
+//    if (ipl_Grey)
+  //      cvReleaseImage(&ipl_Grey);
+//    if (pCascade)
+  //      cvReleaseHaarClassifierCascade(&pCascade);
 } // d'tor
 
 bool HaarDetector::hasDetector(void)

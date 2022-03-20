@@ -6,15 +6,10 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef DDTCORE_LIB
-# define DDTCORE_EXPORT Q_DECL_EXPORT
-#else
-# define DDTCORE_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <QRect>
 
-class DDTCORE_EXPORT QQRect : public QRect
+class QQRect : public QRect
 {
 public:
     QQRect(const QRect & r=QRect())

@@ -30,7 +30,7 @@
         TND(quint8,     Branch,        0) \
         TND(quint8,     Release,       0) \
 
-class EIRBASESHARED_EXPORT VersionInfo
+class VersionInfo
 {
     DECLARE_PROPERTIES(VERSIONINFO_PROPERTIES);
 

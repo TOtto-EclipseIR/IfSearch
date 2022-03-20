@@ -6,11 +6,6 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef DDTCORE_LIB
-# define DDTCORE_EXPORT Q_DECL_EXPORT
-#else
-# define DDTCORE_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <QObject>
 #include <QVariant>
@@ -21,7 +16,7 @@ class QDomElement;
 #include <NamedEnum.h>
 #include <NamedArray.h>
 
-	class DDTCORE_EXPORT Feature : public NamedEnum<Feature>
+    class Feature : public NamedEnum<Feature>
 	{
 		DECLARE_NAMEDENUM_CTORS(Feature)
 		static const Feature ImageSource;
@@ -45,7 +40,7 @@ class QDomElement;
 		static const Feature Consistency;
 	}; // class Feature
 
-	class DDTCORE_EXPORT FeatureSet : public NamedArray<Feature, QVariant>
+    class FeatureSet : public NamedArray<Feature, QVariant>
 	{
 	public:
 		FeatureSet(void);

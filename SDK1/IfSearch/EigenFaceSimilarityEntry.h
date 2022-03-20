@@ -1,11 +1,6 @@
 #ifndef EIGENFACESIMILARITYENTRY_H
 #define EIGENFACESIMILARITYENTRY_H
 #include <qglobal.h>
-#ifdef INDIEF_LIB
-# define INDIEF_EXPORT Q_DECL_EXPORT
-#else
-# define INDIEF_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <QtCore/QSharedDataPointer>
 #include <QtCore/QString>
@@ -40,7 +35,7 @@ public:
     }
 };
 
-class INDIEF_EXPORT EigenFaceSimilarityEntry
+class EigenFaceSimilarityEntry
 {
     DECLARE_PARENT_DATAPROPS(EFSIMILARITYENTRY_DATAPROPS);
 public:

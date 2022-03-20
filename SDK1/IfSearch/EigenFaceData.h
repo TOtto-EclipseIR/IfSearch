@@ -5,11 +5,6 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef INDIEF_LIB
-# define INDIEF_EXPORT Q_DECL_EXPORT
-#else
-# define INDIEF_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <EigenFaceBitMask.h>
 #include <EigenFaceMaskedArray.h>
@@ -26,7 +21,7 @@ class QProgressBar;
 #include <Return.h>
 
 // EigenFaceGenerator Data that is fixed for an installation, at least
-class INDIEF_EXPORT EigenFaceData  : public QObject
+class EigenFaceData  : public QObject
 {
     Q_OBJECT
 

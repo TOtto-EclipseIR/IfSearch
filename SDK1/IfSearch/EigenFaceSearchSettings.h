@@ -5,11 +5,6 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef INDIEF_LIB
-# define INDIEF_EXPORT Q_DECL_EXPORT
-#else
-# define INDIEF_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <QObject>
 #include <DDTcore.h>
@@ -17,7 +12,7 @@
 
 class EigenFaceSearchTier;
 
-class INDIEF_EXPORT EigenFaceSearchSettings : public QObject
+class EigenFaceSearchSettings : public QObject
 {
     Q_OBJECT
 public:

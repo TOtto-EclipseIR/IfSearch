@@ -10,7 +10,7 @@
 /*! @class Library The Library class manages the overall EIRC library collection.
   *
   */
-class EIRBASESHARED_EXPORT Library
+class Library
 {
 public:
     Library(const QString & name);

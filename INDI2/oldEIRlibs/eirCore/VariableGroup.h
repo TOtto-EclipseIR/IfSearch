@@ -9,7 +9,7 @@
 #include "VariableId.h"
 #include "VariableIdList.h"
 
-class EIRCORESHARED_EXPORT VariableGroup
+class VariableGroup
 {
 public:
     explicit VariableGroup(const VariableId & sectionId=VariableId());

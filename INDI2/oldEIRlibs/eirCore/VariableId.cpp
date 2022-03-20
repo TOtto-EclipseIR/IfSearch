@@ -1,7 +1,7 @@
 #include "VariableId.h"
 #include "../eirBase/BaseIdBehavior.h"
 
-class EIRCORESHARED_EXPORT VariableIdBehavior : public BaseIdBehavior
+class VariableIdBehavior : public BaseIdBehavior
 {
 public:
     static VariableIdBehavior * instance(void)

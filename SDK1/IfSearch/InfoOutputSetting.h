@@ -5,23 +5,19 @@
 */
 #pragma once
 #include <qglobal.h>
-#ifdef DDTCORE_LIB
-# define DDTCORE_EXPORT Q_DECL_EXPORT
-#else
-# define DDTCORE_EXPORT Q_DECL_IMPORT
-#endif
 
+#include <InfoItem.h>
 #include <InfoOutputBase.h>
 
-#include <QIcon>
+//#include <QIcon>
 #include <QQueue>
 
 	class Setting;
 
-	class DDTCORE_EXPORT InfoOutputSetting : public InfoOutputBase
+    class InfoOutputSetting : public InfoOutputBase
 	{
 	public:
-		enum IconState { IconNormal, IconNotify, IconWarning, IconError, IconFatal };
+//		enum IconState { IconNormal, IconNotify, IconWarning, IconError, IconFatal };
 
 	public:
 		InfoOutputSetting(const QString & key);
@@ -29,8 +25,8 @@
 		QString key(void) const { return settingKey_; }
 		bool isEmpty(void) const { return queue_.isEmpty(); }
 		InfoItem peek(void) const { return queue_.head(); }
-		void setAppIcon(IconState state, const QIcon & icon)
-		{ icons_.replace(state, icon); }
+//		void setAppIcon(IconState state, const QIcon & icon)
+  //		{ icons_.replace(state, icon); }
 		QString pump(QString oldMessage);
 
 	protected:
@@ -43,6 +39,6 @@
 		QString settingKey_;
 		InfoItem current_;
 		QQueue<InfoItem> queue_;
-		QVector<QIcon> icons_;
-		QIcon originalIcon_;
+//		QVector<QIcon> icons_;
+//		QIcon originalIcon_;
 	}; // class InfoOutputSetting

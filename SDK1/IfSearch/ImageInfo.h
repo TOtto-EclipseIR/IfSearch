@@ -7,11 +7,6 @@
 #pragma once
 
 #include <qglobal.h>
-#ifdef DDTIMG_LIB
-# define DDTIMG_EXPORT Q_DECL_EXPORT
-#else
-# define DDTIMG_EXPORT Q_DECL_IMPORT
-#endif
 
 class QDomDocument;
 #include <QList>
@@ -20,7 +15,7 @@ class QDomDocument;
 #include <AttributeSet.h>
 #include <FeatureSet.h>
 
-class DDTIMG_EXPORT ImageInfo
+class ImageInfo
 {
 public:
     ImageInfo(void);

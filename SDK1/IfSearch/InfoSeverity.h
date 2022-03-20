@@ -5,15 +5,10 @@
 */
 #pragma once
 #include <qglobal.h>
-#ifdef DDTCORE_LIB
-# define DDTCORE_EXPORT Q_DECL_EXPORT
-#else
-# define DDTCORE_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <NamedEnum.h>
 
-class DDTCORE_EXPORT InfoSeverity : public NamedEnum<InfoSeverity>
+class InfoSeverity : public NamedEnum<InfoSeverity>
 {
     DECLARE_NAMEDENUM_CTORS(InfoSeverity)
     static const InfoSeverity Null;

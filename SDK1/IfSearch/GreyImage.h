@@ -6,11 +6,6 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef DDTIMG_LIB
-# define DDTIMG_EXPORT Q_DECL_EXPORT
-#else
-# define DDTIMG_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <QImage>
 #include <QPoint>
@@ -19,7 +14,7 @@
 #include <QSize>
 #include <QVector>
 
-	class DDTIMG_EXPORT GreyImage
+    class GreyImage
 	{
 	public:
 		GreyImage(void);

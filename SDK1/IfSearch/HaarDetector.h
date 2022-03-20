@@ -14,6 +14,10 @@
 class QSettings;
 class QDomDocument;
 
+//#include "../../../../lang/opencv4/build/install/include/opencv2/opencv.hpp"
+//#include "/lang/opencv4/build/install/include/opencv2/opencv.hpp"
+
+//#include "\lang\opencv4\build\install\include\opencv2\opencv.hpp"
 #include <opencv2/opencv.hpp>
 
 #include <DetectorResult.h>
@@ -22,8 +26,8 @@ class QDomDocument;
 #include <VersionInfo.h>
 class ImageCache;
 
-
 /** HaarDetector - Base class for OpenCV Haar detectors
+    *
     *
     */
 class HaarDetector : public QObject

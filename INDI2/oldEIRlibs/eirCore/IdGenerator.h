@@ -13,7 +13,7 @@
 
 #define IDGENERATOR_VARIABLESET(TIVD) \
 
-class EIRCORESHARED_EXPORT IdGenerator : public VariableSet
+class IdGenerator : public VariableSet
 {
 public:
     DECLARE_VARIABLESET(IDGENERATOR_VARIABLESET);

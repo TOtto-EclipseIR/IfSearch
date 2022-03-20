@@ -6,17 +6,12 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef DDTCORE_LIB
-# define DDTCORE_EXPORT Q_DECL_EXPORT
-#else
-# define DDTCORE_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <QMap>
 #include <QObject>
 #include <QString>
 
-class DDTCORE_EXPORT AttributeSet
+class AttributeSet
 {
 public:
     AttributeSet(void);

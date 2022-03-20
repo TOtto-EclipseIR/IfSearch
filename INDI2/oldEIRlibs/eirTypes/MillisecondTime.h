@@ -7,7 +7,7 @@
 
 class MillisecondDelta;
 
-class EIRTYPESSHARED_EXPORT MillisecondTime
+class MillisecondTime
 {
 public:
     MillisecondTime(void);

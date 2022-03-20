@@ -5,11 +5,6 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef INDIEF_LIB
-# define INDIEF_EXPORT Q_DECL_EXPORT
-#else
-# define INDIEF_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <QImage>
 #include <QObject>
@@ -32,7 +27,7 @@ class EyeDetector;
 class EigenFaceParameters;	// no user-serviceable parts inside
 class EigenFaceData;		// no user-serviceable parts inside
 
-class INDIEF_EXPORT EigenFaceGenerator : public QObject
+class EigenFaceGenerator : public QObject
 {
     Q_OBJECT
 

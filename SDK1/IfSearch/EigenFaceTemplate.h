@@ -29,7 +29,7 @@ class QImage;
 
 class Return;
 
-class INDIEF_EXPORT EigenFaceTemplate
+class EigenFaceTemplate
 {
     friend class iEigenFaceMatcherMemory;
     friend class EigenFaceGenerator;

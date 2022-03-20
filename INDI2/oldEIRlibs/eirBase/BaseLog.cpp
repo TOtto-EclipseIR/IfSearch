@@ -200,7 +200,7 @@ void BaseLog::resetFile(void)
     qInstallMessageHandler(0);
 }
 
-void EIRBASESHARED_EXPORT myMsgHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+void  myMsgHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     if (BaseLog::blogFile())
     {

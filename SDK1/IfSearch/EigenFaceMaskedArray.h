@@ -5,11 +5,6 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef INDIEF_LIB
-# define INDIEF_EXPORT Q_DECL_EXPORT
-#else
-# define INDIEF_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <EigenFaceVector.h>
 
@@ -22,7 +17,7 @@ class QDomDocument;
 
     class EigenFaceData;
 
-    class INDIEF_EXPORT EigenFaceMaskedArray
+    class EigenFaceMaskedArray
     {
     public:
         enum { StreamId=0x45464D41 };

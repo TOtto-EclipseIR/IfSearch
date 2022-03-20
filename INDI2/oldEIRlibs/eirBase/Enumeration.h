@@ -49,7 +49,7 @@ DEFINE_ENUMERATION(EnumClass, ENUMCLASS_ENUM);
 @endcode
 
 */
-class EIRBASESHARED_EXPORT Enumeration
+class Enumeration
 {
 public:
     Enumeration(void);

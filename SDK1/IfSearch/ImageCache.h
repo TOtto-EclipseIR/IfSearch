@@ -7,12 +7,6 @@
 #pragma once
 
 #include <qglobal.h>
-#ifdef DDTIMG_LIB
-# define DDTIMG_EXPORT Q_DECL_EXPORT
-#else
-# define DDTIMG_EXPORT Q_DECL_IMPORT
-#endif
-
 
 #include <QDateTime>
 #include <QDir>
@@ -40,7 +34,7 @@ class ImageCacheWriter;
 class ImageCacheCleaner;
 class ImageInfo;
 
-class DDTIMG_EXPORT ImageCacheWriteProfile : public QObject
+class ImageCacheWriteProfile : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString Format READ format WRITE setFormat);
@@ -74,7 +68,7 @@ private:
     QString specifiedPath;
 }; // ImageCacheWriteProfile
 
-class DDTIMG_EXPORT ImageCache : public QObject
+class ImageCache : public QObject
 {
     Q_OBJECT
 

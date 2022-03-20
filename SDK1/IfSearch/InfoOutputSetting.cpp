@@ -15,7 +15,8 @@
 InfoOutputSetting::InfoOutputSetting(const QString & key)	
 	: settingKey_(key) 
 {
-	icons_.resize(IconFatal+1);
+//	icons_.resize(IconFatal+1);
+//	originalIcon_ = qApp->windowIcon();
 }
 		
 QString InfoOutputSetting::pump(QString oldMessage)
@@ -28,30 +29,32 @@ QString InfoOutputSetting::pump(QString oldMessage)
 		{
 			oldMessage = QString();
 			current_.clear();
-			QIcon icon = icons_.at(IconNormal);
-			if (icon.isNull())
-				icon = originalIcon_;
+//			QIcon icon = icons_.at(IconNormal);
+    //		if (icon.isNull())
+        //		icon = originalIcon_;
+            //qApp->setWindowIcon(icon);
 		}
 	}
 
 	if (current_.severity() == InfoSeverity::Null 
 			&& ! queue_.isEmpty())
 	{
-		QIcon icon;
+//		QIcon icon;
 		current_ = queue_.dequeue();
 		if (current_.severity() == InfoSeverity::Warning)
-			oldMessage = "W", icon = icons_.at(IconWarning);
+            oldMessage = "W"; //, icon = icons_.at(IconWarning);
 		else if (current_.severity() == InfoSeverity::Error)
-			oldMessage = "E", icon = icons_.at(IconError);
+            oldMessage = "E"; //, icon = icons_.at(IconError);
 		else if (current_.severity() == InfoSeverity::Fatal)
-			oldMessage = "F", icon = icons_.at(IconFatal);
+            oldMessage = "F"; //, icon = icons_.at(IconFatal);
 		else 
-			oldMessage = "?", icon = icons_.at(IconNormal);
+            oldMessage = "?"; //, icon = icons_.at(IconNormal);
 		oldMessage += QString("%1 %2 %3").arg((unsigned)current_.returnCode(), 8, 16, QChar('0'))
 										 .arg(current_.time().toString("hh:mm:ss"))
 										 .arg(current_.stringOnly());
-		if (icon.isNull())
-			icon = originalIcon_;
+//		if (icon.isNull())
+    //		icon = originalIcon_;
+        //qApp->setWindowIcon(icon);
 	}
 
 	return oldMessage;

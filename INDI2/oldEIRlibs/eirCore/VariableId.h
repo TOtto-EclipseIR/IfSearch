@@ -4,7 +4,7 @@
 
 #include "../eirBase/AbstractIdString.h"
 
-class EIRCORESHARED_EXPORT VariableId : public AbstractIdString
+class VariableId : public AbstractIdString
 {
 public:
     VariableId(const QString & inString=QString());

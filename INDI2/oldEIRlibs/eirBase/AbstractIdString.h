@@ -60,7 +60,7 @@ DerivedId::DerivedId(const char * chars,
 }
   * @endcode
   */
-class EIRBASESHARED_EXPORT AbstractIdString : public QString
+class  AbstractIdString : public QString
 {
 public:
     AbstractIdString(BaseIdBehavior * behavior,

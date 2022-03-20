@@ -6,11 +6,6 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef DDTIMG_LIB
-# define DDTIMG_EXPORT Q_DECL_EXPORT
-#else
-# define DDTIMG_EXPORT Q_DECL_IMPORT
-#endif
 
 class QDir;
 class QFile;
@@ -30,7 +25,7 @@ class StatusHandler;
 class ImageCache;
 class FileWriteProfile;
 
-class DDTIMG_EXPORT FileWriter : public QObject
+class FileWriter : public QObject
 {
     Q_OBJECT
 
@@ -47,7 +42,8 @@ public:
         TempAndRename       = 32,   // Create TempFile then Rename to Target
         OtherImage          = 64,   // Unused TOTO: Remove
     };
-    Q_DECLARE_FLAGS(Flags, Flag)
+    Q_FLAG(Flag);
+    Q_DECLARE_FLAGS(Flags, Flag);
 
     enum
     {
@@ -130,4 +126,3 @@ private:
 
 }; // class FileWriter
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(FileWriter::Flags);

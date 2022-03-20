@@ -61,7 +61,7 @@ class FSDirectBridge;
 class WatchDog;
 #endif
 
-#include "Detector.h"
+//#include "Detector.h"
 
 class IfSearch : public QCoreApplication
 {

@@ -5,11 +5,6 @@
 */
 #pragma once
 #include <qglobal.h>
-#ifdef DDTCORE_LIB
-# define DDTCORE_EXPORT Q_DECL_EXPORT
-#else
-# define DDTCORE_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <InfoSeverity.h>
 
@@ -19,7 +14,7 @@
 class QTextStream;
 class QThread;
 
-class DDTCORE_EXPORT InfoItem
+class InfoItem
 {
 public:
     InfoItem(void);

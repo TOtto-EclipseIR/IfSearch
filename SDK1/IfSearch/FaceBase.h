@@ -5,11 +5,6 @@
 
 #pragma once
 #include <qglobal.h>
-#ifdef INDIFB_LIB
-# define INDIFB_EXPORT Q_DECL_EXPORT
-#else
-# define INDIFB_EXPORT Q_DECL_IMPORT
-#endif
 
 #include <EigenFace.h>
 #include "EigenFaceStatus.h"
@@ -32,7 +27,7 @@ class fbPerson;
 class ObjectDetectorClass;
 class ObjectDetectorData;
 
-class INDIFB_EXPORT FaceBase : public QObject
+class FaceBase : public QObject
 {
 public:
     enum Returns

@@ -1,13 +1,8 @@
 #ifndef EIGENFACESEARCHRESULT_H
 #define EIGENFACESEARCHRESULT_H
 #include <qglobal.h>
-#ifdef INDIEF_LIB
-# define INDIEF_EXPORT Q_DECL_EXPORT
-#else
-# define INDIEF_EXPORT Q_DECL_IMPORT
-#endif
 
-class INDIEF_EXPORT EigenFaceSearchResult
+class EigenFaceSearchResult
 {
 public:
     EigenFaceSearchResult(void) {;}
